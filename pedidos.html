@@ -21,6 +21,11 @@
 </head>
 <body>
     <div class="container">
+    	 <!-- Menú -->
+        <div class="menu">
+            <button id="backBtn" class="btn btn-primary">Regresar</button>
+            <button id="logoutBtn" class="btn btn-danger">Cerrar sesión</button>
+        </div>
         <h2 class="mb-4">Realizar Pedido</h2>
         <p>Selecciona los ítems que desees pedir:</p>
         <div class="form-group">
@@ -85,6 +90,20 @@
 
             // Muestra un mensaje de éxito
             alert('¡El resumen ha sido copiado al portapapeles!');
+        });
+    </script>
+     <!-- Agrega tu propio script JavaScript -->
+    <script>
+        document.getElementById("backBtn").addEventListener("click", function(){
+            // Regresa a la página de dashboard
+            window.location.href = "dashboard.html";
+        });
+
+        document.getElementById("logoutBtn").addEventListener("click", function(){
+            // Aquí puedes agregar la lógica de cierre de sesión, por ejemplo, limpiar la sesión
+            
+            // Simplemente redirecciona a la página de inicio de sesión después de cerrar sesión
+            window.location.href = "index.html";
         });
     </script>
 </body>
