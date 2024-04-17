@@ -8,28 +8,24 @@
 <body>
     <h1>Google Sheets Example</h1>
     <div>
-        <label for="dato">Dato a Subir:</label>
-        <input type="text" id="dato">
+        <input type="text" id="inputDato" placeholder="Ingrese un dato">
         <button onclick="subirDato()">Subir Dato</button>
-    </div>
-    <div>
         <button onclick="traerDato()">Traer Dato</button>
-        <div id="output"></div>
     </div>
+    <div id="output"></div>
 
     <script>
         // ID de tu hoja de cálculo de Google Sheets
         const sheetId = '1JTIEfsNOMrC-gDuR6W0kYz_XEWT-eijehKFEH6O4cCs';
 
-        // Clave de API de Google Sheets
-        const apiKey = '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';
+        // Token de acceso OAuth2
+        const accessToken = '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';
 
         function subirDato() {
-            // Obtener el dato del campo de entrada
-            const dato = document.getElementById('dato').value;
+            const dato = document.getElementById('inputDato').value;
 
             // Ejemplo de cómo subir un nuevo dato a la hoja de cálculo
-            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`, {
+            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A1:append?valueInputOption=USER_ENTERED&access_token=${accessToken}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
