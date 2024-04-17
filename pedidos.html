@@ -96,8 +96,16 @@
 
         // Función para imprimir el resumen
         imprimirBtn.addEventListener('click', () => {
-            // Imprime el contenido del resumen
-            window.print();
+            // Abrir una nueva ventana para imprimir solo el resumen
+            let printWindow = window.open('', '_blank');
+            printWindow.document.write('<html><head><title>Resumen del Pedido</title></head><body>');
+            printWindow.document.write('<h1>Resumen del Pedido</h1>');
+            printWindow.document.write('<pre>' + resumenTextarea.value + '</pre>');
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+
+            // Imprimir la ventana
+            printWindow.print();
         });
 
         document.getElementById("backBtn").addEventListener("click", function(){
