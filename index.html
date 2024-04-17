@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>My Cool Website</title>
-   </head>
-   <body>
-      <h1>Welcome to my website! ⭐️</h1>
-      <p>How was your day? 🎉</p>
-   </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets Example</title>
+</head>
+<body>
+    <h1>Google Sheets Example</h1>
+    <div>
+        <label for="dato">Dato a Subir:</label>
+        <input type="text" id="dato">
+        <button onclick="subirDato()">Subir Dato</button>
+    </div>
+    <div>
+        <button onclick="traerDato()">Traer Dato</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        // ID de tu hoja de cálculo de Google Sheets
+        const sheetId = 'ID_DE_TU_HOJA_DE_CÁLCULO';
+
+        // Clave de API de Google Sheets
+        const apiKey = 'TU_API_KEY';
+
+        function subirDato() {
+            // Obtener el dato del campo de entrada
+            const dato = document.getElementById('dato').value;
+
+            // Ejemplo de cómo subir un nuevo dato a la hoja de cálculo
+            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A1:append?valueInputOption=USER_ENTERED&key=${apiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    values: [
+                        [dato]
+                    ]
+                })
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function traerDato() {
+            // Ejemplo de cómo traer un dato de una celda específica de la hoja de cálculo
+            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A1?key=${apiKey}`)
+            .then(response => response.json())
+            .then(data => {
+                // Mostrar el dato en el elemento de salida
+                const outputDiv = document.getElementById('output');
+                outputDiv.textContent = 'Dato obtenido: ' + data.values[0][0];
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
 </html>
