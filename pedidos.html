@@ -23,6 +23,14 @@
         .pedido-item {
             margin-bottom: 10px;
         }
+        /* Estilo para el resumen */
+        #resumen {
+            border: 1px solid #ced4da;
+            padding: 10px;
+            min-height: 100px; /* Altura mínima */
+            overflow: auto; /* Evita el desbordamiento horizontal */
+            background-color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -51,7 +59,7 @@
         </div>
         <div class="form-group">
             <label for="resumen">Resumen del pedido:</label>
-            <textarea class="form-control" id="resumen" rows="4" readonly>Pedido - General</textarea>
+            <div id="resumen" contenteditable="true">Pedido - General</div>
         </div>
         <button id="copiarBtn" class="btn btn-primary">Copiar Resumen</button>
         <button id="imprimirBtn" class="btn btn-success">Imprimir Resumen</button>
@@ -63,35 +71,38 @@
     <script>
         // Obtener los elementos de checkbox
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const resumenTextarea = document.getElementById('resumen');
+        const resumenDiv = document.getElementById('resumen');
         const copiarBtn = document.getElementById('copiarBtn');
         const imprimirBtn = document.getElementById('imprimirBtn');
 
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', () => {
                 // Reinicia el resumen del pedido
-                let resumen = 'Pedido - General' + '\n\n';
+                let resumen = 'Pedido - General' + '<br><br>';
 
                 // Agrega los ítems seleccionados al resumen
                 checkboxes.forEach((checkbox) => {
                     if (checkbox.checked) {
-                        resumen += checkbox.nextElementSibling.textContent + '\n';
+                        resumen += checkbox.nextElementSibling.textContent + '<br>';
                     }
                 });
 
-                // Actualiza el contenido del textarea de resumen
-                resumenTextarea.value = resumen;
+                // Actualiza el contenido del div de resumen
+                resumenDiv.innerHTML = resumen;
             });
         });
 
         // Función para copiar el resumen al portapapeles
         copiarBtn.addEventListener('click', () => {
             // Selecciona el texto del resumen
-            resumenTextarea.select();
-            resumenTextarea.setSelectionRange(0, 99999); // Para dispositivos móviles
+            const range = document.createRange();
+            range.selectNode(resumenDiv);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
 
             // Copia el texto al portapapeles
             document.execCommand('copy');
+            window.getSelection().removeAllRanges();
         });
 
         // Función para imprimir el resumen
@@ -100,7 +111,7 @@
             let printWindow = window.open('', '_blank');
             printWindow.document.write('<html><head><title>Resumen del Pedido</title></head><body>');
             printWindow.document.write('<h1>Resumen del Pedido</h1>');
-            printWindow.document.write('<pre>' + resumenTextarea.value + '</pre>');
+            printWindow.document.write('<div>' + resumenDiv.innerHTML + '</div>');
             printWindow.document.write('</body></html>');
             printWindow.document.close();
 
