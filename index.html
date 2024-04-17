@@ -1,51 +1,69 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Entrar</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
 
-    <!-- Bootstrap core CSS -->
-<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar</title>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
+  <!-- Bootstrap core CSS -->
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
       }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-  </head>
-  <body class="text-center">
-    
-<main class="form-signin">
-  <form>
-    <div class="form-floating" style="margin-bottom: 10px;">
-      <input type="text" class="form-control" id="floatingInput" placeholder="Usuario">
-      <label for="floatingInput">Usuario</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-      <label for="floatingPassword">Contraseña</label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" href="dashboard/index.html">Entrar</button>
-  </form>
-</main>
+    }
+  </style>
 
 
-    
-  </body>
+  <!-- Custom styles for this template -->
+  <link href="signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+  <main class="form-signin">
+    <form>
+      <div class="form-floating" style="margin-bottom: 10px;">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Usuario">
+        <label for="floatingInput">Usuario</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" href="dashboard/index.html">Entrar</button>
+    </form>
+  </main>
+
+
+  <script>
+    // Función para redireccionar a la página de inicio de sesión al hacer clic en el botón "Entrar"
+    document.querySelector('form').addEventListener('submit', function (event) {
+      // Evita que el formulario se envíe y recargue la página
+      event.preventDefault();
+
+      // Obtiene los valores de los campos de usuario y contraseña
+      var usuario = document.getElementById('floatingInput').value;
+      var contraseña = document.getElementById('floatingPassword').value;
+
+      // Aquí puedes agregar la lógica de validación de usuario y contraseña si es necesario
+
+      // Redirecciona a la página de inicio de sesión
+      window.location.href = 'dashboard/index.html';
+    });
+  </script>
+</body>
+
 </html>
