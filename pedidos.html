@@ -23,19 +23,17 @@
         .pedido-item {
             margin-bottom: 10px;
         }
-        /* Estilo para el resumen */
-        #resumen {
-            border: 1px solid #ced4da;
-            padding: 10px;
-            min-height: 100px; /* Altura mínima */
-            overflow: auto; /* Evita el desbordamiento horizontal */
-            background-color: #ffffff;
+        .custom-control-label::before,
+        .custom-control-label::after {
+            top: .8rem;
+            width: 1.25rem;
+            height: 1.25rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-         <!-- Menú -->
+        <!-- Menú -->
         <div class="menu">
             <button id="backBtn" class="btn btn-primary">Regresar</button>
             <button id="logoutBtn" class="btn btn-danger">Cerrar sesión</button>
@@ -43,23 +41,23 @@
         <h2 class="mb-4">Realizar Pedido</h2>
         <p>Selecciona los ítems que desees pedir:</p>
         <div class="form-group">
-            <div class="pedido-item">
-                <input type="checkbox" id="item1" name="item1">
-                <label for="item1">Item 1</label>
+            <div class="pedido-item custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item1">
+                <label class="custom-control-label" for="item1">Item 1</label>
             </div>
-            <div class="pedido-item">
-                <input type="checkbox" id="item2" name="item2">
-                <label for="item2">Item 2</label>
+            <div class="pedido-item custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item2">
+                <label class="custom-control-label" for="item2">Item 2</label>
             </div>
-            <div class="pedido-item">
-                <input type="checkbox" id="item3" name="item3">
-                <label for="item3">Item 3</label>
+            <div class="pedido-item custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item3">
+                <label class="custom-control-label" for="item3">Item 3</label>
             </div>
             <!-- Agrega más ítems aquí si lo necesitas -->
         </div>
         <div class="form-group">
             <label for="resumen">Resumen del pedido:</label>
-            <div id="resumen" contenteditable="true">Pedido - General</div>
+            <textarea class="form-control" id="resumen" rows="4" readonly>Pedido - General</textarea>
         </div>
         <button id="copiarBtn" class="btn btn-primary">Copiar Resumen</button>
         <button id="imprimirBtn" class="btn btn-success">Imprimir Resumen</button>
@@ -71,38 +69,35 @@
     <script>
         // Obtener los elementos de checkbox
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-        const resumenDiv = document.getElementById('resumen');
+        const resumenTextarea = document.getElementById('resumen');
         const copiarBtn = document.getElementById('copiarBtn');
         const imprimirBtn = document.getElementById('imprimirBtn');
 
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', () => {
                 // Reinicia el resumen del pedido
-                let resumen = 'Pedido - General' + '<br><br>';
+                let resumen = 'Pedido - General' + '\n\n';
 
                 // Agrega los ítems seleccionados al resumen
                 checkboxes.forEach((checkbox) => {
                     if (checkbox.checked) {
-                        resumen += checkbox.nextElementSibling.textContent + '<br>';
+                        resumen += checkbox.nextElementSibling.textContent + '\n';
                     }
                 });
 
-                // Actualiza el contenido del div de resumen
-                resumenDiv.innerHTML = resumen;
+                // Actualiza el contenido del textarea de resumen
+                resumenTextarea.value = resumen;
             });
         });
 
         // Función para copiar el resumen al portapapeles
         copiarBtn.addEventListener('click', () => {
             // Selecciona el texto del resumen
-            const range = document.createRange();
-            range.selectNode(resumenDiv);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
+            resumenTextarea.select();
+            resumenTextarea.setSelectionRange(0, 99999); // Para dispositivos móviles
 
             // Copia el texto al portapapeles
             document.execCommand('copy');
-            window.getSelection().removeAllRanges();
         });
 
         // Función para imprimir el resumen
@@ -111,7 +106,7 @@
             let printWindow = window.open('', '_blank');
             printWindow.document.write('<html><head><title>Resumen del Pedido</title></head><body>');
             printWindow.document.write('<h1>Resumen del Pedido</h1>');
-            printWindow.document.write('<div>' + resumenDiv.innerHTML + '</div>');
+            printWindow.document.write('<pre>' + resumenTextarea.value + '</pre>');
             printWindow.document.write('</body></html>');
             printWindow.document.close();
 
