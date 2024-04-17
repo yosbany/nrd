@@ -20,32 +20,51 @@
     <div class="container">
         <div class="row justify-content-center dashboard-container">
             <div class="col-md-6">
-                <h2>Bienvenido al Dashboard</h2>
+                <h2>Bienvenido - Sistema de Control Operativo</h2>
                 <p>¡Has iniciado sesión correctamente!</p>
                 <!-- Menú de navegación -->
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a class="nav-link" href="pedidos.html">Pedidos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="perfil.html">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Configuración</a>
-                        <!-- Submenú -->
-                        <ul class="nav flex-column ml-3">
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Ajustes Generales</a>
+                                <a class="nav-link" href="#">Realizar Pedidos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Preferencias</a>
+                                <a class="nav-link" href="#">Recibir Pedidos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Plan de Compras</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Movimiento Contable</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Herramientas</a>
+                                <!-- Submenú -->
+                                <ul class="navbar-nav flex-column ml-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Calculadora de Precios</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Precios de Compras</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Presupuestos de Lunch</a>
+                                    </li>
+                                     <li class="nav-item">
+                                        <a class="nav-link" href="#">Ver Carteles A4</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Excibidor de Precios</a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ayuda</a>
-                    </li>
-                </ul>
+                    </div>
+                </nav>
                 <!-- Fin del menú de navegación -->
                 <br>
                 <button id="logoutBtn" class="btn btn-primary">Cerrar sesión</button>
