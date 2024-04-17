@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Pedidos</h2>
+        <h2 class="mb-4">Realizar Pedido</h2>
         <p>Selecciona los ítems que desees pedir:</p>
         <div class="form-group">
             <div class="pedido-item">
@@ -42,6 +42,7 @@
             <label for="resumen">Resumen del pedido:</label>
             <textarea class="form-control" id="resumen" rows="4" readonly></textarea>
         </div>
+        <button id="copiarBtn" class="btn btn-primary">Copiar Resumen</button>
     </div>
 
     <!-- Enlaza Bootstrap JS -->
@@ -51,11 +52,12 @@
         // Obtener los elementos de checkbox
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const resumenTextarea = document.getElementById('resumen');
+        const copiarBtn = document.getElementById('copiarBtn');
 
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', () => {
                 // Reinicia el resumen del pedido
-                let resumen = '';
+                let resumen = 'Pedido - General';
 
                 // Agrega los ítems seleccionados al resumen
                 checkboxes.forEach((checkbox) => {
@@ -67,6 +69,22 @@
                 // Actualiza el contenido del textarea de resumen
                 resumenTextarea.value = resumen;
             });
+        });
+
+        // Función para copiar el resumen al portapapeles
+        copiarBtn.addEventListener('click', () => {
+            // Selecciona el texto del resumen
+            resumenTextarea.select();
+            resumenTextarea.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+            // Copia el texto al portapapeles
+            document.execCommand('copy');
+
+            // Deselecciona el texto
+            window.getSelection().removeAllRanges();
+
+            // Muestra un mensaje de éxito
+            alert('¡El resumen ha sido copiado al portapapeles!');
         });
     </script>
 </body>
