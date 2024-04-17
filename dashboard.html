@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Enlaza Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Estilos personalizados */
+        body {
+            background-color: #f8f9fa;
+        }
+        .dashboard-container {
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center dashboard-container">
+            <div class="col-md-6">
+                <h2>Bienvenido al Dashboard</h2>
+                <p>¡Has iniciado sesión correctamente!</p>
+                <!-- Aquí puedes agregar más contenido del dashboard -->
+                <button id="logoutBtn" class="btn btn-primary">Cerrar sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlaza Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Agrega tu propio script JavaScript -->
+    <script>
+        document.getElementById("logoutBtn").addEventListener("click", function(){
+            // Aquí puedes agregar la lógica de cierre de sesión, por ejemplo, limpiar la sesión
+            
+            // Simplemente redirecciona a la página de inicio de sesión después de cerrar sesión
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
