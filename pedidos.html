@@ -7,7 +7,7 @@
     <!-- Enlaza Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-       /* Estilos personalizados */
+        /* Estilos personalizados */
         body {
             background-color: #f8f9fa;
         }
@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="container">
-    	 <!-- Menú -->
+         <!-- Menú -->
         <div class="menu">
             <button id="backBtn" class="btn btn-primary">Regresar</button>
             <button id="logoutBtn" class="btn btn-danger">Cerrar sesión</button>
@@ -51,9 +51,10 @@
         </div>
         <div class="form-group">
             <label for="resumen">Resumen del pedido:</label>
-            <textarea class="form-control" id="resumen" rows="4" readonly></textarea>
+            <textarea class="form-control" id="resumen" rows="4" readonly>Pedido - General</textarea>
         </div>
         <button id="copiarBtn" class="btn btn-primary">Copiar Resumen</button>
+        <button id="imprimirBtn" class="btn btn-success">Imprimir Resumen</button>
     </div>
 
     <!-- Enlaza Bootstrap JS -->
@@ -64,6 +65,7 @@
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const resumenTextarea = document.getElementById('resumen');
         const copiarBtn = document.getElementById('copiarBtn');
+        const imprimirBtn = document.getElementById('imprimirBtn');
 
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', () => {
@@ -90,14 +92,14 @@
 
             // Copia el texto al portapapeles
             document.execCommand('copy');
-
-            // Deselecciona el texto
-            window.getSelection().removeAllRanges();
-
         });
-    </script>
-     <!-- Agrega tu propio script JavaScript -->
-    <script>
+
+        // Función para imprimir el resumen
+        imprimirBtn.addEventListener('click', () => {
+            // Imprime el contenido del resumen
+            window.print();
+        });
+
         document.getElementById("backBtn").addEventListener("click", function(){
             // Regresa a la página de dashboard
             window.location.href = "dashboard.html";
