@@ -7,12 +7,18 @@
     <!-- Enlaza Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        /* Estilos personalizados */
+       /* Estilos personalizados */
         body {
             background-color: #f8f9fa;
         }
         .container {
             margin-top: 50px;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
         .pedido-item {
             margin-bottom: 10px;
@@ -88,8 +94,6 @@
             // Deselecciona el texto
             window.getSelection().removeAllRanges();
 
-            // Muestra un mensaje de éxito
-            alert('¡El resumen ha sido copiado al portapapeles!');
         });
     </script>
      <!-- Agrega tu propio script JavaScript -->
