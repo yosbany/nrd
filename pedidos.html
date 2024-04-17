@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+    <!-- Enlaza Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Estilos personalizados */
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .pedido-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pedidos</h2>
+        <p>Selecciona los ítems que desees pedir:</p>
+        <div class="form-group">
+            <div class="pedido-item">
+                <input type="checkbox" id="item1" name="item1">
+                <label for="item1">Item 1</label>
+            </div>
+            <div class="pedido-item">
+                <input type="checkbox" id="item2" name="item2">
+                <label for="item2">Item 2</label>
+            </div>
+            <div class="pedido-item">
+                <input type="checkbox" id="item3" name="item3">
+                <label for="item3">Item 3</label>
+            </div>
+            <!-- Agrega más ítems aquí si lo necesitas -->
+        </div>
+        <div class="form-group">
+            <label for="resumen">Resumen del pedido:</label>
+            <textarea class="form-control" id="resumen" rows="4" readonly></textarea>
+        </div>
+    </div>
+
+    <!-- Enlaza Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Agrega tu propio script JavaScript -->
+    <script>
+        // Obtener los elementos de checkbox
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const resumenTextarea = document.getElementById('resumen');
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', () => {
+                // Reinicia el resumen del pedido
+                let resumen = '';
+
+                // Agrega los ítems seleccionados al resumen
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        resumen += checkbox.nextElementSibling.textContent + '\n';
+                    }
+                });
+
+                // Actualiza el contenido del textarea de resumen
+                resumenTextarea.value = resumen;
+            });
+        });
+    </script>
+</body>
+</html>
