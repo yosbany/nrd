@@ -50,6 +50,53 @@
     // Llamar a la función al cargar la página
     window.onload = loadSubViews;
   </script>
+  <script>
+    // Enviar datos a la hoja de cálculo de Google Sheets
+    function sendDataToGoogleSheet(data) {
+      var accessToken = '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'; // Obtén el token de acceso OAuth 2.0
+
+      // ID de la hoja de cálculo y rango donde deseas enviar los datos
+      var spreadsheetId = '1JTIEfsNOMrC-gDuR6W0kYz_XEWT-eijehKFEH6O4cCs';
+      var range = 'Sheet1!A1:C1'; // Por ejemplo, Sheet1 es el nombre de la hoja y A1:C1 es el rango de celdas
+
+      // URL de la API de Google Sheets
+      var url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}:append?valueInputOption=RAW`;
+
+      // Datos que deseas enviar
+      var requestBody = {
+        values: [
+          [data.nombre, data.precio, data.cantidad]
+        ]
+      };
+
+      // Configuración de la solicitud HTTP POST
+      var options = {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + accessToken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      };
+
+      // Realizar la solicitud HTTP POST
+      fetch(url, options)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al enviar los datos a Google Sheets');
+          }
+          console.log('Datos enviados correctamente a Google Sheets');
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    // Ejemplo de uso
+    var producto = { nombre: 'Producto 1', precio: 10, cantidad: 5 };
+    sendDataToGoogleSheet(producto);
+
+  </script>
 </body>
 
 </html>
