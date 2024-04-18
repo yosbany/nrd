@@ -1,11 +1,19 @@
 // URL base de la API
 const BASE_URL = 'https://nuevariodor.manager.io/api2';
+const AUTH_TOKEN = 'ChhURUpBUyBERSBMQSBDUlVaIFlPU0JBTlkSEgkcmw+K6+y8TRGQde/V+jCafhoSCbVL59K49CxNEaE2LyNtO3a+';
 
 // Función para realizar solicitudes HTTP mediante fetch (GET)
 async function getData(endpoint, options = {}) {
     try {
         const url = BASE_URL + endpoint;
-        const response = await fetch(url, options);
+        const headers = {
+            'Authorization': `Bearer ${AUTH_TOKEN}`, // Utiliza la constante AUTH_TOKEN como token de autenticación
+            ...options.headers
+        };
+        const response = await fetch(url, {
+            ...options,
+            headers
+        });
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
