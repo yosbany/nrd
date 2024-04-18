@@ -27,7 +27,7 @@
         <ul id="lista-productos" class="list-group">
           <!-- La lista se generará aquí dinámicamente -->
         </ul>
-        
+
 
       </main>
     </div>
@@ -58,7 +58,7 @@
     window.onload = loadSubViews;
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       // Cargar y procesar el archivo JSON
       fetch('../pediso.json')
         .then(response => response.json())
@@ -68,21 +68,29 @@
             var listItem = `
               <li class="list-group-item d-flex justify-content-between align-items-center">
                 <div class="d-flex align-items-center">
-                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="..." data-cantidad="${producto.Cantidad}" >
                   ${producto.Nombre}
                 </div>
                 <div class="d-flex align-items-center">
                   <span class="badge bg-primary rounded-pill me-2">$${producto.Precio}</span>
-                  <input type="number" class="form-control form-control-sm" placeholder="Qty" value="${producto.Cantidad}" style="width: 3rem;" readonly>
-                </div>
+                  <input type="number" class="form-control form-control-sm cantidad-input" placeholder="Qty" style="width: 3rem;" readonly>                </div>
               </li>`;
             // Agregar el elemento a la lista
             document.getElementById('lista-productos').innerHTML += listItem;
           });
+          // Agregar evento change a los checkboxes
+          const checkboxes = document.querySelectorAll('.form-check-input');
+          checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+              const inputCantidad = this.parentElement.parentElement.querySelector('.cantidad-input');
+              inputCantidad.readOnly = !this.checked;
+              inputCantidad.value = this.checked ? this.getAttribute('data-cantidad') : '';
+            });
+          });
         })
         .catch(error => console.error('Error al cargar el archivo JSON:', error));
     });
-    </script>
+  </script>
 </body>
 
 </html>
