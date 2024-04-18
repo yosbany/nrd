@@ -4,12 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calcular Precio Venta</title>
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-  <!-- Bootstrap core CSS -->
+  <title>Calcular Precio de Venta</title>
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="../dashboard/dashboard.css" rel="stylesheet">
+  <link href="../assets/app/css/nrd.css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,31 +17,23 @@
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Calcular Precio Venta</h1>
+          <h1 class="h2">Calcular Precio de Venta</h1>
         </div>
+         <!-- Code HTML Here -->
+
       </main>
     </div>
   </div>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-  <script src="../assets/app/js/manager-api.js" type="module"></script>
+  <script src="../assets/app/js/manager-api.js"></script>
+  <script src="../assets/app/js/nrd.js"></script>
   <script>
-    // Función para cargar el contenido de las subvistas
-    function loadSubViews() {
-      // Cargar la barra de navegación
-      fetch('subpages/header.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('header').innerHTML = data);
-
-      // Cargar la barra lateral
-      fetch('subpages/sidebar.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('sidebar').innerHTML = data);
-
-    }
-    // Llamar a la función al cargar la página
-    window.onload = loadSubViews;
+    document.addEventListener('DOMContentLoaded', function () {
+      //Code JS Here
+      
+    });
   </script>
 </body>
 
