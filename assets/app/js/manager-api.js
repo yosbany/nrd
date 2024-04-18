@@ -82,10 +82,8 @@ async function deleteData(endpoint, options = {}) {
 }
 //Operaciones 
 
-async function getAccessTokens() {
+export async function getAccessTokens() {
     const endpoint = '/access-tokens';
     return await getData(endpoint);
 }
 
-
-export { getAccessTokens };
