@@ -1,10 +1,4 @@
-/* globals Chart:false, feather:false */
-
-(function () {
-  'use strict'
-
-  feather.replace({ 'aria-hidden': 'true' })
-
+document.addEventListener("DOMContentLoaded", function() {
   // Obtener la configuración de la gráfica desde el archivo de configuración
   fetch('../configuracion.json')
     .then(response => response.json())
@@ -27,4 +21,4 @@
         options: configuracion.options
       })
     })
-})()
+});
