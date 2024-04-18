@@ -7,7 +7,7 @@ async function getData(endpoint, options = {}) {
     try {
         const url = BASE_URL + endpoint;
         const headers = {
-            'Authorization': `Bearer ${AUTH_TOKEN}`, // Utiliza la constante AUTH_TOKEN como token de autenticación
+            'X-API-KEY': AUTH_TOKEN, // Utiliza la constante AUTH_TOKEN como token de autenticación
             ...options.headers
         };
         const response = await fetch(url, {
