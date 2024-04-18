@@ -1,54 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Template</title>
+  <title>Inicio</title>
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
+  <!-- Bootstrap core CSS -->
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
   <!-- Custom styles for this template -->
   <link href="../dashboard/dashboard.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Incluir el encabezado -->
-  <iframe src="subpages/navbar.html" frameborder="0" width="100%" height="50"></iframe>
-
-  <!-- Contenido específico de la página -->
+  <div id="header"></div>
   <div class="container-fluid">
-    <div
-      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h1 class="h2">Ventas</h1>
+    <div class="row">
+      <div id="sidebar"></div>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Ventas</h1>
+        </div>
+      </main>
     </div>
   </div>
-
-  <!-- Incluir la barra lateral -->
-  <iframe src="subpages/sidebar.html" frameborder="0" width="100%" height="100%"></iframe>
-
-  <!-- Incluir el pie de página -->
-  <iframe src="subpages/footer.html" frameborder="0" width="100%" height="100"></iframe>
-
-  <!-- Scripts comunes -->
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+    crossorigin="anonymous"></script>
   <script src="../dashboard/dashboard.js"></script>
+  <script>
+    // Función para cargar el contenido de las subvistas
+    function loadSubViews() {
+      // Cargar la barra de navegación
+      fetch('subpages/header.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+
+      // Cargar la barra lateral
+      fetch('subpages/sidebar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('sidebar').innerHTML = data);
+
+    }
+    // Llamar a la función al cargar la página
+    window.onload = loadSubViews;
+  </script>
 </body>
 
 </html>
