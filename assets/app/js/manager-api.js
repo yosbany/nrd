@@ -82,7 +82,7 @@ async function deleteData(endpoint, options = {}) {
 }
 //Operaciones 
 
-export async function getAccessTokens() {
+async function getAccessTokens() {
     const endpoint = '/access-tokens';
     return await getData(endpoint);
 }
