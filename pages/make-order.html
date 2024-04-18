@@ -23,39 +23,9 @@
           <h1 class="h2">Realizar Pedido</h1>
         </div>
 
-        
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-              First checkbox
-            </div>
-            <div class="d-flex align-items-center">
-              <span class="badge bg-primary rounded-pill me-2">$10</span>
-              <input type="number" class="form-control form-control-sm" placeholder="Qty" maxlength="2" style="width: 3rem;">
-            </div>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-              Second checkbox
-            </div>
-            <div class="d-flex align-items-center">
-              <span class="badge bg-primary rounded-pill me-2">$15</span>
-              <input type="number" class="form-control form-control-sm" placeholder="Qty" maxlength="2" style="width: 3rem;">
-            </div>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-              Third checkbox
-            </div>
-            <div class="d-flex align-items-center">
-              <span class="badge bg-primary rounded-pill me-2">$20</span>
-              <input type="number" class="form-control form-control-sm" placeholder="Qty" maxlength="2" style="width: 3rem;">
-            </div>
-          </li>
-          <!-- Agrega más elementos de la lista aquí si es necesario -->
+
+        <ul id="lista-productos" class="list-group">
+          <!-- La lista se generará aquí dinámicamente -->
         </ul>
         
 
@@ -87,6 +57,32 @@
     // Llamar a la función al cargar la página
     window.onload = loadSubViews;
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Cargar y procesar el archivo JSON
+      fetch('../pediso.json')
+        .then(response => response.json())
+        .then(data => {
+          // Iterar sobre los datos y construir la lista dinámicamente
+          data.forEach(producto => {
+            var listItem = `
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                  <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                  ${producto.Nombre}
+                </div>
+                <div class="d-flex align-items-center">
+                  <span class="badge bg-primary rounded-pill me-2">$${producto.Precio}</span>
+                  <input type="number" class="form-control form-control-sm" placeholder="Qty" value="${producto.Cantidad}" style="width: 3rem;" readonly>
+                </div>
+              </li>`;
+            // Agregar el elemento a la lista
+            document.getElementById('lista-productos').innerHTML += listItem;
+          });
+        })
+        .catch(error => console.error('Error al cargar el archivo JSON:', error));
+    });
+    </script>
 </body>
 
 </html>
