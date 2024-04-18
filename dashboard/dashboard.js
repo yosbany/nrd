@@ -5,49 +5,26 @@
 
   feather.replace({ 'aria-hidden': 'true' })
 
-  // Graphs
-  var ctx = document.getElementById('myChart')
-  // eslint-disable-next-line no-unused-vars
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-      ],
-      datasets: [{
-        data: [
-          15339,
-          21345,
-          18483,
-          24003,
-          23489,
-          24092,
-          12034
-        ],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: false
-          }
-        }]
-      },
-      legend: {
-        display: false
-      }
-    }
-  })
+  // Obtener la configuración de la gráfica desde el archivo de configuración
+  fetch('configuracion.json')
+    .then(response => response.json())
+    .then(configuracion => {
+      // Crear la gráfica con la configuración obtenida
+      var ctx = document.getElementById('myChart')
+      new Chart(ctx, {
+        type: configuracion.type,
+        data: {
+          labels: configuracion.labels,
+          datasets: [{
+            data: configuracion.data,
+            lineTension: configuracion.lineTension,
+            backgroundColor: configuracion.backgroundColor,
+            borderColor: configuracion.borderColor,
+            borderWidth: configuracion.borderWidth,
+            pointBackgroundColor: configuracion.pointBackgroundColor
+          }]
+        },
+        options: configuracion.options
+      })
+    })
 })()
