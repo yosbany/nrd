@@ -9,23 +9,29 @@
   <link href="../assets/app/css/nrd.css" rel="stylesheet">
   <style>
     /* Estilos personalizados */
-    
+
     .pedido-item {
-        margin-bottom: 10px;
+      margin-bottom: 10px;
     }
+
     .pedido-item input[type="checkbox"] {
-        width: 25px; /* Aumenta el tamaño del checkbox */
-        height: 25px; /* Aumenta el tamaño del checkbox */
+      width: 25px;
+      /* Aumenta el tamaño del checkbox */
+      height: 25px;
+      /* Aumenta el tamaño del checkbox */
     }
+
     /* Estilos para el resumen */
     .resumen {
-        border: 1px solid #ced4da;
-        padding: 10px;
-        overflow: hidden; /* Evita el desbordamiento */
-        white-space: pre-wrap; /* Permite saltos de línea */
-        background-color: #fff;
+      border: 1px solid #ced4da;
+      padding: 10px;
+      overflow: hidden;
+      /* Evita el desbordamiento */
+      white-space: pre-wrap;
+      /* Permite saltos de línea */
+      background-color: #fff;
     }
-</style>
+  </style>
 </head>
 
 <body>
@@ -39,49 +45,36 @@
           <h1 class="h2">Realizar Pedido</h1>
         </div>
         <!-- Code HTML Here -->
-        <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Cras justo odio
-            <span class="badge badge-primary badge-pill">$ 14</span>
-           
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Dapibus ac facilisis in
-            <span class="badge badge-primary badge-pill">$ 2</span>
-            
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Morbi leo risus
-            <span class="badge badge-primary badge-pill">$ 1</span>
-           
-          </li>
-        </ul>
-        <hr>
-        <div class="form-group">
-          <div class="pedido-item">
-            <input type="checkbox" id="item1" name="item1">
-            <label for="item1" style="font-size: 22px;vertical-align: bottom;">Item 1</label>
-            <span>Precio: $10</span>
-            <input type="number" class="form-control" min="1" value="1">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              1 of 2
+            </div>
+            <div class="col">
+              2 of 2
+            </div>
           </div>
-          <div class="pedido-item">
-            <input type="checkbox" id="item2" name="item2">
-            <label for="item2" style="font-size: 22px;vertical-align: bottom;">Item 2</label>
+          <div class="row">
+            <div class="col">
+              1 of 3
+            </div>
+            <div class="col">
+              2 of 3
+            </div>
+            <div class="col">
+              3 of 3
+            </div>
           </div>
-          <div class="pedido-item">
-            <input type="checkbox" id="item3" name="item3">
-            <label for="item3" style="font-size: 22px;vertical-align: bottom;">Item 3</label>
-          </div>
-          <!-- Agrega más ítems aquí si lo necesitas -->
         </div>
-        <div class="form-group">
-          <label for="resumen">Resumen del pedido:</label>
-          <div id="resumen" class="resumen" readonly>Pedido - General</div>
-        </div>
-        <button id="copiarBtn" class="btn btn-primary" style="margin-top: 10px;">Copiar Resumen</button>
-        <button id="imprimirBtn" class="btn btn-success" style="margin-top: 10px;">Imprimir Resumen</button>
-      </main>
     </div>
+    <div class="form-group">
+      <label for="resumen">Resumen del pedido:</label>
+      <div id="resumen" class="resumen" readonly>Pedido - General</div>
+    </div>
+    <button id="copiarBtn" class="btn btn-primary" style="margin-top: 10px;">Copiar Resumen</button>
+    <button id="imprimirBtn" class="btn btn-success" style="margin-top: 10px;">Imprimir Resumen</button>
+    </main>
+  </div>
   </div>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
