@@ -19,8 +19,28 @@
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Realizar Pedido</h1>
         </div>
-         <!-- Code HTML Here -->
-
+        <!-- Code HTML Here -->
+        <div class="form-group">
+          <div class="pedido-item">
+            <input type="checkbox" id="item1" name="item1">
+            <label for="item1">Item 1</label>
+          </div>
+          <div class="pedido-item">
+            <input type="checkbox" id="item2" name="item2">
+            <label for="item2">Item 2</label>
+          </div>
+          <div class="pedido-item">
+            <input type="checkbox" id="item3" name="item3">
+            <label for="item3">Item 3</label>
+          </div>
+          <!-- Agrega más ítems aquí si lo necesitas -->
+        </div>
+        <div class="form-group">
+          <label for="resumen">Resumen del pedido:</label>
+          <div id="resumen" class="resumen" readonly>Pedido - General</div>
+        </div>
+        <button id="copiarBtn" class="btn btn-primary">Copiar Resumen</button>
+        <button id="imprimirBtn" class="btn btn-success">Imprimir Resumen</button>
       </main>
     </div>
   </div>
@@ -32,7 +52,49 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       //Code JS Here
-      
+      // Obtener los elementos de checkbox
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      const resumenDiv = document.getElementById('resumen');
+      const copiarBtn = document.getElementById('copiarBtn');
+      const imprimirBtn = document.getElementById('imprimirBtn');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', () => {
+          // Reinicia el resumen del pedido
+          let resumen = 'Pedido - General' + '\n\n';
+
+          // Agrega los ítems seleccionados al resumen
+          checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+              resumen += checkbox.nextElementSibling.textContent + '\n';
+            }
+          });
+
+          // Actualiza el contenido del div de resumen
+          resumenDiv.textContent = resumen;
+        });
+      });
+
+      // Función para copiar el resumen al portapapeles
+      copiarBtn.addEventListener('click', () => {
+        // Selecciona el texto del resumen
+        const range = document.createRange();
+        range.selectNode(resumenDiv);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+
+        // Copia el texto al portapapeles
+        document.execCommand('copy');
+
+        // Deselecciona el texto
+        window.getSelection().removeAllRanges();
+      });
+
+      // Función para imprimir el resumen
+      imprimirBtn.addEventListener('click', () => {
+        // Imprime solo el contenido del div de resumen
+        window.print();
+      });
     });
   </script>
 </body>
