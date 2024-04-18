@@ -6,7 +6,7 @@
   feather.replace({ 'aria-hidden': 'true' })
 
   // Obtener la configuración de la gráfica desde el archivo de configuración
-  fetch('configuracion.json')
+  fetch('../configuracion.json')
     .then(response => response.json())
     .then(configuracion => {
       // Crear la gráfica con la configuración obtenida

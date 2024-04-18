@@ -1,18 +1,17 @@
 [
-    {
-      "Nombre": "Producto 1",
-      "Precio": 10,
-      "Cantidad": 20
-    },
-    {
-      "Nombre": "Producto 2",
-      "Precio": 15,
-      "Cantidad": 15
-    },
-    {
-      "Nombre": "Producto 3",
-      "Precio": 20,
-      "Cantidad": 25
-    }
-  ]
-  
+  {
+    "Nombre": "Producto 1",
+    "Precio": 10,
+    "Cantidad": 20
+  },
+  {
+    "Nombre": "Producto 2",
+    "Precio": 15,
+    "Cantidad": 15
+  },
+  {
+    "Nombre": "Producto 3",
+    "Precio": 20,
+    "Cantidad": 25
+  }
+]
