@@ -1,7 +1,7 @@
 // URL base de la API
 const BASE_URL = 'https://nuevariodor.manager.io/api2';
-//const AUTH_TOKEN = 'ChhURUpBUyBERSBMQSBDUlVaIFlPU0JBTlkSEgkcmw+K6+y8TRGQde/V+jCafhoSCbVL59K49CxNEaE2LyNtO3a+';
-const AUTH_TOKEN = 'ChBURVNUIEVtcHJlc2EgQVBJEhIJ9jnZaIViL0kRorghRzrQp7YaEgkizVBbixU/TxGM5Pr+zwSOWQ==';
+//const AUTH_TOKEN = 'ChhURUpBUyBERSBMQSBDUlVaIFlPU0JBTlkSEgkcmw+K6+y8TRGQde/V+jCafhoSCbVL59K49CxNEaE2LyNtO3a+';//PROD
+const AUTH_TOKEN = 'ChBURVNUIEVtcHJlc2EgQVBJEhIJ9jnZaIViL0kRorghRzrQp7YaEgkizVBbixU/TxGM5Pr+zwSOWQ==';//TEST
 
 // Función para realizar solicitudes HTTP mediante fetch (GET)
 async function getData(endpoint, options = {}) {
