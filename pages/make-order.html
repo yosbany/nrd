@@ -56,71 +56,41 @@
     <div class="row">
       <div id="sidebar"></div>
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Realizar Pedido</h1>
         </div>
 
         <!-- Code HTML Here -->
-        <div class="container">
-          <div class="row mb-4">
-            <select class="form-select form-select-lg">
-              <option selected>SELECCIONE</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-
-          <div class="row align-items-center mb-4">
-            <div class="col-sm-4">
-              <div class="form-check">
-                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Default checkbox 1
-                </label>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <span class="badge bg-info text-dark">$ 10</span>
-            </div>
-            <div class="col-sm-2">
-              <input type="number" class="form-control" style="width: 3rem;">
-            </div>
-          </div>
-
-          <div class="row align-items-center mb-4">
-            <div class="col-sm-4">
-              <div class="form-check">
-                <input class="form-check-input checkbox-lg" type="checkbox" value="" id="flexCheckDefault2">
-                <label class="form-check-label" for="flexCheckDefault2">
-                  Default checkbox
-                </label>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <span class="badge bg-info text-dark">$ 10</span>
-            </div>
-            <div class="col-sm-2">
-              <input type="number" class="form-control" style="width: 3rem;">
-            </div>
-          </div>
-
-          <div class="row mb-4">
-            <div class="col">
-              <h4 class="mt-4">Resumen del Pedido</h4>
-              <div id="resumen" class="resumen"></div>
-            </div>
-          </div>
-
-          <div class="row mb-2">
-            <div class="col">
-              <div class="btn-group">
-                <button class="btn btn-primary" id="guardarBtn">Guardar</button>
-                <button class="btn btn-secondary" id="copiarBtn">Copiar</button>
-                <button class="btn btn-success" id="imprimirBtn">Imprimir</button>
-              </div>
-            </div>
-          </div>
+        <div class="container mt-3">
+          <h2>Borderless Table</h2>
+          <p>The .table-borderless class removes borders from the table:</p>
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <!-- Code HTML End -->
       </main>
@@ -134,49 +104,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       //Code JS Here
-      // Obtener los elementos de checkbox
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      const resumenDiv = document.getElementById('resumen');
-      const copiarBtn = document.getElementById('copiarBtn');
-      const imprimirBtn = document.getElementById('imprimirBtn');
 
-      checkboxes.forEach((checkbox) => {
-        checkbox.addEventListener('change', () => {
-          // Reinicia el resumen del pedido
-          let resumen = 'Pedido - General' + '\n';
-
-          // Agrega los ítems seleccionados al resumen
-          checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-              resumen += checkbox.nextElementSibling.textContent + '\n';
-            }
-          });
-
-          // Actualiza el contenido del div de resumen
-          resumenDiv.textContent = resumen;
-        });
-      });
-
-      // Función para copiar el resumen al portapapeles
-      copiarBtn.addEventListener('click', () => {
-        // Selecciona el texto del resumen
-        const range = document.createRange();
-        range.selectNode(resumenDiv);
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-
-        // Copia el texto al portapapeles
-        document.execCommand('copy');
-
-        // Deselecciona el texto
-        window.getSelection().removeAllRanges();
-      });
-
-      // Función para imprimir el resumen
-      imprimirBtn.addEventListener('click', () => {
-        // Imprime solo el contenido del div de resumen
-        window.print();
-      });
     });
   </script>
 </body>
