@@ -95,7 +95,7 @@
           <div class="row align-items-center  mb-4">
             <!-- Aplicar la misma clase a este row -->
             <div class="col">
-              <h3>Resumen del Pedido</h3>
+              <h4 class="mt-4">Resumen del Pedido</h4>
               <div id="resumen" class="resumen"></div>
             </div>
           </div>
@@ -130,7 +130,7 @@
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('change', () => {
           // Reinicia el resumen del pedido
-          let resumen = 'Pedido - General' + '\n\n';
+          let resumen = 'Pedido - General' + '\n';
 
           // Agrega los ítems seleccionados al resumen
           checkboxes.forEach((checkbox) => {
