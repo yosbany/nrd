@@ -19,8 +19,61 @@
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Recibir Pedido</h1>
         </div>
-         <!-- Code HTML Here -->
+        <!-- Code HTML Here -->
+        <div class="container-fluid">
+          <select class="form-select form-select-lg">
+            <option>CLIENTE 1</option>
+            <option>CLIENTE 2</option>
+            <option>CLIENTE 3</option>
+            <option>CLIENTE 4</option>
+          </select>
 
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" id="check1"
+                    name="option1" value="something" checked style="scale: 1.6;"></td>
+                <td style="vertical-align: middle;">
+                  <h4 style="margin-bottom: 0px !important;">AZUCAR COMUN BOLSA 25KG</h4>
+                </td>
+                <td style="vertical-align: middle;"><span class="badge bg-secondary">$ 59</span></td>
+                <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;"></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" id="check1"
+                    name="option1" value="something" checked style="scale: 1.6;"></td>
+                <td style="vertical-align: middle;">
+                  <h4 style="margin-bottom: 0px !important;">SAL COMUN BOLSA 25KG</h4>
+                </td>
+                <td style="vertical-align: middle;"><span class="badge bg-secondary">$ 134</span></td>
+                <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;"></td>
+              </tr>
+              <tr>
+                <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" id="check1"
+                    name="option1" value="something" checked style="scale: 1.6;"></td>
+                <td style="vertical-align: middle;">
+                  <h4 style="margin-bottom: 0px !important;">HARINA 0 BOLSA 25KG</h4>
+                </td>
+                <td style="vertical-align: middle;"><span class="badge bg-secondary">$ 45</span></td>
+                <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;"></td>
+              </tr>
+            </tbody>
+          </table>
+          <label for="comment" class="mt-4">Resumen del Pedido:</label>
+          <textarea class="form-control mb-4" rows="5" id="comment" name="text" readonly></textarea>
+          <button type="button" class="btn btn-primary">Copiar</button>
+          <button type="button" class="btn btn-primary">Imprimir</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+        <div class="mb-6"></div>
       </main>
     </div>
   </div>
@@ -32,7 +85,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       //Code JS Here
-      
+
     });
   </script>
 </body>
