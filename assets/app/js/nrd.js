@@ -9,6 +9,11 @@ function loadSubViews() {
     fetch('subpages/sidebar.html')
       .then(response => response.text())
       .then(data => document.getElementById('sidebar').innerHTML = data);
+    
+    // Cargar el pie de pagina
+    fetch('subpages/footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
 
   }
   // Llamar a la función al cargar la página
