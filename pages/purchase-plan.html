@@ -19,11 +19,62 @@
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Plan de Compras</h1>
         </div>
-         <!-- Code HTML Here -->
-
-         
-          <!-- Code HTML End -->
-          <div id="footer" class="mt-4" style="text-align: center;"></div>
+        <!-- Code HTML Here -->
+        <select class="form-select form-select-lg">
+          <option>Orden</option>
+          <option>Pedido</option>
+          <option>Entrega</option>
+        </select>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Proveedor</th>
+                <th scope="col">Lunes</th>
+                <th scope="col">Martes</th>
+                <th scope="col">Miércoles</th>
+                <th scope="col">Jueves</th>
+                <th scope="col">Virnes</th>
+                <th scope="col">Sábado</th>
+                <th scope="col">Domingo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" style="vertical-align: middle;">Coca Cola</th>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+                <td>Pedido<br>Entrega</td>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+              </tr>
+              <tr>
+                <th scope="row" style="vertical-align: middle;">Salus</th>
+                <td>Orden<br>Pedido</td>
+                <td>Orden<br>Pedido</td>
+                <td>Orden<br>Pedido</td>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+              </tr>
+              <tr>
+                <th scope="row" style="vertical-align: middle;">Irazu</th>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+                <td>Entrega</td>
+                <td>Orden<br>Pedido</td>
+                <td>Orden<br>Pedido</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Code HTML End -->
+        <div id="footer" class="mt-4" style="text-align: center;"></div>
       </main>
     </div>
   </div>
@@ -35,7 +86,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       //Code JS Here
-      
+
     });
   </script>
 </body>
