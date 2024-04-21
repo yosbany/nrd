@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impresión de etiqueta</title>
+<style>
+    @page {
+        size: 80mm 50mm; /* Tamaño de la página */
+        margin: 0; /* Sin márgenes */
+    }
+    body {
+        width: 80mm; /* Ancho del contenido */
+        height: 50mm; /* Altura del contenido */
+        margin: 0; /* Sin márgenes */
+        padding: 0; /* Sin relleno */
+        font-family: Arial, sans-serif; /* Tipo de fuente */
+    }
+    .etiqueta {
+        padding: 5mm; /* Espacio interior de la etiqueta */
+    }
+    .nombre-producto {
+        font-size: 12pt; /* Tamaño de la fuente para el nombre del producto */
+        font-weight: bold; /* Negrita para el nombre del producto */
+        margin-bottom: 5mm; /* Espacio entre el nombre del producto y el precio */
+    }
+    .precio {
+        font-size: 10pt; /* Tamaño de la fuente para el precio */
+    }
+</style>
+</head>
+<body>
+    <div class="etiqueta">
+        <div class="nombre-producto">Producto XYZ</div>
+        <div class="precio">$10.00</div>
+    </div>
+
+    <script>
+        // Llama a la función de impresión cuando la página esté completamente cargada
+        window.onload = function() {
+            window.print();
+        };
+    </script>
+</body>
+</html>
