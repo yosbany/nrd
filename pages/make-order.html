@@ -85,8 +85,8 @@
           </tbody>
         </table>
         <label for="comment" class="mt-4">Resumen del Pedido:</label>
-        <textarea class="form-control mb-4" rows="5" id="comment" name="text" readonly></textarea>
-        <button type="button" class="btn btn-primary">Copiar</button>
+        <textarea class="form-control mb-4" rows="5" id="comment" readonly></textarea>
+        <button type="button" class="btn btn-primary" id="copiarBtn">Copiar</button>
         <button type="button" class="btn btn-primary">Imprimir</button>
         <button type="button" class="btn btn-primary">Guardar</button>
 
@@ -124,6 +124,7 @@
       const selectProveedor = document.querySelector('.form-select');
       const tablaProductos = document.querySelector('tbody');
       const resumenPedidoTextarea = document.getElementById('comment');
+      const copiarBtn = document.getElementById('copiarBtn');
 
       // Función para ajustar dinámicamente la altura del textarea
       function ajustarAlturaTextarea() {
@@ -205,6 +206,16 @@
 
       // Ajustar la altura del textarea cuando se cambia su contenido
       resumenPedidoTextarea.addEventListener('input', ajustarAlturaTextarea);
+
+      // Manejar el evento click del botón Copiar
+      copiarBtn.addEventListener('click', function () {
+        resumenPedidoTextarea.select();
+        document.execCommand('copy');
+        copiarBtn.textContent = 'Resumen Copiado';
+        setTimeout(function () {
+          copiarBtn.textContent = 'Copiar';
+        }, 5000);
+      });
     });
   </script>
 </body>
