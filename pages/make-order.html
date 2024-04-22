@@ -125,6 +125,7 @@
       const tablaProductos = document.querySelector('tbody');
       const resumenPedidoTextarea = document.getElementById('comment');
       const copiarBtn = document.getElementById('copiarBtn');
+      const imprimirBtn = document.getElementById('imprimirBtn');
 
       // Función para ajustar dinámicamente la altura del textarea
       function ajustarAlturaTextarea() {
@@ -216,8 +217,42 @@
           copiarBtn.textContent = 'Copiar';
         }, 5000);
       });
-    });
-  </script>
+
+      // Manejar el evento click del botón Imprimir
+      imprimirBtn.addEventListener('click', function () {
+        const contenido = resumenPedidoTextarea.value;
+        if (contenido.trim() !== '') {
+          imprimirContenido(contenido);
+        } else {
+          console.log('No hay contenido para imprimir.');
+        }
+      });
+
+      // Función para imprimir el contenido
+      function imprimirContenido(contenido) {
+        const ventanaImpresion = window.open('', '_blank');
+        ventanaImpresion.document.write(`
+                <html>
+                  <head>
+                    <title>Resumen de Pedido</title>
+                  </head>
+                  <body>
+                    <pre>${contenido}</pre>
+                    <script>
+                      // Enviar comando de corte automático a la impresora térmica
+                      window.print();
+                      setTimeout(() => {
+                        window.print(); // Imprimir de nuevo para garantizar el corte automático
+                        window.close();
+                      }, 100);
+            </script>
+          </body>
+          </html>
+          `);
+        ventanaImpresion.document.close();
+      }
+});
+</script>
 </body>
 
 </html>
