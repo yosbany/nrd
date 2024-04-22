@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calcular Precio de Venta</title>
+  <title>Calcular Precio</title>
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../assets/app/css/nrd.css" rel="stylesheet">
 </head>
@@ -19,26 +19,25 @@
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Calcular Precio</h1>
         </div>
-        <!-- Code HTML Here -->
 
         <div class="row mb-2">
           <div class="col-md">
             <div class="input-group">
               <span class="input-group-text" style="width: 150px;">Precio $:</span>
-              <input type="number" class="form-control">
+              <input type="number" class="form-control" id="precio">
             </div>
           </div>
           <div class="col-md mt-2 mb-2" style="margin-top: 10px;">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" checked style="scale: 1.5;">
+              <input class="form-check-input" type="checkbox" checked style="scale: 1.5;" id="impuestosIncluidos">
               <label class="form-check-label">Impuestos Incluidos</label>
             </div>
           </div>
           <div class="col-md">
-            <select class="form-select">
-              <option>EX</option>
-              <option>TM</option>
-              <option selected>TB</option>
+            <select class="form-select" id="tipoVenta">
+              <option value="0.20">EX</option>
+              <option value="0.25">TM</option>
+              <option value="0.30" selected>TB</option>
             </select>
           </div>
         </div>
@@ -46,7 +45,7 @@
           <div class="col">
             <div class="input-group">
               <span class="input-group-text" style="width: 150px;">Unidades:</span>
-              <input type="number" class="form-control">
+              <input type="number" class="form-control" id="unidades">
             </div>
           </div>
         </div>
@@ -54,7 +53,7 @@
           <div class="col">
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 150px;">Margen %:</span>
-              <input type="number" class="form-control">
+              <input type="number" class="form-control" id="margen">
             </div>
           </div>
         </div>
@@ -62,7 +61,7 @@
           <div class="col">
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 150px;">Costo $:</span>
-              <input type="number" class="form-control" readonly>
+              <input type="number" class="form-control" id="costo" readonly>
             </div>
           </div>
         </div>
@@ -70,7 +69,7 @@
           <div class="col">
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 150px;">Ganancias $:</span>
-              <input type="number" class="form-control" readonly>
+              <input type="number" class="form-control" id="ganancias" readonly>
             </div>
           </div>
         </div>
@@ -78,7 +77,7 @@
           <div class="col">
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 150px;">Precio Final $:</span>
-              <input type="number" class="form-control" readonly>
+              <input type="number" class="form-control" id="precioFinal" readonly>
             </div>
           </div>
         </div>
@@ -86,37 +85,70 @@
           <div class="col-md">
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 100px;">20%:</span>
-              <input type="number" class="form-control" readonly>
+              <input type="number" class="form-control" id="veintePorciento" readonly>
             </div>
           </div>
           <div class="col-md">
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 100px;">25%:</span>
-              <input type="number" class="form-control" readonly>
+              <input type="number" class="form-control" id="veinticincoPorciento" readonly>
             </div>
           </div>
           <div class="col-md">
             <div class="input-group mb-3">
               <span class="input-group-text" style="width: 100px;">30%:</span>
-              <input type="number" class="form-control" readonly>
+              <input type="number" class="form-control" id="treintaPorciento" readonly>
             </div>
           </div>
         </div>
 
-        <!-- Code HTML End -->
         <div id="footer" class="mt-4" style="text-align: center;"></div>
       </main>
     </div>
   </div>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-  <script src="../assets/app/js/manager-api.js"></script>
-  <script src="../assets/app/js/nrd.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      //Code JS Here
+      const precioInput = document.getElementById('precio');
+      const impuestosCheckbox = document.getElementById('impuestosIncluidos');
+      const tipoVentaSelect = document.getElementById('tipoVenta');
+      const unidadesInput = document.getElementById('unidades');
+      const margenInput = document.getElementById('margen');
+      const costoInput = document.getElementById('costo');
+      const gananciasInput = document.getElementById('ganancias');
+      const precioFinalInput = document.getElementById('precioFinal');
+      const veintePorcientoInput = document.getElementById('veintePorciento');
+      const veinticincoPorcientoInput = document.getElementById('veinticincoPorciento');
+      const treintaPorcientoInput = document.getElementById('treintaPorciento');
 
+      function calcularPrecio() {
+        const precio = parseFloat(precioInput.value);
+        const unidades = parseFloat(unidadesInput.value);
+        const margen = parseFloat(margenInput.value) / 100;
+        const tipoVenta = parseFloat(tipoVentaSelect.value);
+        const impuestosIncluidos = impuestosCheckbox.checked;
+
+        const impuestos = impuestosIncluidos ? 1 : 1.1; // 1.1 para impuestos incluidos, 1 para no incluidos
+
+        const costo = (precio / unidades) + (precio / unidades * tipoVenta);
+        const ganancias = costo * margen;
+        const precioFinal = costo + ganancias;
+
+        costoInput.value = costo.toFixed(2);
+        gananciasInput.value = ganancias.toFixed(2);
+        precioFinalInput.value = precioFinal.toFixed(2);
+        veintePorcientoInput.value = (precioFinal * 0.2).toFixed(2);
+        veinticincoPorcientoInput.value = (precioFinal * 0.25).toFixed(2);
+        treintaPorcientoInput.value = (precioFinal * 0.3).toFixed(2);
+      }
+
+      precioInput.addEventListener('input', calcularPrecio);
+      impuestosCheckbox.addEventListener('change', calcularPrecio);
+      tipoVentaSelect.addEventListener('change', calcularPrecio);
+      unidadesInput.addEventListener('input', calcularPrecio);
+      margenInput.addEventListener('input', calcularPrecio);
+
+      calcularPrecio(); // Calcular inicialmente al cargar la página
     });
   </script>
 </body>
