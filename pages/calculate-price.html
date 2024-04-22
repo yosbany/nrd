@@ -129,8 +129,12 @@
         const precio = parseFloat(precioInput.value);
         const unidades = parseFloat(unidadesInput.value);
         const margen = parseFloat(margenInput.value) / 100;
-        const tipoVenta = parseFloat(tipoVentaSelect.value);
         const impuestosIncluidos = impuestosCheckbox.checked;
+
+        let tipoVenta = 0;
+        if (impuestosIncluidos) {
+          tipoVenta = parseFloat(tipoVentaSelect.value);
+        }
 
         const impuestos = impuestosIncluidos ? 1 : 1.1; // 1.1 para impuestos incluidos, 1 para no incluidos
 
