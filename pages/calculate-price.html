@@ -139,8 +139,8 @@
         const impuestos = impuestosIncluidos ? 1 : 1.1; // 1.1 para impuestos incluidos, 1 para no incluidos
 
         const costo = (precio / unidades) + (precio / unidades * tipoVenta);
-        const ganancias = costo * margen;
         const precioFinal = costo / (1 - margen); // Precio de venta final
+        const ganancias = precioFinal - costo; // Ganancias
 
         costoInput.value = costo.toFixed(2);
         gananciasInput.value = ganancias.toFixed(2);
