@@ -228,31 +228,13 @@
         }
       });
 
-      // Función para imprimir el contenido
       function imprimirContenido(contenido) {
         const ventanaImpresion = window.open('', '_blank');
-        ventanaImpresion.document.write(`
-                <html>
-                  <head>
-                    <title>Resumen de Pedido</title>
-                  </head>
-                  <body>
-                    <pre>${contenido}</pre>
-                    <script>
-                      // Enviar comando de corte automático a la impresora térmica
-                      window.print();
-                      setTimeout(() => {
-                        window.print(); // Imprimir de nuevo para garantizar el corte automático
-                        window.close();
-                      }, 100);
-            </script>
-          </body>
-          </html>
-          `);
+        const contenidoEscapado = JSON.stringify(contenido); // Escapa el contenido para incluirlo de forma segura
+        ventanaImpresion.document.write(`<html><head><title>Resumen de Pedido</title></head><body><pre>${contenidoEscapado}</pre><script>window.print();setTimeout(()=>{window.print();window.close();},100);</script></body></html>`);
         ventanaImpresion.document.close();
       }
 });
 </script>
 </body>
-
 </html>
