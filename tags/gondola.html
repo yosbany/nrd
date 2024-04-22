@@ -27,6 +27,12 @@
     .precio {
         font-size: 10pt; /* Tamaño de la fuente para el precio */
     }
+    /* Corte de página */
+    @media print {
+        .corte-pagina {
+            page-break-after: always;
+        }
+    }
 </style>
 </head>
 <body>
@@ -34,6 +40,8 @@
         <div class="nombre-producto">Producto XYZ</div>
         <div class="precio">$10.00</div>
     </div>
+    <!-- Corte de página -->
+    <div class="corte-pagina"></div>
 
     <script>
         // Llama a la función de impresión cuando la página esté completamente cargada
