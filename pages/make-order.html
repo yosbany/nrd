@@ -222,19 +222,15 @@
       imprimirBtn.addEventListener('click', function () {
         const contenido = resumenPedidoTextarea.value;
         if (contenido.trim() !== '') {
-          imprimirContenido(contenido);
+          //imprimirContenido(contenido);
         } else {
           console.log('No hay contenido para imprimir.');
         }
       });
 
-      function imprimirContenido(contenido) {
-        const ventanaImpresion = window.open('', '_blank');
-        const contenidoEscapado = JSON.stringify(contenido); // Escapa el contenido para incluirlo de forma segura
-        ventanaImpresion.document.write(`<html><head><title>Resumen de Pedido</title></head><body><pre>${contenidoEscapado}</pre><script>window.print();setTimeout(()=>{window.print();window.close();},100);</script></body></html>`);
-        ventanaImpresion.document.close();
-      }
-});
-</script>
+
+    });
+  </script>
 </body>
+
 </html>
