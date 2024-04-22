@@ -64,7 +64,7 @@
         <!-- Code HTML Here -->
 
         <select class="form-select form-select-lg">
-          <option selected>SELECCIONE...</option>
+          <option value="" selected>SELECCIONE...</option>
           <option value="PROVEEDOR 1">PROVEEDOR 1</option>
           <option value="PROVEEDOR 2">PROVEEDOR 2</option>
           <option value="PROVEEDOR 3">PROVEEDOR 3</option>
@@ -81,36 +81,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;">
-              </td>
-              <td style="vertical-align: middle;">
-                <h4 style="margin-bottom: 0px !important;">AZUCAR COMUN BOLSA 25KG</h4>
-              </td>
-              <td style="vertical-align: middle;"><span class="badge bg-secondary">$ 59</span></td>
-              <td style="vertical-align: middle;"><input type="number" class="form-control"
-                  style="width: 80px;float: right;"></td>
-            </tr>
-            <tr>
-              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" checked
-                  style="scale: 1.6;"></td>
-              <td style="vertical-align: middle;">
-                <h4 style="margin-bottom: 0px !important;">SAL COMUN BOLSA 25KG</h4>
-              </td>
-              <td style="vertical-align: middle;"><span class="badge bg-secondary">$ 134</span></td>
-              <td style="vertical-align: middle;"><input type="number" class="form-control"
-                  style="width: 80px;float: right;"></td>
-            </tr>
-            <tr>
-              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" checked
-                  style="scale: 1.6;"></td>
-              <td style="vertical-align: middle;">
-                <h4 style="margin-bottom: 0px !important;">HARINA 0 BOLSA 25KG</h4>
-              </td>
-              <td style="vertical-align: middle;"><span class="badge bg-secondary">$ 45</span></td>
-              <td style="vertical-align: middle;"><input type="number" class="form-control"
-                  style="width: 80px;float: right;"></td>
-            </tr>
+            <!-- Rows will be dynamically added here -->
           </tbody>
         </table>
         <label for="comment" class="mt-4">Resumen del Pedido:</label>
@@ -135,14 +106,13 @@
       // Define los datos del JSON para cada proveedor
       const proveedorData = {
         "PROVEEDOR 1": [
-          { producto: "Producto A", precio: "$10" },
-          { producto: "Producto B", precio: "$20" },
-          // Agrega más productos según necesites
+          { producto: "AZUCAR COMUN BOLSA 25KG", precio: "$59", cantidadPorDefecto: 1 },
+          { producto: "SAL COMUN BOLSA 25KG", precio: "$134", cantidadPorDefecto: 2 },
+          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 }
         ],
         "PROVEEDOR 2": [
-          { producto: "Producto X", precio: "$15" },
-          { producto: "Producto Y", precio: "$25" },
-          // Agrega más productos según necesites
+          { producto: "Producto X", precio: "$15", cantidadPorDefecto: 1 },
+          { producto: "Producto Y", precio: "$25", cantidadPorDefecto: 2 }
         ],
         // Define datos para los otros proveedores
       };
@@ -172,19 +142,26 @@
           productos.forEach(producto => {
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
-          <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
-          <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto}</h4></td>
-          <td style="vertical-align: middle;"><span class="badge bg-secondary">${producto.precio}</span></td>
-          <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;float: right;"></td>
-        `;
+              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
+              <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto}</h4></td>
+              <td style="vertical-align: middle;"><span class="badge bg-secondary">${producto.precio}</span></td>
+              <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value="${producto.cantidadPorDefecto || ''}"></td>
+            `;
             tablaProductos.appendChild(newRow);
+
+            // Habilitar la columna de cantidad al marcar el checkbox
+            const checkbox = newRow.querySelector('.form-check-input');
+            const cantidadInput = newRow.querySelector('.form-control');
+            checkbox.addEventListener('change', function () {
+              cantidadInput.disabled = !this.checked;
+            });
           });
         } else {
           // Si no hay productos disponibles, mostrar mensaje "No hay registros"
           const noRecordsRow = document.createElement('tr');
           noRecordsRow.innerHTML = `
-        <td colspan="4" style="text-align: center;">No hay registros</td>
-      `;
+            <td colspan="4" style="text-align: center;">No hay registros</td>
+          `;
           tablaProductos.appendChild(noRecordsRow);
         }
       }
