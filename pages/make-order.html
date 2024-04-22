@@ -111,9 +111,6 @@
           { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
           { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
           { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
-          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
-          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
-          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
           { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 }
         ],
         "PROVEEDOR 2": [
@@ -128,6 +125,12 @@
       const tablaProductos = document.querySelector('tbody');
       const resumenPedidoTextarea = document.getElementById('comment');
 
+      // Función para ajustar dinámicamente la altura del textarea
+      function ajustarAlturaTextarea() {
+        resumenPedidoTextarea.style.height = 'auto';
+        resumenPedidoTextarea.style.height = (resumenPedidoTextarea.scrollHeight + 2) + 'px';
+      }
+
       // Función para actualizar el resumen del pedido
       function actualizarResumenPedido() {
         const productosMarcados = Array.from(tablaProductos.querySelectorAll('input[type="checkbox"]:checked'))
@@ -140,6 +143,9 @@
 
         const resumen = productosMarcados.length > 0 ? `Pedido - Panadería Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
         resumenPedidoTextarea.value = resumen;
+
+        // Ajustar la altura del textarea después de actualizar el contenido
+        ajustarAlturaTextarea();
       }
 
       // Función para actualizar la tabla con los datos del proveedor seleccionado
@@ -196,6 +202,9 @@
 
       // Llama a actualizarTabla() inicialmente para que la tabla se muestre correctamente al cargar la página
       actualizarTabla();
+
+      // Ajustar la altura del textarea cuando se cambia su contenido
+      resumenPedidoTextarea.addEventListener('input', ajustarAlturaTextarea);
     });
   </script>
 </body>
