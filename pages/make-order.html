@@ -120,6 +120,21 @@
       // Obtén referencias a elementos DOM relevantes
       const selectProveedor = document.querySelector('.form-select');
       const tablaProductos = document.querySelector('tbody');
+      const resumenPedidoTextarea = document.getElementById('comment');
+
+      // Función para actualizar el resumen del pedido
+      function actualizarResumenPedido() {
+        const productosMarcados = Array.from(tablaProductos.querySelectorAll('input[type="checkbox"]:checked'))
+          .map(checkbox => {
+            const row = checkbox.closest('tr');
+            const producto = row.querySelector('td:nth-child(2)').textContent.trim();
+            const cantidad = row.querySelector('input[type="number"]').value || 0;
+            return `${producto} ${cantidad}`;
+          });
+
+        const resumen = productosMarcados.length > 0 ? `Pedido - Panadería Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
+        resumenPedidoTextarea.value = resumen;
+      }
 
       // Función para actualizar la tabla con los datos del proveedor seleccionado
       function actualizarTabla() {
@@ -142,32 +157,36 @@
           productos.forEach(producto => {
             const newRow = document.createElement('tr');
             newRow.innerHTML = `
-              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
-              <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto}</h4></td>
-              <td style="vertical-align: middle;"><span class="badge bg-secondary">${producto.precio}</span></td>
-              <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value="${producto.cantidadPorDefecto || ''}"></td>
-            `;
+          <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
+          <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto}</h4></td>
+          <td style="vertical-align: middle;"><span class="badge bg-secondary">${producto.precio}</span></td>
+          <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value="${producto.cantidadPorDefecto || ''}"></td>
+        `;
             tablaProductos.appendChild(newRow);
 
-            // Habilitar la columna de cantidad al marcar el checkbox
+            // Habilitar la columna de cantidad al marcar el checkbox y actualizar el resumen del pedido
             const checkbox = newRow.querySelector('.form-check-input');
             const cantidadInput = newRow.querySelector('.form-control');
             checkbox.addEventListener('change', function () {
               cantidadInput.disabled = !this.checked;
+              actualizarResumenPedido();
             });
           });
         } else {
           // Si no hay productos disponibles, mostrar mensaje "No hay registros"
           const noRecordsRow = document.createElement('tr');
           noRecordsRow.innerHTML = `
-            <td colspan="4" style="text-align: center;">No hay registros</td>
-          `;
+        <td colspan="4" style="text-align: center;">No hay registros</td>
+      `;
           tablaProductos.appendChild(noRecordsRow);
         }
       }
 
       // Escucha el evento 'change' del selectProveedor
-      selectProveedor.addEventListener('change', actualizarTabla);
+      selectProveedor.addEventListener('change', function () {
+        actualizarTabla();
+        actualizarResumenPedido(); // Agregar la llamada aquí también para actualizar el resumen cuando se cambie el proveedor
+      });
 
       // Llama a actualizarTabla() inicialmente para que la tabla se muestre correctamente al cargar la página
       actualizarTabla();
