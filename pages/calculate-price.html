@@ -140,7 +140,7 @@
 
         const costo = (precio / unidades) + (precio / unidades * tipoVenta);
         const ganancias = costo * margen;
-        const precioFinal = costo + ganancias;
+        const precioFinal = costo / (1 - margen); // Precio de venta final
 
         costoInput.value = costo.toFixed(2);
         gananciasInput.value = ganancias.toFixed(2);
