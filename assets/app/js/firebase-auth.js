@@ -1,3 +1,4 @@
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
 import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js';
 import { getAuth, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
@@ -28,7 +29,7 @@ export async function iniciarSesion(email, password) {
 }
 
 // Función para actualizar el perfil del usuario
-async function actualizarPerfil(newDisplayName, newPhotoURL, newPhoneNumber) {
+export async function actualizarPerfil(newDisplayName, newPhotoURL, newPhoneNumber) {
   try {
     const user = auth.currentUser;
     if (user) {
@@ -46,7 +47,7 @@ async function actualizarPerfil(newDisplayName, newPhotoURL, newPhoneNumber) {
 }
 
 // Función para verificar si el usuario está autenticado
-async function usuarioAutenticado() {
+export async function isAuthenticated() {
   try {
     const user = await new Promise((resolve, reject) => {
       onAuthStateChanged(auth, (user) => {
@@ -58,17 +59,19 @@ async function usuarioAutenticado() {
         }
       });
     });
-    return user;
+    return user != null;
   } catch (error) {
     throw new Error('Error al verificar la autenticación: ' + error.message);
   }
 }
 
 // Función para cerrar sesión
-async function cerrarSesion() {
+export async function cerrarSesion() {
   try {
     await signOut(auth);
   } catch (error) {
     throw new Error('Error al cerrar sesión: ' + error.message);
   }
 }
+
+export {initializeApp, getAnalytics, getAuth, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut}

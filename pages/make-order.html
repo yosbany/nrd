@@ -99,13 +99,10 @@
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-  <script src="../assets/app/js/manager-api.js"></script>
-  <script src="../assets/app/js/nrd.js"></script>
-  <script type="module" src="../assets/app/js/firebase-auth.js"></script>
-  <script>
+  <script type="module">
+    //import { iniciarSesion } from './assets/app/js/nrd.js';
     document.addEventListener('DOMContentLoaded', function () {
       //Code JS Here
-      // Define los datos del JSON para cada proveedor
       const proveedorData = {
         "PROVEEDOR 1": [
           { producto: "AZUCAR COMUN BOLSA 25KG", precio: "$59", cantidadPorDefecto: 1 },
@@ -229,10 +226,9 @@
           console.log('No hay contenido para imprimir.');
         }
       });
-
-
     });
   </script>
+
 </body>
 
 </html>
