@@ -80,7 +80,7 @@
     import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js'
 
     // Add Firebase products that you want to use
-    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js'
+    import { getAuth, signInWithEmailAndPassword, updateProfile } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js'
     import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js'
 
 
@@ -120,17 +120,14 @@
       auth.onAuthStateChanged((user) => {
         if (user) {
           // El usuario está autenticado, puedes mostrar contenido específico o redirigirlo a otra página si lo deseas
-          const currentUser = auth.currentUser;
-          currentUser.updateProfile({
-            displayName: "Nuevo Nombre",
-            photoURL: "https://ejemplo.com/foto.png",
-            phoneNumber: "+1234567890",
-            email: "nuevoemail@example.com"
+          
+          updateProfile(auth.currentUser, {
+            displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
           }).then(() => {
-            // Perfil actualizado exitosamente
+            console.log('Usuario autenticado:', auth.currentUser);
           }).catch((error) => {
-            // Error al actualizar el perfil
-            console.error("Error al actualizar el perfil:", error);
+            // An error occurred
+            // ...
           });
           console.log('Usuario autenticado:', user);
         } else {
