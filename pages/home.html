@@ -120,6 +120,17 @@
       auth.onAuthStateChanged((user) => {
         if (user) {
           // El usuario está autenticado, puedes mostrar contenido específico o redirigirlo a otra página si lo deseas
+          user.updateProfile({
+            displayName: "Nuevo Nombre",
+            photoURL: "https://ejemplo.com/foto.png",
+            phoneNumber: "+1234567890",
+            email: "nuevoemail@example.com"
+          }).then(() => {
+            // Perfil actualizado exitosamente
+          }).catch((error) => {
+            // Error al actualizar el perfil
+            console.error("Error al actualizar el perfil:", error);
+          });
           console.log('Usuario autenticado:', user);
         } else {
           // El usuario no está autenticado, redirigirlo a la página de inicio de sesión
