@@ -1,6 +1,6 @@
 import { isAuthenticated } from "firebase-auth.js"
 
-function onLoadWindows() {
+export function onLoadWindows() {
   if(isAuthenticated()){
     // Cargar la barra de navegación
     fetch('subpages/header.html')
@@ -21,5 +21,3 @@ function onLoadWindows() {
     window.location.href = "../index.html"
   }
 }
-
-window.onload = onLoadWindows;
