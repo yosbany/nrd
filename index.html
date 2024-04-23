@@ -47,7 +47,7 @@
     </form>
   </main>
   <script type="module" src="./assets/app/js/firebase-auth.js"></script>
-  <script type="module" >
+  <script type="module">
     import { iniciarSesion } from './assets/app/js/firebase-auth.js';
     document.addEventListener('DOMContentLoaded', function () {
       // Función para redireccionar a la página de inicio de sesión al hacer clic en el botón "Entrar"
@@ -57,7 +57,9 @@
         // Obtiene los valores de los campos de usuario y contraseña
         var email = document.getElementById('floatingInput').value;
         var password = document.getElementById('floatingPassword').value;
-        iniciarSesion(email, password);
+        if (iniciarSesion(email, password)) {
+          window.location.href = './pages/home.html';
+        }
       });
     });
   </script>

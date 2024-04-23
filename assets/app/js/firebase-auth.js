@@ -68,7 +68,6 @@ async function usuarioAutenticado() {
 async function cerrarSesion() {
   try {
     await signOut(auth);
-    window.location.href = '../index.html';
   } catch (error) {
     throw new Error('Error al cerrar sesión: ' + error.message);
   }
