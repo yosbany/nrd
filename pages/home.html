@@ -20,49 +20,85 @@
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Inicio</h1>
         </div>
-          <!-- Code HTML Here -->
-          <table class="table">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Responsable</th>
-                <th>Descripción</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table-primary">
-                <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox"  style="scale: 1.6;"></td>
-                <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">SALVADOR</h4></td>
-                <td style="vertical-align: middle;">Esto es una descripcíon de una tarea donde se tiene que ejecutar la contabilización de 4 faturas</td>
-              </tr>
-              <tr class="table-success">
-                <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox"  style="scale: 1.6;"></td>
-                <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">SALVADOR</h4></td>
-                <td style="vertical-align: middle;">Esto es una descripcíon de una tarea donde se tiene que ejecutar la contabilización de 4 faturas</td>
-              </tr>
-              <tr class="table-secondary">
-                <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox"  style="scale: 1.6;"></td>
-                <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">SALVADOR</h4></td>
-                <td style="vertical-align: middle;">Esto es una descripcíon de una tarea donde se tiene que ejecutar la contabilización de 4 faturas</td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- Code HTML End -->
-          <div id="footer" class="mt-4" style="text-align: center;"></div>
+        <!-- Code HTML Here -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Responsable</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-primary">
+              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;">
+              </td>
+              <td style="vertical-align: middle;">
+                <h4 style="margin-bottom: 0px !important;">SALVADOR</h4>
+              </td>
+              <td style="vertical-align: middle;">Esto es una descripcíon de una tarea donde se tiene que ejecutar la
+                contabilización de 4 faturas</td>
+            </tr>
+            <tr class="table-success">
+              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;">
+              </td>
+              <td style="vertical-align: middle;">
+                <h4 style="margin-bottom: 0px !important;">SALVADOR</h4>
+              </td>
+              <td style="vertical-align: middle;">Esto es una descripcíon de una tarea donde se tiene que ejecutar la
+                contabilización de 4 faturas</td>
+            </tr>
+            <tr class="table-secondary">
+              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;">
+              </td>
+              <td style="vertical-align: middle;">
+                <h4 style="margin-bottom: 0px !important;">SALVADOR</h4>
+              </td>
+              <td style="vertical-align: middle;">Esto es una descripcíon de una tarea donde se tiene que ejecutar la
+                contabilización de 4 faturas</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- Code HTML End -->
+        <div id="footer" class="mt-4" style="text-align: center;"></div>
       </main>
-      
+
     </div>
   </div>
- 
+
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   <script src="../assets/app/js/manager-api.js"></script>
   <script src="../assets/app/js/nrd.js"></script>
-  <script>
+  <script type="module">
+    // Importaciones de Firebase (ya las tienes)
+
+    // Configuración de Firebase (ya la tienes)
+
+    // Función para cerrar sesión
+    function cerrarSesion() {
+      auth.signOut()
+        .then(() => {
+          // Cierre de sesión exitoso, redirigir al usuario a la página de inicio de sesión
+          window.location.href = 'login.html'; // Reemplaza 'login.html' con la ruta de tu página de inicio de sesión
+        })
+        .catch((error) => {
+          console.error('Error al cerrar sesión:', error);
+        });
+    }
+
+    // Verificar el estado de autenticación al cargar la página
     document.addEventListener('DOMContentLoaded', function () {
-      //Code JS Here
-      
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          // El usuario está autenticado, puedes mostrar contenido específico o redirigirlo a otra página si lo deseas
+          console.log('Usuario autenticado:', user);
+        } else {
+          // El usuario no está autenticado, redirigirlo a la página de inicio de sesión
+          window.location.href = 'login.html'; // Reemplaza 'login.html' con la ruta de tu página de inicio de sesión
+        }
+      });
     });
   </script>
 </body>
