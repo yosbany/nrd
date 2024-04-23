@@ -120,7 +120,8 @@
       auth.onAuthStateChanged((user) => {
         if (user) {
           // El usuario está autenticado, puedes mostrar contenido específico o redirigirlo a otra página si lo deseas
-          user.updateProfile({
+          const currentUser = auth.currentUser;
+          currentUser.updateProfile({
             displayName: "Nuevo Nombre",
             photoURL: "https://ejemplo.com/foto.png",
             phoneNumber: "+1234567890",
