@@ -49,8 +49,17 @@
 
   <script type="module">
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js'
+
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js'
+
+    // Add Firebase products that you want to use
+    import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js'
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js'
+
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -69,6 +78,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+    const auth = getAuth(app);
 
     document.addEventListener('DOMContentLoaded', function () {
       // Función para redireccionar a la página de inicio de sesión al hacer clic en el botón "Entrar"
@@ -80,20 +90,15 @@
         var email = document.getElementById('floatingInput').value;
         var password = document.getElementById('floatingPassword').value;
 
-        // Autentica al usuario con Firebase
-        app.auth().signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
-            // Usuario autenticado correctamente
+            // Signed in 
             const user = userCredential.user;
-            console.log("Usuario autenticado:", user);
-            window.location.href = 'pages/home.html'; // Redirige al usuario a la página de inicio después de iniciar sesión
+            window.location.href = "pages/home.html"
           })
           .catch((error) => {
-            // Error al autenticar al usuario
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error("Error al autenticar:", errorCode, errorMessage);
-            // Puedes mostrar un mensaje de error al usuario aquí si lo deseas
           });
       });
     });
