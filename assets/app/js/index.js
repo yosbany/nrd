@@ -1,4 +1,4 @@
-import { iniciarSesion } from "firebase-auth.js"
+import { iniciarSesion } from "./firebase-auth.js"
 
 export {iniciarSesion}
 
