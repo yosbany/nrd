@@ -47,7 +47,7 @@
         </div>
         <div class="row mb-2">
           <div class="col">
-            <button type="button" onclick="updateProfile()" class="btn btn-primary" style="float: right;">Guardar</button>
+            <button type="button" onclick="guardarProfile()" class="btn btn-primary" style="float: right;">Guardar</button>
           </div>
         </div>
         <!-- Code HTML End -->
@@ -108,7 +108,7 @@
         });
     }
 
-    function updateProfile() {
+    function guardarProfile() {
       updateProfile(auth.currentUser, {
         displayName: fullName.value, phoneNumber: okenMagerIO.value
       }).then(() => {
