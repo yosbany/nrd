@@ -18,7 +18,7 @@ getAnalytics(app);
 const auth = getAuth(app);
 
 // Función para iniciar sesión con correo electrónico y contraseña
-async function iniciarSesion(email, password) {
+export async function iniciarSesion(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return userCredential.user;

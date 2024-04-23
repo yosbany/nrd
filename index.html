@@ -47,7 +47,8 @@
     </form>
   </main>
   <script type="module" src="assets/app/js/firebase-auth.js"></script>
-  <script>
+  <script type="module" >
+    import { iniciarSesion } from 'assets/app/js/firebase-auth.js';
     document.addEventListener('DOMContentLoaded', function () {
       // Función para redireccionar a la página de inicio de sesión al hacer clic en el botón "Entrar"
       document.getElementById('loginBtn').addEventListener('click', function (event) {
