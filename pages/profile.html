@@ -47,7 +47,7 @@
         </div>
         <div class="row mb-2">
           <div class="col">
-            <button type="button" onclick="guardarProfile()" class="btn btn-primary" style="float: right;">Guardar</button>
+            <button type="button" id="guardarBtn" class="btn btn-primary" style="float: right;">Guardar</button>
           </div>
         </div>
         <!-- Code HTML End -->
@@ -76,6 +76,7 @@
     const fullName = document.getElementById('fullName');
     const email = document.getElementById('email');
     const tokenMagerIO = document.getElementById('tokenMagerIO');
+    const guardarBtn = document.getElementById('guardarBtn');
 
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -108,17 +109,7 @@
         });
     }
 
-    function guardarProfile() {
-      updateProfile(auth.currentUser, {
-        displayName: fullName.value, phoneNumber: okenMagerIO.value
-      }).then(() => {
-        console.log('Usuario Update Ok');
-      }).catch((error) => {
-        // An error occurred
-        // ...
-      });
 
-    }
 
     // Verificar el estado de autenticación al cargar la página
     document.addEventListener('DOMContentLoaded', function () {
@@ -133,6 +124,21 @@
           window.location.href = 'login.html'; // Reemplaza 'login.html' con la ruta de tu página de inicio de sesión
         }
       });
+
+      // Agregar un manejador de eventos al botón
+      guardarBtn.addEventListener('click', function () {
+        updateProfile(auth.currentUser, {
+          displayName: fullName.value, phoneNumber: tokenMagerIO.value
+        }).then(() => {
+          console.log('Usuario Update Ok');
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
+        console.log('Se hizo clic en el botón Guardar');
+      });
+
+
     });
   </script>
 </body>
