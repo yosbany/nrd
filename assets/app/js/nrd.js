@@ -1,6 +1,6 @@
 import { isAuthenticated } from "./firebase-auth.js"
 
-export async function onLoadWindows() {
+export async function checkAuthentication() {
   const authenticated = await isAuthenticated();
   if(authenticated){
     // Cargar la barra de navegación
