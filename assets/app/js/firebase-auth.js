@@ -49,17 +49,12 @@ export async function actualizarPerfil(newDisplayName, newPhotoURL, newPhoneNumb
 // Función para verificar si el usuario está autenticado
 export async function isAuthenticated() {
   try {
-    const user = await new Promise((resolve, reject) => {
+    const user = await new Promise((resolve) => {
       onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // Usuario autenticado
-          resolve(user);
-        } else {
-          reject(new Error('Usuario no autenticado'));
-        }
+        resolve(user);
       });
     });
-    return user != null;
+    return user != null; // Devuelve true si el usuario está autenticado, false si no lo está
   } catch (error) {
     throw new Error('Error al verificar la autenticación: ' + error.message);
   }
