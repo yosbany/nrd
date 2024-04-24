@@ -1,4 +1,4 @@
-import { isAuthenticated } from "firebase-auth.js"
+import { isAuthenticated } from "./firebase-auth.js"
 
 export function onLoadWindows() {
   if(isAuthenticated()){
