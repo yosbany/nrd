@@ -48,8 +48,9 @@ function loadPage(route, controller) {
                 import(`./controllers/${controller}`)
                     .then(module => {
                         const { exportedFunction } = module;
+                        console.log("exportedFunction",exportedFunction);
                         if (exportedFunction) {
-                            console.log("exportedFunction");
+                         
                             exportedFunction();
                         }
                     })
