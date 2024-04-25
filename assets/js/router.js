@@ -22,15 +22,15 @@ function loadPage(route, controller, hash) {
             .then(response => response.text())
             .then(data => {
                 document.getElementById('app').innerHTML = data;
-                fetch('templates/header.html')
+                fetch('./templates/header.html')
                     .then(response => response.text())
                     .then(header => document.getElementById('header').innerHTML = header);
 
-                fetch('templates/sidebar.html')
+                fetch('./templates/sidebar.html')
                     .then(response => response.text())
                     .then(sidebar => document.getElementById('sidebar').innerHTML = sidebar);
 
-                fetch('templates/footer.html')
+                fetch('./templates/footer.html')
                     .then(response => response.text())
                     .then(footer => document.getElementById('footer').innerHTML = footer);
                 if (!controller) {

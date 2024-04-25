@@ -4,7 +4,7 @@ export const routes = {
     'login': 'login.html',
     'not-found': 'not-found.html',
     'access-denied': 'access-denied.html',
-    'home': '#home'
+    'home': 'home.html'
 };
 
 // Controladores
