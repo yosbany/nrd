@@ -1,234 +1,26 @@
-<!doctype html>
-<html lang="en">
+<select class="form-select form-select-lg">
+  <option selected>SELECCIONE...</option>
+  <option value="PROVEEDOR 1">PROVEEDOR 1</option>
+  <option value="PROVEEDOR 2">PROVEEDOR 2</option>
+  <option value="PROVEEDOR 3">PROVEEDOR 3</option>
+  <option value="PROVEEDOR 4">PROVEEDOR 4</option>
+</select>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/jpg" href="../assets/app/img/logo.jpg">
-  <title>Nueva Río D'or | Realizar Pedido</title>
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/app/css/nrd.css" rel="stylesheet">
-  <style>
-    /* Estilos personalizados */
-
-    .pedido-item {
-      margin-bottom: 10px;
-    }
-
-    .pedido-item input[type="checkbox"] {
-      width: 25px;
-      height: 25px;
-    }
-
-    /* Estilos para el resumen */
-    .resumen {
-      border: 1px solid #ced4da;
-      padding: 10px;
-      overflow: hidden;
-      white-space: pre-wrap;
-      background-color: #fff;
-    }
-
-    .checkbox-lg {
-      transform: scale(1.0);
-    }
-
-    /* Estilos para los botones */
-    .btn-group {
-      margin-top: 20px;
-    }
-
-    .btn-group .btn {
-      margin-right: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .col-sm-2 {
-        flex: 0 0 100%;
-        max-width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div id="header"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div id="sidebar"></div>
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Realizar Pedido</h1>
-        </div>
-
-        <!-- Code HTML Here -->
-
-        <select class="form-select form-select-lg">
-          <option selected>SELECCIONE...</option>
-          <option value="PROVEEDOR 1">PROVEEDOR 1</option>
-          <option value="PROVEEDOR 2">PROVEEDOR 2</option>
-          <option value="PROVEEDOR 3">PROVEEDOR 3</option>
-          <option value="PROVEEDOR 4">PROVEEDOR 4</option>
-        </select>
-
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Producto</th>
-              <th>Precio</th>
-              <th style="text-align: right;">Cantidad</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Rows will be dynamically added here -->
-          </tbody>
-        </table>
-        <label for="comment" class="mt-4">Resumen del Pedido:</label>
-        <textarea class="form-control mb-4" rows="5" id="comment" readonly></textarea>
-        <button type="button" class="btn btn-primary" id="copiarBtn">Copiar</button>
-        <button type="button" class="btn btn-primary">Imprimir</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-
-        <!-- Code HTML End -->
-        <div id="footer" class="mt-4" style="text-align: center;"></div>
-      </main>
-    </div>
-  </div>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-  <script type="module">
-    //import { iniciarSesion } from './assets/app/js/nrd.js';
-    document.addEventListener('DOMContentLoaded', function () {
-      //Code JS Here
-      const proveedorData = {
-        "PROVEEDOR 1": [
-          { producto: "AZUCAR COMUN BOLSA 25KG", precio: "$59", cantidadPorDefecto: 1 },
-          { producto: "SAL COMUN BOLSA 25KG", precio: "$134", cantidadPorDefecto: 2 },
-          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
-          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
-          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 },
-          { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 }
-        ],
-        "PROVEEDOR 2": [
-          { producto: "Producto X", precio: "$15", cantidadPorDefecto: 1 },
-          { producto: "Producto Y", precio: "$25", cantidadPorDefecto: 2 }
-        ],
-        // Define datos para los otros proveedores
-      };
-
-      // Obtén referencias a elementos DOM relevantes
-      const selectProveedor = document.querySelector('.form-select');
-      const tablaProductos = document.querySelector('tbody');
-      const resumenPedidoTextarea = document.getElementById('comment');
-      const copiarBtn = document.getElementById('copiarBtn');
-      const imprimirBtn = document.getElementById('imprimirBtn');
-
-      // Función para ajustar dinámicamente la altura del textarea
-      function ajustarAlturaTextarea() {
-        resumenPedidoTextarea.style.height = 'auto';
-        resumenPedidoTextarea.style.height = (resumenPedidoTextarea.scrollHeight + 2) + 'px';
-      }
-
-      // Función para actualizar el resumen del pedido
-      function actualizarResumenPedido() {
-        const productosMarcados = Array.from(tablaProductos.querySelectorAll('input[type="checkbox"]:checked'))
-          .map(checkbox => {
-            const row = checkbox.closest('tr');
-            const producto = row.querySelector('td:nth-child(2)').textContent.trim();
-            const cantidad = row.querySelector('input[type="number"]').value || 0;
-            return `${producto} ${cantidad}`;
-          });
-
-        const resumen = productosMarcados.length > 0 ? `Pedido - Panadería Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
-        resumenPedidoTextarea.value = resumen;
-
-        // Ajustar la altura del textarea después de actualizar el contenido
-        ajustarAlturaTextarea();
-      }
-
-      // Función para actualizar la tabla con los datos del proveedor seleccionado
-      function actualizarTabla() {
-        const proveedorSeleccionado = selectProveedor.value;
-
-        // Limpiar la tabla si se selecciona la opción vacía
-        if (proveedorSeleccionado === '') {
-          tablaProductos.innerHTML = '';
-          return; // Salir de la función si se selecciona la opción vacía
-        }
-
-        const productos = proveedorData[proveedorSeleccionado];
-
-        // Elimina las filas existentes de la tabla
-        tablaProductos.innerHTML = '';
-
-        // Verificar si hay productos disponibles para el proveedor seleccionado
-        if (productos && productos.length > 0) {
-          // Agrega las nuevas filas a la tabla
-          productos.forEach(producto => {
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-          <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
-          <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto}</h4></td>
-          <td style="vertical-align: middle;"><span class="badge bg-secondary">${producto.precio}</span></td>
-          <td style="vertical-align: middle;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value="${producto.cantidadPorDefecto || ''}"></td>
-        `;
-            tablaProductos.appendChild(newRow);
-
-            // Habilitar la columna de cantidad al marcar el checkbox y actualizar el resumen del pedido
-            const checkbox = newRow.querySelector('.form-check-input');
-            const cantidadInput = newRow.querySelector('.form-control');
-            checkbox.addEventListener('change', function () {
-              cantidadInput.disabled = !this.checked;
-              actualizarResumenPedido();
-            });
-          });
-        } else {
-          // Si no hay productos disponibles, mostrar mensaje "No hay registros"
-          const noRecordsRow = document.createElement('tr');
-          noRecordsRow.innerHTML = `
-        <td colspan="4" style="text-align: center;">No hay registros</td>
-      `;
-          tablaProductos.appendChild(noRecordsRow);
-        }
-      }
-
-      // Escucha el evento 'change' del selectProveedor
-      selectProveedor.addEventListener('change', function () {
-        actualizarTabla();
-        actualizarResumenPedido(); // Agregar la llamada aquí también para actualizar el resumen cuando se cambie el proveedor
-      });
-
-      // Llama a actualizarTabla() inicialmente para que la tabla se muestre correctamente al cargar la página
-      actualizarTabla();
-
-      // Ajustar la altura del textarea cuando se cambia su contenido
-      resumenPedidoTextarea.addEventListener('input', ajustarAlturaTextarea);
-
-      // Manejar el evento click del botón Copiar
-      copiarBtn.addEventListener('click', function () {
-        resumenPedidoTextarea.select();
-        document.execCommand('copy');
-        copiarBtn.textContent = 'Resumen Copiado';
-        setTimeout(function () {
-          copiarBtn.textContent = 'Copiar';
-        }, 5000);
-      });
-
-      // Manejar el evento click del botón Imprimir
-      imprimirBtn.addEventListener('click', function () {
-        const contenido = resumenPedidoTextarea.value;
-        if (contenido.trim() !== '') {
-          //imprimirContenido(contenido);
-        } else {
-          console.log('No hay contenido para imprimir.');
-        }
-      });
-    });
-  </script>
-
-</body>
-
-</html>
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th style="text-align: right;">Cantidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Rows will be dynamically added here -->
+  </tbody>
+</table>
+<label for="comment" class="mt-4">Resumen del Pedido:</label>
+<textarea class="form-control mb-4" rows="5" id="comment" readonly></textarea>
+<button type="button" class="btn btn-primary" id="copiarBtn">Copiar</button>
+<button type="button" class="btn btn-primary">Imprimir</button>
+<button type="button" class="btn btn-primary">Guardar</button>

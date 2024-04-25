@@ -115,3 +115,41 @@ body {
         font-size: 3.5rem;
     }
 }
+
+.pedido-item {
+    margin-bottom: 10px;
+  }
+
+  .pedido-item input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* Estilos para el resumen */
+  .resumen {
+    border: 1px solid #ced4da;
+    padding: 10px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    background-color: #fff;
+  }
+
+  .checkbox-lg {
+    transform: scale(1.0);
+  }
+
+  /* Estilos para los botones */
+  .btn-group {
+    margin-top: 20px;
+  }
+
+  .btn-group .btn {
+    margin-right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .col-sm-2 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
