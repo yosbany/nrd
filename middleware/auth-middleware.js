@@ -2,7 +2,6 @@ import { getCurrentUserFirebase, isUserAuthorized } from '../services/auth-servi
 
 export function requireAuth() {
     const currentUser = getCurrentUserFirebase();
-    console.log("currentUser: ",currentUser);
     if (!currentUser) {
         window.location.href = 'login.html';
     }
