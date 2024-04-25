@@ -1,5 +1,5 @@
 import { routes, controllers } from './routes.js';
-import { requireAuth } from './auth-middleware.js';
+import { requireAuth } from '../../middleware/auth-middleware.js';
 
 export function handleRoute() {
     const hash = window.location.hash.substring(1);
