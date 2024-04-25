@@ -17,6 +17,7 @@ export function handleRoute() {
 
 function loadPage(route, controller, hash) {
     if (hash !== '' && hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
+        console.log(hash, route, controller)
         fetch(route)
             .then(response => response.text())
             .then(data => {
