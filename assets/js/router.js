@@ -16,12 +16,13 @@ export function handleRoute() {
 }
 
 function loadPage(route, controller, hash) {
-    console.log(hash, route, controller)
+    console.log(hash, route, controller);
     if (hash !== '' && hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
-        fetch(route)
+        fetch('.pages/'+route)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('app').innerHTML = data;
+
                 fetch('./templates/header.html')
                     .then(response => response.text())
                     .then(header => document.getElementById('header').innerHTML = header);
