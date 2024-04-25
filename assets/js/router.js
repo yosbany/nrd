@@ -30,7 +30,7 @@ function requiresAuthentication(hash) {
     return hash !== '' && hash !== 'login' && hash !== 'access-denied' && hash !== 'not-found';
 }
 
-async function fetchAndSetHTML(url, targetElementId) {
+function fetchAndSetHTML(url, targetElementId) {
     return fetch(url)
         .then(response => response.text())
         .then(html => document.getElementById(targetElementId).innerHTML = html);
@@ -47,9 +47,9 @@ function loadPage(route, controller) {
             if (controller) {
                 import(`./controllers/${controller}`)
                     .then(module => {
-                        // Use named exports if available
                         const { exportedFunction } = module;
                         if (exportedFunction) {
+                            console.log("exportedFunction");
                             exportedFunction();
                         }
                     })
