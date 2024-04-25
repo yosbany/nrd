@@ -47,6 +47,7 @@ function loadPage(route, controller) {
             if (controller) {
                 import(`./controllers/${controller}`)
                     .then(module => {
+                        console.log("module",module)
                         module.default();
                     })
                     .catch(error => console.error('Error importing controller:', error));
