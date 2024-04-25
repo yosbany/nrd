@@ -25,6 +25,7 @@ export const routes = {
 export const controllers = {
     '': 'login-controller.js',
     'login': 'login-controller.js',
-    'home': 'home-controller.js'
+    'home': 'home-controller.js',
+    'make-order': 'make-order-controller.js'
     
 };
