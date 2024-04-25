@@ -45,7 +45,7 @@ function loadPage(route, controller) {
         ]))
         .then(() => {
             if (controller) {
-                import(`./controller/${controller}`)
+                import(`./controllers/${controller}`)
                     .then(module => module.default());
             }
         })
