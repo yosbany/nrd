@@ -35,7 +35,7 @@ function loadPage(route, controller) {
                 .then(response => response.text())
                 .then(footer => document.getElementById('footer').innerHTML = footer);
 
-            import(`./controllers/${controller}`)
+            import('./controllers/${controller}')
                 .then(module => module.default());
         })
         .catch(error => console.error('Error loading page:', error));
