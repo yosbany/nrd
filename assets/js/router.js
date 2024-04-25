@@ -59,7 +59,7 @@ function loadController(controller) {
     }
     // Cargar el nuevo controlador dinámicamente
     const script = document.createElement('script');
-    script.src = `./assets/js/controllers/${controller}.js`;
+    script.src = `./assets/js/controllers/${controller}`;
     script.id = 'currentScript';
     script.type = 'module';
     document.body.appendChild(script);
