@@ -45,15 +45,24 @@ function loadPage(route, controller) {
         ]))
         .then(() => {
             if (controller) {
-                import(`./controllers/${controller}`)
-                    .then(module => {
-                        const ControllerClass = module.default;
-                        new ControllerClass();
-                    })
-                    .catch(error => console.error('Error importing controller:', error));
+                loadController(controller); 
             }
         })
         .catch(error => console.error('Error loading page:', error));
+}
+
+function loadController(controller) {
+    // Elimina el controlador actual si existe
+    const currentScript = document.getElementById('currentScript');
+    if (currentScript) {
+        currentScript.remove();
+    }
+    // Cargar el nuevo controlador dinámicamente
+    const script = document.createElement('script');
+    script.src = `./controllers/${controller}.js`;
+    script.id = 'currentScript';
+    script.type = 'module';
+    document.body.appendChild(script);
 }
 
 function redirectTo(url) {
