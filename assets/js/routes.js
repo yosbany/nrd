@@ -1,12 +1,13 @@
+//Rutas
 export const routes = {
-    'home': 'home.html',
-    'about': 'about.html',
-    'admin': 'admin.html' // Ruta protegida
+    'login': 'login.html',
+    'not-found': 'not-found.html',
+    'home': 'home.html'
 };
 
 // Controladores
 export const controllers = {
-    'home': 'homeController.js',
-    'about': 'aboutController.js',
-    'admin': 'adminPageController.js' // Controlador de página protegida
+    'login': 'login-controller.js',
+    'home': 'home-controller.js',
+    'not-found': 'not-found-controller.js'
 };
