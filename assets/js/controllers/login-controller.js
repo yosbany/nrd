@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const password = document.getElementById('floatingPassword').value;
         try {
             await loginFirebase(username, password);
-            window.location.href = '#home';
+            window.location.href = '/#home';
         } catch (error) {
             console.error('Error al iniciar sesión:', error.message);
         }
