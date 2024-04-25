@@ -1,4 +1,4 @@
-import { login } from '../../../services/auth-service.js';
+import { loginFirebase } from '../../../services/auth-service.js';
 document.addEventListener('DOMContentLoaded', async function () {
     console.log('Login page loaded.');
     document.getElementById('loginBtn').addEventListener('click', async function(event) {
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const username = document.getElementById('floatingInput').value;
         const password = document.getElementById('floatingPassword').value;
         try {
-            await login(username, password);
+            await loginFirebase(username, password);
             window.location.href = '#home';
         } catch (error) {
             console.error('Error al iniciar sesión:', error.message);
