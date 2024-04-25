@@ -18,22 +18,23 @@ export function handleRoute() {
 function loadPage(route, controller, hash) {
     console.log(hash, route, controller);
     if (hash !== '' && hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
-        fetch('./pages/'+route)
+        fetch('./pages/' + route)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('app').innerHTML = data;
 
                 fetch('./templates/header.html')
                     .then(response => response.text())
-                    .then(header => document.getElementById('header').innerHTML = header);
+                    .then(header => document.getElementById('header').innerHTML = header).catch(error => console.error('Error loading page header:', error));;
 
                 fetch('./templates/sidebar.html')
                     .then(response => response.text())
-                    .then(sidebar => document.getElementById('sidebar').innerHTML = sidebar);
+                    .then(sidebar => document.getElementById('sidebar').innerHTML = sidebar).catch(error => console.error('Error loading page sidebar:', error));;
 
                 fetch('./templates/footer.html')
                     .then(response => response.text())
-                    .then(footer => document.getElementById('footer').innerHTML = footer);
+                    .then(footer => document.getElementById('footer').innerHTML = footer).catch(error => console.error('Error loading page :', error));;
+
                 if (!controller) {
                     import('./controllers/' + controller)
                         .then(module => module.default());
