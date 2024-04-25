@@ -15,36 +15,41 @@ export function handleRoute() {
     loadPage(route, controller, hash);
 }
 
+function fetchHTML(url, targetElementId) {
+    return fetch(url)
+        .then(response => response.text())
+        .then(html => document.getElementById(targetElementId).innerHTML = html);
+}
+
 function loadPage(route, controller, hash) {
     console.log(hash, route, controller);
-    if (hash !== '' && hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
-        fetch('./pages/' + route)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('app').innerHTML = data;
 
-                fetch('./templates/header.html')
-                    .then(response => response.text())
-                    .then(header => document.getElementById('header').innerHTML = header).catch(error => console.error('Error loading page header:', error));;
+    const allowedHashes = ['', 'login', 'not-found', 'access-denied'];
 
-                fetch('./templates/sidebar.html')
-                    .then(response => response.text())
-                    .then(sidebar => document.getElementById('sidebar').innerHTML = sidebar).catch(error => console.error('Error loading page sidebar:', error));;
-
-                fetch('./templates/footer.html')
-                    .then(response => response.text())
-                    .then(footer => document.getElementById('footer').innerHTML = footer).catch(error => console.error('Error loading page :', error));;
-
-                if (!controller) {
-                    import('./controllers/' + controller)
-                        .then(module => module.default());
-                }
-
-            })
-            .catch(error => console.error('Error loading page:', error));
-    }
-    else {
-        window.location.href = route;
+    if (!allowedHashes.includes(hash)) {
+        redirectTo(route);
+        return;
     }
 
+    fetchHTML('./pages/' + route, 'app')
+        .then(() => {
+            const templatePromises = [
+                fetchHTML('./templates/header.html', 'header'),
+                fetchHTML('./templates/sidebar.html', 'sidebar'),
+                fetchHTML('./templates/footer.html', 'footer')
+            ];
+
+            return Promise.all(templatePromises);
+        })
+        .then(() => {
+            if (controller) {
+                import('./assets/js/controllers/' + controller)
+                    .then(module => module.default());
+            }
+        })
+        .catch(error => console.error('Error loading page:', error));
+}
+
+function redirectTo(url) {
+    window.location.href = url;
 }
