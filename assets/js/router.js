@@ -13,10 +13,15 @@ export function handleRoute() {
         requireAuth();
     }
 
-    loadPage(route, controller);
+    if (isRedirectRoute(hash)) {
+        redirectTo(route);
+    }
+    else {
+        loadPage(route, controller);
+    }
 }
 
-function isValidHash(hash) {
+function isRedirectRoute(hash) {
     const allowedHashes = ['', 'login', 'not-found', 'access-denied'];
     return allowedHashes.includes(hash);
 }
