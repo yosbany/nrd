@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     console.log('Login page loaded.');
     document.getElementById('loginBtn').addEventListener('click', async function(event) {
         event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+        const username = document.getElementById('floatingInput').value;
+        const password = document.getElementById('floatingPassword').value;
         try {
             await login(username, password);
             window.location.href = '#home';
