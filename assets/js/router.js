@@ -5,46 +5,42 @@ export function handleRoute() {
     const hash = window.location.hash.substring(1);
     const route = routes[hash];
     const controller = controllers[hash];
+
     if (!route) {
-        window.location.href = 'not-found.html';
-        return;
+        redirectTo('not-found.html');
     }
-    if (hash !== '' && hash !== 'login' && hash !== 'access-denied' && hash !== 'not-found') {
+    else if (requiresAuthentication(hash)) {
         requireAuth();
     }
-    loadPage(route, controller, hash);
+
+    loadPage(route, controller);
 }
 
-function fetchHTML(url, targetElementId) {
+function isValidHash(hash) {
+    const allowedHashes = ['', 'login', 'not-found', 'access-denied'];
+    return allowedHashes.includes(hash);
+}
+
+function requiresAuthentication(hash) {
+    return hash !== '' && hash !== 'login' && hash !== 'access-denied' && hash !== 'not-found';
+}
+
+async function fetchAndSetHTML(url, targetElementId) {
     return fetch(url)
         .then(response => response.text())
         .then(html => document.getElementById(targetElementId).innerHTML = html);
 }
 
-function loadPage(route, controller, hash) {
-    console.log(hash, route, controller);
-
-    const allowedHashes = ['', 'login', 'not-found', 'access-denied'];
-
-    if (!allowedHashes.includes(hash)) {
-        console.log("route: ",route)
-        redirectTo(route);
-        return;
-    }
-
-    fetchHTML('./pages/' + route, 'app')
-        .then(() => {
-            const templatePromises = [
-                fetchHTML('./templates/header.html', 'header'),
-                fetchHTML('./templates/sidebar.html', 'sidebar'),
-                fetchHTML('./templates/footer.html', 'footer')
-            ];
-
-            return Promise.all(templatePromises);
-        })
+function loadPage(route, controller) {
+    fetchAndSetHTML(`./pages/${route}`, 'app')
+        .then(() => Promise.all([
+            fetchAndSetHTML('./templates/header.html', 'header'),
+            fetchAndSetHTML('./templates/sidebar.html', 'sidebar'),
+            fetchAndSetHTML('./templates/footer.html', 'footer')
+        ]))
         .then(() => {
             if (controller) {
-                import('./assets/js/controllers/' + controller)
+                import(`./assets/js/controllers/${controller}`)
                     .then(module => module.default());
             }
         })

@@ -1,9 +1,9 @@
-import { getCurrentUserFirebase, isUserAuthorized } from '../services/auth-service.js';
+import { isAuthenticatedFirebase, isUserAuthorized } from '../services/auth-service.js';
 
 export function requireAuth() {
-    const currentUser = getCurrentUserFirebase();
-    if (!currentUser) {
-        window.location.href = 'login.html';
+    if (!isAuthenticatedFirebase()) {
+        console.log("isAuthenticatedFirebase: false");
+        window.location.href = './login.html';
     }
 }
 
