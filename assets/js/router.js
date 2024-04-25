@@ -21,22 +21,30 @@ export function handleRoute() {
 }
 
 function loadPage(route, controller) {
+    const hash = window.location.hash.substring(1);
     fetch(route)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('app').innerHTML = data;
+            if (hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
 
-            // Cargar encabezado y pie de página
-            fetch('templates/header.html')
-                .then(response => response.text())
-                .then(header => document.getElementById('header').innerHTML = header);
+                document.getElementById('app').innerHTML = data;
 
-            fetch('templates/footer.html')
-                .then(response => response.text())
-                .then(footer => document.getElementById('footer').innerHTML = footer);
+                fetch('templates/header.html')
+                    .then(response => response.text())
+                    .then(header => document.getElementById('header').innerHTML = header);
 
-            import('./controllers/${controller}')
-                .then(module => module.default());
+                fetch('templates/sidebar.html')
+                    .then(response => response.text())
+                    .then(sidebar => document.getElementById('sidebar').innerHTML = sidebar);
+
+                fetch('templates/footer.html')
+                    .then(response => response.text())
+                    .then(footer => document.getElementById('footer').innerHTML = footer);
+
+                import('./controllers/' + controller)
+                    .then(module => module.default());
+            }
+
         })
         .catch(error => console.error('Error loading page:', error));
 }
