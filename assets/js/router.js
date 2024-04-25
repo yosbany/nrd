@@ -3,26 +3,20 @@ import { requireAuth } from '../../middleware/auth-middleware.js';
 
 export function handleRoute() {
     const hash = window.location.hash.substring(1);
-    console.log("hash: ",hash);
     const route = routes[hash];
-    console.log("route: ",route);
     const controller = controllers[hash];
-    console.log("controller: ",controller);
-
     if (!route) {
-        window.location.href = '#/not-found';
+        window.location.href = 'not-found.html';
         return;
     }
-
-    if (hash !== 'login' && hash !== 'access-denied' && hash !== 'not-found') {
+    if (hash !== '' && hash !== 'login' && hash !== 'access-denied' && hash !== 'not-found') {
         requireAuth();
     }
-
     loadPage(route, controller, hash);
 }
 
 function loadPage(route, controller, hash) {
-    if (hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
+    if (hash !== '' && hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
         fetch(route)
             .then(response => response.text())
             .then(data => {

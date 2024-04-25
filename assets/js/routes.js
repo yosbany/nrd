@@ -1,13 +1,16 @@
 //Rutas
 export const routes = {
-    '': 'home.html',
+    '': 'login.html',
     'login': 'login.html',
-    'not-found': 'not-found.html'
+    'not-found': 'not-found.html',
+    'access-denied': 'access-denied.html',
+    'home': 'home.html'
 };
 
 // Controladores
 export const controllers = {
-    '': 'home-controller.js',
+    '': 'login-controller.js',
     'login': 'login-controller.js',
-    'not-found': 'not-found-controller.js'
+    'home': 'home-controller.js'
+    
 };
