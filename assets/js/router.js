@@ -3,9 +3,11 @@ import { requireAuth } from '../../middleware/auth-middleware.js';
 
 export function handleRoute() {
     const hash = window.location.hash.substring(1);
-    console.log("hash:", hash);
+    console.log("hash: ",hash);
     const route = routes[hash];
+    console.log("route: ",route);
     const controller = controllers[hash];
+    console.log("controller: ",controller);
 
     if (!route) {
         window.location.href = '#/not-found';
