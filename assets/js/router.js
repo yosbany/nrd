@@ -27,6 +27,7 @@ function loadPage(route, controller, hash) {
     const allowedHashes = ['', 'login', 'not-found', 'access-denied'];
 
     if (!allowedHashes.includes(hash)) {
+        console.log("route: ",route)
         redirectTo(route);
         return;
     }
