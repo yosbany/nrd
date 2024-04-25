@@ -18,7 +18,7 @@ export function handleRoute() {
 function loadPage(route, controller, hash) {
     console.log(hash, route, controller);
     if (hash !== '' && hash !== 'login' && hash !== 'not-found' && hash !== 'access-denied') {
-        fetch('.pages/'+route)
+        fetch('./pages/'+route)
             .then(response => response.text())
             .then(data => {
                 document.getElementById('app').innerHTML = data;
