@@ -36,7 +36,24 @@ function fetchAndSetHTML(url, targetElementId) {
         .then(html => document.getElementById(targetElementId).innerHTML = html);
 }
 
+function showLoader() {
+    document.getElementById("loader").style.display = "block";
+    document.getElementById("page").style.display = "none";
+}
+
+function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("page").style.display = "block";
+}
+
+function setPageTitleAndHeader(title) {
+    document.title = "NRD - "+title;
+    document.getElementById("pageTitle").innerText = title; 
+    document.getElementById("mainTitle").innerText = title;
+}
+
 function loadPage(route, controller) {
+    showLoader()
     fetchAndSetHTML(`./pages/${route}`, 'app')
         .then(() => Promise.all([
             fetchAndSetHTML('./templates/header.html', 'header'),
@@ -48,7 +65,14 @@ function loadPage(route, controller) {
                 loadController(controller); 
             }
         })
-        .catch(error => console.error('Error loading page:', error));
+        .then(() => { 
+            hideLoader();
+            console.log('page loaded successfully');
+        })
+        .catch(error => {
+            hideLoader();
+            console.error('Error loading page:', error);
+        });
 }
 
 function loadController(controller) {
