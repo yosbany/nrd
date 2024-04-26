@@ -39,29 +39,29 @@ function fetchAndSetHTML(url, targetElementId) {
 }
 
 function showLoaderPage() {
-    document.getElementById("loader").classList.remove("d-none");
-    document.getElementById("loader").classList.add("d-block");
+    document.getElementById("loaderPage").classList.remove("d-none");
+    document.getElementById("loaderPage").classList.add("d-block");
     document.getElementById("page").classList.remove("d-block");
     document.getElementById("page").classList.add("d-none");
 }
 
 function hideLoaderPage() {
-    document.getElementById("loader").classList.remove("d-block");
-    document.getElementById("loader").classList.add("d-none");
+    document.getElementById("loaderPage").classList.remove("d-block");
+    document.getElementById("loaderPage").classList.add("d-none");
     document.getElementById("page").classList.remove("d-none");
     document.getElementById("page").classList.add("d-block");
 }
 
 function showLoaderApp() {
-    document.getElementById("loader").classList.remove("d-none");
-    document.getElementById("loader").classList.add("d-block");
+    document.getElementById("loaderApp").classList.remove("d-none");
+    document.getElementById("loaderApp").classList.add("d-block");
     document.getElementById("app").classList.remove("d-block");
     document.getElementById("app").classList.add("d-none");
 }
 
 function hideLoaderApp() {
-    document.getElementById("loader").classList.remove("d-block");
-    document.getElementById("loader").classList.add("d-none");
+    document.getElementById("loaderApp").classList.remove("d-block");
+    document.getElementById("loaderApp").classList.add("d-none");
     document.getElementById("app").classList.remove("d-none");
     document.getElementById("app").classList.add("d-block");
 }
