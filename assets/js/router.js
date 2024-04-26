@@ -15,7 +15,7 @@ export function handleRoute() {
     }
 
     if (isRedirectRoute(hash)) {
-        showLoader();
+        showLoaderPage();
         redirectTo(route);
     }
     else {
@@ -38,14 +38,21 @@ function fetchAndSetHTML(url, targetElementId) {
         .then(html => document.getElementById(targetElementId).innerHTML = html);
 }
 
-function showLoader() {
+function showLoaderPage() {
+    document.getElementById("loader").classList.remove("d-none");
+    document.getElementById("loader").classList.add("d-block");
+    document.getElementById("page").classList.remove("d-block");
+    document.getElementById("page").classList.add("d-none");
+}
+
+function showLoaderApp() {
     document.getElementById("loader").classList.remove("d-none");
     document.getElementById("loader").classList.add("d-block");
     document.getElementById("app").classList.remove("d-block");
     document.getElementById("app").classList.add("d-none");
 }
 
-function hideLoader() {
+function hideLoaderApp() {
     document.getElementById("loader").classList.remove("d-block");
     document.getElementById("loader").classList.add("d-none");
     document.getElementById("app").classList.remove("d-none");
@@ -59,7 +66,7 @@ function setPageTitleAndHeader(title) {
 }
 
 function loadPage(route, title, controller) {
-    showLoader();
+    showLoaderApp();
 
     fetchAndSetHTML(`./pages/${route}`, 'app')
         .then(() => {
@@ -81,7 +88,7 @@ function loadPage(route, title, controller) {
         })
         .finally(() => {
             console.log('Page loaded successfully: ', route);
-            hideLoader();
+            hideLoaderApp();
         });
 }
 

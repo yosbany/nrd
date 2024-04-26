@@ -12,148 +12,157 @@
 </head>
 
 <body>
-    <div>
-        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">NUEVA RIO D'OR</a>
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Buscar">
-            <div class="navbar-nav">
-                <div class="nav-item text-nowrap">
-                    <a class="nav-link px-3" id="linkSalir" href="#profile">Perfil</a>
-                </div>
-                <div class="nav-item text-nowrap">
-                    <a class="nav-link px-3" id="linkSalir" href="#">Salir</a>
-                </div>
-            </div>
-        </header>
-        <div class="container-fluid">
-            <div class="row">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                    <div class="position-sticky pt-3 overflow-auto">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#home">
-                                    <span data-feather="home"></span>
-                                    Inicio
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#make-order">
-                                    <span data-feather="file"></span>
-                                    Realizar Pedido
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#receive-order">
-                                    <span data-feather="shopping-cart"></span>
-                                    Recibir Pedido
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#budget-lunch">
-                                    <span data-feather="users"></span>
-                                    Presupuestar Lunch
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#purchase-plan">
-                                    <span data-feather="bar-chart-2"></span>
-                                    Plan Compras
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#purchase-price">
-                                    <span data-feather="layers"></span>
-                                    Precio Compra
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#accounting-transactions">
-                                    <span data-feather="file-text"></span>
-                                    Movimientos Contables
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#rrhh">
-                                    <span data-feather="file-text"></span>
-                                    Recursos Humanos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#online-catalog">
-                                    <span data-feather="file-text"></span>
-                                    Catálogo en Línea
-                                </a>
-                            </li>
-                        </ul>
-                        <h6
-                            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                            <span>Herramientas</span>
-                            <a class="link-secondary" href="#" aria-label="Add a new report">
-                                <span data-feather="plus-circle"></span>
-                            </a>
-                        </h6>
-                        <ul class="nav flex-column mb-2">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#calculate-price">
-                                    <span data-feather="file-text"></span>
-                                    Calcular Precio
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#posters-a4">
-                                    <span data-feather="file-text"></span>
-                                    Carteles A4
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#print-price">
-                                    <span data-feather="file-text"></span>
-                                    Imprimir Precio
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#counter-shifts">
-                                    <span data-feather="file-text"></span>
-                                    Turnos Mostrador
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#recipe-book">
-                                    <span data-feather="file-text"></span>
-                                    Recetario
-                                </a>
-                            </li>
-                           
-                        </ul>
+    <div id="loader" class="d-flex justify-content-center m-5 d-block">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <div id="page" class="d-none">
+        <div>
+            <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+                <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">NUEVA RIO D'OR</a>
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar"
+                    aria-label="Buscar">
+                <div class="navbar-nav">
+                    <div class="nav-item text-nowrap">
+                        <a class="nav-link px-3" id="linkSalir" href="#profile">Perfil</a>
                     </div>
-                </nav>
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                    <div
-                        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2" id="mainTitle">Inicio</h1>
+                    <div class="nav-item text-nowrap">
+                        <a class="nav-link px-3" id="linkSalir" href="#">Salir</a>
                     </div>
-                    <div id="loader" class="d-flex justify-content-center m-5 d-block">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                </div>
+            </header>
+            <div class="container-fluid">
+                <div class="row">
+                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                        <div class="position-sticky pt-3 overflow-auto">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#home">
+                                        <span data-feather="home"></span>
+                                        Inicio
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#make-order">
+                                        <span data-feather="file"></span>
+                                        Realizar Pedido
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#receive-order">
+                                        <span data-feather="shopping-cart"></span>
+                                        Recibir Pedido
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#budget-lunch">
+                                        <span data-feather="users"></span>
+                                        Presupuestar Lunch
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#purchase-plan">
+                                        <span data-feather="bar-chart-2"></span>
+                                        Plan Compras
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#purchase-price">
+                                        <span data-feather="layers"></span>
+                                        Precio Compra
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#accounting-transactions">
+                                        <span data-feather="file-text"></span>
+                                        Movimientos Contables
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#rrhh">
+                                        <span data-feather="file-text"></span>
+                                        Recursos Humanos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#online-catalog">
+                                        <span data-feather="file-text"></span>
+                                        Catálogo en Línea
+                                    </a>
+                                </li>
+                            </ul>
+                            <h6
+                                class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                                <span>Herramientas</span>
+                                <a class="link-secondary" href="#" aria-label="Add a new report">
+                                    <span data-feather="plus-circle"></span>
+                                </a>
+                            </h6>
+                            <ul class="nav flex-column mb-2">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#calculate-price">
+                                        <span data-feather="file-text"></span>
+                                        Calcular Precio
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#posters-a4">
+                                        <span data-feather="file-text"></span>
+                                        Carteles A4
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#print-price">
+                                        <span data-feather="file-text"></span>
+                                        Imprimir Precio
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#counter-shifts">
+                                        <span data-feather="file-text"></span>
+                                        Turnos Mostrador
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#recipe-book">
+                                        <span data-feather="file-text"></span>
+                                        Recetario
+                                    </a>
+                                </li>
+
+                            </ul>
                         </div>
-                    </div>
-                    <div id="app" class="d-none"></div>
-                    <div id="footer" class="mt-4" style="text-align: center;">
-                        <footer class="footer mt-auto py-3 bg-light">
-                            <div class="container">
-                                <span class="text-muted">SISTEMA DE CONTROL OPERATIVO</span>
+                    </nav>
+                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                        <div
+                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                            <h1 class="h2" id="mainTitle">Inicio</h1>
+                        </div>
+                        <div id="loader" class="d-flex justify-content-center m-5 d-block">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
-                        </footer>
-                    </div>
-                </main>
+                        </div>
+                        <div id="app" class="d-none"></div>
+                        <div id="footer" class="mt-4" style="text-align: center;">
+                            <footer class="footer mt-auto py-3 bg-light">
+                                <div class="container">
+                                    <span class="text-muted">SISTEMA DE CONTROL OPERATIVO</span>
+                                </div>
+                            </footer>
+                        </div>
+                    </main>
+                </div>
             </div>
         </div>
     </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
