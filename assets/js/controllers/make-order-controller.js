@@ -27,8 +27,9 @@ export default class MakeOrderController {
         // Escucha el evento 'change' del selectProveedor
         selectProveedor.addEventListener('change', function () {
             actualizarTabla();
-            actualizarResumenPedido(); // Agregar la llamada aquí también para actualizar el resumen cuando se cambie el proveedor
+            actualizarResumenPedido();
         });
+
         actualizarTabla();
         // Ajustar la altura del textarea cuando se cambia su contenido
         resumenPedidoTextarea.addEventListener('input', ajustarAlturaTextarea);
