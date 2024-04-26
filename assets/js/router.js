@@ -66,7 +66,7 @@ function loadPage(route, title, controller) {
             setPageTitleAndHeader(title);
         })
         .then(() => {
-            console.log('Title updated successfully');
+            console.log('Title updated successfully: ',title);
         })
         .then(() => {
             if (controller) {
@@ -74,12 +74,13 @@ function loadPage(route, title, controller) {
             }
         })
         .then(() => {
-            console.log('Controller loaded successfully');
+            console.log('Controller loaded successfully: ', controller);
         })
         .catch(error => {
-            console.error('Error loading page:', error);
+            console.error('Error loading page '+route+': ', error);
         })
         .finally(() => {
+            console.log('Page loaded successfully: ', route);    
             hideLoader();
         });
 }

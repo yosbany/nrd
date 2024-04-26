@@ -1,4 +1,3 @@
-console.log('Make order page loaded.');
 const proveedorData = {
     "PROVEEDOR 1": [
         { producto: "AZUCAR COMUN BOLSA 25KG", precio: "$59", cantidadPorDefecto: 1 },
