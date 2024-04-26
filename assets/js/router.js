@@ -60,12 +60,7 @@ function setPageTitleAndHeader(title) {
 function loadPage(route, title, controller) {
     showLoader()
     fetchAndSetHTML(`./pages/${route}`, 'app')
-        .then(() => Promise.all([
-            fetchAndSetHTML('./templates/header.html', 'header'),
-            fetchAndSetHTML('./templates/sidebar.html', 'sidebar'),
-            fetchAndSetHTML('./templates/footer.html', 'footer')
-        ])).
-        then(() => {
+        .then(() => {
             setPageTitleAndHeader(title);
         })
         .then(() => {
