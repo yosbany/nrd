@@ -57,11 +57,24 @@ function loadController(controller) {
     if (currentScript) {
         currentScript.remove();
     }
+
     // Cargar el nuevo controlador dinámicamente
     const script = document.createElement('script');
     script.src = `./assets/js/controllers/${controller}`;
     script.id = 'currentScript';
     script.type = 'module';
+    
+    // Agrega un evento para ejecutar funciones después de que el controlador y la página estén cargados
+    script.onload = function() {
+        script.onload = null; // Limpiar el evento onload para evitar la duplicación
+        const ControllerModule = window[controller.split('.').shift()]; // Obtener el módulo del controlador
+        document.addEventListener('DOMContentLoaded', function() {
+            const controllerInstance = new ControllerModule();
+            if (typeof controllerInstance.init === 'function') {
+                controllerInstance.init();
+            }
+        });
+    };
     document.body.appendChild(script);
 }
 
