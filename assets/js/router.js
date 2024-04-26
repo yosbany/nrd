@@ -135,10 +135,10 @@ function loadController(controller) {
     script.src = `./assets/js/controllers/${controller}`;
     script.onload = () => {
         // Inicializar la clase controladora después de cargar el script
-        const className = controller.split('-').map((word, index) => index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1)).join('');
-
-        console.log(className);
-        const ControllerClass = window[className];
+        const controllerWithoutExtension = controller.replace(/\.js$/, '');
+        const controllerClassName = controllerWithoutExtension.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
+        console.log(controllerClassName);
+        const ControllerClass = window[controllerClassName];
         if (ControllerClass && typeof ControllerClass.init === 'function') {
             ControllerClass.init(); // Llama al método init() de la clase controladora
         } else {
