@@ -41,15 +41,15 @@ function fetchAndSetHTML(url, targetElementId) {
 function showLoader() {
     document.getElementById("loader").classList.remove("d-none");
     document.getElementById("loader").classList.add("d-block");
-    document.getElementById("page").classList.remove("d-block");
-    document.getElementById("page").classList.add("d-none");
+    document.getElementById("app").classList.remove("d-block");
+    document.getElementById("app").classList.add("d-none");
 }
 
 function hideLoader() {
     document.getElementById("loader").classList.remove("d-block");
     document.getElementById("loader").classList.add("d-none");
-    document.getElementById("page").classList.remove("d-none");
-    document.getElementById("page").classList.add("d-block");
+    document.getElementById("app").classList.remove("d-none");
+    document.getElementById("app").classList.add("d-block");
 }
 
 function setPageTitleAndHeader(title) {
@@ -66,7 +66,7 @@ function loadPage(route, title, controller) {
             setPageTitleAndHeader(title);
         })
         .then(() => {
-            console.log('Title updated successfully: ',title);
+            console.log('Title updated successfully: ', title);
         })
         .then(() => {
             if (controller) {
@@ -77,10 +77,10 @@ function loadPage(route, title, controller) {
             console.log('Controller loaded successfully: ', controller);
         })
         .catch(error => {
-            console.error('Error loading page '+route+': ', error);
+            console.error('Error loading page ' + route + ': ', error);
         })
         .finally(() => {
-            console.log('Page loaded successfully: ', route);    
+            console.log('Page loaded successfully: ', route);
             hideLoader();
         });
 }
