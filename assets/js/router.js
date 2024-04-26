@@ -45,6 +45,13 @@ function showLoaderPage() {
     document.getElementById("page").classList.add("d-none");
 }
 
+function hideLoaderPage() {
+    document.getElementById("loader").classList.remove("d-block");
+    document.getElementById("loader").classList.add("d-none");
+    document.getElementById("page").classList.remove("d-none");
+    document.getElementById("page").classList.add("d-block");
+}
+
 function showLoaderApp() {
     document.getElementById("loader").classList.remove("d-none");
     document.getElementById("loader").classList.add("d-block");
@@ -66,6 +73,7 @@ function setPageTitleAndHeader(title) {
 }
 
 function loadPage(route, title, controller) {
+    hideLoaderPage()
     showLoaderApp();
 
     fetchAndSetHTML(`./pages/${route}`, 'app')
