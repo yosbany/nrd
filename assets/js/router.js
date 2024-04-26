@@ -79,7 +79,7 @@ function setSidebarMenu(hash) {
     // Itera sobre los elementos encontrados
     sidebarLinks.forEach(link => {
         // Verifica si el href del enlace contiene '#home'
-        if (link.getAttribute('href') && link.getAttribute('href').includes('#'+hash)) {
+        if (link.getAttribute('href') && link.getAttribute('href').includes('#' + hash)) {
             // Agrega la clase 'active'
             link.classList.add('active');
             // Agrega la propiedad 'aria-current="page"'
@@ -122,31 +122,42 @@ function loadPage(route, title, controller, hash) {
         });
 }
 
-function loadController(controller) {
-    // Elimina el controlador actual si existe
-    const currentScript = document.getElementById('currentScript');
-    if (currentScript) {
-        currentScript.remove();
-    }
-    // Cargar el nuevo controlador dinámicamente
-    const script = document.createElement('script');
-    script.id = 'currentScript';
-    script.type = 'module';
-    script.src = `./assets/js/controllers/${controller}`;
-    script.onload = () => {
+async function loadController(controller) {
+    try {
+        // Elimina el controlador actual si existe
+        const currentScript = document.getElementById('currentScript');
+        if (currentScript) {
+            currentScript.remove();
+        }
+
+        // Cargar el nuevo controlador dinámicamente
+        const response = await fetch(`./assets/js/controllers/${controller}`);
+        if (!response.ok) {
+            throw new Error('Failed to load controller script');
+        }
+        const scriptCode = await response.text();
+        const scriptElement = document.createElement('script');
+        scriptElement.id = 'currentScript';
+        scriptElement.type = 'module';
+        scriptElement.textContent = scriptCode;
+        document.body.appendChild(scriptElement);
+
+        // Esperar un breve momento para asegurarse de que el script se ha ejecutado completamente
+        await new Promise(resolve => setTimeout(resolve, 100));
+
         // Inicializar la clase controladora después de cargar el script
         const controllerWithoutExtension = controller.replace(/\.js$/, '');
         const controllerClassName = controllerWithoutExtension.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
         console.log(controllerClassName);
         const ControllerClass = window[controllerClassName];
-        console.log(ControllerClass)
         if (ControllerClass && typeof ControllerClass.init === 'function') {
             ControllerClass.init(); // Llama al método init() de la clase controladora
         } else {
-            console.error(`Error: clase controladora o método init no encontrados en ${controller}`);
+            throw new Error(`Error: clase controladora o método init no encontrados en ${controller}`);
         }
-    };
-    document.body.appendChild(script);
+    } catch (error) {
+        console.error('Error loading controller:', error);
+    }
 }
 
 function redirectTo(url) {
