@@ -1,71 +1,29 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/jpg" href="../assets/app/img/logo.jpg">
-  <title>NRD | Perfil</title>
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/app/css/nrd.css" rel="stylesheet">
-</head>
-
-<body>
-  <div id="header"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div id="sidebar"></div>
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Perfil</h1>
-        </div>
-        <!-- Code HTML Here -->
-        <div class="row mb-2">
-          <div class="col">
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 200px;">Nombre Completo:</span>
-              <input type="text" class="form-control" id="fullName">
-            </div>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 200px;">Correo Electrónico:</span>
-              <input type="text" class="form-control" id="email" readonly>
-            </div>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <div class="input-group mb-3">
-              <span class="input-group-text" style="width: 200px;">Token Manager IO:</span>
-              <input type="text" class="form-control" id="tokenMagerIO">
-            </div>
-          </div>
-        </div>
-        <div class="row mb-2">
-          <div class="col">
-            <button type="button" id="guardarBtn" class="btn btn-primary" style="float: right;">Guardar</button>
-          </div>
-        </div>
-        <!-- Code HTML End -->
-        <div id="footer" class="mt-4" style="text-align: center;"></div>
-      </main>
+<div class="row mb-2">
+  <div class="col">
+    <div class="input-group mb-3">
+      <span class="input-group-text" style="width: 200px;">Nombre Completo:</span>
+      <input type="text" class="form-control" id="fullName">
     </div>
   </div>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-  <script type="module">
-    import { onLoadWindows } from '../assets/app/js/nrd.js';
-    document.addEventListener('DOMContentLoaded', function () {
-      onLoadWindows();
-      //Code JS Here
-    
-    });
-  </script>
-</body>
-
-</html>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    <div class="input-group mb-3">
+      <span class="input-group-text" style="width: 200px;">Correo Electrónico:</span>
+      <input type="text" class="form-control" id="email" readonly>
+    </div>
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    <div class="input-group mb-3">
+      <span class="input-group-text" style="width: 200px;">Token Manager IO:</span>
+      <input type="text" class="form-control" id="tokenMagerIO">
+    </div>
+  </div>
+</div>
+<div class="row mb-2">
+  <div class="col">
+    <button type="button" id="guardarBtn" class="btn btn-primary" style="float: right;">Guardar</button>
+  </div>
+</div>

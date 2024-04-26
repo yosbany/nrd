@@ -1,9 +1,5 @@
 //Rutas
 export const routes = {
-    '': 'login.html',
-    'login': 'login.html',
-    'not-found': 'not-found.html',
-    'access-denied': 'access-denied.html',
     'home': 'home.html',
     'accounting-transactions': 'accounting-transactions.html',
     'budget-lunch': 'budget-lunch.html',
@@ -11,7 +7,7 @@ export const routes = {
     'counter-shifts': 'counter-shifts.html',
     'make-order': 'make-order.html',
     'online-catalog': 'online-catalog.html',
-    'posters-A4': 'posters-A4.html',
+    'posters-a4': 'posters-A4.html',
     'print-price': 'print-price.html',
     'profile': 'profile.html',
     'purchase-plan': 'purchase-plan.html',
@@ -24,15 +20,38 @@ export const routes = {
 // Titles
 export const titles = {
     'home': 'Inicio',
-    'make-order': 'Realizar Pedido'
-    
+    'accounting-transactions': 'Movimientos Contables',
+    'budget-lunch': 'Presupuestar Lunch',
+    'calculate-price': 'Calcular Precio',
+    'counter-shifts': 'Turnos Mostrador',
+    'make-order': 'Realizar Pedido',
+    'online-catalog': 'Catálogo en Línea',
+    'posters-a4': 'Carteles A4',
+    'print-price': 'Imprimir Precio',
+    'profile': 'Perfil',
+    'purchase-plan': 'Plan Compras',
+    'purchase-price': 'Precio Compra',
+    'receive-order': 'Recibir Pedido',
+    'recipe-book': 'Recetario',
+    'rrhh': 'Recursos Humanos'
+
 };
 
 // Controladores
 export const controllers = {
-    '': 'login-controller.js',
-    'login': 'login-controller.js',
     'home': 'home-controller.js',
-    'make-order': 'make-order-controller.js'
-    
+    'accounting-transactions': 'accounting-transactions-controller.js',
+    'budget-lunch': 'budget-lunch-controller.js',
+    'calculate-price': 'calculate-price-controller.js',
+    'counter-shifts': 'counter-shifts-contoller.js',
+    'make-order': 'make-order-controller.js',
+    'online-catalog': 'online-catalog-controller.js',
+    'posters-a4': 'posters-a4-controller.js',
+    'print-price': 'print-price-controller.js',
+    'profile': 'profile-controller.js',
+    'purchase-plan': 'purchase-plan-controller.js',
+    'purchase-price': 'purchase-price-controller.js',
+    'receive-order': 'receive-order-controller.js',
+    'recipe-book': 'recipe-book-controller.js',
+    'rrhh': 'rrhh-controller.js'
 };

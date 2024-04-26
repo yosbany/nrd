@@ -1,4 +1,4 @@
-import { loginFirebase } from '../../../services/auth-service.js';
+import { loginFirebase } from '../../services/auth-service.js';
 document.addEventListener('DOMContentLoaded', async function () {
     console.log('Login page loaded.');
     document.getElementById('loginBtn').addEventListener('click', async function(event) {

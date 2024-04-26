@@ -1,104 +1,65 @@
-<!doctype html>
-<html lang="en">
+<div class="row mb-3">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Ingrese el nombre del producto">
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-primary">Buscar</button>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Proveedor</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AZUCAR</td>
+      <td>IRAZU</td>
+      <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal"
+          style="float: right;">Ver
+          Histórico</button></td>
+    </tr>
+    <tr>
+      <td>SAL</td>
+      <td>IRAZU</td>
+      <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal"
+          style="float: right;">Ver
+          Histórico</button></td>
+    </tr>
+    <tr>
+      <td>HARINA</td>
+      <td>BLANCOR</td>
+      <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal"
+          style="float: right;">Ver
+          Histórico</button></td>
+    </tr>
+  </tbody>
+</table>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/jpg" href="../assets/app/img/logo.jpg">
-  <title>Nueva Río D'or | Precio de Compra</title>
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/app/css/nrd.css" rel="stylesheet">
-</head>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-<body>
-  <div id="header"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div id="sidebar"></div>
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Precio de Compra</h1>
-        </div>
-        <!-- Code HTML Here -->
-        <div class="row mb-3">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Ingrese el nombre del producto">
-          </div>
-          <div class="col">
-            <button type="button" class="btn btn-primary">Buscar</button>
-          </div>
-        </div>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Proveedor</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>AZUCAR</td>
-              <td>IRAZU</td>
-              <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal" style="float: right;">Ver
-                  Histórico</button></td>
-            </tr>
-            <tr>
-              <td>SAL</td>
-              <td>IRAZU</td>
-              <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal" style="float: right;">Ver
-                  Histórico</button></td>
-            </tr>
-            <tr>
-              <td>HARINA</td>
-              <td>BLANCOR</td>
-              <td><button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal" style="float: right;">Ver
-                  Histórico</button></td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
 
-        <!-- The Modal -->
-        <div class="modal" id="myModal">
-          <div class="modal-dialog">
-            <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
 
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
 
-              <!-- Modal body -->
-              <div class="modal-body">
-                Modal body..
-              </div>
-
-              <!-- Modal footer -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <!-- Code HTML End -->
-        <div id="footer" class="mt-4" style="text-align: center;"></div>
-      </main>
     </div>
   </div>
-  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-  <script type="module">
-    import { onLoadWindows } from '../assets/app/js/nrd.js';
-    document.addEventListener('DOMContentLoaded', function () {
-      onLoadWindows();
-      //Code JS Here
-    
-    });
-  </script>
-</body>
-
-</html>
+</div>
