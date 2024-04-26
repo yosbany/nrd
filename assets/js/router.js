@@ -38,13 +38,17 @@ function fetchAndSetHTML(url, targetElementId) {
 }
 
 function showLoader() {
-    document.getElementById("loader").style.display = "block";
-    document.getElementById("page").style.display = "none";
+    document.getElementById("loader").classList.remove("d-none");
+    document.getElementById("loader").classList.add("d-block");
+    document.getElementById("page").classList.remove("d-block");
+    document.getElementById("page").classList.add("d-none");
 }
 
 function hideLoader() {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("page").style.display = "block";
+    document.getElementById("loader").classList.remove("d-block");
+    document.getElementById("loader").classList.add("d-none");
+    document.getElementById("page").classList.remove("d-none");
+    document.getElementById("page").classList.add("d-block");
 }
 
 function setPageTitleAndHeader(title) {
