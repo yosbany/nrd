@@ -47,8 +47,8 @@ function hideLoader() {
 }
 
 function setPageTitleAndHeader(title) {
-    document.title = "NRD - "+title;
-    document.getElementById("pageTitle").innerText = title; 
+    document.title = "NRD - " + title;
+    document.getElementById("pageTitle").innerText = title;
     document.getElementById("mainTitle").innerText = title;
 }
 
@@ -59,13 +59,16 @@ function loadPage(route, controller) {
             fetchAndSetHTML('./templates/header.html', 'header'),
             fetchAndSetHTML('./templates/sidebar.html', 'sidebar'),
             fetchAndSetHTML('./templates/footer.html', 'footer')
-        ]))
+        ])).
+        then(() => {
+            setPageTitleAndHeader();
+        })
         .then(() => {
             if (controller) {
-                loadController(controller); 
+                loadController(controller);
             }
         })
-        .then(() => { 
+        .then(() => {
             hideLoader();
             console.log('page loaded successfully');
         })
