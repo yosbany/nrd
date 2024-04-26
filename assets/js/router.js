@@ -1,10 +1,11 @@
-import { routes, controllers } from './routes.js';
+import { routes, controllers, titles } from './routes.js';
 import { requireAuth } from '../../middleware/auth-middleware.js';
 
 export function handleRoute() {
     const hash = window.location.hash.substring(1);
     const route = routes[hash];
     const controller = controllers[hash];
+    const title = titles[hash];
 
     if (!route) {
         redirectTo('not-found.html');
@@ -17,7 +18,7 @@ export function handleRoute() {
         redirectTo(route);
     }
     else {
-        loadPage(route, controller);
+        loadPage(route, title, controller);
     }
 }
 
@@ -52,7 +53,7 @@ function setPageTitleAndHeader(title) {
     document.getElementById("mainTitle").innerText = title;
 }
 
-function loadPage(route, controller) {
+function loadPage(route, title, controller) {
     showLoader()
     fetchAndSetHTML(`./pages/${route}`, 'app')
         .then(() => Promise.all([
@@ -61,7 +62,7 @@ function loadPage(route, controller) {
             fetchAndSetHTML('./templates/footer.html', 'footer')
         ])).
         then(() => {
-            setPageTitleAndHeader();
+            setPageTitleAndHeader(title);
         })
         .then(() => {
             if (controller) {

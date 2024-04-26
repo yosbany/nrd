@@ -21,6 +21,13 @@ export const routes = {
     'rrhh': 'rrhh.html'
 };
 
+// Titles
+export const titles = {
+    'home': 'Inicio',
+    'make-order': 'Realizar Pedido'
+    
+};
+
 // Controladores
 export const controllers = {
     '': 'login-controller.js',
