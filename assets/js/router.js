@@ -15,6 +15,7 @@ export function handleRoute() {
     }
 
     if (isRedirectRoute(hash)) {
+        showLoader();
         redirectTo(route);
     }
     else {
