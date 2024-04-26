@@ -53,7 +53,7 @@ function hideLoader() {
 
 function setPageTitleAndHeader(title) {
     document.title = "NRD - " + title;
-    document.getElementById("pageTitle").innerText = title;
+    document.getElementById("pageTitle").innerText = document.title;
     document.getElementById("mainTitle").innerText = title;
 }
 
