@@ -1,5 +1,9 @@
 //Rutas
 export const routes = {
+    '': 'login.html',
+    'login': 'login.html',
+    'not-found': 'not-found.html',
+    'access-denied': 'access-denied.html',
     'home': 'home.html',
     'accounting-transactions': 'accounting-transactions.html',
     'budget-lunch': 'budget-lunch.html',
