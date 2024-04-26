@@ -130,9 +130,18 @@ function loadController(controller) {
     }
     // Cargar el nuevo controlador dinámicamente
     const script = document.createElement('script');
-    script.src = `./assets/js/controllers/${controller}`;
     script.id = 'currentScript';
     script.type = 'module';
+    script.src = `./assets/js/controllers/${controller}`;
+    script.onload = () => {
+        // Inicializar la clase controladora después de cargar el script
+        const ControllerClass = window[controller.split('.')[0]]; // Suponiendo que el nombre de la clase coincide con el nombre del archivo
+        if (ControllerClass && typeof ControllerClass.init === 'function') {
+            ControllerClass.init(); // Llama al método init() de la clase controladora
+        } else {
+            console.error(`Error: clase controladora o método init no encontrados en ${controller}`);
+        }
+    };
     document.body.appendChild(script);
 }
 
