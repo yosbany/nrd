@@ -139,6 +139,7 @@ function loadController(controller) {
         const controllerClassName = controllerWithoutExtension.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
         console.log(controllerClassName);
         const ControllerClass = window[controllerClassName];
+        console.log(ControllerClass)
         if (ControllerClass && typeof ControllerClass.init === 'function') {
             ControllerClass.init(); // Llama al método init() de la clase controladora
         } else {
