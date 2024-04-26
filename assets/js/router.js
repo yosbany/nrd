@@ -19,7 +19,7 @@ export function handleRoute() {
         redirectTo(route);
     }
     else {
-        loadPage(route, title, controller);
+        loadPage(route, title, controller, hash);
     }
 }
 
@@ -72,16 +72,38 @@ function setPageTitleAndHeader(title) {
     document.getElementById("mainTitle").innerText = title;
 }
 
-function loadPage(route, title, controller) {
+function setSidebarMenu(hash) {
+    // Busca todos los elementos <a> dentro del div con id sidebarMenu
+    const sidebarLinks = document.querySelectorAll('#sidebarMenu a.nav-link');
+
+    // Itera sobre los elementos encontrados
+    sidebarLinks.forEach(link => {
+        // Verifica si el href del enlace contiene '#home'
+        if (link.getAttribute('href') && link.getAttribute('href').includes('#'+hash)) {
+            // Agrega la clase 'active'
+            link.classList.add('active');
+            // Agrega la propiedad 'aria-current="page"'
+            link.setAttribute('aria-current', 'page');
+        } else {
+            // Si no contiene '#home', elimina la clase 'active'
+            link.classList.remove('active');
+            // Elimina la propiedad 'aria-current'
+            link.removeAttribute('aria-current');
+        }
+    });
+}
+
+function loadPage(route, title, controller, hash) {
     hideLoaderPage()
     showLoaderApp();
 
     fetchAndSetHTML(`./pages/${route}`, 'app')
         .then(() => {
             setPageTitleAndHeader(title);
+            setSidebarMenu(hash);
         })
         .then(() => {
-            console.log('Title updated successfully: ', title);
+            console.log('Title and Sidebar updated successfully: ', title);
         })
         .then(() => {
             if (controller) {
