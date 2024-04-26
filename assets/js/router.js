@@ -93,33 +93,28 @@ function setSidebarMenu(hash) {
     });
 }
 
-function loadPage(route, title, controller, hash) {
-    hideLoaderPage()
+async function loadPage(route, title, controller, hash) {
+    hideLoaderPage();
     showLoaderApp();
 
-    fetchAndSetHTML(`./pages/${route}`, 'app')
-        .then(() => {
-            setPageTitleAndHeader(title);
-            setSidebarMenu(hash);
-        })
-        .then(() => {
-            console.log('Title and Sidebar updated successfully: ', title);
-        })
-        .then(() => {
-            if (controller) {
-                return loadController(controller);
-            }
-        })
-        .then(() => {
+    try {
+        await fetchAndSetHTML(`./pages/${route}`, 'app');
+        setPageTitleAndHeader(title);
+        setSidebarMenu(hash);
+
+        console.log('Title and Sidebar updated successfully: ', title);
+
+        if (controller) {
+            await loadController(controller);
             console.log('Controller loaded successfully: ', controller);
-        })
-        .catch(error => {
-            console.error('Error loading page ' + route + ': ', error);
-        })
-        .finally(() => {
-            console.log('Page loaded successfully: ', route);
-            hideLoaderApp();
-        });
+        }
+
+        console.log('Page loaded successfully: ', route);
+    } catch (error) {
+        console.error('Error loading page ' + route + ': ', error);
+    } finally {
+        hideLoaderApp();
+    }
 }
 
 async function loadController(controller) {
