@@ -59,23 +59,28 @@ function setPageTitleAndHeader(title) {
 }
 
 function loadPage(route, title, controller) {
-    showLoader()
+    showLoader();
+
     fetchAndSetHTML(`./pages/${route}`, 'app')
         .then(() => {
             setPageTitleAndHeader(title);
         })
         .then(() => {
+            console.log('Title updated successfully');
+        })
+        .then(() => {
             if (controller) {
-                loadController(controller);
+                return loadController(controller);
             }
         })
         .then(() => {
-            hideLoader();
-            console.log('page loaded successfully');
+            console.log('Controller loaded successfully');
         })
         .catch(error => {
-            hideLoader();
             console.error('Error loading page:', error);
+        })
+        .finally(() => {
+            hideLoader();
         });
 }
 
