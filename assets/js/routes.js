@@ -18,7 +18,8 @@ export const routes = {
     'purchase-price': 'purchase-price.html',
     'receive-order': 'receive-order.html',
     'recipe-book': 'recipe-book.html',
-    'rrhh': 'rrhh.html'
+    'rrhh': 'rrhh.html',
+    'exit': 'home.html',
 };
 
 

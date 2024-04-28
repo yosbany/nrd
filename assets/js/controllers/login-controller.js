@@ -1,11 +1,11 @@
 import BaseController from './base-controller.js';
-import HomeView from '../views/home-view.js';
+import LoginView from '../views/login-view.js';
 
-export default class HomeController extends BaseController{
+export default class LoginController extends BaseController{
     
     constructor() {
         super();
-        this.view = new HomeView();
+        this.view = new LoginView();
     }
 
     async init() {
