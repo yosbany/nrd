@@ -19,7 +19,7 @@ export function handleRoute() {
     }
 
     if (isRedirectRoute(hash)) {
-        showLoaderPage();
+        showLoader("loaderPage");
         redirectTo(route);
         return;
     }
