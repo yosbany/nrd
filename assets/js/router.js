@@ -119,40 +119,24 @@ async function loadPage(route, title, controller, hash) {
 
 async function loadController(controller) {
     try {
-        const currentScript = document.getElementById('currentScript');
-        if (currentScript) {
-            currentScript.remove();
-        }
+        const ControllerModule = await import(`./assets/js/controllers/${controller}`);
+        const ControllerClass = ControllerModule.default;
 
-        const response = await fetch(`./assets/js/controllers/${controller}`);
-        if (!response.ok) {
-            throw new Error(`Failed to load controller script: ${response.status} ${response.statusText}`);
-        }
-        
-        const scriptCode = await response.text();
-        const scriptElement = document.createElement('script');
-        scriptElement.id = 'currentScript';
-        scriptElement.type = 'module';
-        scriptElement.textContent = scriptCode;
-        document.body.appendChild(scriptElement);
-
-        await new Promise(resolve => setTimeout(resolve, 5000));
-
-        const ControllerClass = window[getControllerClassName(controller)];
         if (ControllerClass && typeof ControllerClass === 'function') {
             const controllerInstance = new ControllerClass();
             if (typeof controllerInstance.init === 'function') {
                 controllerInstance.init();
             } else {
-                throw new Error(`Error: init method not found in ${controller}`);
+                throw new Error(`Init method not found in ${controller}`);
             }
         } else {
-            throw new Error(`Error: controller class not found in ${controller}`);
+            throw new Error(`Controller class not found in ${controller}`);
         }
     } catch (error) {
-        console.error('Error loading controller:', error);
+        console.error('Loading controller:', error);
     }
 }
+
 
 function getControllerClassName(controller) {
     return controller.replace(/\.js$/, '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
