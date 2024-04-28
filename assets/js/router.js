@@ -10,21 +10,18 @@ export function handleRoute() {
 
     if (!route) {
         redirectTo('not-found.html');
-        return;
     }
-
-    if (requiresAuthentication(hash)) {
+    else if (requiresAuthentication(hash)) {
         requireAuth();
-        return;
     }
 
     if (isRedirectRoute(hash)) {
-        showLoader("loaderPage");
+        showLoaderPage();
         redirectTo(route);
-        return;
     }
-
-    loadPage(route, title, controller, hash);
+    else {
+        loadPage(route, title, controller, hash);
+    }
 }
 
 function isRedirectRoute(hash) {
@@ -33,7 +30,7 @@ function isRedirectRoute(hash) {
 }
 
 function requiresAuthentication(hash) {
-    return hash !== '' && !['login', 'access-denied', 'not-found'].includes(hash);
+    return hash !== '' && hash !== 'login' && hash !== 'access-denied' && hash !== 'not-found';
 }
 
 function fetchAndSetHTML(url, targetElementId) {
@@ -42,69 +39,91 @@ function fetchAndSetHTML(url, targetElementId) {
         .then(html => document.getElementById(targetElementId).innerHTML = html);
 }
 
-function showLoader(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.classList.remove("d-none");
-        element.classList.add("d-block");
-    }
+function showLoaderPage() {
+    document.getElementById("loaderPage").classList.remove("d-none");
+    document.getElementById("loaderPage").classList.add("d-block");
+    document.getElementById("page").classList.remove("d-block");
+    document.getElementById("page").classList.add("d-none");
 }
 
-function hideLoader(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.classList.remove("d-block");
-        element.classList.add("d-none");
-    }
+function hideLoaderPage() {
+    document.getElementById("loaderPage").classList.remove("d-block");
+    document.getElementById("loaderPage").classList.add("d-none");
+    document.getElementById("page").classList.remove("d-none");
+    document.getElementById("page").classList.add("d-block");
+}
+
+function showLoaderApp() {
+    document.getElementById("loaderApp").classList.remove("d-none");
+    document.getElementById("loaderApp").classList.add("d-block");
+    document.getElementById("app").classList.remove("d-block");
+    document.getElementById("app").classList.add("d-none");
+}
+
+function hideLoaderApp() {
+    document.getElementById("loaderApp").classList.remove("d-block");
+    document.getElementById("loaderApp").classList.add("d-none");
+    document.getElementById("app").classList.remove("d-none");
+    document.getElementById("app").classList.add("d-block");
 }
 
 function setPageTitleAndHeader(title) {
-    const pageTitle = `NRD - ${title}`;
-    document.title = pageTitle;
-    document.getElementById("pageTitle").innerText = pageTitle;
+    document.title = "NRD - " + title;
+    document.getElementById("pageTitle").innerText = document.title;
     document.getElementById("mainTitle").innerText = title;
 }
 
 function setSidebarMenu(hash) {
+    // Busca todos los elementos <a> dentro del div con id sidebarMenu
     const sidebarLinks = document.querySelectorAll('#sidebarMenu a.nav-link');
 
+    // Itera sobre los elementos encontrados
     sidebarLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href && href.includes(`#${hash}`)) {
+        // Verifica si el href del enlace contiene '#home'
+        if (link.getAttribute('href') && link.getAttribute('href').includes('#' + hash)) {
+            // Agrega la clase 'active'
             link.classList.add('active');
+            // Agrega la propiedad 'aria-current="page"'
             link.setAttribute('aria-current', 'page');
         } else {
+            // Si no contiene '#home', elimina la clase 'active'
             link.classList.remove('active');
+            // Elimina la propiedad 'aria-current'
             link.removeAttribute('aria-current');
         }
     });
 }
 
 async function loadPage(route, title, controller, hash) {
-    hideLoader("loaderPage");
-    showLoader("loaderApp");
+    hideLoaderPage();
+    showLoaderApp();
 
     try {
         await fetchAndSetHTML(`./pages/${route}`, 'app');
         setPageTitleAndHeader(title);
         setSidebarMenu(hash);
-        console.log('Page loaded successfully:', route);
+
+        console.log('Title and Sidebar updated successfully: ', title);
 
         if (controller) {
             await loadController(controller);
+            console.log('Controller loaded successfully: ', controller);
         }
+
+        console.log('Page loaded successfully: ', route);
     } catch (error) {
-        console.error('Error loading page:', error);
+        console.error('Error loading page ' + route + ': ', error);
     } finally {
-        hideLoader("loaderApp");
+        hideLoaderApp();
     }
 }
 
 async function loadController(controller) {
     try {
-        const ControllerClass = getControllerClassName(controller);
+        const ControllerClass = getControllerClass(controller);
+
         if (ControllerClass) {
-            new ControllerClass();
+            const instance = new ControllerClass();
             console.log('Controller loaded successfully:', controller);
         } else {
             throw new Error(`Controller class not found in ${controller}`);
@@ -113,6 +132,29 @@ async function loadController(controller) {
         console.error('Error loading controller:', error);
     }
 }
+
+function getControllerClass(controller) {
+    switch (controller) {
+        case 'home-controller.js':
+            return HomeController;
+        // Agrega casos adicionales para otros controladores si es necesario
+        default:
+            return null;
+    }
+}
+
+function getControllerClass(controller) {
+    switch (controller) {
+        case 'home-controller.js':
+            return HomeController;
+        // Agrega casos adicionales para otros controladores si es necesario
+        default:
+            return null;
+    }
+}
+
+
+
 
 function getControllerClassName(controller) {
     return controller.replace(/\.js$/, '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
