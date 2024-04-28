@@ -89,7 +89,25 @@ function requiresAuthentication(hash) {
 async function fetchAndSetHTML(url, targetElementId) {
     return fetch(url)
         .then(response => response.text())
-        .then(html => document.getElementById(targetElementId).innerHTML = html);
+        .then(html => {
+            // Filtrar los scripts del HTML
+            const filteredHTML = filterScripts(html);
+            // Establecer el HTML filtrado en el elemento objetivo
+            document.getElementById(targetElementId).innerHTML = filteredHTML;
+        });
+}
+
+function filterScripts(html) {
+    // Crear un elemento temporal para analizar el HTML
+    const tempElement = document.createElement('div');
+    // Asignar el HTML al elemento temporal
+    tempElement.innerHTML = html;
+    // Obtener todos los elementos script del HTML
+    const scripts = tempElement.querySelectorAll('script');
+    // Eliminar los scripts del HTML
+    scripts.forEach(script => script.parentNode.removeChild(script));
+    // Devolver el HTML filtrado sin los scripts
+    return tempElement.innerHTML;
 }
 
 function showLoaderPage() {
