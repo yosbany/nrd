@@ -12,7 +12,7 @@ export default class MakeController {
                 { producto: "HARINA 0 BOLSA 25KG", precio: "$45", cantidadPorDefecto: 3 }
             ],
             "PROVEEDOR 2": [
-                { producto: "Producto X", precio: "$15", cantidadPorDefecto: 1 },
+                { producto: "Producto XX", precio: "$15", cantidadPorDefecto: 1 },
                 { producto: "Producto Y", precio: "$25", cantidadPorDefecto: 2 }
             ],
             // Define datos para los otros proveedores
