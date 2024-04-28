@@ -14,8 +14,11 @@ export default class Router {
 
     loadRoute() {
         const hash = window.location.hash.slice(1) || this.defaultRoute;
+        console.log(hash);
         const routeName = routes[hash];
+        console.log(routeName);
         const controller = this.controllers[routeName];
+        console.log(controller);
         if (controller) {
             controller.init();
         } else {

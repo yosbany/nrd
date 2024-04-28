@@ -5,7 +5,7 @@ export default class HomeView extends BaseView {
         super();
     }
     
-    render(data) {
-        
+    render() {
+        console.log("HomeView render");
     }
 }

@@ -9,6 +9,7 @@ export default class LoginController extends BaseController{
     }
 
     async init() {
+        console.log("LoginController init");
         this.view.render();
     }
 }
