@@ -44,7 +44,6 @@ export async function updateProfileFirebase(newDisplayName, newPhotoURL, newPhon
     }
 }
 
-// Función para cerrar sesión
 export async function logoutFirebase() {
     try {
         await signOut(auth);
