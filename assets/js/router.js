@@ -1,6 +1,19 @@
 import { routes, controllers, titles } from './routes.js';
 import { requireAuth } from '../../middleware/auth-middleware.js';
 import HomeController from './controllers/home-controller.js';
+import MakeController from './controllers/make-order-controller.js';
+
+
+function getControllerClass(controller) {
+    switch (controller) {
+        case 'home-controller.js':
+            return HomeController;
+        case 'make-order-controller.js':
+            return MakeController;
+        default:
+            return null;
+    }
+}
 
 export function handleRoute() {
     const hash = window.location.hash.substring(1);
@@ -102,14 +115,10 @@ async function loadPage(route, title, controller, hash) {
         await fetchAndSetHTML(`./pages/${route}`, 'app');
         setPageTitleAndHeader(title);
         setSidebarMenu(hash);
-
         console.log('Title and Sidebar updated successfully: ', title);
-
         if (controller) {
             await loadController(controller);
-            console.log('Controller loaded successfully: ', controller);
         }
-
         console.log('Page loaded successfully: ', route);
     } catch (error) {
         console.error('Error loading page ' + route + ': ', error);
@@ -123,29 +132,13 @@ async function loadController(controller) {
         const ControllerClass = getControllerClass(controller);
 
         if (ControllerClass) {
-            const instance = new ControllerClass();
-            console.log('Controller loaded successfully:', controller);
+            new ControllerClass();
         } else {
             throw new Error(`Controller class not found in ${controller}`);
         }
     } catch (error) {
         console.error('Error loading controller:', error);
     }
-}
-
-function getControllerClass(controller) {
-    switch (controller) {
-        case 'home-controller.js':
-            return HomeController;
-        // Agrega casos adicionales para otros controladores si es necesario
-        default:
-            return null;
-    }
-}
-
-
-function getControllerClassName(controller) {
-    return controller.replace(/\.js$/, '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
 }
 
 function redirectTo(url) {
