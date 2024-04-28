@@ -123,14 +123,7 @@ async function loadController(controller) {
         const ControllerClass = getControllerClassName(controller);
 
         if (ControllerClass) {
-            const controllerInstance = new ControllerClass();
-
-            if (typeof controllerInstance.init === 'function') {
-                controllerInstance.init();
-                console.log('Controller loaded and initialized successfully:', controller);
-            } else {
-                throw new Error(`Init method not found in ${controller}`);
-            }
+            new ControllerClass();
         } else {
             throw new Error(`Controller class not found in ${controller}`);
         }

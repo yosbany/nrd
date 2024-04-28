@@ -1,5 +1,6 @@
 export default class HomeController {
-    static init() {
+    constructor(){
         console.log('HomeController initialized');
     }
+    
 }
