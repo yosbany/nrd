@@ -119,17 +119,16 @@ async function loadPage(route, title, controller, hash) {
 
 async function loadController(controller) {
     try {
-        // Elimina el controlador actual si existe
         const currentScript = document.getElementById('currentScript');
         if (currentScript) {
             currentScript.remove();
         }
 
-        // Cargar el nuevo controlador dinámicamente
         const response = await fetch(`./assets/js/controllers/${controller}`);
         if (!response.ok) {
-            throw new Error('Failed to load controller script');
+            throw new Error(`Failed to load controller script: ${response.status} ${response.statusText}`);
         }
+        
         const scriptCode = await response.text();
         const scriptElement = document.createElement('script');
         scriptElement.id = 'currentScript';
@@ -137,22 +136,26 @@ async function loadController(controller) {
         scriptElement.textContent = scriptCode;
         document.body.appendChild(scriptElement);
 
-        // Esperar un breve momento para asegurarse de que el script se ha ejecutado completamente
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 5000));
 
-        // Inicializar la clase controladora después de cargar el script
-        const controllerWithoutExtension = controller.replace(/\.js$/, '');
-        const controllerClassName = controllerWithoutExtension.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
-        console.log(controllerClassName);
-        const ControllerClass = window[controllerClassName];
-        if (ControllerClass && typeof ControllerClass.init === 'function') {
-            ControllerClass.init(); // Llama al método init() de la clase controladora
+        const ControllerClass = window[getControllerClassName(controller)];
+        if (ControllerClass && typeof ControllerClass === 'function') {
+            const controllerInstance = new ControllerClass();
+            if (typeof controllerInstance.init === 'function') {
+                controllerInstance.init();
+            } else {
+                throw new Error(`Error: init method not found in ${controller}`);
+            }
         } else {
-            throw new Error(`Error: clase controladora o método init no encontrados en ${controller}`);
+            throw new Error(`Error: controller class not found in ${controller}`);
         }
     } catch (error) {
         console.error('Error loading controller:', error);
     }
+}
+
+function getControllerClassName(controller) {
+    return controller.replace(/\.js$/, '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
 }
 
 function redirectTo(url) {
