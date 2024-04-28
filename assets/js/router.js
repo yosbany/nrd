@@ -143,18 +143,6 @@ function getControllerClass(controller) {
     }
 }
 
-function getControllerClass(controller) {
-    switch (controller) {
-        case 'home-controller.js':
-            return HomeController;
-        // Agrega casos adicionales para otros controladores si es necesario
-        default:
-            return null;
-    }
-}
-
-
-
 
 function getControllerClassName(controller) {
     return controller.replace(/\.js$/, '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join('');
