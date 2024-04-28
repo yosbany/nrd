@@ -121,10 +121,13 @@ async function loadPage(route, title, controller, hash) {
 async function loadController(controller) {
     try {
         const ControllerClass = getControllerClassName(controller);
+
         if (ControllerClass) {
             const controllerInstance = new ControllerClass();
+
             if (typeof controllerInstance.init === 'function') {
                 controllerInstance.init();
+                console.log('Controller loaded and initialized successfully:', controller);
             } else {
                 throw new Error(`Init method not found in ${controller}`);
             }
@@ -132,7 +135,7 @@ async function loadController(controller) {
             throw new Error(`Controller class not found in ${controller}`);
         }
     } catch (error) {
-        console.error('Loading controller:', error);
+        console.error('Error loading controller:', error);
     }
 }
 
