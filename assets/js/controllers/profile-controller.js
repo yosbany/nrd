@@ -8,7 +8,7 @@ export default class ProfileController {
          const email = document.getElementById('email');
          const tokenMagerIO = document.getElementById('tokenMagerIO');
          let user = getCurrentUserFirebase();
-         console.log(user.email);
+         console.log(user);
 
     }
 }
