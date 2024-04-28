@@ -20,7 +20,7 @@ export function handleRoute() {
     const route = routes[hash];
     const controller = controllers[hash];
     const title = titles[hash];
-
+    
     if (!route) {
         redirectTo('not-found.html');
     }
@@ -110,7 +110,7 @@ function setSidebarMenu(hash) {
 async function loadPage(route, title, controller, hash) {
     hideLoaderPage();
     showLoaderApp();
-
+    await delay(2000);
     try {
         await fetchAndSetHTML(`./pages/${route}`, 'app');
         setPageTitleAndHeader(title);
