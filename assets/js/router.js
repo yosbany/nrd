@@ -1,5 +1,6 @@
 import { routes, controllers, titles } from './routes.js';
 import { requireAuth } from '../../middleware/auth-middleware.js';
+import HomeController from '../js/controllers/home-controller.js';
 
 export function handleRoute() {
     const hash = window.location.hash.substring(1);
@@ -119,10 +120,8 @@ async function loadPage(route, title, controller, hash) {
 
 async function loadController(controller) {
     try {
-        const ControllerModule = await import(`./controllers/${controller}`);
-        const ControllerClass = ControllerModule.default;
-
-        if (ControllerClass && typeof ControllerClass === 'function') {
+        const ControllerClass = getControllerClassName(controller);
+        if (ControllerClass) {
             const controllerInstance = new ControllerClass();
             if (typeof controllerInstance.init === 'function') {
                 controllerInstance.init();
