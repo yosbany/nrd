@@ -7,7 +7,7 @@ import CalculatePriceController from './controllers/calculate-price-controller.j
 import HomeController from './controllers/home-controller.js';
 import MakeController from './controllers/make-order-controller.js';
 import OnlineCatalogController from './controllers/online-catalog-controller.js';
-import PostersA4Controller from './controllers/posters-a4-controller.js';
+import PostersController from './controllers/posters-controller.js';
 import PrintPriceController from './controllers/print-price-controller.js';
 import ProfileController from './controllers/profile-controller.js';
 import PurchasePlanController from './controllers/purchase-plan-controller.js';
@@ -35,7 +35,7 @@ function getControllerClass(controller) {
         case 'online-catalog-controller.js':
             return OnlineCatalogController;
         case 'posters-a4-controller.js':
-            return PostersA4Controller;
+            return PostersController;
         case 'print-price-controller.js':
             return PrintPriceController;
         case 'profile-controller.js':
