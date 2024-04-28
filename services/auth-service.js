@@ -67,9 +67,13 @@ export async function isAuthenticatedFirebase() {
 
 export async function getCurrentUserFirebase() {
     try {
-        const user = await new Promise((resolve) => {
-            onAuthStateChanged(auth, (user) => {
+        const user = await new Promise((resolve, reject) => {
+            const unsubscribe = onAuthStateChanged(auth, (user) => {
+                unsubscribe(); // Detener la escucha después de obtener el usuario
                 resolve(user);
+            }, (error) => {
+                unsubscribe(); // Detener la escucha en caso de error
+                reject(error);
             });
         });
         return user;
