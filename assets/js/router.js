@@ -20,7 +20,7 @@ export function handleRoute() {
     const route = routes[hash];
     const controller = controllers[hash];
     const title = titles[hash];
-    
+
     if (!route) {
         redirectTo('not-found.html');
     }
@@ -143,4 +143,8 @@ async function loadController(controller) {
 
 function redirectTo(url) {
     window.location.href = url;
+}
+
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
