@@ -119,7 +119,7 @@ async function loadPage(route, title, controller, hash) {
 
 async function loadController(controller) {
     try {
-        const ControllerModule = await import(`./assets/js/controllers/${controller}`);
+        const ControllerModule = await import(`./controllers/${controller}`);
         const ControllerClass = ControllerModule.default;
 
         if (ControllerClass && typeof ControllerClass === 'function') {
@@ -136,6 +136,7 @@ async function loadController(controller) {
         console.error('Loading controller:', error);
     }
 }
+
 
 
 function getControllerClassName(controller) {
