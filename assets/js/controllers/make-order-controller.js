@@ -1,6 +1,7 @@
+import MakeController from './controllers/make-order-controller.js';
 export default class MakeController {
     constructor() {
-        console.log('HomeController constructor called');
+        console.log('MakeController constructor called');
         const proveedorData = {
             "PROVEEDOR 1": [
                 { producto: "AZUCAR COMUN BOLSA 25KG", precio: "$59", cantidadPorDefecto: 1 },

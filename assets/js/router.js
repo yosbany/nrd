@@ -1,15 +1,55 @@
 import { routes, controllers, titles } from './routes.js';
 import { requireAuth } from '../../middleware/auth-middleware.js';
+
+import AccountingTransactionsController from './controllers/accounting-transactions-controller.js';
+import BudgetLunchController from './controllers/budget-lunch-controller.js';
+import CalculatePriceController from './controllers/calculate-price-controller.js';
 import HomeController from './controllers/home-controller.js';
 import MakeController from './controllers/make-order-controller.js';
+import OnlineCatalogController from './controllers/online-catalog-controller.js';
+import PostersA4Controller from './controllers/posters-a4-controller.js';
+import PrintPriceController from './controllers/print-price-controller.js';
+import ProfileController from './controllers/profile-controller.js';
+import PurchasePlanController from './controllers/purchase-plan-controller.js';
+import PurchasePriceController from './controllers/purchase-price-controller.js';
+import ReceiveOrderController from './controllers/receive-order-controller.js';
+import RecipeBookController from './controllers/recipe-book-controller.js';
+import RrhhController from './controllers/rrhh-controller.js';
+
+
+
 
 
 function getControllerClass(controller) {
     switch (controller) {
+        case 'accounting-transactions-controller.js':
+            return AccountingTransactionsController;
+        case 'budget-lunch-controller.js':
+            return BudgetLunchController;
+        case 'calculate-price-controller.js':
+            return CalculatePriceController;
         case 'home-controller.js':
             return HomeController;
         case 'make-order-controller.js':
             return MakeController;
+        case 'online-catalog-controller.js':
+            return OnlineCatalogController;
+        case 'posters-a4-controller.js':
+            return PostersA4Controller;
+        case 'print-price-controller.js':
+            return PrintPriceController;
+        case 'profile-controller.js':
+            return ProfileController;
+        case 'purchase-plan-controller.js':
+            return PurchasePlanController;
+        case 'purchase-price-controller.js':
+            return PurchasePriceController;
+        case 'receive-order-controller.js':
+            return ReceiveOrderController;
+        case 'recipe-book-controller.js':
+            return RecipeBookController;
+        case 'rrhh-controller.js':
+            return RrhhController;
         default:
             return null;
     }
@@ -46,7 +86,7 @@ function requiresAuthentication(hash) {
     return hash !== '' && hash !== 'login' && hash !== 'access-denied' && hash !== 'not-found';
 }
 
-function fetchAndSetHTML(url, targetElementId) {
+async function fetchAndSetHTML(url, targetElementId) {
     return fetch(url)
         .then(response => response.text())
         .then(html => document.getElementById(targetElementId).innerHTML = html);
@@ -110,7 +150,7 @@ function setSidebarMenu(hash) {
 async function loadPage(route, title, controller, hash) {
     hideLoaderPage();
     showLoaderApp();
-    await delay(2000);
+    await delay(1000);
     try {
         await fetchAndSetHTML(`./pages/${route}`, 'app');
         setPageTitleAndHeader(title);
@@ -130,7 +170,6 @@ async function loadPage(route, title, controller, hash) {
 async function loadController(controller) {
     try {
         const ControllerClass = getControllerClass(controller);
-
         if (ControllerClass) {
             new ControllerClass();
         } else {

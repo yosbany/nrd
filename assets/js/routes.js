@@ -11,7 +11,7 @@ export const routes = {
     'counter-shifts': 'counter-shifts.html',
     'make-order': 'make-order.html',
     'online-catalog': 'online-catalog.html',
-    'posters-a4': 'posters-A4.html',
+    'posters-a4': 'posters-a4.html',
     'print-price': 'print-price.html',
     'profile': 'profile.html',
     'purchase-plan': 'purchase-plan.html',
