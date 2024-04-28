@@ -21,6 +21,7 @@ export const routes = {
     'rrhh': 'rrhh.html'
 };
 
+
 // Titles
 export const titles = {
     'home': 'Inicio',
