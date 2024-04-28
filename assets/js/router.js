@@ -120,10 +120,19 @@ async function loadPage(route, title, controller, hash) {
 
 async function loadController(controller) {
     try {
-        const ControllerClass = getControllerClassName(controller);
+        let ControllerClass;
+
+        switch (controller) {
+            case 'home-controller.js':
+                ControllerClass = HomeController;
+                break;
+            default:
+                throw new Error(`Controller ${controller} not found`);
+        }
 
         if (ControllerClass) {
             new ControllerClass();
+            console.log('Controller loaded successfully:', controller);
         } else {
             throw new Error(`Controller class not found in ${controller}`);
         }
@@ -131,6 +140,7 @@ async function loadController(controller) {
         console.error('Error loading controller:', error);
     }
 }
+
 
 
 
