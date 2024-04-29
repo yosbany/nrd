@@ -1,5 +1,6 @@
 import BaseController from './base-controller.js';
 import HomeView from '../views/home-view.js';
+import FirebaseServiceInstance from '../../../services/firebase-service.js';
 
 export default class HomeController extends BaseController{
     
@@ -20,6 +21,7 @@ export default class HomeController extends BaseController{
 
     exit(){
         console.log("HomeController exit");
+        FirebaseServiceInstance.logout();
         this.redirectToPage("login.html");
     }
 }
