@@ -1,5 +1,8 @@
+import {showLoaderPage, showLoaderApp} from './util.js'
 import HomeController from './controllers/home-controller.js';
 import LoginController from './controllers/login-controller.js';
+
+const BASE_PATH = '/nrd/';
 
 // Define los controladores para cada ruta
 const routes = {
@@ -9,35 +12,11 @@ const routes = {
     'login.html': new LoginController()
 };
 
-function toggleElementVisibility(elementId, isVisible) {
-    const element = document.getElementById(elementId);
-    if (isVisible) {
-        element.classList.remove("d-none");
-        element.classList.add("d-block");
-    } else {
-        element.classList.remove("d-block");
-        element.classList.add("d-none");
-    }
-}
-
-function showLoaderPage() {
-    toggleElementVisibility("loaderPage", true);
-    toggleElementVisibility("page", false);
-}
-
-function showLoaderApp() {
-    this.toggleElementVisibility("loaderApp", true);
-    this.toggleElementVisibility("app", false);
-}
-
-
-const BASE_PATH = '/nrd/';
-
 // Función para cargar la ruta actual
 export default function router() {
     showLoaderPage();
     showLoaderApp();
-    
+
     const hash = window.location.hash;
     const path = window.location.pathname.slice(BASE_PATH.length);
     

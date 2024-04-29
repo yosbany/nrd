@@ -1,15 +1,19 @@
+import { showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from './util.js'
+
 export default class BaseView {
     constructor() {
         // Constructor de BaseView
     }
 
-    getContent(elementId){
+    getContent(elementId) {
         return document.getElementById(elementId) ? document.getElementById("elementId").innerHTML : document.createElement("dvi").innerHTML;
     }
 
     async fetchAndSetHTML(url, targetElementId) {
+        
         this.hideLoaderPage();
         this.hideLoaderApp();
+
         return fetch(url)
             .then(response => response.text())
             .then(html => {
@@ -32,35 +36,19 @@ export default class BaseView {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    toggleElementVisibility(elementId, isVisible) {
-        const element = document.getElementById(elementId);
-        if (isVisible) {
-            element.classList.remove("d-none");
-            element.classList.add("d-block");
-        } else {
-            element.classList.remove("d-block");
-            element.classList.add("d-none");
-        }
-    }
-
     showLoaderPage() {
-        this.toggleElementVisibility("loaderPage", true);
-        this.toggleElementVisibility("page", false);
-    }
-
-    hideLoaderPage() {
-        this.toggleElementVisibility("loaderPage", false);
-        this.toggleElementVisibility("page", true);
+        showLoaderPage();
     }
 
     showLoaderApp() {
-        this.toggleElementVisibility("loaderApp", true);
-        this.toggleElementVisibility("app", false);
+        showLoaderApp();
     }
 
+    hideLoaderPage() {
+        hideLoaderPage();
+    }
     hideLoaderApp() {
-        this.toggleElementVisibility("loaderApp", false);
-        this.toggleElementVisibility("app", true);
+        hideLoaderApp();
     }
 
     setPageTitleAndHeader(title) {
