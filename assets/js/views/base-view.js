@@ -1,4 +1,4 @@
-import { showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from './util.js'
+import { showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from '../util.js'
 
 export default class BaseView {
     constructor() {
