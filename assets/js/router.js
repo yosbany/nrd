@@ -18,7 +18,7 @@ export default function router() {
     const path = window.location.pathname.slice(BASE_PATH.length);
     
     let key = hash ? hash : path;
-
+    console.log("key: ",key)
     // Verifica si la ruta actual existe en el objeto routes
     if (routes.hasOwnProperty(key)) {
         const instanceController = routes[key];
