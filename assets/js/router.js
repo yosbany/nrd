@@ -3,10 +3,10 @@ import LoginController from './controllers/login-controller.js';
 
 // Define los controladores para cada ruta
 const routes = {
-    '/': new HomeController(),
-    '/index.html': new HomeController(),
+    '': new HomeController(),
+    'index.html': new HomeController(),
     '#home': new HomeController(),
-    '/login.html': new LoginController()
+    'login.html': new LoginController()
 };
 
 
