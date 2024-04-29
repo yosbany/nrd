@@ -7,6 +7,6 @@ export default class LoginView  extends BaseView {
 
     render() {
         console.log("LoginView render");
-        
+        this.redirectTo("login.html");
     }
 }
