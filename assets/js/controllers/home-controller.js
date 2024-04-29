@@ -12,4 +12,9 @@ export default class HomeController extends BaseController{
         console.log("HomeController init");
         this.view.render();
     }
+
+    async home() {
+        console.log("HomeController home");
+        this.view.render();
+    }
 }

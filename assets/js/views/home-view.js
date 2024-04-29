@@ -7,6 +7,5 @@ export default class HomeView extends BaseView {
     
     render() {
         console.log("HomeView render");
-        this.redirectTo('#login')
     }
 }

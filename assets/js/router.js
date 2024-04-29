@@ -1,25 +1,35 @@
+import HomeController from './controllers/home-controller.js';
+import LoginController from './controllers/login-controller.js';
+
 const routes = {
-    'home': 'home',
-    'login': 'login'
+    '/': {
+        'contoller': new HomeController()
+    },
+    '/index.html': {
+        'contoller': new HomeController()
+    },
+    '#home': {
+        'contoller': new HomeController()
+    },
+    '/login.html': {
+        'contoller': new LoginController()
+    }
 };
 
-const defaultRoute = '';
-
-export default class Router {
-    constructor(controllers, defaultRoute) {
-        this.controllers = controllers;
-        this.defaultRoute = defaultRoute;
+export default loadRoute() {
+    const hash = window.location.hash;
+    const path = window.location.pathname;
+    let key = hash ? hash : path;
+    const instanceController = routes[key].contoller;
+    if (hash) {
+        const handlerFunction = instanceController[hash];
+        if (handlerFunction && typeof handlerFunction === 'function') {
+            handlerFunction();
+        }
     }
-
-    loadRoute() {
-        const hash = window.location.hash.slice(1) || this.defaultRoute;
-        console.log(hash);
-        const routeName = routes[hash];
-        console.log(routeName);
-        const controller = this.controllers[routeName];
-        console.log(controller);
-        if (controller) {
-            controller.init();
-        } 
+    else{
+        if (typeof instanceController.init === 'function') {
+            instanceController.init();
+        }
     }
 }
