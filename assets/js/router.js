@@ -25,9 +25,7 @@ function executeControllerMethod(controller, methodName) {
     }
 }
 
-function routeNotFound(key) {
-    hideLoaderPage();
-    hideLoaderApp();
+function routeNotFound() {
     redirectTo("not-found.html");
 }
 
@@ -37,7 +35,6 @@ export default function router() {
 
     const key = getKeyFromHashAndPath();
     console.log("key: ", key);
-
     if (routes.hasOwnProperty(key)) {
         const controller = routes[key];
         if (!window.location.hash) {
@@ -47,6 +44,6 @@ export default function router() {
             executeControllerMethod(controller, hashFunction);
         }
     } else {
-        routeNotFound(key);
+        routeNotFound();
     }
 }
