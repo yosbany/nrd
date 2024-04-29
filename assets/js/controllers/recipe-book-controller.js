@@ -3,6 +3,11 @@ import BaseController from './base-controller.js';
 export default class RecipeBookController extends BaseController {
     constructor() {
         super();
+        this.initEventsController();
+    }
+
+    initEventsController(){
+        
     }
 
     async recipeBook() {

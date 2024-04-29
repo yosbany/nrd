@@ -3,6 +3,11 @@ import BaseController from './base-controller.js';
 export default class PurchasePriceController  extends BaseController{
     constructor() {
         super();
+        this.initEventsController();
+    }
+
+    initEventsController(){
+        
     }
 
     async purchasePrice() {

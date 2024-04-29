@@ -5,6 +5,11 @@ export default class MakeOrderController extends BaseController {
     constructor() {
         super();
         this.view = new MakeOrderView(); 
+        this.initEventsController();
+    }
+
+    initEventsController(){
+        
     }
 
     async makeOrder() {
