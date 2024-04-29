@@ -27,7 +27,7 @@ export default function router() {
     // Verifica si la ruta actual existe en el objeto routes
     if (routes.hasOwnProperty(key)) {
         const instanceController = routes[key];
-        if (hash) {
+        if (notHash) {
             // Ejecuta la función correspondiente del controlador si hay un hash en la URL
             const hashFunction = hash.slice(1);
             const handlerFunction = instanceController[hashFunction];
