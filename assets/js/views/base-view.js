@@ -2,7 +2,7 @@ import { showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from '..
 
 export default class BaseView {
     constructor() {
-        // Constructor de BaseView
+      
     }
 
     getContent(elementId) {
