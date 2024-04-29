@@ -1,4 +1,4 @@
-import { showLoaderPage, showLoaderApp } from './util.js';
+import { showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp, redirectTo } from './util.js';
 import HomeController from './controllers/home-controller.js';
 import LoginController from './controllers/login-controller.js';
 
@@ -26,7 +26,9 @@ function executeControllerMethod(controller, methodName) {
 }
 
 function routeNotFound(key) {
-    console.error('Route not found:', key);
+    hideLoaderPage();
+    hideLoaderApp();
+    redirectTo("not-found.html");
 }
 
 export default function router() {
