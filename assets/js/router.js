@@ -9,10 +9,18 @@ const routes = {
     '/login.html': new LoginController()
 };
 
+
+const BASE_PATH = '/nrd/';
+
 // Función para cargar la ruta actual
 export default function router() {
     const hash = window.location.hash;
     const path = window.location.pathname;
+    
+    if (path && path.startsWith(BASE_PATH)) {
+        path = path.slice(BASE_PATH.length);
+    }
+
     let key = hash ? hash : path;
 
     // Verifica si la ruta actual existe en el objeto routes
