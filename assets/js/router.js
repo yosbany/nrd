@@ -20,8 +20,9 @@ export default function router() {
 
     const hash = window.location.hash.slice(1);
     const path = window.location.pathname.slice(BASE_PATH.length);
-
-    let key = hash ? hash : path;
+    let notHash = !hash;
+    console.log("notHash: ", notHash);
+    let key = notHash ? path : hash;
     console.log("key: ", key)
     // Verifica si la ruta actual existe en el objeto routes
     if (routes.hasOwnProperty(key)) {
