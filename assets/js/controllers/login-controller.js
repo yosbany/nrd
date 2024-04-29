@@ -11,7 +11,7 @@ export default class LoginController extends BaseController {
 
     async init() {
         console.log("LoginController init");
-        document.getElementById('submitBtn').addEventListener('click', async function (event) {
+        document.getElementById('submitBtn').addEventListener('click', async (event) => {
             event.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
