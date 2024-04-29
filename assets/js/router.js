@@ -1,5 +1,4 @@
 const routes = {
-    '': 'home',
     'home': 'home',
     'login': 'login'
 };
@@ -21,8 +20,6 @@ export default class Router {
         console.log(controller);
         if (controller) {
             controller.init();
-        } else {
-            console.error('Route not found');
-        }
+        } 
     }
 }
