@@ -1,4 +1,4 @@
-import { showLoaderPageUtils, showLoaderAppUtils, hideLoaderPageUtils, hideLoaderAppUtils } from '../util.js'
+import { showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from '../util.js'
 
 export default class BaseView {
     constructor() {
@@ -31,18 +31,18 @@ export default class BaseView {
     
 
     showLoaderPage() {
-        showLoaderPageUtils();
+        showLoaderPage();
     }
 
     showLoaderApp() {
-        showLoaderAppUtils();
+        showLoaderApp();
     }
 
     hideLoaderPage() {
-        hideLoaderPageUtils();
+        hideLoaderPage();
     }
     hideLoaderApp() {
-        hideLoaderAppUtils();
+        hideLoaderApp();
     }
 
     setPageTitleAndHeader(title) {

@@ -1,4 +1,4 @@
-import { showLoaderPageUtils, showLoaderAppUtils } from './util.js'
+import { showLoaderPage, showLoaderApp } from './util.js'
 import HomeController from './controllers/home-controller.js';
 import LoginController from './controllers/login-controller.js';
 
@@ -15,8 +15,8 @@ const routes = {
 
 // Función para cargar la ruta actual
 export default function router() {
-    showLoaderPageUtils();
-    showLoaderAppUtils();
+    showLoaderPage();
+    showLoaderApp();
 
     const hash = window.location.hash;
     const path = window.location.pathname.slice(BASE_PATH.length);
