@@ -17,7 +17,7 @@ export default class LoginController extends BaseController {
             const password = document.getElementById('password').value;
             try {
                 await FirebaseServiceInstance.login(email, password);
-                window.location.href = '#home';
+                this.redirectToPage("/");
             } catch (error) {
                 console.error('Error al iniciar sesión:', error.message);
             }
