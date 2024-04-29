@@ -1,5 +1,3 @@
-import loadRoute from './router.js';
-
-
-window.addEventListener('load', loadRoute());
-window.addEventListener('hashchange', loadRoute());
+import router from './router.js';
+window.addEventListener('load', router());
+window.addEventListener('hashchange', router());
