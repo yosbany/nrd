@@ -9,7 +9,8 @@ const routes = {
     '': new HomeController(),
     'index.html': new HomeController(),
     '#home': new HomeController(),
-    'login.html': new LoginController()
+    'login.html': new LoginController(),
+    '#exit': new HomeController()
 };
 
 // Función para cargar la ruta actual
@@ -27,7 +28,9 @@ export default function router() {
         const instanceController = routes[key];
         if (hash) {
             // Ejecuta la función correspondiente del controlador si hay un hash en la URL
-            const handlerFunction = instanceController[hash];
+            const hashFunction = hash.slice(1);
+            console.log(hashFunction);
+            const handlerFunction = instanceController[hashFunction];
             if (handlerFunction && typeof handlerFunction === 'function') {
                 handlerFunction();
             }
