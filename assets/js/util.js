@@ -9,30 +9,30 @@ function toggleElementVisibility(elementId, isVisible) {
     }
 }
 
-export function showLoaderPage() {
+export function showLoaderPageUtils() {
     toggleElementVisibility("loaderPage", true);
     toggleElementVisibility("page", false);
 }
 
-export function hideLoaderPage() {
+export function hideLoaderPageUtils() {
     toggleElementVisibility("loaderPage", false);
     toggleElementVisibility("page", true);
 }
 
-export function showLoaderApp() {
+export function showLoaderAppUtils() {
     toggleElementVisibility("loaderApp", true);
     toggleElementVisibility("app", false);
 }
 
-export function hideLoaderApp() {
+export function hideLoaderAppUtils() {
     toggleElementVisibility("loaderApp", false);
     toggleElementVisibility("app", true);
 }
 
-export function redirectTo(path) {
+export function redirectToUtils(path) {
     window.location.href = path;
 }
 
-export function delay(ms) {
+export function delayUtils(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

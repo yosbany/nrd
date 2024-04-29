@@ -1,11 +1,11 @@
-import { redirectTo } from '../util.js'
+import { redirectToUtils } from '../util.js'
 
 export default class BaseController {
     constructor() {
 
     }
 
-    redirectTo(path) {
-        redirectTo(path);
+    redirectToPage(path) {
+        redirectToUtils(path);
     }
 }

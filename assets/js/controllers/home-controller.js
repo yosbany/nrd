@@ -20,7 +20,6 @@ export default class HomeController extends BaseController{
 
     exit(){
         console.log("HomeController exit");
-        this.redirectTo("login.html");
-        
+        this.redirectToPage("login.html");
     }
 }
