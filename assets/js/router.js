@@ -25,12 +25,19 @@ function showLoaderPage() {
     toggleElementVisibility("page", false);
 }
 
+function showLoaderApp() {
+    this.toggleElementVisibility("loaderApp", true);
+    this.toggleElementVisibility("app", false);
+}
+
 
 const BASE_PATH = '/nrd/';
 
 // Función para cargar la ruta actual
 export default function router() {
     showLoaderPage();
+    showLoaderApp();
+    
     const hash = window.location.hash;
     const path = window.location.pathname.slice(BASE_PATH.length);
     

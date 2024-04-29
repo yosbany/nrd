@@ -3,23 +3,21 @@ export default class BaseView {
         // Constructor de BaseView
     }
 
-    // Método para renderizar un mensaje de error en la vista
-    renderError(message) {
-        const errorElement = document.createElement('div');
-        errorElement.classList.add('error-message');
-        errorElement.textContent = message;
-        document.body.appendChild(errorElement);
+    getContent(elementId){
+        return document.getElementById(elementId) ? document.getElementById("elementId").innerHTML : document.createElement("dvi").innerHTML;
     }
 
     async fetchAndSetHTML(url, targetElementId) {
+        this.hideLoaderPage();
+        this.hideLoaderApp();
         return fetch(url)
             .then(response => response.text())
             .then(html => {
-                document.getElementById(targetElementId).innerHTML = filterScripts(html);
+                document.getElementById(targetElementId).innerHTML = this._filterScripts(html);
             });
     }
 
-    filterScripts(html) {
+    _filterScripts(html) {
         const tempElement = document.createElement('div');
         tempElement.innerHTML = html;
         tempElement.querySelectorAll('script').forEach(script => script.parentNode.removeChild(script));
