@@ -1,6 +1,11 @@
-//import ReceiveOrderController from './controllers/receive-order-controller.js';
-export default class ReceiveOrderController {
+import BaseController from './base-controller.js';
+
+export default class ReceiveOrderController extends BaseController {
     constructor() {
-        console.log('ReceiveOrderController constructor called');
+        super();
+    }
+
+    async receiveOrder() {
+        console.log("ReceiveOrderController receiveOrder");
     }
 }

@@ -1,6 +1,11 @@
-//import PrintPriceController from './controllers/print-price-controller.js';
-export default class PrintPriceController {
+import BaseController from './base-controller.js';
+
+export default class PrintPriceController extends BaseController {
     constructor() {
-        console.log('PrintPriceController constructor called');
+        super();
+    }
+
+    async printPrice() {
+        console.log("PrintPriceController printPrice");
     }
 }

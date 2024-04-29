@@ -1,6 +1,13 @@
-//import RecipeBookController from './controllers/recipe-book-controller.js';
-export default class RecipeBookController {
+import BaseController from './base-controller.js';
+
+export default class RecipeBookController extends BaseController {
     constructor() {
-        console.log('RecipeBookController constructor called');
+        super();
     }
+
+    async recipeBook() {
+        console.log("RecipeBookController recipeBook");
+    }
+
+    
 }

@@ -1,6 +1,11 @@
-//import RrhhController from './controllers/rrhh-controller.js';
-export default class RrhhController {
+import BaseController from './base-controller.js';
+
+export default class RrhhController extends BaseController {
     constructor() {
-        console.log('RrhhController constructor called');
+        super();
+    }
+
+    async rrhh() {
+        console.log("RrhhController rrhh");
     }
 }

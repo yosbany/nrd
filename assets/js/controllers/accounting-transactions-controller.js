@@ -1,6 +1,12 @@
-//import AccountingTransactionsController from './controllers/accounting-transactions-controller.js';
-export default class AccountingTransactionsController {
+import BaseController from './base-controller.js';
+
+export default class AccountingTransactionsController extends BaseController {
     constructor() {
-        console.log('AccountingTransactionsController constructor called');
+        super();
+    }
+
+    async accountingTransactions() {
+        console.log("AccountingTransactionsController accountingTransactions");
+        
     }
 }

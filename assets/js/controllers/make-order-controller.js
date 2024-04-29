@@ -1,7 +1,16 @@
-//import MakeController from './controllers/make-order-controller.js';
-export default class MakeController {
+import BaseController from './base-controller.js';
+
+export default class MakeOrderController extends BaseController {
     constructor() {
-        console.log('MakeController constructor called');
+        super();
+    }
+
+    async makeOrder() {
+        console.log("MakeOrderController makeOrder");
+        
+    }
+
+    _budgetLunch() {
         const proveedorData = {
             "PROVEEDOR 1": [
                 { producto: "AZUCAR COMUN BOLSA 25KG", precio: "$59", cantidadPorDefecto: 1 },
@@ -123,6 +132,7 @@ export default class MakeController {
                 tablaProductos.appendChild(noRecordsRow);
             }
         }
+
     }
 }
 

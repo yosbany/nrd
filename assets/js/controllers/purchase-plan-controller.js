@@ -1,6 +1,11 @@
-//import PurchasePlanController from './controllers/purchase-plan-controller.js';
-export default class PurchasePlanController {
+import BaseController from './base-controller.js';
+
+export default class PurchasePlanController extends BaseController {
     constructor() {
-        console.log('PurchasePlanController constructor called');
+        super();
+    }
+
+    async purchasePlan() {
+        console.log("PurchasePlanController purchasePlan");
     }
 }

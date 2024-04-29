@@ -1,6 +1,12 @@
-//import BudgetLunchController from './controllers/budget-lunch-controller.js';
-export default class BudgetLunchController {
+import BaseController from './base-controller.js';
+
+export default class BudgetLunchController extends BaseController {
     constructor() {
-        console.log('BudgetLunchController constructor called');
+        super();
+    }
+
+    async budgetLunch() {
+        console.log("BudgetLunchController budgetLunch");
+        
     }
 }

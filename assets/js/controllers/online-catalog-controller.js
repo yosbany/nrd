@@ -1,6 +1,11 @@
-//import OnlineCatalogController from './controllers/online-catalog-controller.js';
-export default class OnlineCatalogController {
+import BaseController from './base-controller.js';
+
+export default class OnlineCatalogController extends BaseController {
     constructor() {
-        console.log('OnlineCatalogController constructor called');
+        super();
+    }
+
+    async onlineCatalog() {
+        console.log("OnlineCatalogController onlineCatalog");
     }
 }

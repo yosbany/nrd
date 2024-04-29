@@ -6,7 +6,7 @@ export default class HomeView extends BaseView {
         super();
     }
     
-    render() {
+    home() {
         this.fetchAndSetHTML("./assets/js/views/fragments/home.html", "app");
     }
 

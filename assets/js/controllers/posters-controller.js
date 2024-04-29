@@ -1,6 +1,11 @@
-//import PostersController from './controllers/posters-controller.js';
-export default class PostersController {
+import BaseController from './base-controller.js';
+
+export default class PostersController extends BaseController {
     constructor() {
-        console.log('PostersController constructor called');
+        super();
+    }
+
+    async posters() {
+        console.log("PostersController posters");
     }
 }
