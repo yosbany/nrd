@@ -29,8 +29,8 @@ export function hideLoaderApp() {
     toggleElementVisibility("app", true);
 }
 
-export function redirectTo(url) {
-    window.location.href = url;
+export function redirectTo(path) {
+    window.location.href = path;
 }
 
 export function delay(ms) {

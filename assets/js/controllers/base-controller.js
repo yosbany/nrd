@@ -5,7 +5,7 @@ export default class BaseController {
         // Constructor de BaseController
     }
 
-    redirectTo(){
-        redirectTo();
+    redirectTo(path){
+        redirectTo(path);
     }
 }
