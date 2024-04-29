@@ -46,23 +46,23 @@ export default class BaseView {
     }
 
     showLoaderPage() {
-        toggleElementVisibility("loaderPage", true);
-        toggleElementVisibility("page", false);
+        this.toggleElementVisibility("loaderPage", true);
+        this.toggleElementVisibility("page", false);
     }
 
     hideLoaderPage() {
-        toggleElementVisibility("loaderPage", false);
-        toggleElementVisibility("page", true);
+        this.toggleElementVisibility("loaderPage", false);
+        this.toggleElementVisibility("page", true);
     }
 
     showLoaderApp() {
-        toggleElementVisibility("loaderApp", true);
-        toggleElementVisibility("app", false);
+        this.toggleElementVisibility("loaderApp", true);
+        this.toggleElementVisibility("app", false);
     }
 
     hideLoaderApp() {
-        toggleElementVisibility("loaderApp", false);
-        toggleElementVisibility("app", true);
+        this.toggleElementVisibility("loaderApp", false);
+        this.toggleElementVisibility("app", true);
     }
 
     setPageTitleAndHeader(title) {
