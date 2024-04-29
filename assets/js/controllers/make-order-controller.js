@@ -1,13 +1,15 @@
 import BaseController from './base-controller.js';
+import MakeOrderView from '../views/make-order-view.js';
 
 export default class MakeOrderController extends BaseController {
     constructor() {
         super();
+        this.view = new MakeOrderView(); 
     }
 
     async makeOrder() {
         console.log("MakeOrderController makeOrder");
-        
+        this.view.renderView();
     }
 
     _budgetLunch() {

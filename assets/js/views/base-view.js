@@ -1,11 +1,13 @@
 import { redirectTo, showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from '../util.js'
 
 export default class BaseView {
+
+
     constructor() {
-      
+        this.PATH_FRAGMENTS = "./assets/js/views/fragments/";
     }
 
-    emitEventController(keyEvent, dataEvent){
+    emitEventController(keyEvent, dataEvent) {
         document.dispatchEvent(new CustomEvent(keyEvent, dataEvent));
     }
 
@@ -14,7 +16,7 @@ export default class BaseView {
     }
 
     async fetchAndSetHTML(url, targetElementId) {
-        
+
         this.hideLoaderPage();
         this.hideLoaderApp();
 
