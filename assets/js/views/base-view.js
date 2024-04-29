@@ -11,10 +11,26 @@ export default class BaseView {
         document.body.appendChild(errorElement);
     }
 
-    // Método para limpiar todos los elementos hijos de un elemento padre
-    clearElement(element) {
-        while (element.firstChild) {
-            element.removeChild(element.firstChild);
-        }
+    async fetchAndSetHTML(url, targetElementId) {
+        return fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById(targetElementId).innerHTML = filterScripts(html);
+            });
+    }
+
+    filterScripts(html) {
+        const tempElement = document.createElement('div');
+        tempElement.innerHTML = html;
+        tempElement.querySelectorAll('script').forEach(script => script.parentNode.removeChild(script));
+        return tempElement.innerHTML;
+    }
+
+    redirectTo(url) {
+        window.location.href = url;
+    }
+
+    delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 }
