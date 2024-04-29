@@ -8,9 +8,9 @@ const BASE_PATH = '/nrd/';
 const routes = {
     '': new HomeController(),
     'index.html': new HomeController(),
-    '#home': new HomeController(),
+    'home': new HomeController(),
     'login.html': new LoginController(),
-    '#exit': new HomeController()
+    'exit': new HomeController()
 };
 
 // Función para cargar la ruta actual
@@ -18,7 +18,7 @@ export default function router() {
     showLoaderPage();
     showLoaderApp();
 
-    const hash = window.location.hash;
+    const hash = window.location.hash.slice(1);
     const path = window.location.pathname.slice(BASE_PATH.length);
 
     let key = hash ? hash : path;
@@ -29,7 +29,6 @@ export default function router() {
         if (hash) {
             // Ejecuta la función correspondiente del controlador si hay un hash en la URL
             const hashFunction = hash.slice(1);
-            console.log(hashFunction);
             const handlerFunction = instanceController[hashFunction];
             if (handlerFunction && typeof handlerFunction === 'function') {
                 handlerFunction();
