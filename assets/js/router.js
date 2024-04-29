@@ -1,10 +1,9 @@
-import { showLoaderPage, showLoaderApp } from './util.js'
+import { showLoaderPage, showLoaderApp } from './util.js';
 import HomeController from './controllers/home-controller.js';
 import LoginController from './controllers/login-controller.js';
 
 const BASE_PATH = '/nrd/';
 
-// Define los controladores para cada ruta
 const routes = {
     '': new HomeController(),
     'index.html': new HomeController(),
@@ -13,34 +12,39 @@ const routes = {
     'exit': new HomeController()
 };
 
-// Función para cargar la ruta actual
+function getKeyFromHashAndPath() {
+    const hash = window.location.hash.slice(1);
+    const path = window.location.pathname.slice(BASE_PATH.length);
+    return hash || path || '';
+}
+
+function executeControllerMethod(controller, methodName) {
+    const method = controller[methodName];
+    if (method && typeof method === 'function') {
+        method.call(controller);
+    }
+}
+
+function routeNotFound(key) {
+    console.error('Route not found:', key);
+}
+
 export default function router() {
     showLoaderPage();
     showLoaderApp();
 
-    const hash = window.location.hash.slice(1);
-    const path = window.location.pathname.slice(BASE_PATH.length);
-    let notHash = !hash;
-    console.log("notHash: ", notHash);
-    let key = notHash ? path : hash;
-    console.log("key: ", key)
-    // Verifica si la ruta actual existe en el objeto routes
+    const key = getKeyFromHashAndPath();
+    console.log("key: ", key);
+
     if (routes.hasOwnProperty(key)) {
-        const instanceController = routes[key];
-        if (notHash) {
-            // Ejecuta la función correspondiente del controlador si hay un hash en la URL
-            const hashFunction = hash.slice(1);
-            const handlerFunction = instanceController[hashFunction];
-            if (handlerFunction && typeof handlerFunction === 'function') {
-                handlerFunction();
-            }
+        const controller = routes[key];
+        if (!window.location.hash) {
+            executeControllerMethod(controller, 'init');
         } else {
-            // Ejecuta el método init del controlador si no hay hash en la URL
-            if (typeof instanceController.init === 'function') {
-                instanceController.init();
-            }
+            const hashFunction = window.location.hash.slice(1);
+            executeControllerMethod(controller, hashFunction);
         }
     } else {
-        console.error('Route not found:', key);
+        routeNotFound(key);
     }
 }
