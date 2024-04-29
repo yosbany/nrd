@@ -1,8 +1,12 @@
-import { showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from '../util.js'
+import { redirectTo, showLoaderPage, showLoaderApp, hideLoaderPage, hideLoaderApp } from '../util.js'
 
 export default class BaseView {
     constructor() {
       
+    }
+
+    emitEventController(keyEvent, dataEvent){
+        document.dispatchEvent(new CustomEvent(keyEvent, dataEvent));
     }
 
     getContent(elementId) {
@@ -28,7 +32,9 @@ export default class BaseView {
         return tempElement.innerHTML;
     }
 
-    
+    redirectToPage(path) {
+        redirectTo(path);
+    }
 
     showLoaderPage() {
         showLoaderPage();

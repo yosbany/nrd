@@ -5,6 +5,12 @@ export default class BaseController {
 
     }
 
+    subscribeEvent(keyEvent, functionEvent){
+        document.addEventListener(keyEvent, (event) => {
+            functionEvent(event);
+          });
+    }
+
     redirectToPage(path) {
         redirectTo(path);
     }
