@@ -28,13 +28,7 @@ export default class BaseView {
         return tempElement.innerHTML;
     }
 
-    redirectTo(url) {
-        window.location.href = url;
-    }
-
-    delay(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+    
 
     showLoaderPage() {
         showLoaderPage();

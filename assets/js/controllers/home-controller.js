@@ -17,4 +17,10 @@ export default class HomeController extends BaseController{
         console.log("HomeController home");
         this.view.render();
     }
+
+    exit(){
+        console.log("HomeController exit");
+        this.redirectTo("login.html");
+        
+    }
 }

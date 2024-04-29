@@ -28,3 +28,11 @@ export function hideLoaderApp() {
     toggleElementVisibility("loaderApp", false);
     toggleElementVisibility("app", true);
 }
+
+export function redirectTo(url) {
+    window.location.href = url;
+}
+
+export function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
