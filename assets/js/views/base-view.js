@@ -68,7 +68,7 @@ export default class BaseView {
     setPageTitleAndHeader(title) {
         const newTitle = "NRD - " + title;
         document.title = newTitle;
-        document.getElementById("pageTitle").innerText = newTitle;
+        //document.getElementById("pageTitle").innerText = newTitle;
         document.getElementById("mainTitle").innerText = title;
     }
 
