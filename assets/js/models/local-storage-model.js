@@ -1,4 +1,4 @@
-import data from "./initial-data";
+import data from "./initial-data.js";
 
 
 export default class LocalStorageModel {
