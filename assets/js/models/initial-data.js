@@ -1,4 +1,4 @@
-{
+const data = {
     "version": "1.0",
     "proveedores": [
         {
@@ -36,4 +36,6 @@
             ]
         }
     ]
-}
+};
+
+export default data;
