@@ -15,6 +15,8 @@ export default class MakeOrderView extends BaseView {
         this.proveedorSelect = document.getElementById('proveedorSelect');
         this.productosTableBody = document.getElementById('productosTableBody');
         this.resumenPedidoTextarea = document.getElementById('comment');
+        this.copiarBtn = document.getElementById('copiarBtn');
+        this.imprimirBtn = document.getElementById('imprimirBtn');
 
         this.initEventView();
 
@@ -26,6 +28,23 @@ export default class MakeOrderView extends BaseView {
         this.proveedorSelect.addEventListener('change', event => {
             const proveedorSeleccionado = event.target.value;
             this.cargarProductos(proveedorSeleccionado);
+            this.actualizarResumenPedido();
+        });
+        this.copiarBtn.addEventListener('click', () => {
+            this.resumenPedidoTextarea.select();
+            document.execCommand('copy');
+            this.copiarBtn.textContent = 'Resumen Copiado';
+            setTimeout(function () {
+                this.copiarBtn.textContent = 'Copiar';
+            }, 5000);
+        });
+        this.imprimirBtn.addEventListener('click', () => {
+            const contenido = this.resumenPedidoTextarea.value;
+            if (contenido.trim() !== '') {
+                //imprimirContenido(contenido);
+            } else {
+                console.log('No hay contenido para imprimir.');
+            }
         });
     }
 
@@ -52,7 +71,7 @@ export default class MakeOrderView extends BaseView {
             `;
                 const checkbox = row.querySelector('.form-check-input');
                 const cantidadInput = row.querySelector('.form-control');
-                checkbox.addEventListener('change', (event) =>  {
+                checkbox.addEventListener('change', (event) => {
                     cantidadInput.disabled = !this.checked;
                     this.actualizarResumenPedido();
                 });
