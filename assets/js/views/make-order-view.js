@@ -50,8 +50,8 @@ export default class MakeOrderView extends BaseView {
               <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${producto.precio}</span></td>
               <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" value=${producto.stock}></td>
             `;
-                const checkbox = newRow.querySelector('.form-check-input');
-                const cantidadInput = newRow.querySelector('.form-control');
+                const checkbox = row.querySelector('.form-check-input');
+                const cantidadInput = row.querySelector('.form-control');
                 checkbox.addEventListener('change', function () {
                     cantidadInput.disabled = !this.checked;
                     this.actualizarResumenPedido();
