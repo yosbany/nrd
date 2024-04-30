@@ -52,7 +52,7 @@ export default class MakeOrderView extends BaseView {
             `;
                 const checkbox = row.querySelector('.form-check-input');
                 const cantidadInput = row.querySelector('.form-control');
-                checkbox.addEventListener('change', function () {
+                checkbox.addEventListener('change', (event) =>  {
                     cantidadInput.disabled = !this.checked;
                     this.actualizarResumenPedido();
                 });
