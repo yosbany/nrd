@@ -1,5 +1,5 @@
 const data = {
-    "version": "1.0",
+    "version": "2.0",
     "proveedores": [
         {
             "proveedor": "CARNELANDIA",
@@ -273,13 +273,13 @@ const data = {
                 },
                 {
                     "producto": "BONIATO CRIOLLO",
-                    "contenido": "PLANCHA",
+                    "contenido": "CAJON",
                     "precio": 0,
                     "stock": 1
                 },
                 {
-                    "producto": "MANDARINA CRIOLLO",
-                    "contenido": "PLANCHA",
+                    "producto": "MANDARINA CRIOLLA",
+                    "contenido": "CAJON",
                     "precio": 0,
                     "stock": 1
                 },
@@ -304,12 +304,6 @@ const data = {
                 {
                     "producto": "PEPINO",
                     "contenido": "PLANCHA",
-                    "precio": 0,
-                    "stock": 1
-                },
-                {
-                    "producto": "PEREJIL",
-                    "contenido": "UN",
                     "precio": 0,
                     "stock": 1
                 },
@@ -357,7 +351,7 @@ const data = {
                 },
                 {
                     "producto": "NARANJA DE MESA",
-                    "contenido": "PLANCHA",
+                    "contenido": "CAJON",
                     "precio": 0,
                     "stock": 1
                 },
@@ -421,7 +415,90 @@ const data = {
         {
             "proveedor": "IRAZU DISTRIBUIDORA",
             "productos": [
-               
+               {
+                    "producto": "DESINFECTANTE FABULOSO 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "DETERGENTE LIQUIDO YPE 50ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "GRAPPAMIEL VESUBIO 935ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "JABON BARRA NEUTRO LAVAR YPE 20GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "JABON BARRA PROTEX 125GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "LAVANDINA JUPITER 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "PAPEL COCINA NOVA 3 ROLLO",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "PURE DE PAPA PALADAR 10GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SAL FINA 50GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SAL GRUESA 50GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA SARA 1KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA SARA 20GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA SARA 50GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA SARA 70GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                }
             ]
         },
         {
@@ -451,7 +528,186 @@ const data = {
         {
             "proveedor": "MONTEVIDEO REFRESCOS SRL (COCA COLA)",
             "productos": [
-                
+                {
+                    "producto": "COCA COLA 250CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COCA COLA LATA.355ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COCA COLA 60CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COCA COLA RET. 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COCA COLA 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COCA COLA RET. 2LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COCA COLA 2.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COCA COLA 3LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA TONICA SCHW 25OML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA TONICA SCHW 50ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MONSTER ENERGY LATA.473CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO CEPITA 250ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO CEPITA 995ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO CEPITA 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO CRUSH 2.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO FANTA 250CC ",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO FANTA NARANJA 50CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO FANTA RET. 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO FANTA NARANJA 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO FANTA RET. 2LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO FANTA NARANJA 2.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SPRITE 250CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SPRITE 60CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SPRITE RET. 1L",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SPRITE 1.5L",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SPRITE 2.25L",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SCHW 250CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SCHW POMELO/CITRUS 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SCHW POMELO 2.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO SCHW 3LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                }
             ]
         },
         {
@@ -469,7 +725,72 @@ const data = {
         {
             "proveedor": "SOSA RODRIGUEZ JORGE HECTOR (NESTLE)",
             "productos": [
-                
+                {
+                    "producto": "CAFE NESCAFE CAPPUCCINO SOBRE",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CAFÉ AGUILA STICKS",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CAFÉ NESCAFE BRACAFE STICKS",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CAFÉ SAINT STICKS",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "JUGO ADES 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "JUGO ADES 20CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA BALDO 1KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA BALDO 50GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA CANARIAS 1KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA CANARIAS 250GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YERBA CANARIAS 50GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                }
             ]
         },
         {
@@ -487,7 +808,251 @@ const data = {
         {
             "proveedor": "MALATIC (SALUS)",
             "productos": [
-                
+                {
+                    "producto": "AGUA SALUS 60ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA SALUS 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA SALUS 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA SALUS 2.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA SALUS BIDON 6.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA MATUTINA 2.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA MATUTINA 2.25LT PACK.4UN",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE 60ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE 2.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO PASO DE LOS TOROS POMELO 50ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO PASO DE LOS TOROS POMELO 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO PEPSI 50ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO PEPSI 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REFRESCO PEPSI 2LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MALTA PILSEN LATA 473ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CERVEZA BRAHMA 473CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CERVEZA NORTEÑA LATA 473CC",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CERVEZA PATRICIA BOTELLA 969ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CERVEZA PATRICIA LAGER LATA 437ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                }
+            ]
+        },
+        {
+            "proveedor": "ARIAS RICHARD ANIBAL (SUBPRODUCTO CONAPROLE)",
+            "productos": [
+                {
+                    "producto": "COLET CONAPROLE 1L",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COLET CONAPROLE 250GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "JUGO CONAPROLE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "JUGO CONAPROLE 250ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "LACTOLATE CONAPROLE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "LECHE CON FRUTILLA CONAMIGOS 250ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "LECHE LARGA VIDA CONAPROLE CAJA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MANTECA CONAPROLE 10GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MANTECA CONAPROLE 20GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "POSTRE VIVA 110GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "PUDDING CONAMIGOS 110GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "PUDDING CONAMIGOS CON DISCO 130GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "QUESO DE UNTAR ALPA 230GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "REQUESON CONAPROLE 250GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGUR INTEGRAL 50GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT BIOTOP 1.2KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT C/CEREALES 150GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT VIVA 185GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT VIVA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOPROLE 185GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                }
             ]
         }
 
