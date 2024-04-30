@@ -7,6 +7,7 @@ export default class AccountingTransactionsView extends BaseView {
     }
 
     async renderView() {
+        await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "accounting-transactions.html", "app");
         this.initEventView();
     }
 

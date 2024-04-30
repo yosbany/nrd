@@ -1,8 +1,10 @@
 import BaseController from './base-controller.js';
+import ProfileView from '../views/profile-view.js';
 
 export default class ProfileController extends BaseController {
     constructor() {
         super();
+        this.view = new ProfileView();
         this.initEventsController();
     }
 

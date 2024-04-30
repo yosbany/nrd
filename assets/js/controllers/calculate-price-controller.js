@@ -1,8 +1,10 @@
 import BaseController from './base-controller.js';
+import CalculatePriceView from '../views/calculate-price-view.js';
 
 export default class CalculatePriceController extends BaseController {
     constructor() {
         super();
+        this.view = new CalculatePriceView();
         this.initEventsController();
     }
 
