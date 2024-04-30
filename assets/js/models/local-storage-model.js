@@ -21,7 +21,14 @@ export default class LocalStorageModel {
     }
 
     getInitialData() {
-        return require('./initial-data.json');
+        const request = new XMLHttpRequest();
+        request.open('GET', './initial-data.json', false); 
+        request.send(null);
+        if (request.status === 200) {
+            return JSON.parse(request.responseText);
+        } else {
+            throw new Error('Error al cargar el archivo JSON: ' + request.status);
+        }
     }
 
     getData() {
