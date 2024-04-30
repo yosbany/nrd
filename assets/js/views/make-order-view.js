@@ -65,7 +65,7 @@ export default class MakeOrderView extends BaseView {
                 const row = productosTableBody.insertRow();
                 row.innerHTML = `
               <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
-              <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto} ${producto.contenido}</h4></td>
+              <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;" data-bind="${producto.contenido}">${producto.producto} X ${producto.contenido}</h4></td>
               <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${producto.precio}</span></td>
               <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" readonly value=${producto.stock}></td>
             `;
@@ -92,7 +92,9 @@ export default class MakeOrderView extends BaseView {
                 const row = checkbox.closest('tr');
                 const producto = row.querySelector('td:nth-child(2)').textContent.trim();
                 const cantidad = row.querySelector('input[type="number"]').value || 0;
-                return `${producto}  - ${cantidad}`;
+                const elementWithDataBind = row.querySelector('[data-bind]');
+                const contenido = elementWithDataBind ? elementWithDataBind.getAttribute('data-bind') : '';
+                return `${cantidad} ${contenido} DE ${producto}`;
             });
 
         const resumen = productosMarcados.length > 0 ? `Pedido - Panadería Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
