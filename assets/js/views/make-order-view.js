@@ -46,10 +46,10 @@ export default class MakeOrderView extends BaseView {
             proveedor.productos.forEach(producto => {
                 const row = productosTableBody.insertRow();
                 row.innerHTML = `
-              <td></td>
-              <td>${producto.producto}</td>
-              <td>${producto.precio}</td>
-              <td style="text-align: right;">${producto.stock}</td>
+              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" checked style="scale: 1.6;"></td>
+              <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto}</h4></td>
+              <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${producto.precio}</span></td>
+              <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" value=${producto.stock}></td>
             `;
             });
         }
