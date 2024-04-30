@@ -67,11 +67,10 @@ export default class MakeOrderView extends BaseView {
                   <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
                   <td style="vertical-align: middle;"><h4 data-bs-toggle="tooltip" title="COMPRAS X ${producto.contenido}" style="margin-bottom: 0px !important;" data-bind="${producto.contenido}">${producto.producto}</h4></td>
                   <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${producto.precio}</span></td>
-                  <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" readonly value=${producto.stock}></td>
+                  <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value=${producto.stock}></td>
                 `;
                 const checkbox = row.querySelector('.form-check-input');
                 const cantidadInput = row.querySelector('.form-control');
-                cantidadInput.readOnly = true;
                 checkbox.addEventListener('change', () => {
                     cantidadInput.disabled = !checkbox.checked;
                     cantidadInput.readOnly = !checkbox.checked; 
