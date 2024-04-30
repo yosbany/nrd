@@ -14,5 +14,6 @@ export default class PurchasePlanController extends BaseController {
 
     async purchasePlan() {
         console.log("PurchasePlanController purchasePlan");
+        this.view.renderView();
     }
 }

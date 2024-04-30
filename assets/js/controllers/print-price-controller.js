@@ -14,5 +14,6 @@ export default class PrintPriceController extends BaseController {
 
     async printPrice() {
         console.log("PrintPriceController printPrice");
+        this.view.renderView();
     }
 }

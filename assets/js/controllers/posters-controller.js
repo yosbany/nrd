@@ -14,5 +14,6 @@ export default class PostersController extends BaseController {
 
     async posters() {
         console.log("PostersController posters");
+        this.view.renderView();
     }
 }

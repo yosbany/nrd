@@ -14,6 +14,6 @@ export default class BudgetLunchController extends BaseController {
 
     async budgetLunch() {
         console.log("BudgetLunchController budgetLunch");
-        
+        this.view.renderView();
     }
 }

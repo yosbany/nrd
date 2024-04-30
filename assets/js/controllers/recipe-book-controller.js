@@ -14,6 +14,7 @@ export default class RecipeBookController extends BaseController {
 
     async recipeBook() {
         console.log("RecipeBookController recipeBook");
+        this.view.renderView();
     }
 
     

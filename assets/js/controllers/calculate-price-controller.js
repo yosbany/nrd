@@ -14,6 +14,7 @@ export default class CalculatePriceController extends BaseController {
 
     async calculatePrice() {
         console.log("CalculatePriceController calculatePrice");
+        this.view.renderView();
     }
 
     _calcularPrecio() {

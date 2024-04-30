@@ -14,5 +14,6 @@ export default class CounterShiftsController extends BaseController {
 
     async counterShifts() {
         console.log("CounterShiftsController counterShifts");
+        this.view.renderView();
     }
 }

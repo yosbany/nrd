@@ -14,6 +14,7 @@ export default class AccountingTransactionsController extends BaseController {
 
     async accountingTransactions() {
         console.log("AccountingTransactionsController accountingTransactions");
+        this.view.renderView();
         
     }
 }

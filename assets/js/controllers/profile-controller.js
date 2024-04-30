@@ -14,6 +14,7 @@ export default class ProfileController extends BaseController {
 
     async profile() {
         console.log("ProfileController profile");
+        this.view.renderView();
     }
     
     async __profile() {

@@ -14,5 +14,6 @@ export default class RrhhController extends BaseController {
 
     async rrhh() {
         console.log("RrhhController rrhh");
+        this.view.renderView();
     }
 }

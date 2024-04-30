@@ -14,5 +14,6 @@ export default class OnlineCatalogController extends BaseController {
 
     async onlineCatalog() {
         console.log("OnlineCatalogController onlineCatalog");
+        this.view.renderView();
     }
 }

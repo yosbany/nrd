@@ -14,5 +14,6 @@ export default class ReceiveOrderController extends BaseController {
 
     async receiveOrder() {
         console.log("ReceiveOrderController receiveOrder");
+        this.view.renderView();
     }
 }
