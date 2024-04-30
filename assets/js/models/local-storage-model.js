@@ -1,46 +1,40 @@
 export default class LocalStorageModel {
 
     constructor() {
-        this.key = "NRD_DATA_LOCAL";
-        this.data = this.loadData();
+        this.versionKey = 'version';
+        this.dataKey = 'LOCAL_STORAGE_NRD';
+        this.currentVersion = this.getVersion();
+        this.currentData = this.getData();
+        this.initialData = this.getInitialData();
+        if (this.currentVersion !== this.initialData.version) {
+            this.updateData(this.initialData);
+        }
     }
 
-    // Cargar datos del almacenamiento local
-    loadData() {
-        const data = localStorage.getItem(this.key);
-        return data ? JSON.parse(data) : {};
+    getVersion() {
+        return localStorage.getItem(this.versionKey);
     }
 
-    // Guardar datos en el almacenamiento local
-    saveData() {
-        localStorage.setItem(this.key, JSON.stringify(this.data));
+    updateVersion(newVersion) {
+        localStorage.setItem(this.versionKey, newVersion);
+        this.currentVersion = newVersion;
     }
 
-    // Obtener un valor específico
+    getInitialData() {
+        return require('./initial-data.json');
+    }
+
+    getData() {
+        const dataString = localStorage.getItem(this.dataKey);
+        return dataString ? JSON.parse(dataString) : {};
+    }
+
+    updateData(newData) {
+        localStorage.setItem(this.dataKey, JSON.stringify(newData));
+        this.currentData = newData;
+    }
+
     getValue(key) {
-        return this.data[key];
-    }
-
-    // Establecer un valor específico
-    setValue(key, value) {
-        this.data[key] = value;
-        this.saveData();
-    }
-
-    // Eliminar un valor específico
-    deleteValue(key) {
-        delete this.data[key];
-        this.saveData();
-    }
-
-    // Obtener todos los datos
-    getAllData() {
-        return this.data;
-    }
-
-    // Limpiar todos los datos
-    clearAllData() {
-        localStorage.removeItem(this.key);
-        this.data = {};
+        return this.currentData[key];
     }
 }

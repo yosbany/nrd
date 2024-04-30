@@ -1,0 +1,39 @@
+{
+    "version": "1.0",
+    "proveedores": [
+        {
+            "proveedor": "ANTOMI",
+            "productos": [
+                {
+                    "producto": "producto1",
+                    "contenido": "bolsa",
+                    "precio": 23,
+                    "stock": 3
+                },
+                {
+                    "producto": "producto2",
+                    "contenido": "kg",
+                    "precio": 23,
+                    "stock": 4
+                }
+            ]
+        },
+        {
+            "proveedor": "BIRWOK",
+            "productos": [
+                {
+                    "producto": "producto1",
+                    "contenido": "bolsa",
+                    "precio": 23,
+                    "stock": 3
+                },
+                {
+                    "producto": "producto2",
+                    "contenido": "kg",
+                    "precio": 23,
+                    "stock": 4
+                }
+            ]
+        }
+    ]
+}
