@@ -17,7 +17,7 @@ export default class MakeOrderView extends BaseView {
 
         this.initEventView();
 
-        cargarProveedores();
+        this.cargarProveedores();
     }
 
     initEventView() {
