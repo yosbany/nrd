@@ -14,10 +14,12 @@ export default class MakeOrderView extends BaseView {
         this.proveedores = this.localStorageModel.getValue('proveedores');
         this.proveedorSelect = document.getElementById('proveedorSelect');
         this.productosTableBody = document.getElementById('productosTableBody');
+        this.resumenPedidoTextarea = document.getElementById('comment');
 
         this.initEventView();
 
         this.cargarProveedores();
+        this.cargarProductos();
     }
 
     initEventView() {
@@ -38,21 +40,50 @@ export default class MakeOrderView extends BaseView {
 
     cargarProductos(proveedorSeleccionado) {
         this.productosTableBody.innerHTML = '';
-
         const proveedor = this.proveedores.find(p => p.proveedor === proveedorSeleccionado);
-
-
         if (proveedor) {
             proveedor.productos.forEach(producto => {
                 const row = productosTableBody.insertRow();
                 row.innerHTML = `
-              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" checked style="scale: 1.6;"></td>
+              <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
               <td style="vertical-align: middle;"><h4 style="margin-bottom: 0px !important;">${producto.producto}</h4></td>
               <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${producto.precio}</span></td>
               <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" value=${producto.stock}></td>
             `;
+                const checkbox = newRow.querySelector('.form-check-input');
+                const cantidadInput = newRow.querySelector('.form-control');
+                checkbox.addEventListener('change', function () {
+                    cantidadInput.disabled = !this.checked;
+                    this.actualizarResumenPedido();
+                });
             });
         }
+        else {
+            const noRecordsRow = document.createElement('tr');
+            noRecordsRow.innerHTML = `
+            <td colspan="4" style="text-align: center;">No hay registros</td>
+          `;
+            this.productosTableBody.appendChild(noRecordsRow);
+        }
+    }
+
+    actualizarResumenPedido() {
+        const productosMarcados = Array.from(this.productosTableBody.querySelectorAll('input[type="checkbox"]:checked'))
+            .map(checkbox => {
+                const row = checkbox.closest('tr');
+                const producto = row.querySelector('td:nth-child(2)').textContent.trim();
+                const cantidad = row.querySelector('input[type="number"]').value || 0;
+                return `${producto}  - ${cantidad}`;
+            });
+
+        const resumen = productosMarcados.length > 0 ? `Pedido - Panadería Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
+        this.resumenPedidoTextarea.value = resumen;
+        this.ajustarAlturaTextarea();
+    }
+
+    ajustarAlturaTextarea() {
+        this.resumenPedidoTextarea.style.height = 'auto';
+        this.resumenPedidoTextarea.style.height = (this.resumenPedidoTextarea.scrollHeight + 2) + 'px';
     }
 
 }
