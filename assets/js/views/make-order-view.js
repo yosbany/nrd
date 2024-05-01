@@ -43,7 +43,7 @@ export default class MakeOrderView extends BaseView {
         this.imprimirBtn.addEventListener('click', () => {
             const contenido = this.resumenPedidoTextarea.value;
             if (contenido.trim() !== '') {
-                //imprimirContenido(contenido);
+                this.imprimirContenido(contenido);
             } else {
                 console.log('No hay contenido para imprimir.');
             }
