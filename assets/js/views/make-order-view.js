@@ -117,7 +117,7 @@ export default class MakeOrderView extends BaseView {
         let resumen = '';
         if (productosMarcados.length > 0) {
             resumen += `Pedido - Nueva Río D'or\n`;
-            resumen += `Proveedor: ${proveedorSeleccionado}\n`;
+            resumen += `${proveedorSeleccionado}\n`;
             resumen += `Fecha: ${fechaActual}\n\n`;
             resumen += `${productosMarcados.join('\n')}\n`;
         }

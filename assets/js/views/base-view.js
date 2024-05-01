@@ -87,9 +87,9 @@ export default class BaseView {
         let contenidoConVinetas = lineas.map((linea, index) => {
             // Para la primera línea, envuélvela en una etiqueta <strong>
             if (index === 0) {
-                return `<strong class='primer-linea'>${linea}</strong>`;
+                return `<strong class='primer-linea'>${linea}</strong><br>`;
             } else if(index < 4){
-                return linea;
+                return `${linea}<br>`;
             } 
             else {
                 // Para las líneas siguientes, envuélvelas en etiquetas <li>
