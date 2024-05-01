@@ -67,7 +67,7 @@ export default class MakeOrderView extends BaseView {
                 const row = this.productosTableBody.insertRow();
                 row.innerHTML = `
                   <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
-                  <td style="vertical-align: middle;"><h4 data-bs-toggle="tooltip" title="COMPRAS X ${producto.contenido}" style="margin-bottom: 0px !important;" data-bind="${producto.contenido}">${producto.producto}</h4></td>
+                  <td style="vertical-align: middle;"><h5 data-bs-toggle="tooltip" title="COMPRAS X ${producto.contenido}" style="margin-bottom: 0px !important;" data-bind="${producto.contenido}">${producto.producto}</h5></td>
                   <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${producto.precio}</span></td>
                   <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value=${producto.stock}></td>
                 `;
@@ -80,6 +80,9 @@ export default class MakeOrderView extends BaseView {
                 });
                 cantidadInput.addEventListener('input', () => {
                     this.actualizarResumenPedido();
+                });
+                cantidadInput.addEventListener('focus', () => {
+                    cantidadInput.value = '';
                 });
             });
         } else {
