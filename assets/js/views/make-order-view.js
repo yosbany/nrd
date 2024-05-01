@@ -84,6 +84,11 @@ export default class MakeOrderView extends BaseView {
                 cantidadInput.addEventListener('focus', () => {
                     cantidadInput.value = '';
                 });
+                cantidadInput.addEventListener('blur', () => {
+                    if (cantidadInput.value === '') {
+                        cantidadInput.value = producto.stock;
+                    }
+                });
             });
         } else {
             const noRecordsRow = document.createElement('tr');
