@@ -77,6 +77,8 @@ export default class BaseView {
     }
 
     imprimirContenido(contenido) {
+        // Reemplaza los saltos de línea con etiquetas <br>
+       const contenidoConSaltosDeLinea = contenido.replace(/\n/g, '<br>');
         // Crea una nueva ventana de impresión
         const ventanaImpresion = window.open('', '_blank');
     
@@ -100,7 +102,7 @@ export default class BaseView {
             </head>
             <body>
                 <div class="resumen-pedido">
-                    ${contenido}
+                    ${contenidoConSaltosDeLinea}
                 </div>
             </body>
             </html>
