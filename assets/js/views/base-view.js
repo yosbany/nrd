@@ -77,29 +77,45 @@ export default class BaseView {
     }
 
     imprimirContenido(contenido) {
-        // Crear una ventana emergente con el contenido que se va a imprimir
+        // Crea una nueva ventana de impresión
         const ventanaImpresion = window.open('', '_blank');
-        
-        // Establecer el contenido HTML a imprimir
-        ventanaImpresion.document.write(`<html><head><title>Impresión</title></head><body>${contenido}</body></html>`);
-        
-        // Forzar la carga de estilos CSS
-        ventanaImpresion.document.write(`<style>
-            /* Estilos de impresión */
-            body { font-family: Arial, sans-serif; }
-            /* Ajustar tamaño del papel a 80 mm */
-            @media print {
-                @page {
-                    size: 80mm 100mm; /* Ancho x alto */
-                }
-            }
-        </style>`);
-        
-        // Imprimir el contenido
+    
+        // Establece el contenido de la ventana de impresión
+        ventanaImpresion.document.write(`
+            <html>
+            <head>
+                <title>Resumen del Pedido</title>
+                <style>
+                    /* Agrega estilos para la impresión */
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 20px;
+                    }
+                    .resumen-pedido {
+                        max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
+                        font-size: 12px; /* Tamaño de fuente adecuado */
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="resumen-pedido">
+                    ${contenido}
+                </div>
+            </body>
+            </html>
+        `);
+    
+        // Cierra la escritura en el documento de la ventana de impresión
+        ventanaImpresion.document.close();
+    
+        // Imprime el contenido
         ventanaImpresion.print();
-        
-        // Cerrar la ventana emergente después de imprimir
+    
+        // Cierra la ventana después de imprimir
         ventanaImpresion.close();
     }
+
+    
 
 }

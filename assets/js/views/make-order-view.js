@@ -106,7 +106,7 @@ export default class MakeOrderView extends BaseView {
                 return `${cantidad} ${contenido} DE ${producto}`;
             });
 
-        const resumen = productosMarcados.length > 0 ? `Pedido - Panadería Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
+        const resumen = productosMarcados.length > 0 ? `Pedido - Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
         this.resumenPedidoTextarea.value = resumen;
         this.ajustarAlturaTextarea();
     }
