@@ -8,6 +8,7 @@ export default class ReceiveOrderView extends BaseView {
 
     async renderView() {
         await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "receive-order.html", "app");
+        this.setPageTitleAndHeader("Recibir Pedido");
         this.initEventView();
     }
 

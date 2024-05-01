@@ -8,6 +8,7 @@ export default class CalculatePriceView extends BaseView {
 
     async renderView() {
         await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "calculate-price.html", "app");
+        this.setPageTitleAndHeader("Calcular Precio");
         this.initEventView();
     }
 

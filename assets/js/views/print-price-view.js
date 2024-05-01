@@ -8,6 +8,7 @@ export default class PrintPriceView extends BaseView {
 
     async renderView() {
         await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "print-price.html", "app");
+        this.setPageTitleAndHeader("Imprimir Precio");
         this.initEventView();
     }
 

@@ -8,6 +8,7 @@ export default class PurchasePriceView extends BaseView {
 
     async renderView() {
         await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "purchase-price.html", "app");
+        this.setPageTitleAndHeader("Precio Compra");
         this.initEventView();
     }
 
