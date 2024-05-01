@@ -90,10 +90,11 @@ export default class BaseView {
                 return `<strong class='primer-linea'>${linea}</strong><br>`;
             } else if(index < 4){
                 return `${linea}<br>`;
-            } 
-            else {
-                // Para las líneas siguientes, envuélvelas en etiquetas <li>
+            } else if (linea.trim() !== '') { // Verifica si la línea no está vacía
+                // Para las líneas siguientes no vacías, envuélvelas en etiquetas <li>
                 return `<li>${linea}</li>`;
+            } else {
+                return ''; // Si la línea está vacía, no la incluyas en el contenido
             }
         }).join(''); // Une todas las líneas con un salto de línea
     
