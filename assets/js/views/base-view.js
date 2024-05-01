@@ -58,9 +58,11 @@ export default class BaseView {
         document.title = newTitle;
         //document.getElementById("pageTitle").innerText = newTitle;
         document.getElementById("mainTitle").innerText = title;
+        this._setSidebarMenu()
     }
 
-    setSidebarMenu(hash) {
+    _setSidebarMenu() {
+        const hash = window.location.hash.slice(1);
         const sidebarLinks = document.querySelectorAll('#sidebarMenu a.nav-link');
         sidebarLinks.forEach(link => {
             const href = link.getAttribute('href');
@@ -72,6 +74,32 @@ export default class BaseView {
                 link.removeAttribute('aria-current');
             }
         });
+    }
+
+    imprimirContenido(contenido) {
+        // Crear una ventana emergente con el contenido que se va a imprimir
+        const ventanaImpresion = window.open('', '_blank');
+        
+        // Establecer el contenido HTML a imprimir
+        ventanaImpresion.document.write(`<html><head><title>Impresión</title></head><body>${contenido}</body></html>`);
+        
+        // Forzar la carga de estilos CSS
+        ventanaImpresion.document.write(`<style>
+            /* Estilos de impresión */
+            body { font-family: Arial, sans-serif; }
+            /* Ajustar tamaño del papel a 80 mm */
+            @media print {
+                @page {
+                    size: 80mm 100mm; /* Ancho x alto */
+                }
+            }
+        </style>`);
+        
+        // Imprimir el contenido
+        ventanaImpresion.print();
+        
+        // Cerrar la ventana emergente después de imprimir
+        ventanaImpresion.close();
     }
 
 }
