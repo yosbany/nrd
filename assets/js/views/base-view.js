@@ -95,28 +95,28 @@ export default class BaseView {
     <head>
         <title>Resumen del Pedido</title>
         <style>
-        /* Estilos para la impresión */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 10px;
-        }
-
-        .resumen-pedido {
-            max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
-            font-size: 12px; /* Tamaño de fuente adecuado */
-            position: relative; /* Establece la posición relativa */
-        }
-
-        .viñeta {
-            border: 1px solid black; /* Borde */
-            padding: 5px; /* Espaciado interno */
-            margin-bottom: 5px; /* Espaciado entre líneas */
-            display: inline-block; /* Hace que el recuadro se muestre en línea */
-            position: absolute; /* Establece la posición absoluta */
-            bottom: 0; /* Alinea el recuadro en la parte inferior */
-        }
-    </style>
+                /* Agrega estilos para la impresión */
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 10px;
+                }
+                .resumen-pedido {
+                    max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
+                    font-size: 12px; /* Tamaño de fuente adecuado */
+                }
+                .viñeta-container {
+                    position: relative; /* Establece el contenedor como relativo */
+                    display: inline-block; /* Hace que el contenedor ocupe solo el ancho del contenido */
+                }
+                .viñeta {
+                    position: absolute; /* Posiciona la viñeta absolutamente */
+                    bottom: 0; /* Lo alinea en la parte inferior del contenedor */
+                    left: 0; /* Alinea la viñeta a la izquierda */
+                    border: 1px solid black; /* Borde */
+                    padding: 5px; /* Espaciado interno */
+                }
+        </style>
     </head>
     <body>
         <div class="resumen-pedido">
