@@ -75,7 +75,7 @@ export default class MakeOrderView extends BaseView {
                 const cantidadInput = row.querySelector('.form-control');
                 checkbox.addEventListener('change', () => {
                     cantidadInput.disabled = !checkbox.checked;
-                    cantidadInput.readOnly = !checkbox.checked; 
+                    cantidadInput.readOnly = !checkbox.checked;
                     this.actualizarResumenPedido();
                 });
                 cantidadInput.addEventListener('input', () => {
@@ -93,9 +93,12 @@ export default class MakeOrderView extends BaseView {
             this.productosTableBody.appendChild(noRecordsRow);
         }
     }
-    
+
 
     actualizarResumenPedido() {
+        const proveedorSeleccionado = this.proveedorSelect.value;
+        const fechaActual = new Date().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
         const productosMarcados = Array.from(this.productosTableBody.querySelectorAll('input[type="checkbox"]:checked'))
             .map(checkbox => {
                 const row = checkbox.closest('tr');
@@ -106,10 +109,18 @@ export default class MakeOrderView extends BaseView {
                 return `${cantidad} ${contenido} DE ${producto}`;
             });
 
-        const resumen = productosMarcados.length > 0 ? `Pedido - Nueva Río D'or\n${productosMarcados.join('\n')}` : '';
+        let resumen = '';
+        if (productosMarcados.length > 0) {
+            resumen += `Pedido - Nueva Río D'or\n`;
+            resumen += `Proveedor: ${proveedorSeleccionado}\n`;
+            resumen += `Fecha: ${fechaActual}\n\n`;
+            resumen += `${productosMarcados.join('\n')}\n`;
+        }
+
         this.resumenPedidoTextarea.value = resumen;
         this.ajustarAlturaTextarea();
     }
+
 
     ajustarAlturaTextarea() {
         this.resumenPedidoTextarea.style.height = 'auto';
