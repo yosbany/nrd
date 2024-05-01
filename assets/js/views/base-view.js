@@ -82,61 +82,59 @@ export default class BaseView {
     imprimirContenido(contenido) {
         // Reemplaza los saltos de línea con etiquetas <br>
         const contenidoConSaltosDeLinea = contenido.replace(/\n/g, '<br>');
-    
+
         // Divide el contenido por líneas
         const lineas = contenido.split('\n');
-    
+
         // Crea una nueva ventana de impresión
         const ventanaImpresion = window.open('', '_blank');
-    
+
         // Establece el contenido de la ventana de impresión
         ventanaImpresion.document.write(`
-            <html>
-            <head>
-                <title>Resumen del Pedido</title>
-                <style>
-                    /* Agrega estilos para la impresión */
-                    body {
-                        font-family: Arial, sans-serif;
-                        margin: 0;
-                        padding: 20px;
-                    }
-                    .resumen-pedido {
-                        max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
-                        font-size: 12px; /* Tamaño de fuente adecuado */
-                    }
-                    .viñeta {
-                        border: 1px solid black; /* Borde */
-                        padding: 5px; /* Espaciado interno */
-                        margin-bottom: 5px; /* Espaciado entre líneas */
-                    }
-                </style>
-            </head>
-            <body>
-                <div class="resumen-pedido">
-                    ${lineas.map((linea, index) => {
-                        // Agrega una viñeta en forma de recuadro a todas las líneas a partir de la segunda
-                        if (index > 0) {
-                            return `<div class="viñeta">${linea}</div>`;
-                        } else {
-                            return linea;
-                        }
-                    }).join('')}
-                </div>
-            </body>
-            </html>
-        `);
-    
+    <html>
+    <head>
+        <title>Resumen del Pedido</title>
+        <style>
+            /* Agrega estilos para la impresión */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 20px;
+            }
+            .resumen-pedido {
+                max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
+                font-size: 12px; /* Tamaño de fuente adecuado */
+            }
+            .viñeta {
+                border: 1px solid black; /* Borde */
+                padding: 5px; /* Espaciado interno */
+                margin-bottom: 5px; /* Espaciado entre líneas */
+                display: inline-block; /* Hace que el recuadro se muestre en línea */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="resumen-pedido">
+            ${lineas.map((linea, index) => {
+            // Agrega una viñeta en forma de recuadro solo al principio de cada línea
+            const viñeta = index === 0 ? '' : '<div class="viñeta"></div>';
+            return `${viñeta}${linea}<br>`;
+        }).join('')}
+        </div>
+    </body>
+    </html>
+`);
+
         // Cierra la escritura en el documento de la ventana de impresión
         ventanaImpresion.document.close();
-    
+
         // Imprime el contenido
         ventanaImpresion.print();
-    
+
         // Espera un momento para ejecutar el corte automático después de imprimir
         setTimeout(() => {
             ventanaImpresion.close();
         }, 5000); // 5000 milisegundos = 5 segundos (ajusta según sea necesario)
     }
-    
+
 }
