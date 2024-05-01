@@ -62,27 +62,26 @@ export default class BaseView {
     }
 
     _setSidebarMenu() {
-        const hash = window.location.hash.slice(1);
-        const sidebarLinks = document.querySelectorAll('#sidebarMenu a.nav-link');
-        sidebarLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && href.includes('#' + hash)) {
-                link.classList.add('active');
-                link.setAttribute('aria-current', 'page');
-            } else {
-                link.classList.remove('active');
-                link.removeAttribute('aria-current');
-            }
-        });
+        if (window.location.hash) {
+            const hash = window.location.hash.slice(1);
+            const sidebarLinks = document.querySelectorAll('#sidebarMenu a.nav-link');
+            sidebarLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && href.includes('#' + hash)) {
+                    link.classList.add('active');
+                    link.setAttribute('aria-current', 'page');
+                } else {
+                    link.classList.remove('active');
+                    link.removeAttribute('aria-current');
+                }
+            });
+        }
+
     }
 
     imprimirContenido(contenido) {
-        // Reemplaza los saltos de línea con etiquetas <br>
-       const contenidoConSaltosDeLinea = contenido.replace(/\n/g, '<br>');
-        // Crea una nueva ventana de impresión
+        const contenidoConSaltosDeLinea = contenido.replace(/\n/g, '<br>');
         const ventanaImpresion = window.open('', '_blank');
-    
-        // Establece el contenido de la ventana de impresión
         ventanaImpresion.document.write(`
             <html>
             <head>
@@ -92,7 +91,7 @@ export default class BaseView {
                     body {
                         font-family: Arial, sans-serif;
                         margin: 0;
-                        padding: 20px;
+                        padding: 10px;
                     }
                     .resumen-pedido {
                         max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
@@ -107,17 +106,8 @@ export default class BaseView {
             </body>
             </html>
         `);
-    
-        // Cierra la escritura en el documento de la ventana de impresión
         ventanaImpresion.document.close();
-    
-        // Imprime el contenido
         ventanaImpresion.print();
-    
-        // Cierra la ventana después de imprimir
         ventanaImpresion.close();
     }
-
-    
-
 }

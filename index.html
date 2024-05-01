@@ -197,8 +197,6 @@
 
             document.querySelectorAll('#sidebarMenu a.nav-link').forEach(item => {
                 item.addEventListener('click', () => {
-                    // Si el navbar-toggler está visible (es decir, en dispositivos móviles),
-                    // cerramos el sidebar al hacer clic en un enlace del menú
                     if (window.getComputedStyle(navbarToggler).display !== 'none') {
                         sidebarMenu.classList.remove('show');
                         navbarToggler.setAttribute('aria-expanded', 'false');
