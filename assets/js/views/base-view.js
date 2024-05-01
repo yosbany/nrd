@@ -85,9 +85,9 @@ export default class BaseView {
     
         // Construye el contenido con viñetas a partir de la segunda línea
         let contenidoConVinetas = lineas.map((linea, index) => {
-            // Para la primera línea, simplemente devuelve la línea
+            // Para la primera línea, envuélvela en una etiqueta <strong>
             if (index === 0) {
-                return linea;
+                return `<strong class='primer-linea'>${linea}</strong>`;
             } else {
                 // Para las líneas siguientes, envuélvelas en etiquetas <li>
                 return `<li>${linea}</li>`;
@@ -107,7 +107,7 @@ export default class BaseView {
                     body {
                         font-family: Arial, sans-serif;
                         margin: 0;
-                        padding: 20px;
+                        padding: 10px;
                     }
                     .resumen-pedido {
                         max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
@@ -117,7 +117,10 @@ export default class BaseView {
                         padding-left: 20px; /* Agrega un margen entre la viñeta y el texto */
                     }
                     .resumen-pedido li {
-                        list-style-type: disc; /* Establece la viñeta como un círculo */
+                        list-style-type: circle; /* Establece la viñeta como un círculo */
+                    }
+                    .resumen-pedido .primer-linea {
+                        font-weight: bold; /* Aplica negrita a la primera línea */
                     }
                 </style>
             </head>
@@ -137,6 +140,7 @@ export default class BaseView {
         // Imprime el contenido
         ventanaImpresion.print();
     }
+    
     
 
 }
