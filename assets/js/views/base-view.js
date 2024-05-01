@@ -107,11 +107,18 @@ export default class BaseView {
                     body {
                         font-family: Arial, sans-serif;
                         margin: 0;
-                        padding: 20px;
+                        padding: 10px;
                     }
                     .resumen-pedido {
                         max-width: 80mm; /* Ancho máximo para el papel de 80 mm */
                         font-size: 12px; /* Tamaño de fuente adecuado */
+                    }
+                    .resumen-pedido ul {
+                        list-style-type: none; /* Elimina los marcadores de viñeta */
+                        padding: 0; /* Elimina el relleno de la lista */
+                    }
+                    .resumen-pedido li {
+                        margin-bottom: 5px; /* Agrega margen inferior entre las líneas */
                     }
                 </style>
             </head>
@@ -131,5 +138,6 @@ export default class BaseView {
         // Imprime el contenido
         ventanaImpresion.print();
     }
+
 
 }
