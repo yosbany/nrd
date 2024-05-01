@@ -88,7 +88,10 @@ export default class BaseView {
             // Para la primera línea, envuélvela en una etiqueta <strong>
             if (index === 0) {
                 return `<strong class='primer-linea'>${linea}</strong>`;
-            } else {
+            } else if(index < 4){
+                return linea;
+            } 
+            else {
                 // Para las líneas siguientes, envuélvelas en etiquetas <li>
                 return `<li>${linea}</li>`;
             }
