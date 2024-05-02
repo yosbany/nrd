@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><DGICFE:EnvioCFE_entreEmpresas xmlns:DGICFE="http://cfe.dgi.gub.uy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_entreEmpresas.xsd"><DGICFE:Caratula version="1.0"><DGICFE:RutReceptor>218871250018</DGICFE:RutReceptor><DGICFE:RUCEmisor>215461840015</DGICFE:RUCEmisor><DGICFE:Idemisor>187606</DGICFE:Idemisor><DGICFE:CantCFE>1</DGICFE:CantCFE><DGICFE:Fecha>2024-04-04T13:39:01.386-03:00</DGICFE:Fecha><DGICFE:X509Certificate>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</DGICFE:X509Certificate>
+</DGICFE:Caratula><ns1:CFE_Adenda xmlns:ns1="http://cfe.dgi.gub.uy"><ns0:CFE xmlns:ns0="http://cfe.dgi.gub.uy" version="1.0">
+<ns0:eFact>
+<ns0:TmstFirma>2024-04-04T13:38:35.743-03:00</ns0:TmstFirma>
+<ns0:Encabezado>
+<ns0:IdDoc>
+<ns0:TipoCFE>111</ns0:TipoCFE>
+<ns0:Serie>A</ns0:Serie>
+<ns0:Nro>110758</ns0:Nro>
+<ns0:NroInterno>131050130760013402</ns0:NroInterno><ns0:FchEmis>2024-04-04</ns0:FchEmis>
+<ns0:FmaPago>2</ns0:FmaPago>
+<ns0:FchVenc>2024-04-19</ns0:FchVenc>
+</ns0:IdDoc>
+<ns0:Emisor>
+<ns0:RUCEmisor>215461840015</ns0:RUCEmisor>
+<ns0:RznSoc>CIPU</ns0:RznSoc>
+<ns0:NomComercial/>
+<ns0:GiroEmis>1</ns0:GiroEmis>
+<ns0:Telefono/>
+<ns0:CorreoEmisor/>
+<ns0:CdgDGISucur>1</ns0:CdgDGISucur>
+<ns0:DomFiscal>Fernandez Crespo 2138</ns0:DomFiscal>
+<ns0:Ciudad>Montevideo</ns0:Ciudad>
+<ns0:Departamento>Montevideo</ns0:Departamento>
+<ns0:InfoAdicionalEmisor/>
+</ns0:Emisor>
+<ns0:Receptor>
+<ns0:TipoDocRecep>2</ns0:TipoDocRecep>
+<ns0:CodPaisRecep>UY</ns0:CodPaisRecep>
+<ns0:DocRecep>218871250018</ns0:DocRecep>
+<ns0:RznSocRecep>TEJAS DE LA CRUZ YOSBANY</ns0:RznSocRecep>
+<ns0:DirRecep>JUAN B. MORELLI 3475</ns0:DirRecep>
+<ns0:CiudadRecep>MONTEVIDEO</ns0:CiudadRecep>
+<ns0:PaisRecep>UY</ns0:PaisRecep>
+<ns0:InfoAdicional>R-087/ZONA 8</ns0:InfoAdicional>
+</ns0:Receptor>
+<ns0:Totales>
+<ns0:TpoMoneda>UYU</ns0:TpoMoneda>
+<ns0:TpoCambio>1.000</ns0:TpoCambio>
+<ns0:MntNoGrv>4450.00</ns0:MntNoGrv>
+<ns0:MntNetoIvaTasaMin>0.00</ns0:MntNetoIvaTasaMin>
+<ns0:MntNetoIVATasaBasica>0.00</ns0:MntNetoIVATasaBasica>
+<ns0:IVATasaMin>10</ns0:IVATasaMin>
+<ns0:IVATasaBasica>22</ns0:IVATasaBasica>
+<ns0:MntIVATasaMin>0.00</ns0:MntIVATasaMin>
+<ns0:MntIVATasaBasica>0.00</ns0:MntIVATasaBasica>
+<ns0:MntTotal>4450.000000</ns0:MntTotal>
+<ns0:MntTotCredFisc>0</ns0:MntTotCredFisc>
+<ns0:CantLinDet>1</ns0:CantLinDet>
+<ns0:MontoNF>0.000000</ns0:MontoNF>
+<ns0:MntPagar>4450.000000</ns0:MntPagar>
+</ns0:Totales>
+</ns0:Encabezado>
+<ns0:Detalle>
+<ns0:Item>
+<ns0:NroLinDet>1</ns0:NroLinDet>
+<ns0:CodItem>
+<ns0:TpoCod>INT1</ns0:TpoCod>
+<ns0:Cod>40018</ns0:Cod>
+</ns0:CodItem>
+<ns0:IndFact>1</ns0:IndFact>
+<ns0:NomItem>ACTIVO F1</ns0:NomItem>
+<ns0:Cantidad>1.000</ns0:Cantidad>
+<ns0:UniMed>Manu</ns0:UniMed>
+<ns0:PrecioUnitario>4450.00</ns0:PrecioUnitario>
+<ns0:DescuentoPct>0.000</ns0:DescuentoPct>
+<ns0:DescuentoMonto>0.00</ns0:DescuentoMonto>
+<ns0:MontoItem>4450.00</ns0:MontoItem>
+</ns0:Item>
+</ns0:Detalle>
+<ns0:CAEData>
+<ns0:CAE_ID>90231163474</ns0:CAE_ID>
+<ns0:DNro>93001</ns0:DNro>
+<ns0:HNro>123000</ns0:HNro>
+<ns0:FecVenc>2025-07-02</ns0:FecVenc>
+</ns0:CAEData>
+</ns0:eFact>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>DNFw8ds8R8YSbAyZzRC3nAVxpTc=</DigestValue></Reference></SignedInfo><SignatureValue>I2iwr4jY2R5QpXBUp6odCGltEWrRE5JRscz5ubGiFe8mSE/0QtT6Qnzp6E+Qt0Vcj968apRUX2tnIyWoNJQYGgWeo8f9WZunZHHuHP6h2l9wyi5Eod1fSV790akhZ//GTGU+jiuUB4kFCn7PPRf6KOZOOKVOt7vpOODCbBC+dd5LpDO0Wsc2H5Qf3L2nTk0euMUqdO2nU2gl5MID7mRfA2W6cJZWrWTyFMfjDkis9h3MMdRnEd0Isu7s4PbySUhmTvqxLJwKDVBypfG5mh4i15Zz9/1aRw9wXGOihcEozLf4WiaxXnAM+X89Cq7ZWo4cTAZPsZAHT2JZD4hLx/Virg==</SignatureValue><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab,OU=ID digital,O=Abitab S.A.,L=Montevideo,C=UY</X509IssuerName><X509SerialNumber>471340461901704036334595933701288184716709641335</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></ns0:CFE>
+
+<ns1:Adenda>
+<Rondanet>
+<A01>
+<Numerar>1</Numerar>
+<Firmar>1</Firmar>
+<NroDocInterno>1050130760013402</NroDocInterno>
+<SerieDocInterna>13</SerieDocInterna>
+<UsuarioQueEmite>manager</UsuarioQueEmite>
+<EstacionQueEmite>Estacion SAP-CIPU-PRE</EstacionQueEmite>
+</A01>
+<A03>
+<TextoAImprimir>
+<ZonaImpresion zona="1"/>
+</TextoAImprimir>
+</A03>
+<A05/>
+</Rondanet>
+</ns1:Adenda>
+</ns1:CFE_Adenda></DGICFE:EnvioCFE_entreEmpresas>

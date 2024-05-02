@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?><DGICFE:EnvioCFE_entreEmpresas xmlns:DGICFE="http://cfe.dgi.gub.uy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_entreEmpresas.xsd"><DGICFE:Caratula version="1.0"><DGICFE:RutReceptor>218871250018</DGICFE:RutReceptor><DGICFE:RUCEmisor>210163670013</DGICFE:RUCEmisor><DGICFE:Idemisor>1497546</DGICFE:Idemisor><DGICFE:CantCFE>1</DGICFE:CantCFE><DGICFE:Fecha>2024-04-02T02:24:56.538-03:00</DGICFE:Fecha><DGICFE:X509Certificate>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</DGICFE:X509Certificate>
+</DGICFE:Caratula><ns1:CFE_Adenda xmlns:ns1="http://cfe.dgi.gub.uy"><ns0:CFE xmlns:ns0="http://cfe.dgi.gub.uy" version="1.0">
+<ns0:eFact>
+<ns0:TmstFirma>2024-04-02T02:24:43.840-03:00</ns0:TmstFirma>
+<ns0:Encabezado>
+<ns0:IdDoc>
+<ns0:TipoCFE>111</ns0:TipoCFE>
+<ns0:Serie>A</ns0:Serie>
+<ns0:Nro>739444</ns0:Nro>
+<ns0:NroInterno>11010130040309053</ns0:NroInterno><ns0:FchEmis>2024-04-02</ns0:FchEmis>
+<ns0:FmaPago>1</ns0:FmaPago>
+<ns0:FchVenc>2024-04-02</ns0:FchVenc>
+</ns0:IdDoc>
+<ns0:Emisor>
+<ns0:RUCEmisor>210163670013</ns0:RUCEmisor>
+<ns0:RznSoc>ESTABLECIMIENTOS JUAN SARUBBI S.A</ns0:RznSoc>
+<ns0:NomComercial/>
+<ns0:CdgDGISucur>4</ns0:CdgDGISucur>
+<ns0:DomFiscal>Cno. Coronel Raiz 2902</ns0:DomFiscal>
+<ns0:Ciudad>MONTEVIDEO</ns0:Ciudad>
+<ns0:Departamento>MONTEVIDEO</ns0:Departamento>
+</ns0:Emisor>
+<ns0:Receptor>
+<ns0:TipoDocRecep>2</ns0:TipoDocRecep>
+<ns0:CodPaisRecep>UY</ns0:CodPaisRecep>
+<ns0:DocRecep>218871250018</ns0:DocRecep>
+<ns0:RznSocRecep>TEJAS DE LA CRUZ YOSBAUY</ns0:RznSocRecep>
+<ns0:DirRecep>JUAN B MORELLI 3475</ns0:DirRecep>
+<ns0:CiudadRecep>MONTEVIDEO</ns0:CiudadRecep>
+</ns0:Receptor>
+<ns0:Totales>
+<ns0:TpoMoneda>UYU</ns0:TpoMoneda>
+<ns0:TpoCambio>1.000</ns0:TpoCambio>
+<ns0:MntNoGrv>0.00</ns0:MntNoGrv>
+<ns0:MntNetoIvaTasaMin>0.00</ns0:MntNetoIvaTasaMin>
+<ns0:MntNetoIVATasaBasica>5639.20</ns0:MntNetoIVATasaBasica>
+<ns0:IVATasaMin>10</ns0:IVATasaMin>
+<ns0:IVATasaBasica>22</ns0:IVATasaBasica>
+<ns0:MntIVATasaMin>0.00</ns0:MntIVATasaMin>
+<ns0:MntIVATasaBasica>1240.62</ns0:MntIVATasaBasica>
+<ns0:MntTotal>6879.82</ns0:MntTotal>
+<ns0:MntTotRetenido>0.00</ns0:MntTotRetenido>
+<ns0:CantLinDet>3</ns0:CantLinDet>
+<ns0:MontoNF>0.00</ns0:MontoNF>
+<ns0:MntPagar>6879.82</ns0:MntPagar>
+</ns0:Totales>
+</ns0:Encabezado>
+<ns0:Detalle>
+<ns0:Item>
+<ns0:NroLinDet>1</ns0:NroLinDet>
+<ns0:CodItem>
+<ns0:TpoCod>INT1</ns0:TpoCod>
+<ns0:Cod>290</ns0:Cod>
+</ns0:CodItem>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>FIAMBRE CERDO SARUBBI LINEA BLANCO / NARANJA</ns0:NomItem>
+<ns0:Cantidad>12.60</ns0:Cantidad>
+<ns0:UniMed>EA</ns0:UniMed>
+<ns0:PrecioUnitario>152.000000</ns0:PrecioUnitario>
+<ns0:DescuentoPct>0.000</ns0:DescuentoPct>
+<ns0:DescuentoMonto>0.00</ns0:DescuentoMonto>
+<ns0:MontoItem>1915.20</ns0:MontoItem>
+</ns0:Item>
+<ns0:Item>
+<ns0:NroLinDet>2</ns0:NroLinDet>
+<ns0:CodItem>
+<ns0:TpoCod>INT1</ns0:TpoCod>
+<ns0:Cod>706</ns0:Cod>
+</ns0:CodItem>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>JAMON COCIDO SARUBBI OVAL</ns0:NomItem>
+<ns0:Cantidad>6.10</ns0:Cantidad>
+<ns0:UniMed>EA</ns0:UniMed>
+<ns0:PrecioUnitario>320.000000</ns0:PrecioUnitario>
+<ns0:DescuentoPct>0.000</ns0:DescuentoPct>
+<ns0:DescuentoMonto>0.00</ns0:DescuentoMonto>
+<ns0:MontoItem>1952.00</ns0:MontoItem>
+</ns0:Item>
+<ns0:Item>
+<ns0:NroLinDet>3</ns0:NroLinDet>
+<ns0:CodItem>
+<ns0:TpoCod>INT1</ns0:TpoCod>
+<ns0:Cod>823</ns0:Cod>
+</ns0:CodItem>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>QUESO SANDWICH SARUBBI X4 KG UD</ns0:NomItem>
+<ns0:Cantidad>2.00</ns0:Cantidad>
+<ns0:UniMed>EA</ns0:UniMed>
+<ns0:PrecioUnitario>886.000000</ns0:PrecioUnitario>
+<ns0:DescuentoPct>0.000</ns0:DescuentoPct>
+<ns0:DescuentoMonto>0.00</ns0:DescuentoMonto>
+<ns0:MontoItem>1772.00</ns0:MontoItem>
+</ns0:Item>
+</ns0:Detalle>
+<ns0:Referencia>
+<ns0:Referencia>
+<ns0:NroLinRef>1</ns0:NroLinRef>
+<ns0:IndGlobal>1</ns0:IndGlobal>
+<ns0:RazonRef>Referencia a documento no codificado</ns0:RazonRef>
+</ns0:Referencia>
+</ns0:Referencia>
+<ns0:CAEData>
+<ns0:CAE_ID>90231338649</ns0:CAE_ID>
+<ns0:DNro>690001</ns0:DNro>
+<ns0:HNro>810000</ns0:HNro>
+<ns0:FecVenc>2025-07-30</ns0:FecVenc>
+</ns0:CAEData>
+</ns0:eFact>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>Ew0azVFNTUgmpcgcIOYCvhMuNlc=</DigestValue></Reference></SignedInfo><SignatureValue>aOrzob2nN/Y+mzby0bER6mapIEKtVfmJ+UWPluylp6LEpkhfqTF1ToJbzoBwPwxR4yIXU6givHnK0jLnOIMAII7qpOD9JfyHsYSIfvGv6dAv5xJ1JxLVdXiYTRtwIQPciZIhRN4rEM5xXWE18GcBTn9sehsfDDPuG0pU8e1Vvnou3s548DegNLRWlY1LMFubF7E5FjtxnGvoiohzT7IbAWsJ+hXgFMAp9CiBrITewCt+nBALxsjBuLiPB6oSrfKHiW227Hb9mpwjro7yI4UHlGpv2apy2Y/YRksluXdRJ0yycU6qq74mmNgVAuFRnapJ6PTzK0MHUuo9rUSQ7Gj00A==</SignatureValue><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab,OU=ID digital,O=Abitab S.A.,L=Montevideo,C=UY</X509IssuerName><X509SerialNumber>29130487147961642498938242161964242030719531519</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></ns0:CFE>
+
+<ns1:Adenda>
+<Rondanet>
+<A01>
+<ImpresoraDestino> </ImpresoraDestino>
+<Numerar>1</Numerar>
+<Firmar>1</Firmar>
+<SerieDocInterna>1</SerieDocInterna>
+<NroDocInterno>1010130040309053</NroDocInterno>
+<EncriptarCompFiscal>0</EncriptarCompFiscal>
+</A01>
+<A03>
+<TextoAImprimir>
+<ZonaImpresion zona="1">
+<LineaTexto>26 UN. Peso: 26.70 kg. Basado en Pedidos de cliente 215089.</LineaTexto>
+</ZonaImpresion>
+</TextoAImprimir>
+<PublicarSiempre>1</PublicarSiempre>
+</A03>
+<A05>
+<MailAsunto>Envio de Factura 1010130040309053</MailAsunto>
+<MailContenido>Estimado Cliente, Adjuntamos al presente la versión en formato PDF del Comprobante Fiscal Electrónico emitido... Este mail es generado automaticamente, por favor no lo responda... Saludamos atentamente, Establecimientos Juan Sarubbi S.A</MailContenido>
+</A05>
+</Rondanet>
+</ns1:Adenda>
+</ns1:CFE_Adenda></DGICFE:EnvioCFE_entreEmpresas>

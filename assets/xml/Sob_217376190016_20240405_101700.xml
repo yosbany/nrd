@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<EnvioCFE_entreEmpresas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0" xmlns="http://cfe.dgi.gub.uy">
+  <Caratula version="1.0">
+    <RutReceptor>218871250018</RutReceptor>
+    <RUCEmisor>217376190016</RUCEmisor>
+    <Idemisor>101700</Idemisor>
+    <CantCFE>1</CantCFE>
+    <Fecha>2024-04-05T16:43:30.8827784-03:00</Fecha>
+    <X509Certificate>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</X509Certificate>
+  </Caratula>
+  <CFE_Adenda><CFE version="1.0" xmlns="http://cfe.dgi.gub.uy">
+    <eFact>
+      <TmstFirma>2024-04-05T15:29:38.8462034-03:00</TmstFirma>
+      <Encabezado>
+        <IdDoc>
+          <TipoCFE>111</TipoCFE>
+          <Serie>A</Serie>
+          <Nro>60247</Nro>
+          <FchEmis>2024-04-05</FchEmis>
+          <MntBruto>1</MntBruto>
+          <FmaPago>1</FmaPago>
+          <InfoAdicionalDoc>S-ContadoMayorU$S</InfoAdicionalDoc>
+        </IdDoc>
+        <Emisor>
+          <RUCEmisor>217376190016</RUCEmisor>
+          <RznSoc>Macfisan S.A.</RznSoc>
+          <NomComercial>Macfisan S.A.</NomComercial>
+          <Telefono>2202 3585</Telefono>
+          <EmiSucursal>ABC Arenal</EmiSucursal>
+          <CdgDGISucur>6</CdgDGISucur>
+          <DomFiscal>Arenal Grande 2219</DomFiscal>
+          <Ciudad>MONTEVIDEO</Ciudad>
+          <Departamento>MONTEVIDEO</Departamento>
+        </Emisor>
+        <Receptor>
+          <TipoDocRecep>2</TipoDocRecep>
+          <CodPaisRecep>UY</CodPaisRecep>
+          <DocRecep>218871250018</DocRecep>
+          <RznSocRecep>Tejas de la Cruz Gyosbany </RznSocRecep>
+          <DirRecep>Dr Juan B. Morelli 3475</DirRecep>
+          <CiudadRecep>Montevideo</CiudadRecep>
+          <DeptoRecep />
+        </Receptor>
+        <Totales>
+          <TpoMoneda>USD</TpoMoneda>
+          <TpoCambio>38.24</TpoCambio>
+          <MntExpoyAsim>0</MntExpoyAsim>
+          <MntImpuestoPerc>0</MntImpuestoPerc>
+          <MntNetoIVATasaBasica>176.23</MntNetoIVATasaBasica>
+          <IVATasaBasica>22</IVATasaBasica>
+          <MntIVATasaBasica>38.77</MntIVATasaBasica>
+          <MntTotal>215</MntTotal>
+          <CantLinDet>1</CantLinDet>
+          <MontoNF>0</MontoNF>
+          <MntPagar>215</MntPagar>
+        </Totales>
+      </Encabezado>
+      <Detalle>
+        <Item>
+          <NroLinDet>1</NroLinDet>
+          <CodItem>
+            <TpoCod>INT1</TpoCod>
+            <Cod>HW-23</Cod>
+          </CodItem>
+          <IndFact>3</IndFact>
+          <NomItem>CHOCOLATERA 3 CUBAS KUMA</NomItem>
+          <DscItem />
+          <Cantidad>1</Cantidad>
+          <UniMed>U</UniMed>
+          <PrecioUnitario>215.00</PrecioUnitario>
+          <MontoItem>215</MontoItem>
+        </Item>
+      </Detalle>
+      <SubTotInfo>
+        <STI_Item>
+          <NroSTI>1</NroSTI>
+          <GlosaSTI>TotDescuentos</GlosaSTI>
+          <OrdenSTI>1</OrdenSTI>
+          <ValSubtotSTI>0</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>2</NroSTI>
+          <GlosaSTI>TotRecargos</GlosaSTI>
+          <OrdenSTI>2</OrdenSTI>
+          <ValSubtotSTI>0</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>3</NroSTI>
+          <GlosaSTI>NetotAntesDescRec</GlosaSTI>
+          <OrdenSTI>3</OrdenSTI>
+          <ValSubtotSTI>176.23</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>4</NroSTI>
+          <GlosaSTI>IVATotal</GlosaSTI>
+          <OrdenSTI>4</OrdenSTI>
+          <ValSubtotSTI>38.77</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>5</NroSTI>
+          <GlosaSTI>MontoAntesDescuentos</GlosaSTI>
+          <OrdenSTI>5</OrdenSTI>
+          <ValSubtotSTI>215</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>6</NroSTI>
+          <GlosaSTI>TotalNeto</GlosaSTI>
+          <OrdenSTI>6</OrdenSTI>
+          <ValSubtotSTI>176.23</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>7</NroSTI>
+          <GlosaSTI>IVAMasPercibido</GlosaSTI>
+          <OrdenSTI>7</OrdenSTI>
+          <ValSubtotSTI>38.77</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>8</NroSTI>
+          <GlosaSTI>TotalCantidades</GlosaSTI>
+          <OrdenSTI>8</OrdenSTI>
+          <ValSubtotSTI>1</ValSubtotSTI>
+        </STI_Item>
+        <STI_Item>
+          <NroSTI>9</NroSTI>
+          <GlosaSTI>Redondeo</GlosaSTI>
+          <OrdenSTI>9</OrdenSTI>
+          <ValSubtotSTI>0</ValSubtotSTI>
+        </STI_Item>
+      </SubTotInfo>
+      <MediosPago>
+        <MedioPago>
+          <NroLinMP>1</NroLinMP>
+          <GlosaMP>T. VISA 6P Santander</GlosaMP>
+          <OrdenMP>1</OrdenMP>
+          <ValorPago>8221.6</ValorPago>
+        </MedioPago>
+      </MediosPago>
+      <CAEData>
+        <CAE_ID>90231785882</CAE_ID>
+        <DNro>56501</DNro>
+        <HNro>66500</HNro>
+        <FecVenc>2025-09-28</FecVenc>
+      </CAEData>
+    </eFact>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>BVcsLhp/bN/f5y7rJY+S/xTOLFU=</DigestValue></Reference></SignedInfo><SignatureValue>owOdEKZi679oBxq+2wuS0v6qTvGCBVgEIIgpqZPdzAW6ujyQc+NvbvesQicCzl1C4SOYb/4nS98DhRyT81XEyrHraCTrBNs0deC8GPspSmIlb6P6gsF2FjQgqr6sDyWSe+aec6SS1FSP8w+MDjDi6KK9RZLs7M7DC9XQSX2ih0i8c/EJ7Amh5KZ/A3d9fum+5Jc13AE9gJww+Biw2x7dQjtPl6PQVWOmzVWL3jgEq6K+Eyl3b9P4qVUCyBIsAZaT7ZlNdgwzM2m+OBeOUWIaWGTlYT6Nxdoo3VPGz2S0uGIQq7PfzSNwpoIJpoktFnHi4tnTlQtKqOlLSanOA0PHrQ==</SignatureValue><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab, OU=ID digital, O=Abitab S.A., L=Montevideo, C=UY</X509IssuerName><X509SerialNumber>36755506291359295102051053981482855200595324841</X509SerialNumber></X509IssuerSerial><X509Certificate>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</X509Certificate></X509Data></KeyInfo></Signature></CFE><Adenda xmlns="http://cfe.dgi.gub.uy">Hora: 15:34	Nº de orden: 736475Caja: 302	Tipo Doc. 1834Forma de pago: T. VISA 6P Sant	$ 8,221.60</Adenda></CFE_Adenda>
+</EnvioCFE_entreEmpresas>
