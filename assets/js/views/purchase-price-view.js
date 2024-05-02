@@ -9,16 +9,21 @@ export default class PurchasePriceView extends BaseView {
     async renderView(resultado) {
         await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "purchase-price.html", "app");
         this.setPageTitleAndHeader("Precio Compra");
+        this.searchInput = document.getElementById("searchInput");
         this.initEventView();
         this.cargarResultadosEnTabla(resultado);
+
     }
 
     initEventView() {
-
+        this.searchInput.addEventListener("input", () => {
+            this.filtrarTabla(searchInput.value.toLowerCase());
+        });
     }
 
     async cargarResultadosEnTabla(resultados) {
         try {
+          const searchInput = document.getElementById("searchInput");
           // Obtener referencia al tbody de la tabla
           const tbody = document.querySelector('#productosTableBody');
           
@@ -49,4 +54,23 @@ export default class PurchasePriceView extends BaseView {
           console.error('Error al cargar resultados en la tabla:', error);
         }
       }
+
+      filtrarTabla(textoBusqueda) {
+        try {
+            // Obtener referencia al tbody de la tabla
+            const tbody = document.querySelector('#productosTableBody');
+            const filas = tbody.querySelectorAll('tr');
+
+            // Iterar sobre las filas de la tabla
+            filas.forEach(fila => {
+                // Obtener el texto de las celdas de la fila
+                const textoFila = fila.textContent.toLowerCase();
+
+                // Mostrar u ocultar la fila según si contiene el texto de búsqueda
+                fila.style.display = textoFila.includes(textoBusqueda) ? '' : 'none';
+            });
+        } catch (error) {
+            console.error('Error al filtrar la tabla:', error);
+        }
+    }
 }
