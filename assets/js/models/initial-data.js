@@ -1,5 +1,8 @@
 const data = {
     "version": "1.0",
+    "xmls_dgi":[
+        "Sob_217262480015_20240502_16582.xml"
+    ],
     "proveedores": [
         {
             "proveedor": "CARNELANDIA",
