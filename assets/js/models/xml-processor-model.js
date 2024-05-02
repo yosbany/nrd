@@ -70,10 +70,10 @@ export default class XmlProcessorModel {
             }
 
             // Devolver resultados junto con la URL base del archivo XML
-            return { resultados, ruta_base: url };
+            return resultados;
         } catch (error) {
             console.error(error);
-            return { resultados: [], ruta_base: "" };
+            return [];
         }
     }
 
