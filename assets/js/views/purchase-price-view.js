@@ -34,17 +34,14 @@ export default class PurchasePriceView extends BaseView {
           resultados.forEach(resultado => {
             // Crear una nueva fila
             const fila = document.createElement('tr');
-            
+            const fechaFormateada = this.formatoFecha(resultado.fecha);
             // Agregar las celdas correspondientes con los datos del resultado
             fila.innerHTML = `
+              <td style="vertical-align: middle;">${fechaFormateada}</td>
               <td style="vertical-align: middle;">${resultado.nombre_articulo}</td>
               <td style="vertical-align: middle;">${resultado.razon_social_emisor}</td>
               <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${resultado.precio_unitario_con_iva}</span></td>
-              <td style="vertical-align: middle;">
-                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#myModal">
-                  Ver Histórico
-                </button>
-              </td>
+              <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${resultado.precio_unitario_final}</span></td>
             `;
             
             // Agregar la fila al tbody de la tabla
@@ -72,5 +69,16 @@ export default class PurchasePriceView extends BaseView {
         } catch (error) {
             console.error('Error al filtrar la tabla:', error);
         }
+    }
+
+    formatoFecha(fecha) {
+        const fechaObj = new Date(fecha);
+        const dia = fechaObj.getDate().toString().padStart(2, '0');
+        const mes = (fechaObj.getMonth() + 1).toString().padStart(2, '0');
+        const año = fechaObj.getFullYear();
+        const horas = fechaObj.getHours().toString().padStart(2, '0');
+        const minutos = fechaObj.getMinutes().toString().padStart(2, '0');
+        const segundos = fechaObj.getSeconds().toString().padStart(2, '0');
+        return `${dia}/${mes}/${año} ${horas}:${minutos}:${segundos}`;
     }
 }
