@@ -40,7 +40,7 @@ export default class XmlProcessorModel {
             const xmlDoc = parser.parseFromString(xmlText, "text/xml");
 
             // Obtener el elemento <eFact>
-            const eFact = xmlDoc.querySelector("eFact");
+            const eFact = xmlDoc.querySelector("eFact, nsAd\\:eFact");
 
             if (!eFact) {
                 console.log(url)
