@@ -11,6 +11,15 @@ export default class XmlProcessorModel {
             'REDONDEO'
         ].includes(item);
     }
+    proovedorNoInclude(proveedor) {
+        return [
+            'Monte Real Srl',
+            'MARTINEZ Y CIA SRL',
+            'COMPAÑIA URUGUAYA DE MEDIOS DE PROCESAMIENTO S.A.',
+            'DELIVERY HERO URUGUAY MARKETPLACE S.A.',
+            'HOMECENTER SODIMAC S.A'
+        ].includes(proveedor);
+    }
 
     async procesarXML(url) {
         try {
@@ -34,7 +43,8 @@ export default class XmlProcessorModel {
             const eFact = xmlDoc.querySelector("eFact");
 
             if (!eFact) {
-                throw new Error("No se encontró el tag <eFact> en el XML");
+                console.log(url)
+                return [];
             }
 
             // Obtener los nodos Item dentro del tag <eFact>
@@ -81,7 +91,7 @@ export default class XmlProcessorModel {
                     precio_unitario_final: precioUnitarioConIVA,
                     fecha: fecha
                 };
-                if (!this.itemNoInclude(nombreArticulo)) {
+                if (!this.itemNoInclude(nombreArticulo) || !this.proovedorNoInclude(razonSocialEmisor)) {
                     resultados.push(itemObj);
                 }
                 // Agregar objeto al array de resultados
