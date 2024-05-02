@@ -3,6 +3,15 @@ export default class XmlProcessorModel {
         this.pathBase = pathBase;
     }
 
+    itemNoInclude(item){
+        return [
+            'Redondeo',
+            'Ajuste por Redonde',
+            '(Red) Redondeo',
+            'REDONDEO'
+        ].includes(item);
+    }
+
     async procesarXML(url) {
         try {
             const path = this.pathBase + url;
@@ -62,16 +71,20 @@ export default class XmlProcessorModel {
                     precio_unitario_sin_iva: precioUnitarioSinIVA,
                     iva: iva,
                     precio_unitario_con_iva: precioUnitarioConIVA,
+                    precio_unitario_final: precioUnitarioConIVA,
                     fecha: fecha
                 };
-
+                if(!this.itemNoInclude(nombreArticulo)){
+                    resultados.push(itemObj);
+                }
                 // Agregar objeto al array de resultados
-                resultados.push(itemObj);
+                
             }
 
             // Devolver resultados junto con la URL base del archivo XML
             return resultados;
         } catch (error) {
+            console.log(url)
             console.error(error);
             return [];
         }
