@@ -3,7 +3,7 @@ export default class XmlProcessorModel {
         this.pathBase = pathBase;
     }
 
-    itemNoInclude(item){
+    itemNoInclude(item) {
         return [
             'Redondeo',
             'Ajuste por Redonde',
@@ -30,16 +30,23 @@ export default class XmlProcessorModel {
             // Analizar el XML
             const xmlDoc = parser.parseFromString(xmlText, "text/xml");
 
-            // Obtener los nodos necesarios
-            const items = xmlDoc.getElementsByTagName("Item");
+            // Obtener el elemento <eFact>
+            const eFact = xmlDoc.querySelector("eFact");
+
+            if (!eFact) {
+                throw new Error("No se encontró el tag <eFact> en el XML");
+            }
+
+            // Obtener los nodos Item dentro del tag <eFact>
+            const items = eFact.getElementsByTagName("Item");
 
             // Array para almacenar los resultados de este XML
             const resultados = [];
 
 
             const fecha = xmlDoc.querySelector("Fecha").textContent;
-            const rutEmisor = xmlDoc.querySelector("RUCEmisor").textContent;
-            const razonSocialEmisor = xmlDoc.querySelector("RznSoc").textContent;
+            const rutEmisor = eFact.querySelector("RUCEmisor").textContent;
+            const razonSocialEmisor = eFact.querySelector("RznSoc").textContent;
 
             // Iterar sobre los nodos de Item
             for (let i = 0; i < items.length; i++) {
@@ -74,11 +81,11 @@ export default class XmlProcessorModel {
                     precio_unitario_final: precioUnitarioConIVA,
                     fecha: fecha
                 };
-                if(!this.itemNoInclude(nombreArticulo)){
+                if (!this.itemNoInclude(nombreArticulo)) {
                     resultados.push(itemObj);
                 }
                 // Agregar objeto al array de resultados
-                
+
             }
 
             // Devolver resultados junto con la URL base del archivo XML
