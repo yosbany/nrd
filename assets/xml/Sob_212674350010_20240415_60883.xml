@@ -1,0 +1,385 @@
+<EnvioCFE_entreEmpresas xmlns="http://cfe.dgi.gub.uy" version="1.0">
+	<Caratula version="1.0">
+		<RutReceptor>218871250018</RutReceptor>
+		<RUCEmisor>212674350010</RUCEmisor>
+		<Idemisor>60883</Idemisor>
+		<CantCFE>1</CantCFE>
+		<Fecha>2024-04-15T09:01:09-03:00</Fecha>
+		<X509Certificate>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</X509Certificate>
+	</Caratula>
+<CFE_Adenda xmlns="http://cfe.dgi.gub.uy">
+	<CFE xmlns="http://cfe.dgi.gub.uy" version="1.0">
+	<eFact>
+		<TmstFirma>2024-04-15T08:49:12-03:00</TmstFirma>
+		<Encabezado>
+			<IdDoc>
+				<TipoCFE>111</TipoCFE>
+				<Serie>A</Serie>
+				<Nro>56160</Nro>
+				<NroInterno>CO-279549</NroInterno>
+				<FchEmis>2024-04-15</FchEmis>
+				<PeriodoDesde>2024-04-15</PeriodoDesde>
+				<PeriodoHasta>2024-04-15</PeriodoHasta>
+				<MntBruto>1</MntBruto>
+				<FmaPago>1</FmaPago>
+				<FchVenc>2024-05-15</FchVenc>
+				
+				
+				
+				
+				
+			</IdDoc>
+			<Emisor>
+				<RUCEmisor>212674350010</RUCEmisor>
+				<RznSoc>BLANCOR S A</RznSoc>
+				<NomComercial>Blancor</NomComercial>
+				
+				<Telefono xmlns="http://cfe.dgi.gub.uy">22117353            </Telefono>
+				<Telefono xmlns="http://cfe.dgi.gub.uy"/>
+				<CorreoEmisor>cfes.blancor@puntoexe.com.uy</CorreoEmisor>
+				<EmiSucursal>Principal</EmiSucursal>
+				<CdgDGISucur>1</CdgDGISucur>
+				<DomFiscal>General Flores 3905</DomFiscal>
+				<Ciudad>Montevideo</Ciudad>
+				<Departamento>Montevideo</Departamento>
+				<InfoAdicionalEmisor/>
+			</Emisor>
+			<Receptor>
+				<TipoDocRecep>2</TipoDocRecep>
+				<CodPaisRecep>UY</CodPaisRecep>
+				<DocRecep>218871250018</DocRecep>
+				<RznSocRecep>Nro: 879  TEJAS DE LA CRUZ YOSBANY</RznSocRecep>
+				<DirRecep>D,J, Morelli 3475</DirRecep>
+				<CiudadRecep>MONTEVIDEO</CiudadRecep>
+				<DeptoRecep>MONTEVIDEO</DeptoRecep>
+				<PaisRecep>UY</PaisRecep>
+				<LugarDestEnt>Comercio Mismo</LugarDestEnt>
+				
+			</Receptor>
+			<Totales>
+				<TpoMoneda>UYU</TpoMoneda>
+				<TpoCambio>1.000</TpoCambio>
+				<MntNoGrv>224.36</MntNoGrv>
+				<MntExpoyAsim>0.00</MntExpoyAsim>
+				
+				
+				<MntNetoIvaTasaMin>3218.30</MntNetoIvaTasaMin>
+				<MntNetoIVATasaBasica>5774.22</MntNetoIVATasaBasica>
+				
+				<IVATasaMin>10.00</IVATasaMin>
+				<IVATasaBasica>22.00</IVATasaBasica>
+				<MntIVATasaMin>321.83</MntIVATasaMin>
+				<MntIVATasaBasica>1270.33</MntIVATasaBasica>
+				
+				<MntTotal>10809.04</MntTotal>
+				<MntTotRetenido>0.00</MntTotRetenido>
+				
+				<CantLinDet>19</CantLinDet>
+				<MontoNF>-0.04</MontoNF>
+				<MntPagar>10809.00</MntPagar>
+			</Totales>
+		</Encabezado>
+		<Detalle>
+			<Item>
+				<NroLinDet>1</NroLinDet>
+				<IndFact>2</IndFact>
+				
+				<NomItem>49.2  Manteca Parmalat x k</NomItem>
+				
+				<Cantidad>3.685</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>298.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>1098.13</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>2</NroLinDet>
+				<IndFact>2</IndFact>
+				
+				<NomItem>500  SAL X 25 Kilos</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>786.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>786.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>3</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>751  AZUCAR X 25 kilos</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>1438.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>1438.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>4</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>777.2  Levadura Paraleva x caja 20 unid.</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>1386.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>1386.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>5</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>152.2  Chivharrones Mantex x 5 kilos</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>1175.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>1175.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>6</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>761  COCO RALLADO kg.</NomItem>
+				
+				<Cantidad>2.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>175.38000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>350.76</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>7</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>157  Harina Integral  5 k</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>218.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>218.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>8</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>300  DULCE DE MEMB. Isla 4  kg.</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>255.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>255.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>9</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>700  C. Choc Selec. Gotas S.A. Blan. Leche ..</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>328.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>328.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>10</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>680  Cober Choc BARRA kilo. s.amar, blanco ..</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>235.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>235.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>11</NroLinDet>
+				<IndFact>2</IndFact>
+				
+				<NomItem>212  MARG. SINA rev. HOJ. 2 KG</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>338.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>338.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>12</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>748  FECULA S F 5 KG</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>293.09000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>293.09</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>13</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>440  MEJOR. CORTEZA 400 GRS</NomItem>
+				
+				<Cantidad>5.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>84.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>420.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>14</NroLinDet>
+				<IndFact>1</IndFact>
+				
+				<NomItem>831  OREGANO PTE 1kg.</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>224.36000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>224.36</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>15</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>832  AJO PEREJIL 1 KG.</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>339.70000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>339.70</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>16</NroLinDet>
+				<IndFact>2</IndFact>
+				
+				<NomItem>765  GRASA ONDIL X 15</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>1318.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>1318.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>17</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>98  ESEN.DE MANT. CH. LT.</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>438.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>438.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>18</NroLinDet>
+				<IndFact>3</IndFact>
+				
+				<NomItem>90  VAINILLA LT.</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>168.00000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>168.00</MontoItem>
+			</Item>
+			<Item>
+				<NroLinDet>19</NroLinDet>
+				<IndFact>7</IndFact>
+				
+				<NomItem>REDONDEO</NomItem>
+				
+				<Cantidad>1.000</Cantidad>
+				<UniMed/>
+				<PrecioUnitario>0.04000</PrecioUnitario>
+				
+				
+				
+				
+				<MontoItem>0.04</MontoItem>
+			</Item>
+		</Detalle>
+		
+		<CAEData>
+			<CAE_ID>90231601048</CAE_ID>
+			<DNro>52101</DNro>
+			<HNro>67100</HNro>
+			<FecVenc>2025-09-03</FecVenc>
+			
+			
+		</CAEData>
+	</eFact>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>2yqKr40cAF3hSqDyW9XMfXAtUdo5CEF9CALSUfa9tKo=</DigestValue></Reference></SignedInfo><SignatureValue>dRIVt2qyR5CdqZvE5fgCW4+eCWjm8/MTQblgk/rpaizRcU+Jjs6erARWjCThFCus6WxGjFY1AXt3
+W1/sIj00DcSLTqtT7g0iE95mM2Q/6tyc3DhQ7qJRoPpwYUDmaFGHfXzhg2vqTVEMVZ6FSqmKJ+Li
+iaxLQFtiklV1AUFXoolM583m9AFeGS8txZ4Y7OA9xUrSd7TcsXpQN8rxzZo2rX48VTKIiSaXQQIP
+I5VmGmyBnzIYO8uUCJMpRzlP773LQitlq17PE0hug7E11X2vIgQM3BT8a4wvqIwl3mJQgTw9z7u9
+BbjWCYtwZtNy8Ynql6wGW9hszfDyfL2656cEDA==</SignatureValue><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab, OU=ID digital, O=Abitab S.A., L=Montevideo, C=UY</X509IssuerName><X509SerialNumber>922933385799407861788514594459447431506856819034</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></CFE>
+	<Adenda>|</Adenda>
+</CFE_Adenda></EnvioCFE_entreEmpresas>

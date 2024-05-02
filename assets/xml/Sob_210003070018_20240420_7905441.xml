@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><EnvioCFE_entreEmpresas xmlns="http://cfe.dgi.gub.uy" xmlns:ns2="http://www.w3.org/2001/04/xmlenc#" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_entreEmpresas.xsd"><Caratula version="1.0"><RutReceptor>218871250018</RutReceptor><RUCEmisor>210003070018</RUCEmisor><Idemisor>7905441</Idemisor><CantCFE>3</CantCFE><Fecha>2024-04-20T09:46:00.043-03:00</Fecha><X509Certificate>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</X509Certificate></Caratula><ns3:CFE_Adenda xmlns="http://tilsor.com.uy/#MonresaAdenda" xmlns:ns2="http://tilsor.com.uy/#BasicAdenda" xmlns:ns3="http://cfe.dgi.gub.uy" xmlns:ns4="http://www.w3.org/2001/04/xmlenc#" xmlns:ns5="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEEmpresas.xsd"><CFE xmlns="http://cfe.dgi.gub.uy" xmlns:ns2="http://www.w3.org/2001/04/xmlenc#" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEDGI.xsd"><eFact><TmstFirma>2024-04-12T19:11:14.910-03:00</TmstFirma><Encabezado><IdDoc><TipoCFE>111</TipoCFE><Serie>B</Serie><Nro>2210732</Nro><FchEmis>2024-04-13</FchEmis><FmaPago>1</FmaPago><InfoAdicionalDoc>6531202286</InfoAdicionalDoc></IdDoc><Emisor><RUCEmisor>210003070018</RUCEmisor><RznSoc>Montevideo Refrescos S.R.L.</RznSoc><Telefono>08002442</Telefono><EmiSucursal>Casa Principal</EmiSucursal><CdgDGISucur>1</CdgDGISucur><DomFiscal>Cno. Carrasco 6173</DomFiscal><Ciudad>Montevideo</Ciudad><Departamento>Montevideo</Departamento></Emisor><Receptor><TipoDocRecep>2</TipoDocRecep><CodPaisRecep>UY</CodPaisRecep><DocRecep>218871250018</DocRecep><RznSocRecep>TEJAS DE LA CRUZ YOSBANY</RznSocRecep><DirRecep>MORELLI 3475  MUNAR</DirRecep><CiudadRecep>MONTEVIDEO</CiudadRecep><DeptoRecep>Montevideo</DeptoRecep><PaisRecep>UY</PaisRecep><CP>11400</CP><InfoAdicional> </InfoAdicional><CompraID>UY2252638485081240385558</CompraID></Receptor><Totales><TpoMoneda>UYU</TpoMoneda><TpoCambio>1.000</TpoCambio><MntNoGrv>0.0</MntNoGrv><MntExpoyAsim>0.0</MntExpoyAsim><MntImpuestoPerc>0.0</MntImpuestoPerc><MntIVaenSusp>0.0</MntIVaenSusp><MntNetoIvaTasaMin>0.0</MntNetoIvaTasaMin><MntNetoIVATasaBasica>8002.99</MntNetoIVATasaBasica><MntNetoIVAOtra>0.0</MntNetoIVAOtra><IVATasaMin>10.0</IVATasaMin><IVATasaBasica>22.0</IVATasaBasica><MntIVATasaMin>0.0</MntIVATasaMin><MntIVATasaBasica>1760.66</MntIVATasaBasica><MntIVAOtra>0.0</MntIVAOtra><MntTotal>9763.65</MntTotal><MntTotRetenido>0.0</MntTotRetenido><CantLinDet>13</CantLinDet><MontoNF>0.0</MontoNF><MntPagar>9763.65</MntPagar></Totales></Encabezado><Detalle><Item><NroLinDet>1</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172093</Cod></CodItem><IndFact>3</IndFact><NomItem>COCA-COLA 3PET CONT</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>969.420000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>81.14</DescuentoMonto><MontoItem>888.28</MontoItem></Item><Item><NroLinDet>2</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>171017</Cod></CodItem><IndFact>3</IndFact><NomItem>SCHW CIT SA 1.5x6</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>567.470000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>47.5</DescuentoMonto><MontoItem>519.97</MontoItem></Item><Item><NroLinDet>3</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172048</Cod></CodItem><IndFact>3</IndFact><NomItem>COCA-COLA 1,50LTPET</NomItem><Cantidad>2.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>671.510000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>112.41</DescuentoMonto><MontoItem>1230.6</MontoItem></Item><Item><NroLinDet>4</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172049</Cod></CodItem><IndFact>3</IndFact><NomItem>C-COLA LIGHT 1.5PET</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>671.500000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>56.2</DescuentoMonto><MontoItem>615.3</MontoItem></Item><Item><NroLinDet>5</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172033</Cod></CodItem><IndFact>3</IndFact><NomItem>COCA-COLA 600 X12</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>579.680000</PrecioUnitario><DescuentoPct>8.09</DescuentoPct><DescuentoMonto>46.9</DescuentoMonto><MontoItem>532.78</MontoItem></Item><Item><NroLinDet>6</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172019</Cod></CodItem><IndFact>3</IndFact><NomItem>COCA-COLA 250 X 12</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>245.900000</PrecioUnitario><DescuentoPct>0.0</DescuentoPct><DescuentoMonto>0.0</DescuentoMonto><MontoItem>245.9</MontoItem></Item><Item><NroLinDet>7</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172021</Cod></CodItem><IndFact>3</IndFact><NomItem>C-COLA S/AZ 250X6</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>122.950000</PrecioUnitario><DescuentoPct>0.0</DescuentoPct><DescuentoMonto>0.0</DescuentoMonto><MontoItem>122.95</MontoItem></Item><Item><NroLinDet>8</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172065</Cod></CodItem><IndFact>3</IndFact><NomItem>COCA-COLA 2LRET X 9</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>886.660000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>74.21</DescuentoMonto><MontoItem>812.45</MontoItem></Item><Item><NroLinDet>9</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172066</Cod></CodItem><IndFact>3</IndFact><NomItem>C-COLA LIGHT 2RETX09</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>886.660000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>74.21</DescuentoMonto><MontoItem>812.45</MontoItem></Item><Item><NroLinDet>10</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172067</Cod></CodItem><IndFact>3</IndFact><NomItem>C-COLA S/AZ 2RETX09</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>886.660000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>74.21</DescuentoMonto><MontoItem>812.45</MontoItem></Item><Item><NroLinDet>11</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172044</Cod></CodItem><IndFact>3</IndFact><NomItem>COCA-COLA 1LT RGB</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>822.830000</PrecioUnitario><DescuentoPct>8.37</DescuentoPct><DescuentoMonto>68.87</DescuentoMonto><MontoItem>753.96</MontoItem></Item><Item><NroLinDet>12</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>171029</Cod></CodItem><IndFact>3</IndFact><NomItem>MONSTER MANGO LOCO 473X6</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>389.510000</PrecioUnitario><DescuentoPct>0.0</DescuentoPct><DescuentoMonto>0.0</DescuentoMonto><MontoItem>389.51</MontoItem></Item><Item><NroLinDet>13</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>171128</Cod></CodItem><IndFact>3</IndFact><NomItem>SCHW TONICA SA 500X6</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>289.840000</PrecioUnitario><DescuentoPct>8.09</DescuentoPct><DescuentoMonto>23.45</DescuentoMonto><MontoItem>266.39</MontoItem></Item></Detalle><CAEData><CAE_ID>90230723018</CAE_ID><DNro>2000001</DNro><HNro>2999999</HNro><FecVenc>2025-04-28</FecVenc></CAEData></eFact><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" >
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
+<ds:Reference URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+<ds:XPath>
+not(ancestor-or-self::ds:Signature)
+</ds:XPath>
+</ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>0l44OvO5oa/11k7BktjtkwH3btI=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+i0Yny6kQnIi4Ut/VO92gsGYDzjN98XzAsd11eVYH6Rs62WqTLNS8UCGeWWZ0R5q4nYfr/wm/w/Sa
+81h7I1So39FDxFxCNlhIvg5YQGTjfCJrVZIaGc2bN4r6t644tp2muI2sYz5wUZRCSithHV5+P2/6
+102+NUtxlYH30YWOySoQGbKY1X+llvIr22Uk1oDCSWwbhwzSM/Q/quzx8+c0aAUq8ks/EGDqbmq6
+5fxbHLJO9U+raoUhOwyPB4umyvAabzoOZNJVIp/BJrACNdwoIEqG1SaBZoStqiYio7RT6FfLP/UH
+I+QcNA4L27KPiF+DNpK/1zZlvoCrnTW+81GVaQ==
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>C=UY,O=Administración Nacional de Correos,CN=Correo Uruguayo - CA</ds:X509IssuerName>
+
+<ds:X509SerialNumber>383538644439934518099313634094054060543834551931</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+raRvHDh0CBJfgt0VOw8E+c0qQgp63NyFsYh027yO/Xshxw00ChstXtq//j0bB9jIda+FRBVpPFiK
+eutR/anedgI2d5e0Zp63au4ac1+94JRO0sfitC9aXMa7CsZYmE9IadbbczjY3z76WSh6o8GaXcd/
+V0Na+fjTB8szBUL89ZD5FxNoNblWyxj/UIlXrvtBojShU6yEe5rDPV21yuCIjurx6lOZUSG7FiDG
+iGTZr5rXg39o/2LKUwDh0qz+EGP78oLlYMvTz/nFPqR4xdNMi+ECLJJGSiteRhf0gNmGPlzkoRFC
+/7mjH8bXlYF0xRvuBA+oqKTiT07Z9tt4ypDQYQ==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature></CFE><ns3:Adenda><ns2:datosAdenda><leyendas><constanciaIVA>IVA al día</constanciaIVA><resolucion>Res. 741/2014</resolucion><verificarComprobante>Puede verificar comprobante en https://www.efactura.dgi.gub.uy</verificarComprobante></leyendas><datosExtraMonresa><contacto> </contacto><numeroCliente>1820001333</numeroCliente><telefonoCliente>094775571</telefonoCliente><transaccion>ZU28</transaccion><locacion>UMAF</locacion><tipoDocumento>SD</tipoDocumento><numeroSerie>6531202286</numeroSerie><numeroDocumento>1</numeroDocumento><carga>12399</carga><lista>3980</lista><zona>UY2</zona><ruta>UY2252-UYR624</ruta><msg5GenericoCliente> </msg5GenericoCliente><msg6EspecialCliente> </msg6EspecialCliente><msg1EspecialClientePromocion> </msg1EspecialClientePromocion><msg2EspecialClientePromocion> </msg2EspecialClientePromocion><descripcionChequeDiferido>UF00-CHEQUE AL DIA</descripcionChequeDiferido><msg1Cliente>3573125255/8086409708</msg1Cliente><msg2Cliente> </msg2Cliente><msg3Cliente> </msg3Cliente><msg4Cliente> </msg4Cliente><textoConformidad> </textoConformidad><textoNoReclamacion> </textoNoReclamacion><textoRegMercado> </textoRegMercado><textoFijo>Tratándose de botellas y cajones retornables que tienen marcas registradas por The Coca-Cola Company, no se transmite en ningún caso la propiedad de los mismos. Se exige un depósito a cambio de esas botellas y cajones retornables, para asegurar su restitución. Dicha suma se reembolsará por Montevideo Refrescos S.R.L., cuando las botellas y cajones retornables sean devueltos en buen estado.</textoFijo><secuencia>23</secuencia></datosExtraMonresa></ns2:datosAdenda></ns3:Adenda></ns3:CFE_Adenda><ns3:CFE_Adenda xmlns="http://tilsor.com.uy/#MonresaAdenda" xmlns:ns2="http://tilsor.com.uy/#BasicAdenda" xmlns:ns3="http://cfe.dgi.gub.uy" xmlns:ns4="http://www.w3.org/2001/04/xmlenc#" xmlns:ns5="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEEmpresas.xsd"><CFE xmlns="http://cfe.dgi.gub.uy" xmlns:ns2="http://www.w3.org/2001/04/xmlenc#" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEDGI.xsd"><eFact><TmstFirma>2024-04-12T19:11:15.803-03:00</TmstFirma><Encabezado><IdDoc><TipoCFE>111</TipoCFE><Serie>B</Serie><Nro>2210738</Nro><FchEmis>2024-04-13</FchEmis><FmaPago>1</FmaPago><InfoAdicionalDoc>6531202287</InfoAdicionalDoc></IdDoc><Emisor><RUCEmisor>210003070018</RUCEmisor><RznSoc>Montevideo Refrescos S.R.L.</RznSoc><Telefono>08002442</Telefono><EmiSucursal>Casa Principal</EmiSucursal><CdgDGISucur>1</CdgDGISucur><DomFiscal>Cno. Carrasco 6173</DomFiscal><Ciudad>Montevideo</Ciudad><Departamento>Montevideo</Departamento></Emisor><Receptor><TipoDocRecep>2</TipoDocRecep><CodPaisRecep>UY</CodPaisRecep><DocRecep>218871250018</DocRecep><RznSocRecep>TEJAS DE LA CRUZ YOSBANY</RznSocRecep><DirRecep>MORELLI 3475  MUNAR</DirRecep><CiudadRecep>MONTEVIDEO</CiudadRecep><DeptoRecep>Montevideo</DeptoRecep><PaisRecep>UY</PaisRecep><CP>11400</CP><InfoAdicional> </InfoAdicional><CompraID>UY2252638485081240385558</CompraID></Receptor><Totales><TpoMoneda>UYU</TpoMoneda><TpoCambio>1.000</TpoCambio><MntNoGrv>0.0</MntNoGrv><MntExpoyAsim>0.0</MntExpoyAsim><MntImpuestoPerc>0.0</MntImpuestoPerc><MntIVaenSusp>0.0</MntIVaenSusp><MntNetoIvaTasaMin>0.0</MntNetoIvaTasaMin><MntNetoIVATasaBasica>1268.31</MntNetoIVATasaBasica><MntNetoIVAOtra>0.0</MntNetoIVAOtra><IVATasaMin>10.0</IVATasaMin><IVATasaBasica>22.0</IVATasaBasica><MntIVATasaMin>0.0</MntIVATasaMin><MntIVATasaBasica>279.03</MntIVATasaBasica><MntIVAOtra>0.0</MntIVAOtra><MntTotal>1547.34</MntTotal><MntTotRetenido>0.0</MntTotRetenido><CantLinDet>2</CantLinDet><MontoNF>0.0</MontoNF><MntPagar>1547.34</MntPagar></Totales></Encabezado><Detalle><Item><NroLinDet>1</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172073</Cod></CodItem><IndFact>3</IndFact><NomItem>COCA-COLA 2.25 PET</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>827.550000</PrecioUnitario><DescuentoPct>23.37</DescuentoPct><DescuentoMonto>193.4</DescuentoMonto><MontoItem>634.15</MontoItem></Item><Item><NroLinDet>2</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172076</Cod></CodItem><IndFact>3</IndFact><NomItem>SPRITE 2.25  PET X6</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>827.560000</PrecioUnitario><DescuentoPct>23.37</DescuentoPct><DescuentoMonto>193.4</DescuentoMonto><MontoItem>634.16</MontoItem></Item></Detalle><CAEData><CAE_ID>90230723018</CAE_ID><DNro>2000001</DNro><HNro>2999999</HNro><FecVenc>2025-04-28</FecVenc></CAEData></eFact><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" >
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
+<ds:Reference URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+<ds:XPath>
+not(ancestor-or-self::ds:Signature)
+</ds:XPath>
+</ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>O5NsS/aseFK6jbeBsQ8QxkHF+0s=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+nV83CwB3uhiXhQL6vgm9EaO4+ZsjUiZZNYK9jQ8Ivp+DCSWenPcGtg6p/G7H9t5QxgZLz+m6f1es
+5bJ7HgRumiqx6RsvKt+OrOaEGPJs1Ne8jnOsJqS/R9zqU9cecNjcIkL1DJF6SGLzRmsrInPyVmua
+Li5HnhSfq2EW4eeF/H4cy8N0JoV8o1cOaCf2w3ex09pQwEjskjzUNkBxrVQTW7r9pyEekT+SmI7L
+dSxD0i7349P4PYCE+2g9RhXKrWFfPRe+W0AVFs5OFN9AIve3rzfSnE+Gn9LeFKclTjNrxAoK+FH4
+Qs7q+3LG7XEYhwK7nCnHQ+wg2dA4RV/u93yDEw==
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>C=UY,O=Administración Nacional de Correos,CN=Correo Uruguayo - CA</ds:X509IssuerName>
+
+<ds:X509SerialNumber>383538644439934518099313634094054060543834551931</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+raRvHDh0CBJfgt0VOw8E+c0qQgp63NyFsYh027yO/Xshxw00ChstXtq//j0bB9jIda+FRBVpPFiK
+eutR/anedgI2d5e0Zp63au4ac1+94JRO0sfitC9aXMa7CsZYmE9IadbbczjY3z76WSh6o8GaXcd/
+V0Na+fjTB8szBUL89ZD5FxNoNblWyxj/UIlXrvtBojShU6yEe5rDPV21yuCIjurx6lOZUSG7FiDG
+iGTZr5rXg39o/2LKUwDh0qz+EGP78oLlYMvTz/nFPqR4xdNMi+ECLJJGSiteRhf0gNmGPlzkoRFC
+/7mjH8bXlYF0xRvuBA+oqKTiT07Z9tt4ypDQYQ==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature></CFE><ns3:Adenda><ns2:datosAdenda><leyendas><constanciaIVA>IVA al día</constanciaIVA><resolucion>Res. 741/2014</resolucion><verificarComprobante>Puede verificar comprobante en https://www.efactura.dgi.gub.uy</verificarComprobante></leyendas><datosExtraMonresa><contacto> </contacto><numeroCliente>1820001333</numeroCliente><telefonoCliente>094775571</telefonoCliente><transaccion>ZU28</transaccion><locacion>UMAF</locacion><tipoDocumento>SD</tipoDocumento><numeroSerie>6531202287</numeroSerie><numeroDocumento>1</numeroDocumento><carga>12399</carga><lista>3980</lista><zona>UY2</zona><ruta>UY2252-UYR624</ruta><msg5GenericoCliente> </msg5GenericoCliente><msg6EspecialCliente> </msg6EspecialCliente><msg1EspecialClientePromocion> </msg1EspecialClientePromocion><msg2EspecialClientePromocion> </msg2EspecialClientePromocion><descripcionChequeDiferido>UF00-CHEQUE AL DIA</descripcionChequeDiferido><msg1Cliente>3573140820/8086409720</msg1Cliente><msg2Cliente> </msg2Cliente><msg3Cliente> </msg3Cliente><msg4Cliente> </msg4Cliente><textoConformidad> </textoConformidad><textoNoReclamacion> </textoNoReclamacion><textoRegMercado> </textoRegMercado><textoFijo>Tratándose de botellas y cajones retornables que tienen marcas registradas por The Coca-Cola Company, no se transmite en ningún caso la propiedad de los mismos. Se exige un depósito a cambio de esas botellas y cajones retornables, para asegurar su restitución. Dicha suma se reembolsará por Montevideo Refrescos S.R.L., cuando las botellas y cajones retornables sean devueltos en buen estado.</textoFijo><secuencia>23</secuencia></datosExtraMonresa></ns2:datosAdenda></ns3:Adenda></ns3:CFE_Adenda><ns3:CFE_Adenda xmlns="http://tilsor.com.uy/#MonresaAdenda" xmlns:ns2="http://tilsor.com.uy/#BasicAdenda" xmlns:ns3="http://cfe.dgi.gub.uy" xmlns:ns4="http://www.w3.org/2001/04/xmlenc#" xmlns:ns5="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEEmpresas.xsd"><CFE xmlns="http://cfe.dgi.gub.uy" xmlns:ns2="http://www.w3.org/2001/04/xmlenc#" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy CFEDGI.xsd"><eFact><TmstFirma>2024-04-12T19:11:18.688-03:00</TmstFirma><Encabezado><IdDoc><TipoCFE>111</TipoCFE><Serie>B</Serie><Nro>2210760</Nro><FchEmis>2024-04-13</FchEmis><FmaPago>1</FmaPago><InfoAdicionalDoc>6531202288</InfoAdicionalDoc></IdDoc><Emisor><RUCEmisor>210003070018</RUCEmisor><RznSoc>Montevideo Refrescos S.R.L.</RznSoc><Telefono>08002442</Telefono><EmiSucursal>Casa Principal</EmiSucursal><CdgDGISucur>1</CdgDGISucur><DomFiscal>Cno. Carrasco 6173</DomFiscal><Ciudad>Montevideo</Ciudad><Departamento>Montevideo</Departamento></Emisor><Receptor><TipoDocRecep>2</TipoDocRecep><CodPaisRecep>UY</CodPaisRecep><DocRecep>218871250018</DocRecep><RznSocRecep>TEJAS DE LA CRUZ YOSBANY</RznSocRecep><DirRecep>MORELLI 3475  MUNAR</DirRecep><CiudadRecep>MONTEVIDEO</CiudadRecep><DeptoRecep>Montevideo</DeptoRecep><PaisRecep>UY</PaisRecep><CP>11400</CP><InfoAdicional> </InfoAdicional><CompraID>UY2252638485081240385558</CompraID></Receptor><Totales><TpoMoneda>UYU</TpoMoneda><TpoCambio>1.000</TpoCambio><MntNoGrv>0.0</MntNoGrv><MntExpoyAsim>0.0</MntExpoyAsim><MntImpuestoPerc>0.0</MntImpuestoPerc><MntIVaenSusp>0.0</MntIVaenSusp><MntNetoIvaTasaMin>0.0</MntNetoIvaTasaMin><MntNetoIVATasaBasica>848.36</MntNetoIVATasaBasica><MntNetoIVAOtra>0.0</MntNetoIVAOtra><IVATasaMin>10.0</IVATasaMin><IVATasaBasica>22.0</IVATasaBasica><MntIVATasaMin>0.0</MntIVATasaMin><MntIVATasaBasica>186.64</MntIVATasaBasica><MntIVAOtra>0.0</MntIVAOtra><MntTotal>1035.0</MntTotal><MntTotRetenido>0.0</MntTotRetenido><CantLinDet>3</CantLinDet><MontoNF>0.0</MontoNF><MntPagar>1035.00</MntPagar></Totales></Encabezado><Detalle><Item><NroLinDet>1</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172107</Cod></CodItem><IndFact>3</IndFact><NomItem>VITALE 1.75 SG x04</NomItem><Cantidad>4.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>94.260000</PrecioUnitario><DescuentoPct>0.0</DescuentoPct><DescuentoMonto>0.0</DescuentoMonto><MontoItem>377.05</MontoItem></Item><Item><NroLinDet>2</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172107</Cod></CodItem><IndFact>3</IndFact><NomItem>VITALE 1.75 SG x04</NomItem><Cantidad>1.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>94.260000</PrecioUnitario><DescuentoPct>100.0</DescuentoPct><DescuentoMonto>94.26</DescuentoMonto><MontoItem>0.0</MontoItem></Item><Item><NroLinDet>3</NroLinDet><CodItem><TpoCod>INT1</TpoCod><Cod>172108</Cod></CodItem><IndFact>3</IndFact><NomItem>VITALE 1.75 CG x04</NomItem><Cantidad>5.000</Cantidad><UniMed>CJ</UniMed><PrecioUnitario>94.260000</PrecioUnitario><DescuentoPct>0.0</DescuentoPct><DescuentoMonto>0.0</DescuentoMonto><MontoItem>471.31</MontoItem></Item></Detalle><CAEData><CAE_ID>90230723018</CAE_ID><DNro>2000001</DNro><HNro>2999999</HNro><FecVenc>2025-04-28</FecVenc></CAEData></eFact><ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" >
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:CanonicalizationMethod>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod>
+<ds:Reference URI="">
+<ds:Transforms>
+<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+<ds:XPath>
+not(ancestor-or-self::ds:Signature)
+</ds:XPath>
+</ds:Transform>
+<ds:Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"></ds:Transform>
+</ds:Transforms>
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod>
+<ds:DigestValue>tADjvSbsWx1gWYKFVYgvOsU+AJw=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue>
+QFRgYF4NQlNI2xhZyuFjC9uduL2MNk7ls8iyERuQ933T15pfc6DMK80Pv3coSd/XGJ/BUqs9m+zP
+Q7KxM7onTmSRu5HJKTRl0d9JYINO9p5cdRLVuX3uXZaTNBA8X2T4J73aCJKIPV/C8pnzG9tVeHl7
++LzVcZjbBO42m/g/hkU5KWMW1u2canBVJrUN+G1hghLNa3vVb2ZOiSn2JI9qWsXLeWU2px5dObLg
+hCilihVf0qEZ7A1cMb+MDwwca+RsDol9+DY5w0+sRzVlri/gxGP3nG5ltZ0WRsd+lQaN2uR/erBW
+rCVYz4jaL1JIfBPjUBPCfLiWhqcTZ/eR8XjRtw==
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509IssuerSerial>
+<ds:X509IssuerName>C=UY,O=Administración Nacional de Correos,CN=Correo Uruguayo - CA</ds:X509IssuerName>
+
+<ds:X509SerialNumber>383538644439934518099313634094054060543834551931</ds:X509SerialNumber>
+</ds:X509IssuerSerial>
+</ds:X509Data>
+<ds:KeyValue>
+<ds:RSAKeyValue>
+<ds:Modulus>
+raRvHDh0CBJfgt0VOw8E+c0qQgp63NyFsYh027yO/Xshxw00ChstXtq//j0bB9jIda+FRBVpPFiK
+eutR/anedgI2d5e0Zp63au4ac1+94JRO0sfitC9aXMa7CsZYmE9IadbbczjY3z76WSh6o8GaXcd/
+V0Na+fjTB8szBUL89ZD5FxNoNblWyxj/UIlXrvtBojShU6yEe5rDPV21yuCIjurx6lOZUSG7FiDG
+iGTZr5rXg39o/2LKUwDh0qz+EGP78oLlYMvTz/nFPqR4xdNMi+ECLJJGSiteRhf0gNmGPlzkoRFC
+/7mjH8bXlYF0xRvuBA+oqKTiT07Z9tt4ypDQYQ==
+</ds:Modulus>
+<ds:Exponent>AQAB</ds:Exponent>
+</ds:RSAKeyValue>
+</ds:KeyValue>
+</ds:KeyInfo>
+</ds:Signature></CFE><ns3:Adenda><ns2:datosAdenda><leyendas><constanciaIVA>IVA al día</constanciaIVA><resolucion>Res. 741/2014</resolucion><verificarComprobante>Puede verificar comprobante en https://www.efactura.dgi.gub.uy</verificarComprobante></leyendas><datosExtraMonresa><contacto> </contacto><numeroCliente>1820001333</numeroCliente><telefonoCliente>094775571</telefonoCliente><transaccion>ZU28</transaccion><locacion>UMAF</locacion><tipoDocumento>SD</tipoDocumento><numeroSerie>6531202288</numeroSerie><numeroDocumento>1</numeroDocumento><carga>12399</carga><lista>3980</lista><zona>UY2</zona><ruta>UY2252-UYR624</ruta><msg5GenericoCliente> </msg5GenericoCliente><msg6EspecialCliente> </msg6EspecialCliente><msg1EspecialClientePromocion> </msg1EspecialClientePromocion><msg2EspecialClientePromocion> </msg2EspecialClientePromocion><descripcionChequeDiferido>UF00-CHEQUE AL DIA</descripcionChequeDiferido><msg1Cliente>3573033781/8086409736</msg1Cliente><msg2Cliente> </msg2Cliente><msg3Cliente> </msg3Cliente><msg4Cliente> </msg4Cliente><textoConformidad> </textoConformidad><textoNoReclamacion> </textoNoReclamacion><textoRegMercado> </textoRegMercado><textoFijo>Tratándose de botellas y cajones retornables que tienen marcas registradas por The Coca-Cola Company, no se transmite en ningún caso la propiedad de los mismos. Se exige un depósito a cambio de esas botellas y cajones retornables, para asegurar su restitución. Dicha suma se reembolsará por Montevideo Refrescos S.R.L., cuando las botellas y cajones retornables sean devueltos en buen estado.</textoFijo><secuencia>23</secuencia></datosExtraMonresa></ns2:datosAdenda></ns3:Adenda></ns3:CFE_Adenda></EnvioCFE_entreEmpresas>

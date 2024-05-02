@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfe:EnvioCFE_entreEmpresas version="1.0" xmlns:cfe="http://cfe.dgi.gub.uy">
+<cfe:Caratula version="1.0">
+<cfe:RutReceptor>218871250018</cfe:RutReceptor>
+<cfe:RUCEmisor>020503510011</cfe:RUCEmisor>
+<cfe:Idemisor>36940151</cfe:Idemisor>
+<cfe:CantCFE>1</cfe:CantCFE>
+<cfe:Fecha>2024-04-20T12:35:51-03:00</cfe:Fecha>
+<cfe:X509Certificate>MIIGoTCCBImgAwIBAgIVAKoaMpOj1VuaDC1fCK8w+yPOj2geMA0GCSqGSIb3DQEBCwUAMF4xCzAJBgNVBAYTAlVZMRMwEQYDVQQHEwpNb250ZXZpZGVvMRQwEgYDVQQKEwtBYml0YWIgUy5BLjETMBEGA1UECxMKSUQgZGlnaXRhbDEPMA0GA1UEAxMGQWJpdGFiMB4XDTI0MDEzMDE5MDUxMVoXDTI2MDEyOTE5MDUxMVowgZIxCzAJBgNVBAYTAlVZMRMwEQYDVQQIEwpNb250ZXZpZGVvMRgwFgYDVQQFEw9SVUMwMjA1MDM1MTAwMTExKTAnBgNVBAoTIENJQSBERSBTRVJWSUNJT1MgQU1CSUVOVEFMRVMgU1JMMSkwJwYDVQQDEyBDSUEgREUgU0VSVklDSU9TIEFNQklFTlRBTEVTIFNSTDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANk7o0MFQ6loW2YqafwmmAp89ektK4Z4Vjlkk89HKd20azcsWROaxv4UaFkEzWinS1+TE1O9IzoiHyGs0U2CzT7aen1nxUK3Te6HA7a62EC5//vYRa/VNE/t90iu6ZEErNL8NVrD4bBrLSeooHQPYgB68QAU8lAyc24lW/UicZZPaoXaS3XCI+7PCCcYs4urqN0+03RmYuvcpYsPawM5LxmrCSpPw0TfVPY53T4VCbeylzaf+u6w/bGLUi576DRZGd4WhKyATGN/w6euQ2IHXgEGdeAmtye+tKVNuRxbk979c5B54afgCxzMJ7sXvfMYhigzXUVSsOSLU8ovJmPUMaECAwEAAaOCAh8wggIbMIGABggrBgEFBQcBAQR0MHIwNQYIKwYBBQUHMAKGKWh0dHA6Ly93d3cuaWQuY29tLnV5L3Jlc291cmNlcy9BYml0YWIuY3J0MDkGCCsGAQUFBzABhi1odHRwOi8vb2NzcC5pZC5jb20udXkvYXNmL3NlcnZsZXQvT0NTUFNlcnZsZXQwDgYDVR0PAQH/BAQDAgTwMAwGA1UdEwEB/wQCMAAwTgYDVR0fBEcwRTBDoEGgP4Y9aHR0cDovL2NybC5pZC5jb20udXkvcmVzb3VyY2VzL2NybF9pZF9kaWdpdGFsX3BraV91cnVndWF5LmNybDCB0gYDVR0gBIHKMIHHMGQGC2CGWoTirh2EiAUEMFUwUwYIKwYBBQUHAgEWR2h0dHA6Ly91Y2UuZ3ViLnV5L2luZm9ybWFjaW9uLXRlY25pY2EvcG9saXRpY2FzL2NwX3BlcnNvbmFfanVyaWRpY2EucGRmMF8GC2CGWoTirh2EiAUHMFAwTgYIKwYBBQUHAgEWQmh0dHA6Ly93d3cuaWQuY29tLnV5L3Jlc291cmNlcy9jcHNfaWRfZmlybWFFbGVjdHJvbmljYUF2YW56YWRhLnBkZjATBgNVHSUEDDAKBggrBgEFBQcDAjAdBgNVHQ4EFgQUEg4XOW2TjYbY4paanUp6ZgXabJMwHwYDVR0jBBgwFoAUDRPW9sYopufFt4fRJJyfk/DoHTswDQYJKoZIhvcNAQELBQADggIBACMjPm5hFDletKmiW5+Zy9g+L6l9WqyzW0cra41/5u813VoaP+FYLlfIRlpmEc80yOWy+1pqyIYDMPkNASXcIQ2SJ9vlsTjpVjMosYuyYJT46opPgpVdkTYL/5xF8d5fJ6ii0sii3f/hKZpHrsXsEaZx73FhZ/3+INgxgWwIaSSPKHbn/aPrYpHHCNPvEJOjywOr3wwBkIf2dyA/6QL50OsADCnxwq+guN3eqMZE+nIJyvq2VSSZ1gOdXSwopreVLu4+0+WrM8MxXCz9s7ZYmmCIC4DamT80wkRMnITMnz4Ok+jMSO4PrPB5XTFJLTXhVSdJA87yqOpG5nbT+/VcS2lj2LGpI3sdf3k9UV405af4H1UmZ8Yz7xY3LrL2gnBcSZr42NpG4Ga3L4v0p26odjM7RnN5JO5VK6mShZx6C8uc13z54a0Yj8yxcHkUk9JI0jZ2NKLNEEGS61f4Jp1Kg+qEnlS94TrUDWsmS/bwyTjXHXkrNmkb9g2WnuLVC9H8j28Zs1axRjlhB514hQ25II5naZMzaIALlk5nMSOPJKDVox4GDvFlDPSO+xQ82jno+Rz/9Zu5bY+N3J6u8GXSnQ1O6NV2YQKtcSk6BfS3UxYRZv//uE8PLh8Hkjq6m3us290euxAN8kSCmc0zLsW/a9i4aa/NpDXc2EkCZ9alX7j9</cfe:X509Certificate>
+</cfe:Caratula>
+<cfe:CFE_Adenda><ns0:CFE xmlns:ns0="http://cfe.dgi.gub.uy" version="1.0">
+<ns0:eFact>
+<ns0:TmstFirma>2024-04-20T12:35:51-03:00</ns0:TmstFirma>
+<ns0:Encabezado>
+<ns0:IdDoc>
+<ns0:TipoCFE>111</ns0:TipoCFE>
+<ns0:Serie>A</ns0:Serie>
+<ns0:Nro>16728</ns0:Nro>
+<ns0:FchEmis>2024-04-20</ns0:FchEmis>
+<ns0:FmaPago>2</ns0:FmaPago>
+<ns0:FchVenc>2024-04-20</ns0:FchVenc>
+</ns0:IdDoc>
+<ns0:Emisor>
+<ns0:RUCEmisor>020503510011</ns0:RUCEmisor>
+<ns0:RznSoc>CIA. DE SERVICIOS AMBIENTALES SRL</ns0:RznSoc>
+<ns0:NomComercial>PLAGAS UY</ns0:NomComercial>
+<ns0:CdgDGISucur>1</ns0:CdgDGISucur>
+<ns0:DomFiscal>CALLE 78 M201 SOLAR 8 ESQ RBLA COSTANERA </ns0:DomFiscal>
+<ns0:Ciudad>Solymar</ns0:Ciudad>
+<ns0:Departamento>Canelones</ns0:Departamento>
+</ns0:Emisor>
+<ns0:Receptor>
+<ns0:TipoDocRecep>2</ns0:TipoDocRecep>
+<ns0:CodPaisRecep>UY</ns0:CodPaisRecep>
+<ns0:DocRecep>218871250018</ns0:DocRecep>
+<ns0:RznSocRecep>Tejas de la cruz Yosbany</ns0:RznSocRecep>
+<ns0:DirRecep>Juan B Moreli 3475</ns0:DirRecep>
+<ns0:CiudadRecep>Montevideo</ns0:CiudadRecep>
+<ns0:DeptoRecep>Montevideo </ns0:DeptoRecep>
+</ns0:Receptor><ns0:Totales>
+<ns0:TpoMoneda>UYU</ns0:TpoMoneda>
+<ns0:MntNoGrv>.00</ns0:MntNoGrv>
+<ns0:MntExpoyAsim>.00</ns0:MntExpoyAsim>
+<ns0:MntImpuestoPerc>.00</ns0:MntImpuestoPerc>
+<ns0:MntIVaenSusp>.00</ns0:MntIVaenSusp>
+<ns0:MntNetoIvaTasaMin>.00</ns0:MntNetoIvaTasaMin>
+<ns0:MntNetoIVATasaBasica>5008.00</ns0:MntNetoIVATasaBasica>
+<ns0:MntNetoIVAOtra>.00</ns0:MntNetoIVAOtra>
+<ns0:IVATasaMin>10</ns0:IVATasaMin>
+<ns0:IVATasaBasica>22</ns0:IVATasaBasica>
+<ns0:MntIVATasaMin>.00</ns0:MntIVATasaMin>
+<ns0:MntIVATasaBasica>1101.76</ns0:MntIVATasaBasica>
+<ns0:MntIVAOtra>.00</ns0:MntIVAOtra>
+<ns0:MntTotal>6109.76</ns0:MntTotal>
+<ns0:CantLinDet>2</ns0:CantLinDet>
+<ns0:MontoNF>.24</ns0:MontoNF>
+<ns0:MntPagar>6110.00</ns0:MntPagar>
+</ns0:Totales>
+</ns0:Encabezado>
+<ns0:Detalle>
+<ns0:Item>
+<ns0:NroLinDet>1</ns0:NroLinDet>
+<ns0:CodItem>
+<ns0:TpoCod>INT1</ns0:TpoCod>
+<ns0:Cod>006</ns0:Cod>
+</ns0:CodItem>
+<ns0:IndFact>3</ns0:IndFact>
+<ns0:NomItem>Control de cucarachas y roedores</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>1.0</ns0:Cantidad>
+<ns0:UniMed>UNID</ns0:UniMed>
+<ns0:PrecioUnitario>5008.0000</ns0:PrecioUnitario>
+<ns0:MontoItem>5008.00</ns0:MontoItem>
+</ns0:Item>
+<ns0:Item>
+<ns0:NroLinDet>2</ns0:NroLinDet>
+<ns0:IndFact>6</ns0:IndFact>
+<ns0:NomItem>Redondeo</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>1.0</ns0:Cantidad>
+<ns0:UniMed>N/A</ns0:UniMed>
+<ns0:PrecioUnitario>.2400</ns0:PrecioUnitario>
+<ns0:MontoItem>.24</ns0:MontoItem>
+</ns0:Item>
+</ns0:Detalle>
+<ns0:CAEData>
+<ns0:CAE_ID>90230329700</ns0:CAE_ID>
+<ns0:DNro>11001</ns0:DNro>
+<ns0:HNro>19000</ns0:HNro>
+<ns0:FecVenc>2025-02-26</ns0:FecVenc>
+</ns0:CAEData>
+</ns0:eFact>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>u3ksmdBJU1EmJmmnFwPB0OOfS7E=</DigestValue></Reference></SignedInfo><SignatureValue>jwP2qhdM53jZxlMOX6AXniW4zXgcT7Peby7GHjS8oDhIpzLiws3UxLE79G1DZbYdO8iHZxfKusdDIdDhnRYbWhiiO/M4N6tVEjntRiCtRDPJ4nph/X+QajrRMH3F5rqg6/35zSeAbJfuEOuLyKMMag0IzbjG1TMB+Lu4MsMr7qj/kpb6soh36gHhdwG+306TdRXANCTNmSMVZTlu5SlKXBHvkn45SRl+icx8zwrO5Yd/bY4nLeY0tmHwcuegXwpdrZXA8LDppgd9CwE9Y1Y7AEUDe1O3apZvPzKO7VkoYBI+bkGr/Uf9yyWWwHQ3unz5BbCapVPapmRGNsKsQ3KrsQ==</SignatureValue><KeyInfo><X509Data><X509IssuerSerial><X509IssuerName>CN=Abitab, OU=ID digital, O=Abitab S.A., L=Montevideo, C=UY</X509IssuerName><X509SerialNumber>971112656268791021159589683843454574622170638366</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></ns0:CFE><cfe:Adenda>Correspondiente al mes de ABRIL</cfe:Adenda>
+</cfe:CFE_Adenda>
+</cfe:EnvioCFE_entreEmpresas>

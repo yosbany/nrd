@@ -1,8 +1,104 @@
 const data = {
     "version": "1.0",
-    "xmls_dgi":[
+    "xmls_dgi":nombres_archivos = [
+        "Sob_210163670013_20240416_1509846.xml",
+        "Sob_020121850018_20240416_669321936.xml",
+        "Sob_020422820010_20240416_6194895.xml",
+        "Sob_020503510011_20240420_36940151.xml",
+        "Sob_210003070018_20240416_7890568.xml",
+        "Sob_210003070018_20240417_7892061.xml",
+        "Sob_210003070018_20240418_7896516.xml",
+        "Sob_210003070018_20240419_7903972.xml",
+        "Sob_210003070018_20240420_7905441.xml",
+        "Sob_210003070018_20240421_7908801.xml",
+        "Sob_210003070018_20240423_7917571.xml",
+        "Sob_210003070018_20240424_7919159.xml",
+        "Sob_210003070018_20240425_7923223.xml",
+        "Sob_210003070018_20240426_7930184.xml",
+        "Sob_210003070018_20240427_7931021.xml",
+        "Sob_210003070018_20240428_7935740.xml",
+        "Sob_210003070018_20240430_7943889.xml",
+        "Sob_210003070018_20240501_7946558.xml",
+        "Sob_210003070018_20240502_7948544.xml",
+        "Sob_210163670013_20240416_1509848.xml",
+        "Sob_210163670013_20240429_1519370.xml",
+        "Sob_210163670013_20240429_1519372.xml",
+        "Sob_210465050018_20240418_20628229.xml",
+        "Sob_210465050018_20240419_20642797.xml",
+        "Sob_210465050018_20240425_20713934.xml",
+        "Sob_210465050018_20240427_20726792.xml",
+        "Sob_211331140010_20240422_528172601.xml",
+        "Sob_211331140010_20240430_528823501.xml",
+        "Sob_211580530017_20240420_5594519.xml",
+        "Sob_211679150011_20240416_642952.xml",
+        "Sob_211679150011_20240419_644176.xml",
+        "Sob_211679150011_20240423_645042.xml",
+        "Sob_211679150011_20240426_646410.xml",
+        "Sob_211679150011_20240430_647496.xml",
+        "Sob_212546780012_20240417_12833571.xml",
+        "Sob_212546780012_20240424_12882610.xml",
+        "Sob_212546780012_20240502_12933227.xml",
+        "Sob_212662530019_20240419_3401.xml",
+        "Sob_212662530019_20240426_3682.xml",
+        "Sob_212674350010_20240415_60883.xml",
+        "Sob_212674350010_20240420_61102.xml",
+        "Sob_212674350010_20240427_61356.xml",
+        "Sob_212674350010_20240502_61528.xml",
+        "Sob_213143250013_20240415_23499933.xml",
+        "Sob_213143250013_20240415_23499934.xml",
+        "Sob_213143250013_20240417_23505410.xml",
+        "Sob_213143250013_20240417_23505411.xml",
+        "Sob_213143250013_20240423_23517867.xml",
+        "Sob_213143250013_20240423_23517868.xml",
+        "Sob_213143250013_20240426_23531103.xml",
+        "Sob_213143250013_20240426_23531167.xml",
+        "Sob_213596650013_20240414_3272531.xml",
+        "Sob_213596650013_20240419_3322880.xml",
+        "Sob_213596650013_20240424_3365609.xml",
+        "Sob_213596650013_20240426_3382040.xml",
+        "Sob_213596650013_20240427_3390024.xml",
+        "Sob_213596650013_20240430_3414104.xml",
+        "Sob_213596650013_20240501_3428711.xml",
+        "Sob_214381960016_20240417_12835763.xml",
+        "Sob_214381960016_20240424_12883797.xml",
+        "Sob_214381960016_20240502_12934933.xml",
+        "Sob_214735770010_20240329_211028.xml",
+        "Sob_214860570013_20240415_221564.xml",
+        "Sob_214877100015_20240418_1285533.xml",
+        "Sob_214877100015_20240425_1290572.xml",
+        "Sob_215461840015_20240419_189575.xml",
+        "Sob_215461840015_20240419_189584.xml",
+        "Sob_215461840015_20240425_189986.xml",
+        "Sob_216020390016_20240416_12830530.xml",
+        "Sob_216020390016_20240423_12878129.xml",
+        "Sob_216020390016_20240424_12888477.xml",
+        "Sob_216588710015_20240419_1604731.xml",
+        "Sob_216588710015_20240419_1604816.xml",
+        "Sob_216588710015_20240427_1619309.xml",
+        "Sob_216588710015_20240427_1619404.xml",
+        "Sob_216639270017_20240426_6639592.xml",
+        "Sob_216996650015_20240422_284797.xml",
+        "Sob_217262480015_20240415_16377.xml",
+        "Sob_217262480015_20240417_16417.xml",
+        "Sob_217262480015_20240420_16456.xml",
+        "Sob_217262480015_20240422_16468.xml",
+        "Sob_217262480015_20240424_16499.xml",
+        "Sob_217262480015_20240429_16537.xml",
         "Sob_217262480015_20240502_16582.xml",
-        "Sob_210003070018_20240502_7948544"
+        "Sob_218139510015_20240415_4120859.xml",
+        "Sob_218139510015_20240427_4121330.xml",
+        "Sob_218175850017_20240417_0066543271.pdf",
+        "Sob_218175850017_20240418_0670581881.pdf",
+        "Sob_218175850017_20240426_1236340817.pdf",
+        "Sob_218319340010_20240417_6150575.xml",
+        "Sob_218319340010_20240424_6189999.xml",
+        "Sob_218319340010_20240502_6233436.xml",
+        "Sob_218823020016_20240416_81419.xml",
+        "Sob_218823020016_20240418_81456.xml",
+        "Sob_218823020016_20240419_81474.xml",
+        "Sob_218823020016_20240425_81557.xml",
+        "Sob_219224730014_20240418_12850787.xml",
+        "Sob_219224730014_20240425_12898994.xml"
     ],
     "proveedores": [
         {
@@ -103,13 +199,43 @@ const data = {
             "proveedor": "DISTRIBUIDORA CUAREIM S.R.L. (PONTEVEDRA)",
             "productos": [
                 {
-                    "producto": "JUGO MAXIFRUTA 1LT",
+                    "producto": "JUGO MAXIFRUTA DURAZNO 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 5
                 },
                 {
-                    "producto": "JUGO MAXIFRUTA 20ML",
+                    "producto": "JUGO MAXIFRUTA NARANJA MANGO 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "JUGO MAXIFRUTA NARANJA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "JUGO MAXIFRUTA MANZANA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "JUGO MAXIFRUTA DURAZNO 20ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "JUGO MAXIFRUTA NARANJA 20ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "JUGO MAXIFRUTA MANZANA 20ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 5
@@ -121,7 +247,7 @@ const data = {
                     "stock": 5
                 },
                 {
-                    "producto": "MOSTAZA PONTEVEDRA 20GR",
+                    "producto": "MOSTAZA PONTEVEDRA 200GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 5
@@ -133,7 +259,7 @@ const data = {
                     "stock": 5
                 },
                 {
-                    "producto": "SALSA KETCHUP PONTEVEDRA 20GR ",
+                    "producto": "SALSA KETCHUP PONTEVEDRA 200GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 5
@@ -157,7 +283,7 @@ const data = {
                     "stock": 5
                 },
                 {
-                    "producto": "CREMA DE LECHE COLONIAL 50ML",
+                    "producto": "CREMA DE LECHE COLONIAL 500ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 5
@@ -169,7 +295,7 @@ const data = {
                     "stock": 5
                 },
                 {
-                    "producto": "DULCE LECHE COLONIAL 50GR",
+                    "producto": "DULCE LECHE COLONIAL 500GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 5
@@ -187,7 +313,7 @@ const data = {
                     "stock": 2
                 },
                 {
-                    "producto": "QUESO DE UNTAR ECOMEL 20GR",
+                    "producto": "QUESO DE UNTAR ECOMEL 200GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 2
@@ -196,7 +322,7 @@ const data = {
                     "producto": "YOGURT COLONIAL 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 2
+                    "stock": 5
                 },
                 {
                     "producto": "DULCE LEHCE COLONIAL BLANDO 5KG",
@@ -238,6 +364,12 @@ const data = {
                     "contenido": "BOLSA",
                     "precio": 0,
                     "stock": 2
+                },
+                {
+                    "producto": "PAPA BLANCA",
+                    "contenido": "BOLSA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "CEBOLLA AMARILLA",
@@ -411,25 +543,67 @@ const data = {
             ]
         },
         {
-            "proveedor": "GRUPO LIDERDAS",
-            "productos": [
-                
-            ]
-        },
-        {
             "proveedor": "IRAZU DISTRIBUIDORA",
             "productos": [
                {
-                    "producto": "DESINFECTANTE FABULOSO 1LT",
+                    "producto": "DESINFECTANTE FABULOSO FRESCA LAVANDA 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
-                    "producto": "DETERGENTE LIQUIDO YPE 50ML",
+                    "producto": "DESINFECTANTE FABULOSO FRESCO AMANECER 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
+                },
+                {
+                    "producto": "DESINFECTANTE FABULOSO ENERGÍA NARANJA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 6
+                },
+                {
+                    "producto": "DESINFECTANTE FABULOSO MAR FRESCO 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 6
+                },
+                {
+                    "producto": "DESINFECTANTE FABULOSO PASION DE FRUTAS 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 6
+                },
+                {
+                    "producto": "DETERGENTE LIQUIDO YPE MANZANA 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "DETERGENTE LIQUIDO YPE NEUTRO 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "DETERGENTE LIQUIDO YPE CLEAR 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "DETERGENTE LIQUIDO YPE COCO 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "DETERGENTE LIQUIDO YPE LIMON 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "GRAPPAMIEL VESUBIO 935ML",
@@ -438,13 +612,25 @@ const data = {
                     "stock": 2
                 },
                 {
-                    "producto": "JABON BARRA NEUTRO LAVAR YPE 20GR",
+                    "producto": "JABON BARRA NEUTRO LAVAR YPE 180GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 6
+                },
+                {
+                    "producto": "JABON BARRA PROTEX ALOE 125GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 2
                 },
                 {
-                    "producto": "JABON BARRA PROTEX 125GR",
+                    "producto": "JABON BARRA PROTEX LIMPIEZA PROFUNDA 125GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "JABON BARRA PROTEX AVENA 125GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 2
@@ -453,132 +639,347 @@ const data = {
                     "producto": "LAVANDINA JUPITER 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 2
+                    "stock": 10
                 },
                 {
-                    "producto": "PAPEL COCINA NOVA 3 ROLLO",
-                    "contenido": "UN",
+                    "producto": "PAPEL COCINA NOVA 3 ROLLO X 150 PAÑOS",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 2
+                    "stock": 1
                 },
                 {
-                    "producto": "PURE DE PAPA PALADAR 10GR",
+                    "producto": "PURE DE PAPA PALADAR 100GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "SAL FINA 50GR",
-                    "contenido": "UN",
+                    "producto": "SAL FINA URUSAL 500GR",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "SAL GRUESA 50GR",
-                    "contenido": "UN",
+                    "producto": "SAL GRUESA 500GR",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "YERBA SARA 1KG",
+                    "producto": "YERBA SARA EXTRA SUEVE AZUL 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "YERBA SARA 20GR",
+                    "producto": "YERBA SARA TRADICIONAL ROJA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "YERBA SARA 50GR",
+                    "producto": "YERBA SARA EXTRA SUEVE AZUL 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
-                    "producto": "YERBA SARA 70GR",
+                    "producto": "YERBA SARA TRADICIONAL ROJA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
+                },
+                {
+                    "producto": "YERBA SARA EXTRA SUEVE AZUL 200GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "YERBA SARA TRADICIONAL ROJA 200GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "YERBA SARA EXTRA SUEVE AZUL 70GR",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "YERBA SARA TRADICIONAL ROJ 70GR",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
                 }
             ]
         },
         {
-            "proveedor": "KALTER",
+            "proveedor": "KALTER (NIX)",
             "productos": [
-                
+                {
+                    "producto": "REFRESCO NIX COCA 500CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO NIX POMELO 500CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO NIX COCA 1LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO NIX POMELO 1LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO NIX COCA 2LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO NIX POMELO 2LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO NIX COCA 2.5LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO NIX POMELO 2.5LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "AGUA NATIVA BIDON 6LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 12
+                },
+                {
+                    "producto": "JUGO WATTS DURAZNO 400CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "JUGO WATTS NARANJA 400CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "JUGO WATTS NARANJA ZANAHORIA 400CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "JUGO WATTS DURAZNO 1LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "JUGO WATTS NARANJA 1LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "JUGO WATTS NARANJA ZANAHORIA 1LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                }
             ]
         },
         {
             "proveedor": "MUNDO FROZZEN",
             "productos": [
                 {
-                    "producto": "PALITO DE AGUA CRUFI 60GR",
+                    "producto": "PALITO DE AGUA CRUFI NARANJA 60GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "PALITO DE LECHE CRUFI 50GR",
+                    "producto": "PALITO DE AGUA CRUFI MANZANA 60GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "HELADO CRUFI VASO 95ML",
+                    "producto": "PALITO DE AGUA CRUFI FRUTILLA 60GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "HELADO CRUFI 1LT",
+                    "producto": "PALITO DE AGUA CRUFI FRUTILLA 60GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "HELADO DIETETICO CRUFI 1LT",
+                    "producto": "PALITO DE AGUA CRUFI LIMON 60GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "HELADO CRUFI 2LT",
+                    "producto": "PALITO DE LECHE CRUFI CHOCOLATE Y DULCE LECHE 50GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "HELADO CRUFI 3LT",
+                    "producto": "PALITO DE LECHE CRUFI VAINILLA 50GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "HELADO CASSATA CRUFI 230ML",
+                    "producto": "PALITO DE LECHE CRUFI CHOCOLATE Y VAINILLA 50GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "ALFAJOR HELADO CRUFI",
+                    "producto": "HELADO CRUFI VASO VAINILLA Y CHOCOLATE 95ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "CONO CRUFI",
+                    "producto": "HELADO CRUFI VASO FRUTILLA Y VAINILLA 95ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "HELADO LINEA ITALINA 50ML",
+                    "producto": "HELADO CRUFI VAINILLA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO CRUFI FRUTILLA VAINILLA Y CHOCOLATE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO CRUFI DULCE DE LECHE GRANIZADO 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO CRUFI FRUTILLA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO LIGHT CRUFI DULCE LECHE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO CRUFI VAINILLA 2LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "HELADO CRUFI FRUTILLA VAINILLA Y CHOCOLATE 2LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "HELADO CRUFI DULCE DE LECHE GRANIZADO 2LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "HELADO CRUFI FRUTILLA 2LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "HELADO CASSATA CRUFI DULCE DE LECHE GRANIZADO 230ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "HELADO CASSATA CRUFI VAINILLA Y SALSA FRUTILLA 230ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "ALFAJOR HELADO CRUFI VAINILLA",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
+                },
+                {
+                    "producto": "CONO CRUFI VAINILLA",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "CONO CRUFI DULCE LECHE",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "HELADO LINEA ITALINA MENTA GRANIZANA 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO LINEA ITALINA DULCE LECHE 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO LINEA ITALINA SAMBAYON Y ALMENDRA 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "HELADO LINEA ITALINA LEMON PIE 500ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "HELADO SANDWICH CRUFIBOM",
@@ -587,70 +988,64 @@ const data = {
                     "stock": 10
                 },
                 {
-                    "producto": "PALETA BOMBON CHOCLATE CRUFI",
+                    "producto": "PALETA BOMBON DULCE LECHE CRUFI",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "PALETA BOMBON CHOCLATE CRUFI",
+                    "producto": "PALETA BOMBON VAINILLA CRUFI",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "SANDWICH DE HELADO CRUFI",
-                    "contenido": "UN",
+                    "producto": "HAMBURGUESA BURGY 150GR",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "HAMBURGUESA BURGY",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "HAMBURQUESA SCHNECK CLASICA 2UN",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "NUGGETS DE POLLO SADIA 30GR",
+                    "producto": "NUGGETS DE POLLO SADIA 300GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
-                    "producto": "NUGGESTS DE POLLO SADIA 90GR",
+                    "producto": "NUGGESTS DE POLLO SADIA 900GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
-                    "producto": "PAPAS MCAIN 70GR",
+                    "producto": "PAPAS MCAIN 700GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "PAPAS PREFRITAS MCCAIN 1.5KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "SADINESA DE POLLO RELLENA",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "MILANESA DE POLLO PREFRITA 50GR",
+                    "producto": "MILANESA DE POLLO PREFRITA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 }
             ]
         },
@@ -661,7 +1056,7 @@ const data = {
                     "producto": "ACEITE DE ARROZ SAMAN 900ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "ACEITE DE GIRASOL URUGUAY 900ML",
@@ -673,61 +1068,55 @@ const data = {
                     "producto": "ACEITE DE OLIVA OLIVARES DE ROCHA 250ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "ACEITE DE OLIVA OLIVARES DE ROCHA 500ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "ACEITE DE SOJA CONDESA 900ML",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "SALSA DE SOYA SOJA HEINZ 150ML",
-                    "contenido": "UN",
+                    "producto": "ACEITE FRITADOR SARANDÍ 5LT",
+                    "contenido": "BIDON",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "ACEITE FRITADOR SARANDÍ",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "AVENA PURITAS 400GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "POROTO NEGRO LA ABUNDANCIA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
                     "producto": "LENTEJONES REVELACION 400GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "PURE DE PAPA PURITAS 125G",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "POLENTA PURITAS 400GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "GRASA URUGUAY 400GR",
@@ -739,13 +1128,37 @@ const data = {
                     "producto": "ALMIDON DE MAIZ HORNEX 200GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "FIDEO LAS ACACIAS AL HUEVO 500GR",
+                    "producto": "FIDEO LAS ACACIAS AL HUEVO SPAGUETIS 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO LAS ACACIAS AL HUEVO TIRABUZONES 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO LAS ACACIAS AL HUEVO CORBATITAS 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO LAS ACACIAS AL HUEVO RIGATTI 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO LAS ACACIAS AL HUEVO MOÑITAS 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "KETCHUP HELMANS 60GR",
@@ -761,9 +1174,9 @@ const data = {
                 },
                 {
                     "producto": "MAYONESA URUGUAY 125GR",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "MAYONESA URUGUAY 500GR",
@@ -775,19 +1188,19 @@ const data = {
                     "producto": "TOMATE PELADO P.GRANJA LATA.380GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "PULPA DE TOMATE DE LEY 1020GR",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PULPA DE TOMATE GOURMET 1030GR",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PULPA DE TOMATE GOURMET 206GR",
@@ -796,28 +1209,34 @@ const data = {
                     "stock": 10
                 },
                 {
-                    "producto": "HARINA SAN TELMO 0 1KG",
+                    "producto": "PULPA NAPOLITANA GOURMET 206GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
+                },
+                {
+                    "producto": "HARINA SAN TELMO 0 1KG",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "HARINA PRIMOROSA 000 1KG",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "HARINA SUPREMA 0000 1KG",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ARROZ BLANCO SAMAN 1KG",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ARROZ BLANCO SAMAN 500GR",
@@ -827,117 +1246,105 @@ const data = {
                 },
                 {
                     "producto": "ARROZ BLANCO ARUBA 1KG",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ARROZ PARBOLED ARUBA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "AZUCAR BLANCA PURITA 1KG",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "AZUCAR BLANCA AZUCARLITO 1KG",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "AZUCAR RUBIO AZUCARLITO 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "AZUCAR IMPALPABLE HORNEX 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "PASAS DE UVA REVELACIÓN 180GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
-                    "producto": "ACEITUNAS GIBUR CON CAROZO 250GR",
+                    "producto": "ACEITUNAS GIBUR CON CAROZO 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "ACEITUNAS GIBUR SIN CAROZO 250GR",
+                    "producto": "ACEITUNAS GIBUR SIN CAROZO 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "ACEITUNAS GIBUR CON CAROZO 700GR",
+                    "producto": "ACEITUNAS GIBUR CON CAROZO 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "ACEITUNAS GIBUR SIN CAROZO 700GR",
+                    "producto": "ACEITUNAS GIBUR SIN CAROZO 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "DURAZNO EN ALMIBAR AIDA 830GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "ANANA EN ALMIBAR",
+                    "producto": "ANANA EN ALMIBAR ODERICH",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "CHAMPIÑONES EMIGRANTE EN LATA 400GR",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "CHAMPIÑONES ENTEROS EN LATA 425GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "CHAMPIÑONES ENTERO LATA 184GR",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "PALMITO ENTERO P. GRANJA LATA.400GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ARVEJA Y ZANAHORIAS ODERICH LATA 300GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ARVEJA Y CHOCLO ODERICH LATA 200GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ARVEJA ODERICH LATA 200GR",
@@ -955,55 +1362,79 @@ const data = {
                     "producto": "CREMA DE CHOCLO ODERICH LATA 350GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "JARDINERA ODERICH LATA 200GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "ACEITUNA RELLENA EMIGRANTE 240GR",
+                    "producto": "ACEITUNA RELLENA SALMON",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "ACEITUNA RELLENA ANCHOA",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "ACEITUNA RELLENA MORON",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "VINAGRE GAMBERONI MANZANA 500ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "VINAGRE GAMBERONI ALCOHOL 500ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "DESINFECTANTE BEA 1LT",
+                    "producto": "DESINFECTANTE BEA ROJO 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "DESINFECTANTE BEA AZUL 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "DESINFECTANTE BEA VERDE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "PAPEL HIGIÉNICO HIGIENOL 60MT X 12UN",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "PAPEL HIGIENICO SUBLIME D.HOJA 50MT X 4UN",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PAPEL HIGIÉNICO HIGIENOL TEXTURADO 30MT X 4UN",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "PAPEL HIGIENICO SUBLIME D.HOJA 50MT X 4UN",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "JABÓN POLVO SKIP 600GR",
@@ -1027,13 +1458,19 @@ const data = {
                     "producto": "ALGODÓN NUBE 75GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "PROTECTOR DIARIO LADYSOFT 20UN",
+                    "producto": "PROTECTOR DIARIO LADYSOFT CLASICO 20UN",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
+                },
+                {
+                    "producto": "PROTECTOR DIARIO LADYSOFT CLASICO 3 X 2",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "TOALLA FEMENINA LADYSOFT 8UN",
@@ -1045,49 +1482,61 @@ const data = {
                     "producto": "TOALLA FEMENINA LADYSOFT 16UN",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 8
                 },
                 {
                     "producto": "DETERGENTE AXION 1.1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "DETERGENTE NEVEX 750ML",
+                    "producto": "DETERGENTE NEVEX AMARILLO 750ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "DETERGENTE NEVEX 1.25LT",
+                    "producto": "DETERGENTE NEVEX VERDE 750ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "DETERGENTE NEVEX AMARILLO 1.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "DETERGENTE NEVEX VERDE 1.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "JABÓN LIQUIDO IARA P/MANO 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
                     "producto": "JABÓN BARRA BULL DOG LAVAR 200GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "JABÓN BARRA DOVE 90GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "JABÓN BARRA SENSUS 150GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "CREMA DENTAL COLGATE 90GR",
@@ -1099,115 +1548,139 @@ const data = {
                     "producto": "MIEL DON FELIPE 180GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 8
                 },
                 {
                     "producto": "ESENCIA DE VAINILLA HORNEX 30ML",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "TURRON ALMENDRA GRAN DUQUE 150GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "TURRON MANI GRAN DUQUE 150GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. ADOBO 25GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. AJO DESHIDRATADO 20GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. AJO Y PEREJIL 25GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. CANELA EN RAMA 25GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. CLAVO DE OLOR 20GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. COMINO MOLIDO 25GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. CURRY 20GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. OREGANO 25GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. PIMENTON 20GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. PIMIENTA B. MOLIDA 20GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. CANELA MOLIDA 20GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ESP. NUEZ MOZCADA 20GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "DESODORANTE DOVE",
+                    "producto": "DESODORANTE DOVE ORIGINAL AEROSOL",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "DESODORANTE AXE 150GR",
+                    "producto": "DESODORANTE DOVE GO FRESH AEROSOL",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "DESODORANTE OBAO ROLLON 65GR",
+                    "producto": "DESODORANTE DOVE INVISIBLE DRY AEROSOL",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "DESODORANTE AXE APOLLO 150GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "DESODORANTE AXE MARINE 150GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "DESODORANTE AXE BLACK 150GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "DESODORANTE REXONA ROLLON 65GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "BOLSA DE RESIDUOS 70 X 100 CM",
@@ -1216,10 +1689,10 @@ const data = {
                     "stock": 10
                 },
                 {
-                    "producto": "BOLSA DE RESIDUOS 50 X 55 CM",
-                    "contenido": "UN",
+                    "producto": "BOLSA DE RESIDUOS 50 X 55 JUPITER CM",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "COCOA COPACABANA 100GR",
@@ -1825,6 +2298,12 @@ const data = {
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
+                },
+                {
+                    "producto": "SALSA DE SOYA SOJA HEINZ 150ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 4
                 }
             ]
         },

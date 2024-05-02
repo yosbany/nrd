@@ -45,13 +45,13 @@ export default class XmlProcessorModel {
                 let precioUnitarioConIVA;
                 if (iva === 3) {
                     // Si IndFact es 3, entonces el IVA es del 22%
-                    precioUnitarioConIVA = precioUnitarioSinIVA * 1.22;
+                    precioUnitarioConIVA = (precioUnitarioSinIVA * 1.22).toFixed(2);
                 } else if (iva === 2) {
                     // Si IndFact es 2, entonces el IVA es del 10%
-                    precioUnitarioConIVA = precioUnitarioSinIVA * 1.1;
+                    precioUnitarioConIVA = (precioUnitarioSinIVA * 1.1).toFixed(2);
                 } else {
                     // Si IndFact no es ni 3 ni 2, el precio con IVA es igual al precio sin IVA
-                    precioUnitarioConIVA = precioUnitarioSinIVA;
+                    precioUnitarioConIVA = precioUnitarioSinIVA.toFixed(2);
                 }
 
                 // Crear objeto con la información recolectada
