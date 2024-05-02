@@ -20,9 +20,10 @@ export default class PurchasePriceController  extends BaseController{
 
     async purchasePrice() {
         console.log("PurchasePriceController purchasePrice");
-        this.view.renderView();
+        
         let xmls = this.localStorageModel.getValue("xmls_dgi");
         let arrays = this.xmlProcessorModel.procesarListaXMLs(xmls);
-        console.log(arrays);
+        
+        this.view.renderView(arrays);
     }
 }
