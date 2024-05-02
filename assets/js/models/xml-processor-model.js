@@ -5,11 +5,10 @@ export default class XmlProcessorModel {
 
     async procesarXML(url) {
         try {
-            const path = this.pathBase + url;
             // Realizar solicitud fetch para obtener el contenido del archivo XML
-            const response = await fetch(path);
+            const response = await fetch(url);
             if (!response.ok) {
-                throw new Error(`No se pudo cargar el archivo XML ${path}`);
+                throw new Error(`No se pudo cargar el archivo XML ${url}`);
             }
 
             // Obtener el texto del archivo XML
@@ -27,13 +26,16 @@ export default class XmlProcessorModel {
             // Array para almacenar los resultados de este XML
             const resultados = [];
 
+
+            const fecha = xmlDoc.querySelector("Fecha").textContent;
+            const rutEmisor = xmlDoc.querySelector("RUCEmisor").textContent;
+            const razonSocialEmisor = xmlDoc.querySelector("RznSoc").textContent;
+
             // Iterar sobre los nodos de Item
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
 
                 // Obtener los valores de los tags requeridos
-                const rutEmisor = xmlDoc.querySelector("RUCEmisor").textContent;
-                const razonSocialEmisor = xmlDoc.querySelector("RznSoc").textContent;
                 const nombreArticulo = item.querySelector("NomItem").textContent;
                 const precioUnitarioSinIVA = parseFloat(item.querySelector("PrecioUnitario").textContent);
                 const iva = parseFloat(item.querySelector("IndFact").textContent);
@@ -55,17 +57,19 @@ export default class XmlProcessorModel {
                     nombre_articulo: nombreArticulo,
                     precio_unitario_sin_iva: precioUnitarioSinIVA,
                     iva: iva,
-                    precio_unitario_con_iva: precioUnitarioConIVA
+                    precio_unitario_con_iva: precioUnitarioConIVA,
+                    fecha: fecha
                 };
 
                 // Agregar objeto al array de resultados
                 resultados.push(itemObj);
             }
 
-            return resultados;
+            // Devolver resultados junto con la URL base del archivo XML
+            return { resultados, ruta_base: url };
         } catch (error) {
             console.error(error);
-            return [];
+            return { resultados: [], ruta_base: "" };
         }
     }
 
