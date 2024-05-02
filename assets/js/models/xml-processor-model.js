@@ -1,12 +1,15 @@
 export default class XmlProcessorModel {
-    constructor() {}
+    constructor(pathBase) {
+        this.pathBase = pathBase;
+    }
 
     async procesarXML(url) {
         try {
+            const path = this.pathBase + url;
             // Realizar solicitud fetch para obtener el contenido del archivo XML
-            const response = await fetch(url);
+            const response = await fetch(path);
             if (!response.ok) {
-                throw new Error(`No se pudo cargar el archivo XML ${url}`);
+                throw new Error(`No se pudo cargar el archivo XML ${path}`);
             }
 
             // Obtener el texto del archivo XML

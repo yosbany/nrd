@@ -9,7 +9,7 @@ export default class PurchasePriceController  extends BaseController{
     constructor() {
         super();
         this.view = new PurchasePriceView();
-        this.xmlProcessorModel = new XmlProcessorModel();
+        this.xmlProcessorModel = new XmlProcessorModel("/assets/xml/");
         this.localStorageModel = new LocalStorageModel();
         this.initEventsController();
     }
