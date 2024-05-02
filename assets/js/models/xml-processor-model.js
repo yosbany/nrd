@@ -8,8 +8,12 @@ export default class XmlProcessorModel {
             'Redondeo',
             'Ajuste por Redonde',
             '(Red) Redondeo',
-            'REDONDEO'
-        ].includes(item);
+            'REDONDEO',
+            'Ajuste por Redondeo',
+            'Dto.TM',
+            'Rec.TB',
+            'Cobro de cliente'
+        ].includes(item.trim());
     }
     proovedorNoInclude(proveedor) {
         return [
@@ -17,8 +21,12 @@ export default class XmlProcessorModel {
             'MARTINEZ Y CIA SRL',
             'COMPAÑIA URUGUAYA DE MEDIOS DE PROCESAMIENTO S.A.',
             'DELIVERY HERO URUGUAY MARKETPLACE S.A.',
-            'HOMECENTER SODIMAC S.A'
-        ].includes(proveedor);
+            'HOMECENTER SODIMAC S.A',
+            'Banco de Seguros del Estado',
+            'Cabal Uruguay S.A.',
+            'Ferromanía LtdA.',
+            'Polticor S.A.'
+        ].includes(proveedor.trim());
     }
 
     async procesarXML(url) {
