@@ -91,7 +91,7 @@ export default class XmlProcessorModel {
                     precio_unitario_final: precioUnitarioConIVA,
                     fecha: fecha
                 };
-                if (!this.itemNoInclude(nombreArticulo) || !this.proovedorNoInclude(razonSocialEmisor)) {
+                if (!this.itemNoInclude(nombreArticulo) && !this.proovedorNoInclude(razonSocialEmisor)) {
                     resultados.push(itemObj);
                 }
                 // Agregar objeto al array de resultados
