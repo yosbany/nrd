@@ -1,6 +1,6 @@
 const data = {
     "version": "1.0",
-    "xmls_dgi":nombres_archivos = [
+    "xmls_dgi": [
         "Sob_210163670013_20240416_1509846.xml",
         "Sob_020121850018_20240416_669321936.xml",
         "Sob_020422820010_20240416_6194895.xml",
