@@ -1,8 +1,5 @@
 export default class XmlProcessorModel {
-
-    constructor() {
-
-    }
+    constructor() {}
 
     async procesarXML(url) {
         try {
@@ -71,7 +68,7 @@ export default class XmlProcessorModel {
 
     async procesarListaXMLs(listaXMLs) {
         // Array para almacenar todas las promesas de procesamiento de XML
-        const promesas = listaXMLs.map(procesarXML);
+        const promesas = listaXMLs.map(this.procesarXML.bind(this));
 
         try {
             // Esperar a que todas las promesas se resuelvan
