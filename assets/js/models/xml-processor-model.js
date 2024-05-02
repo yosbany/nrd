@@ -43,7 +43,7 @@ export default class XmlProcessorModel {
             const eFact = xmlDoc.querySelector("eFact, nsAd\\:eFact");
 
             if (!eFact) {
-                console.log(url)
+                console.log("No existe eFact en: "+url)
                 return [];
             }
 
