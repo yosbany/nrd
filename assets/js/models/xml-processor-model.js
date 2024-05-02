@@ -40,7 +40,7 @@ export default class XmlProcessorModel {
             const xmlDoc = parser.parseFromString(xmlText, "text/xml");
 
             // Obtener el elemento <eFact>
-            const eFact = xmlDoc.querySelector("eFact, nsAd\\:eFact");
+            const eFact = xmlDoc.querySelector('[name$="eFact"]');
 
             if (!eFact) {
                 console.log("No existe eFact en: "+url)
@@ -48,24 +48,24 @@ export default class XmlProcessorModel {
             }
 
             // Obtener los nodos Item dentro del tag <eFact>
-            const items = eFact.getElementsByTagName("Item");
+            const items = eFact.getElementsByTagName('[name$="Item"]');
 
             // Array para almacenar los resultados de este XML
             const resultados = [];
 
 
-            const fecha = xmlDoc.querySelector("Fecha").textContent;
-            const rutEmisor = eFact.querySelector("RUCEmisor").textContent;
-            const razonSocialEmisor = eFact.querySelector("RznSoc").textContent;
+            const fecha = xmlDoc.querySelector('[name$="Fecha"]').textContent;
+            const rutEmisor = eFact.querySelector('[name$="RUCEmisor"]').textContent;
+            const razonSocialEmisor = eFact.querySelector('[name$="RznSoc"]').textContent;
 
             // Iterar sobre los nodos de Item
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
 
                 // Obtener los valores de los tags requeridos
-                const nombreArticulo = item.querySelector("NomItem").textContent;
-                const precioUnitarioSinIVA = parseFloat(item.querySelector("PrecioUnitario").textContent);
-                const iva = parseFloat(item.querySelector("IndFact").textContent);
+                const nombreArticulo = item.querySelector('[name$="NomItem"]').textContent;
+                const precioUnitarioSinIVA = parseFloat(item.querySelector('[name$="PrecioUnitario"]').textContent);
+                const iva = parseFloat(item.querySelector('[name$="IndFact"]').textContent);
 
                 // Calcular el precio unitario con IVA
                 let precioUnitarioConIVA;
