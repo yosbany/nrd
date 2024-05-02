@@ -40,32 +40,32 @@ export default class XmlProcessorModel {
             const xmlDoc = parser.parseFromString(xmlText, "text/xml");
 
             // Obtener el elemento <eFact>
-            const eFact = xmlDoc.querySelector('[name$="eFact"]');
+            const eFact = xmlDoc.querySelectorAll('*[name$="eFact"]');
 
             if (!eFact) {
-                console.log("No existe eFact en: "+url)
+                console.log("No existe eFact en: " + url)
                 return [];
             }
 
             // Obtener los nodos Item dentro del tag <eFact>
-            const items = eFact.getElementsByTagName('[name$="Item"]');
+            const items = eFact.querySelectorAll('*[name$="Item"]');
 
             // Array para almacenar los resultados de este XML
             const resultados = [];
 
 
-            const fecha = xmlDoc.querySelector('[name$="Fecha"]').textContent;
-            const rutEmisor = eFact.querySelector('[name$="RUCEmisor"]').textContent;
-            const razonSocialEmisor = eFact.querySelector('[name$="RznSoc"]').textContent;
+            const fecha = xmlDoc.querySelectorAll('*[name$="Fecha"]')[0].textContent;
+            const rutEmisor = eFact.querySelectorAll('*[name$="RUCEmisor"]')[0].textContent;
+            const razonSocialEmisor = eFact.querySelectorAll('*[name$="RznSoc"]')[0].textContent;
 
             // Iterar sobre los nodos de Item
             for (let i = 0; i < items.length; i++) {
                 const item = items[i];
 
                 // Obtener los valores de los tags requeridos
-                const nombreArticulo = item.querySelector('[name$="NomItem"]').textContent;
-                const precioUnitarioSinIVA = parseFloat(item.querySelector('[name$="PrecioUnitario"]').textContent);
-                const iva = parseFloat(item.querySelector('[name$="IndFact"]').textContent);
+                const nombreArticulo = item.querySelectorAll('*[name$="NomItem"]')[0].textContent;
+                const precioUnitarioSinIVA = parseFloat(item.querySelectorAll('*[name$="PrecioUnitario"]')[0].textContent);
+                const iva = parseFloat(item.querySelectorAll('*[name$="IndFact"]')[0].textContent);
 
                 // Calcular el precio unitario con IVA
                 let precioUnitarioConIVA;
