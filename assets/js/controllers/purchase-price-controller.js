@@ -22,8 +22,7 @@ export default class PurchasePriceController  extends BaseController{
         console.log("PurchasePriceController purchasePrice");
         
         let xmls = this.localStorageModel.getValue("xmls_dgi");
-        let arrays = this.xmlProcessorModel.procesarListaXMLs(xmls);
-        
+        let arrays = await this.xmlProcessorModel.procesarListaXMLs(xmls);
         this.view.renderView(arrays);
     }
 }
