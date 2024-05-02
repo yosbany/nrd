@@ -49,6 +49,9 @@ export default class XmlProcessorModel {
                 } else if (iva === 2) {
                     // Si IndFact es 2, entonces el IVA es del 10%
                     precioUnitarioConIVA = precioUnitarioSinIVA * 1.1;
+                } else {
+                    // Si IndFact no es ni 3 ni 2, el precio con IVA es igual al precio sin IVA
+                    precioUnitarioConIVA = precioUnitarioSinIVA;
                 }
 
                 // Crear objeto con la información recolectada
