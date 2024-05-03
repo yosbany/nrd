@@ -76,7 +76,7 @@ export default class XmlProcessorModel {
                 const nombreArticulo = item.querySelector('nsAd\\:NomItem, NomItem').textContent;
                 const precioUnitarioSinIVA = parseFloat(item.querySelector('nsAd\\:PrecioUnitario, PrecioUnitario').textContent);
                 const iva = parseFloat(item.querySelector('nsAd\\:IndFact, IndFact').textContent);
-                const cant = item.querySelector('nsAd\\:Cantidad, Cantidad').textContent;
+                const cant = parseFloat(item.querySelector('nsAd\\:Cantidad, Cantidad').textContent).toFixed(2);;
 
                 // Calcular el precio unitario con IVA
                 let precioUnitarioConIVA;
