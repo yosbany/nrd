@@ -112,7 +112,7 @@ export default class MakeOrderView extends BaseView {
                 } else {
                     fila.style.backgroundColor = 'lightgreen'; // Cambiar a color diferente
                 }
-            }); 
+            });
         });
     }
 

@@ -3080,7 +3080,7 @@ const data = {
                     "producto": "YERBA CANARIAS 250GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 
+                    "stock": 0
                 }
             ]
         },
