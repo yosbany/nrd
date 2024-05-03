@@ -2331,64 +2331,94 @@ const data = {
             "proveedor": "SAMECA",
             "productos": [
                 {
-                    "producto": "ATUN DESMENUZADO EMIGRANTE LATA 170GR",
+                    "producto": "ATUN DESMENUZADO GOLDEN FISH NATURAL LATA 170GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "ATUN DESMENUZADO GOLDEN FISH EN ACEITE LATA 170GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "ATUN LOMITO EMIGRANTE NATURAL LATA 170GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "ATUN DESMENUZADO GOLDEN FISH LATA 170GR",
+                    "producto": "ATUN LOMITO EMIGRANTE EN ACEITE LATA 170GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "ATUN LOMITO EMIGRANTE LATA 170GR",
-                    "contenido": "UN",
+                    "producto": "CALDO KNORR VEGETALES X 24",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "CALDO KNORR X ESTUCHE",
-                    "contenido": "UN",
+                    "producto": "CALDO KNORR CARNE X 24",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "CALDO KNORR GALLITA X 24",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "CALDO KNORR PANCETA X 24",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "CEPILLO COLGATE CLASICO ADULTO X UN",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
-                    "producto": "CONDIMENTO PARA HORNO KNORR SOBRE",
+                    "producto": "SARDINA GRATED REDONDA 425GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "SARDINA GRATED REDONDA  425GR",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "ENERGIZANTE RED BULL LATA 250ML",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
-                    "producto": "ADOBO PARRILLERO BARCATTI 450GR",
+                    "producto": "ADEREZO AJO Y PEREJIL BARCATTI 450GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
-                    "producto": "HARINA CAÑUELA 0000 1KG",
+                    "producto": "ADEREZO ADOBO PARRILLERO BARCATTI 450GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
+                },
+                {
+                    "producto": "ADEREZO CHIMICHURRI BARCATTI 450GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "ADEREZO AJIES BARCATTI 450GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
                 },
                 {
                     "producto": "SALSA DE SOYA SOJA HEINZ 150ML",
@@ -2403,183 +2433,297 @@ const data = {
             "productos": [
                 {
                     "producto": "COCA COLA 250CC",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "COCA COLA LIGHT 250CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "COCA COLA S/AZUCAR 250CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "COCA COLA LATA.355ML",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "COCA COLA 60CC",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
+                },
+                {
+                    "producto": "COCA COLA LIGHT 60CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "COCA COLA S/AZUCAR 600CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "COCA COLA RET. 1LT",
-                    "contenido": "UN",
+                    "contenido": "CAJON",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "COCA COLA 1.5LT",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
+                },
+                {
+                    "producto": "COCA COLA LIGHT 1.5LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "COCA COLA S/AZUCAR 1.5LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "COCA COLA RET. 2LT",
-                    "contenido": "UN",
+                    "contenido": "CAJON",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "COCA COLA LIGHT RET. 2LT",
+                    "contenido": "CAJON",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "COCA COLA S/AZUCAR RET. 2LT",
+                    "contenido": "CAJON",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "COCA COLA 2.25LT",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "COCA COLA LIGHT 2.25LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "COCA COLA S/AZUCAR 2.25LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "COCA COLA 3LT",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "COCA COLA LIGHT 3LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "COCA COLA S/AZUCAR 3LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "AGUA TONICA SCHW 25OML",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "AGUA TONICA SCHW 50ML",
-                    "contenido": "UN",
+                    "producto": "AGUA TONICA SCHW 500ML",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "MONSTER ENERGY LATA.473CC",
-                    "contenido": "UN",
+                    "producto": "MONSTER ENERGY ORIGIN LATA.473CC",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "MONSTER ENERGY SUNRISE LATA.473CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "MONSTER ENERGY MANGO LOCO LATA.473CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "MONSTER ENERGY PARADISE LATA.473CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "MONSTER ENERGY ULTRA LATA.473CC",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO CEPITA 250ML",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
                     "producto": "REFRESCO CEPITA 995ML",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "REFRESCO CEPITA 1.5LT",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "REFRESCO CRUSH 2.25LT",
-                    "contenido": "UN",
+                    "producto": "REFRESCO CRUSH MANDARINA 2.25LT",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO CRUSH LIMON 2.25LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO CRUSH POMELO 2.25LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO FANTA 250CC ",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "REFRESCO FANTA NARANJA 50CC",
-                    "contenido": "UN",
+                    "producto": "REFRESCO FANTA NARANJA 500CC",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "REFRESCO FANTA RET. 1LT",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO FANTA NARANJA 1.5LT",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO FANTA NARANJA S/AZUCAR 1.5LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO FANTA RET. 2LT",
-                    "contenido": "UN",
+                    "contenido": "CAJON",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "REFRESCO FANTA NARANJA 2.25LT",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO SPRITE 250CC",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "REFRESCO SPRITE 60CC",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "REFRESCO SPRITE RET. 1L",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO SPRITE 1.5L",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO SPRITE S/AZUCAR 1.5L",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO SPRITE 2.25L",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO SCHW 250CC",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "REFRESCO SCHW POMELO/CITRUS 1.5LT",
-                    "contenido": "UN",
+                    "producto": "REFRESCO SCHW CITRUS 1.5LT",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO SCHW POMELO 1.5LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO SCHW POMELO 2.25LT",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO SCHW POMELO S/AZUCAR 2.25LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "REFRESCO SCHW 3LT",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 }
             ]
         },
@@ -3282,28 +3426,34 @@ const data = {
             "proveedor": "ARIAS RICHARD ANIBAL (SUBPRODUCTO CONAPROLE)",
             "productos": [
                 {
-                    "producto": "COLET CONAPROLE 1L",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
-                },
-                {
                     "producto": "COLET CONAPROLE 250GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "JUGO CONAPROLE 1LT",
+                    "producto": "COLET DULCE DE LECHE CONAPROLE 250GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "JUGO CONAPROLE 250ML",
+                    "producto": "COLET CHOCO BOMBOM CONAPROLE 250GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
+                },
+                {
+                    "producto": "LECHE FRUTILLA CONAMIGO 250GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "COLET CONAPROLE 1L",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "LACTOLATE CONAPROLE 1LT",
@@ -3312,67 +3462,139 @@ const data = {
                     "stock": 10
                 },
                 {
-                    "producto": "LECHE CON FRUTILLA CONAMIGOS 250ML",
+                    "producto": "JUGO CONAPROLE MANZANA 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "LECHE LARGA VIDA CONAPROLE CAJA 1LT",
+                    "producto": "JUGO CONAPROLE NARANJA 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "MANTECA CONAPROLE 10GR",
+                    "producto": "JUGO CONAPROLE NARANJA ZANAHORIA 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "MANTECA CONAPROLE 20GR",
+                    "producto": "JUGO CONAPROLE DURAZNO 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "POSTRE VIVA 110GR",
+                    "producto": "JUGO CONAPROLE MULTIFRUTAS 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "PUDDING CONAMIGOS 110GR",
+                    "producto": "JUGO CONAPROLE NARANJA 250ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "PUDDING CONAMIGOS CON DISCO 130GR",
+                    "producto": "JUGO CONAPROLE MULTIFRUTAS 250ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "QUESO DE UNTAR ALPA 230GR",
+                    "producto": "JUGO CONAPROLE PERA 250ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "REQUESON CONAPROLE 250GR",
+                    "producto": "JUGO CONAPROLE MANZANA 250ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "YOGUR INTEGRAL 50GR",
+                    "producto": "JUGO CONAPROLE DURAZNO 250ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "YOGURT BIOTOP 1.2KG",
+                    "producto": "JUGO CONAPROLE NARANJA ZANAHORIA 250ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "LECHE LARGA VIDA CONAPROLE ENTERA CAJA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "LECHE LARGA VIDA CONAPROLE DESCREMADA CAJA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MANTECA CONAPROLE CON SAL 100GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MANTECA CONAPROLE SIN SAL 100GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MANTECA CONAPROLE CON SAL 200GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "MANTECA CONAPROLE SIN SAL 200GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "POSTRE VIVA VAINILLA X 2 DE 110GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "POSTRE VIVA CHOCOLATE X 2 DE 110GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "FLAN VIVA X 2 DE 110GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "PUDDING CONAMIGOS VAINILLA X 2 DE 110GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "PUDDING CONAMIGOS CHOCOLATE X 2 DE 110GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "PUDDING CONAMIGOS VAINILLA CON DISCO 130GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
@@ -3384,19 +3606,115 @@ const data = {
                     "stock": 10
                 },
                 {
-                    "producto": "YOGURT VIVA 185GR",
+                    "producto": "QUESO DE UNTAR ALPA AZUL 230GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "YOGURT VIVA 1LT",
+                    "producto": "REQUESON CONAPROLE 250GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "YOPROLE 185GR",
+                    "producto": "REQUESON CONAPROLE LIGHT 250GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGUR NATURAL INTEGRAL 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGUR FRUTADO DURAZNO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGUR FRUTADO FRUTILLA 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT BIOTOP FRUTILLA 1.2KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT BIOTOP DURAZNO 1.2KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT BIOTOP MULTIFRUTA 1.2KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT BIOTOP NATURAL 1.2KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT BIOTOP BANATILLA 1.2KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT BIOTOP FRUTILLA LIGHT 1.2KG",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT VIVA S/AZUCAR DURAZNO 185GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT VIVA S/AZUCAR FRU/KIWI/ARAN 185GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOPROLE DURAZNO 185GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOPROLE FRUTILLA 185GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT VIVA FRU/KIWI/ARAN 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT VIVA DURAZNO 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "YOGURT VIVA VAINILLA 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
@@ -3407,16 +3725,70 @@ const data = {
             "proveedor": "LA NUEVA CERRO S.A. (ADRIA)",
             "productos": [
                 {
-                    "producto": "FIDEO PASTA ADRIA AL HUEVO 50GR",
+                    "producto": "FIDEO ADRIA AL HUEVO VERMICELLI 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "HARINA ADRIA 00 1KG ",
+                    "producto": "FIDEO ADRIA AL HUEVO TIRABUZONES 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA AL HUEVO MOÑITAS 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA AL HUEVO MOSTACHOLES 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA AL HUEVO PAMPERITOS 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA AL HUEVO RIZZETO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA AL HUEVO CABELLO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA AL HUEVO NIDO 2 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA TIRABUZON MULTICOLORI 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "FIDEO ADRIA VERMICELLI ESPINACA 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "HARINA ADRIA 0000 1KG ",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
                 }
             ]
         }

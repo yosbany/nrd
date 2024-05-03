@@ -23,7 +23,6 @@ export default class PurchasePriceView extends BaseView {
 
     async cargarResultadosEnTabla(resultados) {
         try {
-          const searchInput = document.getElementById("searchInput");
           // Obtener referencia al tbody de la tabla
           const tbody = document.querySelector('#productosTableBody');
           
@@ -40,6 +39,7 @@ export default class PurchasePriceView extends BaseView {
               <td style="vertical-align: middle;">${fechaFormateada}</td>
               <td style="vertical-align: middle;">${resultado.nombre_articulo}</td>
               <td style="vertical-align: middle;">${resultado.razon_social_emisor}</td>
+              <td style="vertical-align: middle;"><h5>${resultado.cantidad}<h5></td>
               <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${resultado.precio_unitario_con_iva}</span></td>
               <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${resultado.precio_unitario_final}</span></td>
             `;

@@ -25,7 +25,9 @@ export default class XmlProcessorModel {
             'Banco de Seguros del Estado',
             'Cabal Uruguay S.A.',
             'Ferromanía LtdA.',
-            'Polticor S.A.'
+            'Polticor S.A.',
+            'CIA. DE SERVICIOS AMBIENTALES SRL',
+            'Mega S.A.'
         ].includes(proveedor.trim());
     }
 
@@ -74,6 +76,7 @@ export default class XmlProcessorModel {
                 const nombreArticulo = item.querySelector('nsAd\\:NomItem, NomItem').textContent;
                 const precioUnitarioSinIVA = parseFloat(item.querySelector('nsAd\\:PrecioUnitario, PrecioUnitario').textContent);
                 const iva = parseFloat(item.querySelector('nsAd\\:IndFact, IndFact').textContent);
+                const cant = item.querySelector('nsAd\\:Cantidad, Cantidad').textContent;
 
                 // Calcular el precio unitario con IVA
                 let precioUnitarioConIVA;
@@ -97,7 +100,8 @@ export default class XmlProcessorModel {
                     iva: iva,
                     precio_unitario_con_iva: precioUnitarioConIVA,
                     precio_unitario_final: precioUnitarioConIVA,
-                    fecha: fecha
+                    fecha: fecha,
+                    cantidad: cant
                 };
                 if (!this.itemNoInclude(nombreArticulo) && !this.proovedorNoInclude(razonSocialEmisor)) {
                     resultados.push(itemObj);
