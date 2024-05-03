@@ -9,7 +9,7 @@ body {
 }
 
 .selected-row {
-    background-color: lightgreen;
+    background-color: lightgreen !important;
 }
 
 /*
