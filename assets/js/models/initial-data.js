@@ -3016,7 +3016,8 @@ const data = {
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 1
-                }{
+                },
+                {
                     "producto": "CAFE NESCAFE VAINILLA X 3",
                     "contenido": "UN",
                     "precio": 0,
