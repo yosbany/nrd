@@ -1,0 +1,112 @@
+<DGICFE:EnvioCFE_entreEmpresas version="1.0" xsi:schemaLocation="http://cfe.dgi.gub.uy EnvioCFE_v1.24.xsd" xmlns:DGICFE="http://cfe.dgi.gub.uy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<DGICFE:Caratula version="1.0">
+				<DGICFE:RutReceptor>218871250018</DGICFE:RutReceptor>
+				<DGICFE:RUCEmisor>212662530019</DGICFE:RUCEmisor>
+				<DGICFE:Idemisor>1974</DGICFE:Idemisor>
+				<DGICFE:CantCFE>1</DGICFE:CantCFE>
+				<DGICFE:Fecha>2024-03-15T12:21:15-03:00</DGICFE:Fecha>
+				<DGICFE:X509Certificate>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</DGICFE:X509Certificate>
+			</DGICFE:Caratula><DGICFE:CFE_Adenda><ns0:CFE xmlns:ns0="http://cfe.dgi.gub.uy" version="1.0">
+         	<ns0:eFact>
+         		<ns0:TmstFirma>2024-03-15T10:54:02-03:00</ns0:TmstFirma>
+         		
+         		<ns0:Encabezado>
+         			<ns0:IdDoc>
+         				<ns0:TipoCFE>111</ns0:TipoCFE>
+         				<ns0:Serie>A</ns0:Serie>
+         				<ns0:Nro>298777</ns0:Nro>
+         				<ns0:FchEmis>2024-03-15</ns0:FchEmis>
+         				
+         				<ns0:FmaPago>1</ns0:FmaPago>
+         				<ns0:FchVenc>2024-04-14</ns0:FchVenc>
+         			</ns0:IdDoc>
+         			<ns0:Emisor>
+         				<ns0:RUCEmisor>212662530019</ns0:RUCEmisor>
+         				<ns0:RznSoc>GRANJAS FRACHIA SAS</ns0:RznSoc>
+         				<ns0:CdgDGISucur>1</ns0:CdgDGISucur>
+         				<ns0:DomFiscal>FRAY MARCOS R 94 KM 100</ns0:DomFiscal>
+         				<ns0:Ciudad>FLORIDA</ns0:Ciudad>
+         				<ns0:Departamento>FLORIDA</ns0:Departamento>
+         			</ns0:Emisor>
+         			<ns0:Receptor>
+         				<ns0:TipoDocRecep>2</ns0:TipoDocRecep>
+         				<ns0:CodPaisRecep>UY</ns0:CodPaisRecep>
+         				<ns0:DocRecep>218871250018</ns0:DocRecep>
+         				
+         				<ns0:RznSocRecep>TEJAS DE LA CRUZ YOSBANY</ns0:RznSocRecep>
+         				<ns0:DirRecep>JUAN MORELLI 3575</ns0:DirRecep>
+         				<ns0:CiudadRecep>MONTEVIDEO</ns0:CiudadRecep>
+         				<ns0:DeptoRecep>MONTEVIDEO</ns0:DeptoRecep>
+                                                                <ns0:LugarDestEnt/>
+				<ns0:CompraID/>
+         			</ns0:Receptor>
+         			<ns0:Totales>
+         				<ns0:TpoMoneda>UYU</ns0:TpoMoneda>
+         				
+         				<ns0:MntNoGrv>8700.00</ns0:MntNoGrv>
+                                                                <ns0:MntExpoyAsim>0.00</ns0:MntExpoyAsim>
+         				<ns0:MntIVaenSusp>0.00</ns0:MntIVaenSusp>
+         				<ns0:MntNetoIvaTasaMin>0.00</ns0:MntNetoIvaTasaMin>
+         				<ns0:MntNetoIVATasaBasica>0.00</ns0:MntNetoIVATasaBasica>
+         				<ns0:MntNetoIVAOtra>0.00</ns0:MntNetoIVAOtra>
+         				<ns0:IVATasaMin>10.000</ns0:IVATasaMin>
+         				<ns0:IVATasaBasica>22.000</ns0:IVATasaBasica>
+         				<ns0:MntIVATasaMin>0.00</ns0:MntIVATasaMin>
+         				<ns0:MntIVATasaBasica>0.00</ns0:MntIVATasaBasica>
+         				<ns0:MntIVAOtra>0.00</ns0:MntIVAOtra>
+         				<ns0:MntTotal>8700.00</ns0:MntTotal>
+         				<ns0:CantLinDet>2</ns0:CantLinDet>
+         				<ns0:MontoNF>0.00</ns0:MontoNF>
+         				<ns0:MntPagar>8700.00</ns0:MntPagar>
+         			</ns0:Totales>
+         		</ns0:Encabezado>
+         		<ns0:Detalle><ns0:Item>
+<ns0:NroLinDet>1</ns0:NroLinDet>
+<ns0:CodItem>
+<ns0:TpoCod>INT1</ns0:TpoCod>
+<ns0:Cod>M3</ns0:Cod>
+</ns0:CodItem>
+<ns0:CodItem>
+<ns0:TpoCod/>
+<ns0:Cod>M3</ns0:Cod>
+</ns0:CodItem>
+<ns0:IndFact>1</ns0:IndFact>
+<ns0:NomItem>AAB</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>24</ns0:Cantidad>
+<ns0:UniMed>Mapl</ns0:UniMed>
+<ns0:PrecioUnitario>250</ns0:PrecioUnitario>
+<ns0:DescuentoPct>0</ns0:DescuentoPct>
+<ns0:DescuentoMonto>0</ns0:DescuentoMonto>
+<ns0:MontoItem>6000.00</ns0:MontoItem>
+</ns0:Item><ns0:Item>
+<ns0:NroLinDet>2</ns0:NroLinDet>
+<ns0:CodItem>
+<ns0:TpoCod>INT1</ns0:TpoCod>
+<ns0:Cod>M4</ns0:Cod>
+</ns0:CodItem>
+<ns0:CodItem>
+<ns0:TpoCod/>
+<ns0:Cod>M4</ns0:Cod>
+</ns0:CodItem>
+<ns0:IndFact>1</ns0:IndFact>
+<ns0:NomItem>AAC</ns0:NomItem>
+<ns0:DscItem/>
+<ns0:Cantidad>12</ns0:Cantidad>
+<ns0:UniMed>Mapl</ns0:UniMed>
+<ns0:PrecioUnitario>225</ns0:PrecioUnitario>
+<ns0:DescuentoPct>0</ns0:DescuentoPct>
+<ns0:DescuentoMonto>0</ns0:DescuentoMonto>
+<ns0:MontoItem>2700.00</ns0:MontoItem>
+</ns0:Item></ns0:Detalle>
+         		
+         		<ns0:CAEData>
+         			<ns0:CAE_ID>90240214612</ns0:CAE_ID>
+         			<ns0:DNro>296001</ns0:DNro>
+         			<ns0:HNro>306000</ns0:HNro>
+         			<ns0:FecVenc>2026-01-28</ns0:FecVenc>
+                                                
+                                                
+         		</ns0:CAEData>
+         	</ns0:eFact>
+         <Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>zLtomGrZnV5sM65x0gt4jm2rKbA=</DigestValue></Reference></SignedInfo><SignatureValue>bISAKuqkjjktvMlI9ayDG3L+ZAgtttcK4W2/+VESuO6PvVks1rKPmcI6VXYAIiusQcVwlKht9Quk/emVMeXcF9g88tY7pwwcqACM9RbQrMztsFaP9Nri2N1Byqjcbz9TG4PpoojEFL1OT3QdVFhdILNnX+QQrSAMYNX+YXPktu0qinoAyN+pABft1T5xW8/PJJQx9qI8XH6hi2QLYFltliCUx/J3exq+Fe86sbNzU/01Xc5nl624/cuhn5X0UVPDvaI5VQhMyxS/2jCFIvvp3WkAw/BAkCFCORJvV4u7DbDym/doRr6gFQRKAt0B2OAVfraY9N0tBmDofWc/ckjR6Q==</SignatureValue><KeyInfo><X509Data><X509Certificate>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</X509Certificate><X509IssuerSerial><X509IssuerName>CN=Abitab, OU=ID digital, O=Abitab S.A., L=Montevideo, C=UY</X509IssuerName><X509SerialNumber>461660495580777972331029049568004430316768761696</X509SerialNumber></X509IssuerSerial></X509Data></KeyInfo></Signature></ns0:CFE><DGICFE:Adenda></DGICFE:Adenda></DGICFE:CFE_Adenda></DGICFE:EnvioCFE_entreEmpresas>

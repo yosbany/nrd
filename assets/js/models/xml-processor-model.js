@@ -12,7 +12,8 @@ export default class XmlProcessorModel {
             'Ajuste por Redondeo',
             'Dto.TM',
             'Rec.TB',
-            'Cobro de cliente'
+            'Cobro de cliente',
+            'ACTIVO F1'
         ].includes(item.trim());
     }
     proovedorNoInclude(proveedor) {
