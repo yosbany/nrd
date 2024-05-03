@@ -89,6 +89,7 @@ export default class MakeOrderView extends BaseView {
                         cantidadInput.value = producto.stock;
                     }
                 });
+
             });
         } else {
             const noRecordsRow = document.createElement('tr');
@@ -97,6 +98,22 @@ export default class MakeOrderView extends BaseView {
             `;
             this.productosTableBody.appendChild(noRecordsRow);
         }
+
+        // Obtener todas las filas de la tabla
+        const filas = document.querySelectorAll('#productosTableBody tr');
+
+        // Agregar un evento de clic a cada fila
+        filas.forEach(fila => {
+            const productoColumna = fila.querySelector('td:nth-child(2)'); // Columna "Producto"
+            productoColumna.addEventListener('click', () => {
+                // Cambiar el color de fondo de la fila al hacer clic
+                if (fila.style.backgroundColor === 'lightgreen') {
+                    fila.style.backgroundColor = ''; // Restaurar color original
+                } else {
+                    fila.style.backgroundColor = 'lightgreen'; // Cambiar a color diferente
+                }
+            }); 
+        });
     }
 
 
