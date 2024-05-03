@@ -93,12 +93,7 @@ export default class MakeOrderView extends BaseView {
                 });
 
                 productoH5.addEventListener('click', () => {
-                    console.log('Producto clickeado');
-                    if (row.style.backgroundColor === 'lightgreen') {
-                        row.style.backgroundColor = ''; // Restaurar color original
-                    } else {
-                        row.style.backgroundColor = 'lightgreen'; // Cambiar a color diferente
-                    }
+                    row.classList.toggle('selected-row');
                 });
 
             });
