@@ -73,6 +73,8 @@ export default class MakeOrderView extends BaseView {
                 `;
                 const checkbox = row.querySelector('.form-check-input');
                 const cantidadInput = row.querySelector('.form-control');
+                const productoColumna = row.querySelector('td:nth-child(2)');
+
                 checkbox.addEventListener('change', () => {
                     cantidadInput.disabled = !checkbox.checked;
                     cantidadInput.readOnly = !checkbox.checked;
@@ -90,6 +92,15 @@ export default class MakeOrderView extends BaseView {
                     }
                 });
 
+                productoColumna.addEventListener('click', () => {
+                    // Cambiar el color de fondo de la fila al hacer clic
+                    if (row.style.backgroundColor === 'lightgreen') {
+                        row.style.backgroundColor = ''; // Restaurar color original
+                    } else {
+                        row.style.backgroundColor = 'lightgreen'; // Cambiar a color diferente
+                    }
+                });
+
             });
         } else {
             const noRecordsRow = document.createElement('tr');
@@ -98,22 +109,6 @@ export default class MakeOrderView extends BaseView {
             `;
             this.productosTableBody.appendChild(noRecordsRow);
         }
-
-        // Obtener todas las filas de la tabla
-        const filas = document.querySelectorAll('#productosTableBody tr');
-
-        // Agregar un evento de clic a cada fila
-        filas.forEach(fila => {
-            const productoColumna = fila.querySelector('td:nth-child(2)'); // Columna "Producto"
-            productoColumna.addEventListener('click', () => {
-                // Cambiar el color de fondo de la fila al hacer clic
-                if (fila.style.backgroundColor === 'lightgreen') {
-                    fila.style.backgroundColor = ''; // Restaurar color original
-                } else {
-                    fila.style.backgroundColor = 'lightgreen'; // Cambiar a color diferente
-                }
-            });
-        });
     }
 
 
