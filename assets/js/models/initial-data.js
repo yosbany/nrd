@@ -2806,19 +2806,19 @@ const data = {
                     "stock": 1
                 },
                 {
-                    "producto": "REFRESCO SCHW POMELO 2.25LT",
-                    "contenido": "FUNDA",
-                    "precio": 0,
-                    "stock": 1
-                },
-                {
-                    "producto": "REFRESCO SCHW POMELO S/AZUCAR 2.25LT",
-                    "contenido": "FUNDA",
-                    "precio": 0,
-                    "stock": 1
-                },
-                {
                     "producto": "REFRESCO SCHW 3LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "POWER ADE AZUL",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "POWER ADE ROJO",
                     "contenido": "FUNDA",
                     "precio": 0,
                     "stock": 1
@@ -2829,22 +2829,22 @@ const data = {
             "proveedor": "ESTABLECIMIENTOS JUAN SARUBBI S A",
             "productos": [
                 {
-                    "producto": "JAMÓN COCIDO SARUBBI X KG",
-                    "contenido": "UN",
+                    "producto": "JAMÓN COCIDO SARUBBI",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "JAMÓN BLANCO/NARANJA",
-                    "contenido": "UN",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "QUESO SANDWICHE SARUBBI",
-                    "contenido": "UN",
+                    "contenido": "BARRA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 }
             ]
         },
@@ -2852,82 +2852,82 @@ const data = {
             "proveedor": "SEOR SOCIEDAD ANONIMA (DON TOTO)",
             "productos": [
                 {
-                    "producto": "JAMON ARIZONA X KG",
-                    "contenido": "UN",
+                    "producto": "FIAMBRE ARIZONA",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "SALAME DOÑA COCA X KG",
-                    "contenido": "UN",
+                    "producto": "SALAME DOÑA COCA",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "QUESO SANDWICH LOBER X KG",
-                    "contenido": "UN",
+                    "producto": "QUESO SANDWICH LOBER",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "QUESO RALLADO CERRO ALTO X KG ",
+                    "producto": "QUESO RALLADO CERRO ALTO BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "PANCHOS DOÑA COCA PACK.8UN",
+                    "producto": "PANCHOS DOÑA COCA PACK.8UN X 2",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "MORTADELA OTONELLO X KG",
-                    "contenido": "UN",
+                    "producto": "MORTADELA OTONELLO",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 0.5
                 },
                 {
-                    "producto": "PANCETA AHUMADA DOÑA COCA X KG",
-                    "contenido": "UN",
+                    "producto": "PANCETA AHUMADA DOÑA COCA",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "CHORIZO DOÑA COCA PACK.2UN",
+                    "producto": "CHORIZO DOÑA COCA PACK.2UN X 2",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "QUESO DAMBO COLONIAL X KG",
-                    "contenido": "UN",
+                    "producto": "QUESO DAMBO COLONIAL",
+                    "contenido": "HORMA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "QUESO DE UNTAR MAMITA 10GR",
-                    "contenido": "UN",
+                    "producto": "QUESO DE UNTAR MAMITA",
+                    "contenido": "TARRO",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "RAVIOLES LOS ABUELOS 20UN",
+                    "producto": "RAVIOLES LOS ABUELOS 200UN",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ÑOQUIS LOS ABUELOS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "TALLARINES LOS ABUELOS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 }
             ]
         },
@@ -2936,9 +2936,9 @@ const data = {
             "productos": [
                 {
                     "producto": "AROMATIZADOR JUPITER AEROSOL 360ML",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ESPONJA DE ACERO/BRONCE MULTIUSO",
@@ -2954,63 +2954,57 @@ const data = {
                 },
                 {
                     "producto": "INSECTICIDA JUPITER AEROSOL",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "JABÓN LIQUIDO AQUA FAST PARA LAVAR 3LT",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "JABÓN LIQUIDO SUPREMA PARA LAVAR 3LT",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "LAVANDINA GRADISOL 1LT",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PAÑO DE PISO REJILLA GRANDE",
-                    "contenido": "UN",
+                    "contenido": "PACK",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "REPELENTE TAX EN AEROSOL",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "SACA SARRO 50ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "SUAVIZANTE CONC. AQUA PARA LAVAR 1LT",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "SUAVIZANTE SUPREMA PARA LAVAR 2LT",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "TOALLITAS HUMEDAS PARA BEBÉS AIRSUN",
-                    "contenido": "UN",
+                    "contenido": "PACK",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 }
             ]
         },
@@ -3018,37 +3012,42 @@ const data = {
             "proveedor": "SOSA RODRIGUEZ JORGE HECTOR (NESTLE)",
             "productos": [
                 {
-                    "producto": "CAFE NESCAFE CAPPUCCINO SOBRE",
+                    "producto": "CAFE NESCAFE CAPPUCCINO X 3",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "CAFÉ AGUILA STICKS",
+                    "stock": 1
+                }{
+                    "producto": "CAFE NESCAFE VAINILLA X 3",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "CAFÉ NESCAFE BRACAFE STICKS",
+                    "producto": "CAFÉ AGUILA 120 STICKS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "CAFÉ SAINT STICKS",
+                    "producto": "CAFÉ NESCAFE BRACAFE 120 STICKS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
-                    "producto": "JUGO ADES 1LT",
+                    "producto": "CAFÉ SAINT 120 STICKS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "JUGO ADES 20CC",
+                    "producto": "JUGO ADES MANZANA 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "JUGO ADES MANZANA 200CC",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
@@ -3057,31 +3056,31 @@ const data = {
                     "producto": "YERBA BALDO 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
-                    "producto": "YERBA BALDO 50GR",
+                    "producto": "YERBA BALDO 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "YERBA CANARIAS 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "YERBA CANARIAS 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "YERBA CANARIAS 250GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "YERBA CANARIAS 50GR",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 
                 }
             ]
         },
@@ -3092,259 +3091,259 @@ const data = {
                     "producto": "GRASA ONDIL CAJA 15KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "OREGANO BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "AJO Y PEREJIL BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "AJO GRANULADO BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "CANELA MOLIDA BOLSA 1KG",
+                    "producto": "CANELA MOLIDA BOLSA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "PIMENTON ROJO BOLSA 1KG",
+                    "producto": "PIMENTON ROJO BOLSA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "GELATINA CON SABOR BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "BICARBONATO DE AMONIO BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "AZUCAR IMPALPABLE BOLSA 5KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "FECULAS DE MAIZ BOLSA 5KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PLACA HOJALDRE SINA",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "JALEA DE MANZANA ENVASADA BOLSA 5KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "HARINA INTEGRAL BOLSA 5KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PASTA DE MEMBRILLO CAJA 5KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "CHOCOLATE NEGRO SEMI AMARGO SELECTA BARRA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "CHOCOLATE BLANCO SELECTA X GOTAS 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "CHISPA DE CHOCOLATE ENVASADO 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "GRANA DE MANI ENVASADO 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "GRAJEA DE COLORES ENVASADO 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "GRAJEA DE CHOCOLATE ENVASADO 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "COCO RALLADO ENVASADO BOLSA 1 KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ACEITUNAS EN ARITOS X BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "QUESO RALLADO GRANJA BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ECENCIA DE MANTECA CHIAVETTA 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ECENCIA DE FRUTILLA CHIAVETTA 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ECENCIA DE COCO CHIAVETTA 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "COLOR ROJO CHIAVETTA 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "COLOR AMARILLO CHIAVETTA 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "COLOR NEGRO CHIAVETTA 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "POLVO DE HORNEAR HORNEX BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "MEJORADOR PARALEVA X BOLSA 50GR",
+                    "producto": "MEJORADOR PARALEVA X BOLSA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 8
                 },
                 {
                     "producto": "HARINA DE MAIZ POLENTA BOLSA 1KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "CHICHARON MANTEX CAJA 5KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "UVAS PASAS CAJA 10KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "LEVADURA PARALEVA X CAJA 20UN",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "QUESO PIAMONTINO X BARRA 4KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "MEMBRILLO ISLA X BARRA 4KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "SALSA PICERA RIGBY BOLSA 3KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "MAYONESA URUGUAY BOLSA 3KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "MANTECA  PORCIONADA X KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 8
                 },
                 {
                     "producto": "AZUCAR COMUN BOLSA 25KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "SAL FINA BOLSA 25KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "HARINA 0 SANTA ROSA BOLSA 25 KG",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 0
                 }
             ]
         },
@@ -3355,69 +3354,118 @@ const data = {
                     "producto": "PETACA GRAPPAMIEL VESUBIO 195ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "PETACA RON CARABELAS 195ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "PETACA VODKA SIBERIA",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
-                    "producto": "PETACA WHISKY 10 PIPERS",
+                    "producto": "PETACA WHISKY 100 PIPERS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "PETACA WHISKY BLENDERS RINDE",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "PETACA WHISKY DUNBAR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
-                    "producto": "VINO SANTA TERESA CAJA 1LT ",
+                    "producto": "VINO SANTA TERESA TINTO CAJA 1LT ",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO SANTA TERESA TINTO DULCE CAJA 1LT ",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO SANTA TERESA ROSADO CAJA 1LT ",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO SANTA TERESA RODADO DULCE CAJA 1LT ",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO SANTA TERESA BLANCO CAJA 1LT ",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO SANTA TERESA BLANCO DULCE CAJA 1LT ",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 }
+
             ]
         },
         {
             "proveedor": "MALATIC (SALUS)",
             "productos": [
                 {
-                    "producto": "AGUA SALUS 60ML",
+                    "producto": "AGUA SALUS SIN GAS 600ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "AGUA SALUS 1LT",
+                    "producto": "AGUA SALUS CON GAS 600ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "AGUA SALUS 1.5LT",
+                    "producto": "AGUA SALUS SIN GAS 1LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "AGUA SALUS 2.25LT",
+                    "producto": "AGUA SALUS SIN GAS 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA SALUS CON GAS 1.5LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA SALUS SIN GAS 2.25LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA SALUS CON GAS 2.25LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
@@ -3429,19 +3477,97 @@ const data = {
                     "stock": 10
                 },
                 {
-                    "producto": "AGUA MATUTINA 2.5LT",
+                    "producto": "AGUA MATUTINA SIN GAS 2.5LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "AGUA MATUTINA 2.25LT PACK.4UN",
+                    "producto": "AGUA MATUTINA CON GAS 2.5LT",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "SALUS FRUTTE 60ML",
+                    "producto": "AGUA MATUTINA 2.25LT SIN GAS PACK.4UN",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "AGUA MATUTINA 2.25LT CON GAS PACK.4UN",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE FRUTILLA LIMON 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE MANZANA 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE POMELO 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE NARANJA 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE NARANJA DURAZNO 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE LIMONADA 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE FRUTILLA LIMON S/AZUCAR 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE MANZANA S/AZUCAR 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE POMELO S/AZUCAR 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE NARANJA S/AZUCAR 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE NARANJA DURAZNO 600ML",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SALUS FRUTTE LIMONADA 600ML",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
