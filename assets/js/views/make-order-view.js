@@ -73,7 +73,7 @@ export default class MakeOrderView extends BaseView {
                 `;
                 const checkbox = row.querySelector('.form-check-input');
                 const cantidadInput = row.querySelector('.form-control');
-                const productoColumna = row.querySelector('td:nth-child(2)');
+                const productoH5 = row.querySelector('h5');
 
                 checkbox.addEventListener('change', () => {
                     cantidadInput.disabled = !checkbox.checked;
@@ -92,7 +92,7 @@ export default class MakeOrderView extends BaseView {
                     }
                 });
 
-                productoColumna.addEventListener('click', () => {
+                productoH5.addEventListener('click', () => {
                     // Cambiar el color de fondo de la fila al hacer clic
                     if (row.style.backgroundColor === 'lightgreen') {
                         row.style.backgroundColor = ''; // Restaurar color original
