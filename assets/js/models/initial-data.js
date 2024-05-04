@@ -2346,6 +2346,18 @@ const data = {
                     "stock": 1
                 },
                 {
+                    "producto": "TABLETA CHOCOLATE MEDIO AMARGO FLORESTAL 80GR",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "TABLETA CHOCOLATE CAFE FLORESTAL 80GR",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
                     "producto": "GALLETA MY BIT RELLENA CHOCOLATE 125GR",
                     "contenido": "UN",
                     "precio": 0,
