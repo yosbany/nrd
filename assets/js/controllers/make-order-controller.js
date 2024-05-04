@@ -1,7 +1,7 @@
 import BaseController from './base-controller.js';
 import MakeOrderView from '../views/make-order-view.js';
 import LocalStorageModel from '../models/local-storage-model.js';
-import NrdApiModel from '../models/nrd-api-model-js';
+import NrdApiModel from '../models/nrd-api-model.js/index.js';
 
 
 export default class MakeOrderController extends BaseController {
