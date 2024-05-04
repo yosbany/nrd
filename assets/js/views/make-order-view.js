@@ -93,8 +93,7 @@ export default class MakeOrderView extends BaseView {
                 });
 
                 productoH5.addEventListener('click', () => {
-                    console.log(row)
-                    row.classList.toggle('selected-row');
+                    row.classList.toggle('table-success');
                 });
 
             });

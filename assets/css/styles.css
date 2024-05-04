@@ -8,10 +8,6 @@ body {
     vertical-align: text-bottom;
 }
 
-.selected-row {
-    background-color: lightgreen !important;
-}
-
 /*
    * Sidebar
    */
