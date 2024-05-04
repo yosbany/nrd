@@ -1653,7 +1653,7 @@ const data = {
                     "producto": "PROTECTOR DIARIO LADYSOFT CLASICO 20UN",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "PROTECTOR DIARIO LADYSOFT CLASICO 3 X 2",
@@ -1866,13 +1866,19 @@ const data = {
                     "stock": 2
                 },
                 {
+                    "producto": "DESODORANTE AXE MUSK 150GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
                     "producto": "DESODORANTE REXONA ROLLON 65GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 2
                 },
                 {
-                    "producto": "BOLSA DE RESIDUOS 70 X 100 CM",
+                    "producto": "BOLSA DE RESIDUOS EDIFICIO 70 X 100 CM",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
@@ -1887,7 +1893,7 @@ const data = {
                     "producto": "COCOA COPACABANA 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 15
                 },
                 {
                     "producto": "COCOA COPACABANA 200GR",
@@ -1899,13 +1905,13 @@ const data = {
                     "producto": "COCOA COPACABANA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "COCOA VASCOLET 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "COCOA VASCOLET 200GR",
@@ -1917,133 +1923,229 @@ const data = {
                     "producto": "COCOA VASCOLET 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 15
                 },
                 {
                     "producto": "TE HORNIMANNS SOBRE",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "POLVO DE HORNEAR HORNEX 30GR",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "SALSA BLANCA HORNEX 32GR",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "SOPA FIDEO INSTANTANEA KNORR POLLO",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "SOPA INSTANTANEA KNORR",
+                    "producto": "SOPA FIDEO INSTANTANEA KNORR VEGETALES",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 10
+                },
+                {
+                    "producto": "SOPA LETRA INSTANTANEA KNORR VEGETALES",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
                     "producto": "GELATINA HORNEX 8.PORC 50GR",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "GELATINA LIGHT HORNEX 8.PORC 25GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "CHANTILLY HORNEX 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
-                    "producto": "CAFÉ NESCAFE SOLUBLE ORIGINAL + REGALO 200GR",
+                    "producto": "VINO ESTANCIA MENDOZA TINTO BOTELLA",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "VINO ESTANCIA MENDOZA BLANCO BOTELLA",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "YERBA DEL CEBADOR CLASICO 70GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "VINO ESTANCIA MENDOZA BOTELLA",
+                    "producto": "YERBA DEL CEBADOR INTENSO 70GR",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "YERBA DEL CEBADOR 70GR",
+                    "producto": "YERBA DEL CEBADOR CLASICO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "YERBA DEL CEBADOR INTENSO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "YERBA DEL CEBADOR CLASICO 1KG",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "YERBA DEL CEBADOR 500GR",
+                    "producto": "YERBA DEL CEBADOR INTENSO 1KG",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "YERBA DEL CEBADOR 1KG",
+                    "producto": "BALDE NEGRO 10LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
-                    "producto": "BALDE NEGRO 10LT ",
+                    "producto": "ESCOBA CON PALO GRAN BARRIDO",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "ESCOBA CON PALO",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "LAMPASO CON PALO",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "MAQUINA DE AFEITAR PRESTO BARBA 3 HOJA",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
-                    "producto": "MERMELADA RINCÓN DEL GIGANTE 500GR",
+                    "producto": "MERMELADA RINCÓN DEL GIGANTE FRUTILLA 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "DULCE RINCON DEL GIGANTE BARRA 900GR",
+                    "producto": "MERMELADA RINCÓN DEL GIGANTE ARANDANOS 500GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "MERMELADA RINCÓN DEL GIGANTE ZAPALLO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "MERMELADA RINCÓN DEL GIGANTE DURAZNO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "MERMELADA RINCÓN DEL GIGANTE HIGO 500GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
+                },
+                {
+                    "producto": "DULCE RINCON DEL GIGANTE MEMBRILLO BARRA 900GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 4
+                },
+                {
+                    "producto": "DULCE RINCON DEL GIGANTE ZAPALLO BARRA 900GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 4
                 },
                 {
                     "producto": "CERVEZA DADOBIER 473ML",
-                    "contenido": "UN",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "REFRESCO LIMOL 2LT",
-                    "contenido": "UN",
+                    "producto": "REFRESCO LIMOL POMELO 2LT",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "VINO FAISAN CAJA 1LT",
+                    "producto": "REFRESCO LIMOL COLA 2LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO LIMOL MANDARINA 2LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO LIMOL LIMON 2LT",
+                    "contenido": "FUNDA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "VINO FAISAN CAJA TINTO 1LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO FAISAN CAJA TINTO DULCE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO FAISAN CAJA BLANCO DULCE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "VINO FAISAN CAJA ROSADO DULCE 1LT",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "ESPUMANTES CANCILLER BOTELLA.750ML",
@@ -2055,37 +2157,61 @@ const data = {
                     "producto": "SIDRA NOCHEBUENA 1.5LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "SIDRA SANTA ROSA 910ML",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "LAYS PACK PICADA COMPLETA",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 2
                 },
                 {
                     "producto": "PAPAS FRITA LAYS 235GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
                     "producto": "PAPAS FRITA LAYS 150GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "PAPAS FRITA LAYS 95GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 8
                 },
                 {
-                    "producto": "PAPAS FRITA LAYS STAX 160GR",
+                    "producto": "PAPAS FRITA LAYS STAX ORIGINAL 160GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
+                },
+                {
+                    "producto": "PAPAS FRITA LAYS STAX BARBACOA 160GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "PAPAS FRITA LAYS STAX CHEDDAR 160GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
+                },
+                {
+                    "producto": "PAPAS FRITA LAYS STAX CEBOLLA 160GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 3
                 },
                 {
                     "producto": "PALI CHIPS LAYS 30GR",
@@ -2097,13 +2223,7 @@ const data = {
                     "producto": "PALI CHIPS LAYS 150GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "PALI CHIPS LAYS 300GR",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "MANI PELADO MANIX 50GR",
@@ -2115,55 +2235,103 @@ const data = {
                     "producto": "MANI JAPONES MANIX 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "MANI PELADO MANIX 150GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 6
                 },
                 {
                     "producto": "COMBO PALI CHIPS / MANI JAPONES",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
-                    "producto": "ALIMENTO PARA GATOS 1KG",
-                    "contenido": "UN",
+                    "producto": "ALIMENTO PARA GATOS 8KG",
+                    "contenido": "BOLSA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "ALIMENTO PARA PERRO 1KG",
-                    "contenido": "UN",
+                    "producto": "ALIMENTO PARA PERRO 8KG",
+                    "contenido": "BOLSA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "GALLETAS MARIA FAMOSA 300GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
-                    "producto": "CHICLE BELDENT/TOPLINE 10GR",
-                    "contenido": "UN",
+                    "producto": "CHICLE BELDENT/TOPLINE NEGRO 10GR",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "CARAMELOS MENTOLADOS",
-                    "contenido": "UN",
+                    "producto": "CHICLE BELDENT/TOPLINE VERDE 10GR",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "WAFLE MY BIT 100GR",
+                    "producto": "CHICLE BELDENT/TOPLINE AZUL 10GR",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "CARAMELOS MENTOLADOS NEGROS",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "CARAMELOS MENTOLADOS VERDES",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "CARAMELOS MENTOLADOS AZULES",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "WAFLE MY BIT CHOCOLATE 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "WAFLE MY BIT DULCE LECHE 100GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "WAFLE MY BIT FRUTILLA 100GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "WAFLE MY BIT FLOCOS 100GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "WAFLE MY BIT LIMON 100GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "WAFLE SENSACION 180GR",
@@ -2172,160 +2340,226 @@ const data = {
                     "stock": 10
                 },
                 {
-                    "producto": "TABLETA CHOCOLATE MILKA 110GR",
-                    "contenido": "UN",
+                    "producto": "TABLETA CHOCOLATE MILKA 55GR",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "GALLETA LULU RELLENA 115GR",
+                    "producto": "GALLETA MY BIT RELLENA CHOCOLATE 125GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "GALLETA MY BIT RELLENA 125GR",
+                    "producto": "GALLETA MY BIT RELLENA DULCE LECHE 125GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
+                },
+                {
+                    "producto": "GALLETA MY BIT RELLENA FRUTILLA 125GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
+                },
+                {
+                    "producto": "GALLETA MY BIT RELLENA VAINILLA 125GR",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 5
                 },
                 {
                     "producto": "GALLETAS OREO REGULAR 118GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
-                    "producto": "CARAMELOS/GOMINOLAS",
-                    "contenido": "UN",
+                    "producto": "CARAMELOS DE YOGURT",
+                    "contenido": "BOLSA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "TUBO DE CARAMELO GOMILONA 10UN",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "PIRULETA/PALETA",
-                    "contenido": "UN",
+                    "producto": "PALETA DE CARAMELO",
+                    "contenido": "FUNDA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "CHUPETIN PICO DULCE",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "ENDULCORANTE SPLENDA SOBRE.1GR",
-                    "contenido": "UN",
+                    "producto": "ENDULCORANTE SPLENDA 700UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "HUEVO CON SORPRESA",
-                    "contenido": "UN",
+                    "producto": "HUEVO CON SORPRESA CIRCUS",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
+                },
+                {
+                    "producto": "HUEVO CON SORPRESA LITTLE FARM",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "CARAMELOS DE MIEL Y GUACO",
-                    "contenido": "UN",
+                    "contenido": "BOLSA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "LEVADURA SAF INSTANTEA 10GR",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PETACA WHISKY GREGSON'S",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
-                    "producto": "ESCOBILLA SANITARIA C/BASE",
-                    "contenido": "UN",
+                    "producto": "PAPEL REGALO",
+                    "contenido": "PACK",
                     "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "PAPEL REGALO X 5",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "SHAMPOO SEDAL SOBRE.10ML",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ACONDICIONADOR SEDAL SOBRE.10ML",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "SHAMPOO DOVE SOBRE.10ML",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ACONDICIONADOR DOVE SOBRE.10ML",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 FRUTIILA",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 MIX FRUTAS",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 LIMON",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 NARANJA MANGO",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 DURAZNO",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 ANANA",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 PERA",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO RINDE 2 NARANJA",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO CLIGHT NARANJA",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO CLIGHT MANZANA",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "REFRESCO EN POLVO CLIGHT LIMON",
+                    "contenido": "CAJA",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "PILA ALCALINA PANASONIC AA",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "REFRESCO EN POLVO RINDE 2 SOBRE",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "REFRESCO EN POLVO CLIGHT SOBRE",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "PILA ALCALINA AA",
-                    "contenido": "UN",
-                    "precio": 0,
-                    "stock": 10
-                },
-                {
-                    "producto": "PILA ALCALINA AAA",
+                    "producto": "PILA ALCALINA PANASONIC AAA",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
                     "producto": "ENCENDEDOR ECONÓMICO",
-                    "contenido": "UN",
+                    "contenido": "CAJA",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "ENCENDEDOR BIC GRANDE",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 12
                 },
                 {
-                    "producto": "PALITO DENTAL GANBOARDI CAJA",
+                    "producto": "PALITO DENTAL GANBOARDI",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "PINZA PRENDEDOR PALILLO PLÁSTICO 12U",
@@ -2337,58 +2571,76 @@ const data = {
                     "producto": "ADHESIVO ECCOLE",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "PAÑUELO ELITE 1UN",
+                    "producto": "ADHESIVO LA GOTITA",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "PAÑUELO ELITE",
+                    "contenido": "PACK",
+                    "precio": 0,
+                    "stock": 1
                 },
                 {
                     "producto": "VELAS COMUNES LISA",
-                    "contenido": "UN",
+                    "contenido": "PACK",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
                     "producto": "VELAS CUMPLEAÑOS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 4
                 },
                 {
-                    "producto": "FOSFOROS X CAJETILLA",
-                    "contenido": "UN",
+                    "producto": "FOSFOROS FRAGATA",
+                    "contenido": "PACK",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 1
                 },
                 {
-                    "producto": "GUANTE ADULTO LISO",
+                    "producto": "GUANTE ADULTO LISO GRANDE",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
-                    "producto": "BOLSAS TIPO CAMISETA REFORZADA",
+                    "producto": "GUANTE ADULTO LISO MEDIANOS",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
+                },
+                {
+                    "producto": "BOLSAS TIPO CAMISETA REFORZADA 6",
+                    "contenido": "UN",
+                    "precio": 0,
+                    "stock": 50
                 },
                 {
                     "producto": "CINTA ADHESIVA",
+                    "contenido": "PACK",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "CURITAS ADHESIVAS",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "CURITAS ADHESIVAS X 5",
+                    "producto": "LÁMPARA LED BOMBITAS PHILIPS 12W",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
                 },
                 {
-                    "producto": "LÁMPARA LED BOMBITAS",
+                    "producto": "LÁMPARA LED BOMBITAS PHILIPS 15W",
                     "contenido": "UN",
                     "precio": 0,
                     "stock": 10
@@ -2397,31 +2649,31 @@ const data = {
                     "producto": "ROLLO FILM PVC 15MT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ROLLO PAPEL ALUMINIO 4MT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "ROLLO PAPEL MANTECA 7.5MT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 },
                 {
                     "producto": "JABÓN LIQUIDO COTTONMAX P/LAVAR 3LT",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 2
                 },
                 {
                     "producto": "COCO RALLADO HORNEX 100GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 5
                 }
             ]
         },
@@ -3323,8 +3575,14 @@ const data = {
                     "stock": 1
                 },
                 {
-                    "producto": "MANTECA  PORCIONADA X KG",
+                    "producto": "CHANTILLY CAJA 1LT",
                     "contenido": "UN",
+                    "precio": 0,
+                    "stock": 1
+                },
+                {
+                    "producto": "MANTECA  PORCIONADA",
+                    "contenido": "KG",
                     "precio": 0,
                     "stock": 8
                 },
