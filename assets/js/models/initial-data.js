@@ -2708,13 +2708,13 @@ const data = {
                     "producto": "ATUN LOMITO EMIGRANTE NATURAL LATA 170GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "ATUN LOMITO EMIGRANTE EN ACEITE LATA 170GR",
                     "contenido": "UN",
                     "precio": 0,
-                    "stock": 10
+                    "stock": 3
                 },
                 {
                     "producto": "CALDO KNORR VEGETALES X 24",

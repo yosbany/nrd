@@ -1,7 +1,7 @@
 export default class NrdApiModel
  {
     constructor() {
-        this.baseUrl = 'http://192.168.1.2:8000';
+        this.baseUrl = 'https://192.168.1.14:443';
     }
 
     async getAllCodes() {
