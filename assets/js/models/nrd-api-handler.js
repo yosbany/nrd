@@ -76,14 +76,13 @@ export default class NrdApiHandler {
         const controller = new AbortController();
         const signal = controller.signal;
 
-        const agent = {
-            signal,
-            rejectUnauthorized: false
-        };
 
         const response = await fetch(`${this.baseUrl}/${endpoint}`, {
             method: 'GET',
-            agent
+            signal: signal,
+            agent: {
+                rejectUnauthorized: false
+            }
         });
         return await response.json();
     }
