@@ -73,17 +73,7 @@ export default class NrdApiHandler {
     }
 
     static async get(endpoint) {
-        const controller = new AbortController();
-        const signal = controller.signal;
-
-
-        const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-            method: 'GET',
-            signal: signal,
-            agent: {
-                rejectUnauthorized: false
-            }
-        });
+        const response = await fetch(`${this.baseUrl}/${endpoint}`);
         return await response.json();
     }
 
@@ -93,9 +83,7 @@ export default class NrdApiHandler {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data),
-            // Deshabilitar la verificación del certificado SSL
-            agent: this.agent
+            body: JSON.stringify(data)
         });
         return await response.json();
     }
