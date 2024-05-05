@@ -83,7 +83,7 @@ export default class NrdApiHandler {
 
         const response = await fetch(`${this.baseUrl}/${endpoint}`, {
             method: 'GET',
-            agent: agent
+            agent
         });
         return await response.json();
     }
