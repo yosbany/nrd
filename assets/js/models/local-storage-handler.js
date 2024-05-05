@@ -12,7 +12,8 @@ export default class LocalStorageHandler {
     }
 
     static getDataByCode(code) {
-        const data = this.getAllData().find(item => item.code === code && !item.isDeleted);
+        const data = this.getAllData().filter(item => item.code === code && !item.isDeleted);
+        console.log("LocalStorageHandler response: ", data);
         return data;
     }
 
