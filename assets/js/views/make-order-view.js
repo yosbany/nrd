@@ -16,7 +16,7 @@ export default class MakeOrderView extends BaseView {
 
         this.setPageTitleAndHeader("Realizar Pedido");
 
-        this.proveedores = this.dataPersistenceModel.getDataByCode(DataPersistenceModel.ENTITIES.PROVEEDOR);//this.localStorageModel.getValue('proveedores');
+        this.proveedores = await this.dataPersistenceModel.getDataByCode(DataPersistenceModel.ENTITIES.PROVEEDOR);//this.localStorageModel.getValue('proveedores');
         
         this.proveedorSelect = document.getElementById('proveedorSelect');
         this.productosTableBody = document.getElementById('productosTableBody');
