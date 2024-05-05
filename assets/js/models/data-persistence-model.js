@@ -1,5 +1,5 @@
-import LocalStorageHandler from "./local-storage-handler";
-import NrdApiHandler from "./nrd-api-handler";
+import LocalStorageHandler from "./local-storage-handler.js";
+import NrdApiHandler from "./nrd-api-handler.js";
 
 
 
