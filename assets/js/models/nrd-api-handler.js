@@ -2,9 +2,9 @@ export default class NrdApiHandler {
 
     static baseUrl = 'https://192.168.1.2:443';
 
-    
-     controller = new AbortController();
-     signal = controller.signal;
+
+    controller = new AbortController();
+    signal = controller.signal;
 
     agent = {
         signal,
@@ -34,7 +34,7 @@ export default class NrdApiHandler {
     static async getDataByCode(code) {
         try {
             const response = await this.get(`data/code/${code}`);
-            console("NrdApiHandler response: ",response);
+            console("NrdApiHandler response: ", response);
             return response;
         } catch (error) {
             console.error('Error getting data by code:', error);
@@ -73,10 +73,17 @@ export default class NrdApiHandler {
     }
 
     static async get(endpoint) {
+        const controller = new AbortController();
+        const signal = controller.signal;
+
+        const agent = {
+            signal,
+            rejectUnauthorized: false
+        };
+
         const response = await fetch(`${this.baseUrl}/${endpoint}`, {
             method: 'GET',
-            // Deshabilitar la verificación del certificado SSL
-            agent: this.agent
+            agent: agent
         });
         return await response.json();
     }
