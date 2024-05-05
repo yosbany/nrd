@@ -64,7 +64,11 @@ export default class NrdApiHandler {
     }
 
     static async get(endpoint) {
-        const response = await fetch(`${this.baseUrl}/${endpoint}`);
+        const response = await fetch(`${this.baseUrl}/${endpoint}`, {
+            method: 'GET',
+            // Deshabilitar la verificación del certificado SSL
+            agent: new (require('https').Agent)({ rejectUnauthorized: false })
+        });
         return await response.json();
     }
 
@@ -74,7 +78,9 @@ export default class NrdApiHandler {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            // Deshabilitar la verificación del certificado SSL
+            agent: new (require('https').Agent)({ rejectUnauthorized: false })
         });
         return await response.json();
     }
@@ -85,14 +91,18 @@ export default class NrdApiHandler {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            // Deshabilitar la verificación del certificado SSL
+            agent: new (require('https').Agent)({ rejectUnauthorized: false })
         });
         return await response.json();
     }
 
     static async delete(endpoint) {
         const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            // Deshabilitar la verificación del certificado SSL
+            agent: new (require('https').Agent)({ rejectUnauthorized: false })
         });
         return response.ok;
     }
