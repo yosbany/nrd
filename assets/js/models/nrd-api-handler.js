@@ -2,7 +2,11 @@ export default class NrdApiHandler {
 
     static baseUrl = 'https://192.168.1.2:443';
 
-    static agent = {
+    
+     controller = new AbortController();
+     signal = controller.signal;
+
+    agent = {
         signal,
         rejectUnauthorized: false
     };
