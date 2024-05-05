@@ -9,7 +9,6 @@ export default class MakeOrderController extends BaseController {
         super();
         this.view = new MakeOrderView(); 
         this.localStorageModel = new LocalStorageModel();
-        this.nrdApiModel = new NrdApiModel();
         this.initEventsController();
     }
 
