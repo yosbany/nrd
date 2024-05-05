@@ -1,11 +1,14 @@
 import BaseView from './base-view.js';
 import LocalStorageModel from '../models/local-storage-model.js';
+import DataPersistenceModel from '../models/data-persistence-model.js';
+
 
 export default class MakeOrderView extends BaseView {
 
     constructor() {
         super();
         this.localStorageModel = new LocalStorageModel();
+        this.dataPersistenceModel = new DataPersistenceModel();
     }
 
     async renderView() {
@@ -13,7 +16,8 @@ export default class MakeOrderView extends BaseView {
 
         this.setPageTitleAndHeader("Realizar Pedido");
 
-        this.proveedores = this.localStorageModel.getValue('proveedores');
+        this.proveedores = this.dataPersistenceModel.getDataByCode(DataPersistenceModel.ENTITIES.PROVEEDOR);//this.localStorageModel.getValue('proveedores');
+        
         this.proveedorSelect = document.getElementById('proveedorSelect');
         this.productosTableBody = document.getElementById('productosTableBody');
         this.resumenPedidoTextarea = document.getElementById('comment');
