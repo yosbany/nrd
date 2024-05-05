@@ -2,6 +2,11 @@ export default class NrdApiHandler {
 
     static baseUrl = 'https://192.168.1.2:443';
 
+    static agent = {
+        signal,
+        rejectUnauthorized: false
+    };
+
     static async getAllData() {
         try {
             const response = await this.get('data');
@@ -67,7 +72,7 @@ export default class NrdApiHandler {
         const response = await fetch(`${this.baseUrl}/${endpoint}`, {
             method: 'GET',
             // Deshabilitar la verificación del certificado SSL
-            agent: new (require('https').Agent)({ rejectUnauthorized: false })
+            agent: this.agent
         });
         return await response.json();
     }
@@ -80,7 +85,7 @@ export default class NrdApiHandler {
             },
             body: JSON.stringify(data),
             // Deshabilitar la verificación del certificado SSL
-            agent: new (require('https').Agent)({ rejectUnauthorized: false })
+            agent: this.agent
         });
         return await response.json();
     }
@@ -93,7 +98,7 @@ export default class NrdApiHandler {
             },
             body: JSON.stringify(data),
             // Deshabilitar la verificación del certificado SSL
-            agent: new (require('https').Agent)({ rejectUnauthorized: false })
+            agent: this.agent
         });
         return await response.json();
     }
@@ -102,7 +107,7 @@ export default class NrdApiHandler {
         const response = await fetch(`${this.baseUrl}/${endpoint}`, {
             method: 'DELETE',
             // Deshabilitar la verificación del certificado SSL
-            agent: new (require('https').Agent)({ rejectUnauthorized: false })
+            agent: this.agent
         });
         return response.ok;
     }
