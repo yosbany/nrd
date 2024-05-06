@@ -2,15 +2,6 @@ export default class NrdApiHandler {
 
     static baseUrl = 'https://192.168.1.2:443';
 
-
-    controller = new AbortController();
-    signal = controller.signal;
-
-    agent = {
-        signal,
-        rejectUnauthorized: false
-    };
-
     static async getAllData() {
         try {
             const response = await this.get('data');
@@ -34,7 +25,7 @@ export default class NrdApiHandler {
     static async getDataByCode(code) {
         try {
             const response = await this.get(`data/code/${code}`);
-            console("NrdApiHandler response: ", response);
+            console.log("NrdApiHandler response: ", response);
             return response;
         } catch (error) {
             console.error('Error getting data by code:', error);
@@ -73,13 +64,32 @@ export default class NrdApiHandler {
     }
 
     static async get(endpoint) {
-        try {
-            const response = await fetch(`${this.baseUrl}/${endpoint}`);
-            return await response.json();
-        } catch (error) {
-            console.error('Error getting data by code:', error);
-            return null;
-        }
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            const url = `${this.baseUrl}/${endpoint}`;
+            
+            xhr.open('GET', url, true);
+            xhr.responseType = 'json';
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        resolve(xhr.response);
+                    } else {
+                        console.error('Error:', xhr.status);
+                        reject(xhr.status);
+                    }
+                }
+            };
+            xhr.onerror = function() {
+                console.error('Network error');
+                reject('Network error');
+            };
+    
+            // Desactivar la verificación del certificado SSL
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    
+            xhr.send();
+        });
     }
 
 
@@ -100,18 +110,14 @@ export default class NrdApiHandler {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data),
-            // Deshabilitar la verificación del certificado SSL
-            agent: this.agent
+            body: JSON.stringify(data)
         });
         return await response.json();
     }
 
     static async delete(endpoint) {
         const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-            method: 'DELETE',
-            // Deshabilitar la verificación del certificado SSL
-            agent: this.agent
+            method: 'DELETE'
         });
         return response.ok;
     }
