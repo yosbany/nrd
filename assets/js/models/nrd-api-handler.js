@@ -25,7 +25,6 @@ export default class NrdApiHandler {
     static async getDataByCode(code) {
         try {
             const response = await this.get(`data/code/${code}`);
-            console.log("NrdApiHandler response: ", response);
             return response;
         } catch (error) {
             console.error('Error getting data by code:', error);
