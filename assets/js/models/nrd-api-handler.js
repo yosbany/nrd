@@ -74,10 +74,7 @@ export default class NrdApiHandler {
 
     static async get(endpoint) {
         try {
-            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
-                method: 'GET',
-                agent: false
-            });
+            const response = await fetch(`${this.baseUrl}/${endpoint}`);
             return await response.json();
         } catch (error) {
             console.error('Error getting data by code:', error);
