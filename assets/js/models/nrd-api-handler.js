@@ -74,16 +74,9 @@ export default class NrdApiHandler {
 
     static async get(endpoint) {
         try {
-            const controller = new AbortController();
-            const signal = controller.signal;
-
-            const response = await fetch(new Request(`${this.baseUrl}/${endpoint}`, {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`, {
                 method: 'GET',
-                signal: signal
-            }), {
-                agent: {
-                    rejectUnauthorized: false
-                }
+                agent: false
             });
             return await response.json();
         } catch (error) {
