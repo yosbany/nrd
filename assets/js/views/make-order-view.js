@@ -58,8 +58,8 @@ export default class MakeOrderView extends BaseView {
         this.proveedores.forEach(proveedor => {
             console.log(proveedor);
             const option = document.createElement('option');
-            option.value = proveedor.json_data.Nombre;
-            option.textContent = proveedor.json_data.Nombre;
+            option.value = proveedor.Nombre;
+            option.textContent = proveedor.Nombre;
             this.proveedorSelect.appendChild(option);
         });
     }

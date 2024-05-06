@@ -19,6 +19,23 @@ export default class DataPersistenceModel {
         PEDIDO: 'PEDIDO'
     }
 
+    async getDataResponse(response) {
+        if (Array.isArray(response)) {
+            return response.map(item => {
+                const jsonData = JSON.parse(item.json_data);
+                jsonData._id = item.id;
+                jsonData._code = item.code;
+                return jsonData;
+            });
+        } else if (typeof response === 'object') {
+            const jsonData = JSON.parse(response.json_data);
+            jsonData._id = response.id;
+            jsonData._code = response.code;
+            return jsonData;
+        }
+        return null;
+    }
+
     async getAllData() {
         try {
             await this.syncDataWithAPI();
@@ -26,43 +43,48 @@ export default class DataPersistenceModel {
             if (apiData.length > 0) {
                 LocalStorageHandler.saveAllData(apiData);
             }
-            return apiData;
+            return this.getDataResponse(apiData);
         } catch (error) {
             console.error('Error getting data from API:', error);
-            return LocalStorageHandler.getAllData();
+            const localData = LocalStorageHandler.getAllData();
+            return this.getDataResponse(localData);
         }
     }
 
     async getDataById(id) {
         try {
             await this.syncDataWithAPI();
-            return await NrdApiHandler.getDataById(id);
+            const apiData = await NrdApiHandler.getDataById(id);
+            return this.getDataResponse(apiData);
         } catch (error) {
             console.error('Error getting data by ID from API:', error);
-            return LocalStorageHandler.getDataById(id);
+            const localData = LocalStorageHandler.getDataById(id);
+            return this.getDataResponse(localData);
         }
     }
 
     async getDataByCode(code) {
         try {
             await this.syncDataWithAPI();
-            return await NrdApiHandler.getDataByCode(code);
+            const apiData =  await NrdApiHandler.getDataByCode(code);
+            return this.getDataResponse(apiData);
         } catch (error) {
             console.error('Error getting data by code from API:', error);
-            return LocalStorageHandler.getDataByCode(code);
+            const localData = LocalStorageHandler.getDataByCode(code);
+            return this.getDataResponse(localData);
         }
     }
 
     async createData(code, jsonData) {
         try {
-            const createdData = await NrdApiHandler.createData(code, jsonData);
+            const apiCreatedData = await NrdApiHandler.createData(code, jsonData);
             LocalStorageHandler.getAllData();
             await this.syncDataWithAPI();
-            return createdData;
+            return this.getDataResponse(apiCreatedData);
         } catch (error) {
             console.error('Error creating data in API:', error);
-            const createdData = LocalStorageHandler.createData(code, jsonData);
-            return createdData;
+            const localCreatedData = LocalStorageHandler.createData(code, jsonData);
+            return this.getDataResponse(localCreatedData);;
         }
     }
 
@@ -81,20 +103,20 @@ export default class DataPersistenceModel {
 
     async updateData(id, jsonData) {
         try {
-            const updatedData = await NrdApiHandler.updateData(id, jsonData);
+            const apiUpdatedData = await NrdApiHandler.updateData(id, jsonData);
             LocalStorageHandler.getAllData();
             await this.syncDataWithAPI();
-            return updatedData;
+            return this.getDataResponse(apiUpdatedData);
         } catch (error) {
             console.error('Error updating data in API:', error);
-            const updatedData = LocalStorageHandler.updateData(id, jsonData);
-            return updatedData;
+            const localUpdatedData = LocalStorageHandler.updateData(id, jsonData);
+            return this.getDataResponse(localUpdatedData);
         }
     }
 
     async syncDataWithAPI() {
         try {
-            const localData = LocalStorageHandler.getAllData();
+            const localData = LocalStorageHandler.getAllDataSinFilter();
             for (const data of localData) {
                 try {
                     if (data.id) {

@@ -1,5 +1,9 @@
 export default class LocalStorageHandler {
 
+    static getAllDataSinFilter() {
+       return  JSON.parse(localStorage.getItem('data')) || [];
+    }
+    
     static getAllData() {
         const data = JSON.parse(localStorage.getItem('data')) || [];
         // Filtrar elementos marcados como eliminados
