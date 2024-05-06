@@ -1,6 +1,6 @@
 export default class NrdApiHandler {
 
-    static baseUrl = 'https://192.168.1.2:443';
+    static baseUrl = 'http://192.168.1.2:80';
 
     static async getAllData() {
         try {
