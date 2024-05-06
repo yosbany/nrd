@@ -64,21 +64,13 @@ export default class NrdApiHandler {
     }
 
     static async get(endpoint) {
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://192.168.1.2/data/code/PROVEEDOR', true);
-            xhr.withCredentials = false; // Desactivar la verificación del certificado SSL
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        console.log(xhr.responseText); // Respuesta exitosa
-                    } else {
-                        console.error('Error:', xhr.status); // Manejar errores de red
-                    }
-                }
-            };
-            xhr.send();
-        });
+        try {
+            const response = await fetch(`${this.baseUrl}/${endpoint}`);
+            return await response.json();
+        } catch (error) {
+            console.error('Error getting data by code:', error);
+            return null;
+        }
     }
 
 
