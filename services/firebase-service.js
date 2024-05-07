@@ -54,19 +54,36 @@ class FirebaseService {
         }
     }
 
-    async registerCurrentUserInDatabase(user, defaultRole = "empleado") {
+    async registerCurrentUserInDatabase() {
         try {
-            const userData = {
-                name: user.displayName,
-                email: user.email,
-                uid: user.uid,
-                role: defaultRole
-            };
-            await set(ref(this.db, `users/${user.uid}`), userData);
+            const user = await this.getCurrentUser();
+            const defaultRole = "empleado";
+
+            if (!user) {
+                throw new Error('No hay usuario autenticado para registrar en la base de datos');
+            }
+
+            const userData = await this.getData(`users/${user.uid}`);
+            // Verificar si el usuario ya está registrado en la base de datos
+            if (!userData) {
+                // El usuario no está registrado, proceder con el registro
+                const userDataToSave = {
+                    name: user.displayName,
+                    email: user.email,
+                    uid: user.uid,
+                    role: defaultRole
+                };
+                await set(ref(this.db, `users/${user.uid}`), userDataToSave);
+                console.log('Usuario registrado en la base de datos correctamente');
+            } else {
+                console.log('El usuario ya está registrado en la base de datos');
+            }
         } catch (error) {
             throw new Error('Error al registrar usuario en la base de datos: ' + error.message);
         }
     }
+
+
 
     async saveData(path, data) {
         try {
@@ -80,7 +97,7 @@ class FirebaseService {
         try {
             const snapshot = await get(ref(this.db, path));
             if (snapshot.exists()) {
-                console.log("data: ",snapshot.val());
+                console.log("data: ", snapshot.val());
                 return snapshot.val();
             } else {
                 throw new Error('No se encontraron datos en la ruta especificada');
