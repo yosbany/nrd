@@ -59,14 +59,20 @@ class FirebaseService {
         try {
             const user = await this.getCurrentUser();
             const defaultRole = "empleado";
-
+    
             if (!user) {
                 throw new Error('No hay usuario autenticado para registrar en la base de datos');
             }
-
-            const userData = await this.getData(`users/${user.uid}`);
+    
+            let userData = null;
+            try {
+                userData = await this.getData(`users/${user.uid}`);
+            } catch (error) {
+                console.error('Error al obtener datos del usuario:', error.message);
+            }
+    
             // Verificar si el usuario ya está registrado en la base de datos
-            if (!userData) {
+            if (userData === null) {
                 // El usuario no está registrado, proceder con el registro
                 const userDataToSave = {
                     name: user.displayName,
@@ -83,6 +89,7 @@ class FirebaseService {
             throw new Error('Error al registrar usuario en la base de datos: ' + error.message);
         }
     }
+    
 
 
 
