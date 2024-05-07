@@ -1,23 +1,23 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js';
-import { getAuth, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js';
+import { getAuth, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js';
+import { getDatabase, ref, set, get, push } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB5R_TG0Vq4LtbkXovYp8wDzhIfyYKwfgE",
-    authDomain: "nrd-auth-e8f32.firebaseapp.com",
-    projectId: "nrd-auth-e8f32",
-    storageBucket: "nrd-auth-e8f32.appspot.com",
-    messagingSenderId: "902534242085",
-    appId: "1:902534242085:web:2c96750cb061396a0a44cc",
-    measurementId: "G-BJ6P6LPR52"
+    apiKey: "AIzaSyCOKQBJthEjqji2GxPsjcEZtUu965wtc1c",
+    authDomain: "nrd-firebase.firebaseapp.com",
+    databaseURL: "https://nrd-firebase-default-rtdb.firebaseio.com",
+    projectId: "nrd-firebase",
+    storageBucket: "nrd-firebase.appspot.com",
+    messagingSenderId: "840023356475",
+    appId: "1:840023356475:web:a7411b9b5808ac51d8581e"
 };
 
 class FirebaseService {
     constructor() {
         // Inicializa Firebase
         const app = initializeApp(firebaseConfig);
-        getAnalytics(app);
         this.auth = getAuth(app);
+        this.db = getDatabase(app);
     }
 
     async login(email, password) {
@@ -87,6 +87,37 @@ class FirebaseService {
     isUserAuthorized(requiredRole) {
         const user = this.getCurrentUser();
         return user && user.photoURL === requiredRole;
+    }
+
+    async writeData(path, data) {
+        try {
+            await set(ref(this.db, path), data);
+        } catch (error) {
+            throw new Error('Error al escribir en la base de datos: ' + error.message);
+        }
+    }
+
+    async readData(path) {
+        try {
+            const snapshot = await get(ref(this.db, path));
+            if (snapshot.exists()) {
+                return snapshot.val();
+            } else {
+                throw new Error('No se encontraron datos en la ruta especificada');
+            }
+        } catch (error) {
+            throw new Error('Error al leer de la base de datos: ' + error.message);
+        }
+    }
+
+    async pushData(path, data) {
+        try {
+            const newDataRef = push(ref(this.db, path));
+            await set(newDataRef, data);
+            return newDataRef.key;
+        } catch (error) {
+            throw new Error('Error al escribir en la base de datos: ' + error.message);
+        }
     }
 }
 

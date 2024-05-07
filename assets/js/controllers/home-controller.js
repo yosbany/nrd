@@ -22,6 +22,14 @@ export default class HomeController extends BaseController {
     async home() {
         console.log("HomeController home");
         this.view.renderView();
+        const userData = {
+            name: 'John Doe',
+            email: 'johndoe@example.com',
+            age: 30
+        };
+        
+        this.authenticateUser('johndoe@example.com', 'password123');
+        this.writeDataToDatabase('users/johndoe', userData);
     }
 
     exit() {
@@ -29,4 +37,25 @@ export default class HomeController extends BaseController {
         FirebaseServiceInstance.logout();
         this.redirectToPage("login.html");
     }
+
+
+    // Ejemplo de autenticación de usuario
+async authenticateUser(email, password) {
+    try {
+        const user = await FirebaseServiceInstance.login(email, password);
+        console.log('Usuario autenticado:', user);
+    } catch (error) {
+        console.error('Error al autenticar usuario:', error.message);
+    }
+}
+
+// Ejemplo de escritura de datos en la base de datos en tiempo real
+async writeDataToDatabase(path, data) {
+    try {
+        await FirebaseServiceInstance.writeData(path, data);
+        console.log('Datos escritos en la base de datos:', data);
+    } catch (error) {
+        console.error('Error al escribir datos en la base de datos:', error.message);
+    }
+}
 }
