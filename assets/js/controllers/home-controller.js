@@ -18,17 +18,17 @@ export default class HomeController extends BaseController {
         console.log("HomeController init");
         this.view.renderView();
     }
-x
+
     async home() {
         console.log("HomeController home");
         this.view.renderView();
         const userData = {
             name: 'John Doe',
             email: 'johndoe@example.com',
-            age: 31
+            age: 32
         };
         console.log("userData: ", userData);
-        this.authenticateUser('nriodor@gmail.com', 'NuevaR1oDor..');
+        //this.authenticateUser('nriodor@gmail.com', 'NuevaR1oDor..');
         this.writeDataToDatabase('users/johndoe', userData);
         this.readDataFromDatabase('users/johndoe');
     }
