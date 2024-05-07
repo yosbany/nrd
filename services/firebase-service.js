@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js';
 import { getDatabase, ref, set, get, push } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js';
 
 const firebaseConfig = {
@@ -29,41 +29,11 @@ class FirebaseService {
         }
     }
 
-    async updateProfile(newDisplayName, newPhotoURL, newPhoneNumber) {
-        try {
-            const user = this.auth.currentUser;
-            if (user) {
-                await updateProfile(user, {
-                    displayName: newDisplayName,
-                    photoURL: newPhotoURL,
-                    phoneNumber: newPhoneNumber
-                });
-            } else {
-                throw new Error('No hay usuario autenticado');
-            }
-        } catch (error) {
-            throw new Error('Error al actualizar el perfil: ' + error.message);
-        }
-    }
-
     async logout() {
         try {
             await signOut(this.auth);
         } catch (error) {
             throw new Error('Error al cerrar sesión: ' + error.message);
-        }
-    }
-
-    async isAuthenticated() {
-        try {
-            const user = await new Promise((resolve) => {
-                onAuthStateChanged(this.auth, (user) => {
-                    resolve(user);
-                });
-            });
-            return user !== null;
-        } catch (error) {
-            throw new Error('Error al verificar la autenticación: ' + error.message);
         }
     }
 
@@ -84,12 +54,21 @@ class FirebaseService {
         }
     }
 
-    isUserAuthorized(requiredRole) {
-        const user = this.getCurrentUser();
-        return user && user.photoURL === requiredRole;
+    async registerCurrentUserInDatabase(user, defaultRole = "empleado") {
+        try {
+            const userData = {
+                name: user.displayName,
+                email: user.email,
+                uid: user.uid,
+                role: defaultRole
+            };
+            await set(ref(this.db, `users/${user.uid}`), userData);
+        } catch (error) {
+            throw new Error('Error al registrar usuario en la base de datos: ' + error.message);
+        }
     }
 
-    async writeData(path, data) {
+    async saveData(path, data) {
         try {
             await set(ref(this.db, path), data);
         } catch (error) {
@@ -97,10 +76,11 @@ class FirebaseService {
         }
     }
 
-    async readData(path) {
+    async getData(path) {
         try {
             const snapshot = await get(ref(this.db, path));
             if (snapshot.exists()) {
+                console.log("data: ",snapshot.val());
                 return snapshot.val();
             } else {
                 throw new Error('No se encontraron datos en la ruta especificada');
@@ -110,13 +90,12 @@ class FirebaseService {
         }
     }
 
-    async pushData(path, data) {
+    async checkAccessCurrentUserRoutesApp(route) {
         try {
-            const newDataRef = push(ref(this.db, path));
-            await set(newDataRef, data);
-            return newDataRef.key;
+            await this.getData(`routes/${route}`);
+            return true; // El usuario tiene acceso a la ruta específica
         } catch (error) {
-            throw new Error('Error al escribir en la base de datos: ' + error.message);
+            return false; // El usuario no tiene acceso a la ruta específica
         }
     }
 }
