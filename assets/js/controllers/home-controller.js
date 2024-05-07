@@ -27,7 +27,7 @@ export default class HomeController extends BaseController {
             email: 'johndoe@example.com',
             age: 30
         };
-        
+        console.log("userData: ",userData);
         this.authenticateUser('johndoe@example.com', 'password123');
         this.writeDataToDatabase('users/johndoe', userData);
     }
