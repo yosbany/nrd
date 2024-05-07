@@ -61,7 +61,7 @@ x
     }
     async readDataFromDatabase(path) {
         try {
-            const data = await FirebaseService.readData(path);
+            const data = await FirebaseServiceInstance.readData(path);
             console.log('Datos leídos desde la base de datos:', data);
         } catch (error) {
             console.error('Error al leer datos desde la base de datos:', error.message);
