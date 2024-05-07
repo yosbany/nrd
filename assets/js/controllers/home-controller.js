@@ -25,10 +25,10 @@ x
         const userData = {
             name: 'John Doe',
             email: 'johndoe@example.com',
-            age: 30
+            age: 31
         };
         console.log("userData: ", userData);
-        this.authenticateUser('johndoe@example.com', 'password123');
+        this.authenticateUser('nriodor@gmail.com', 'NuevaR1oDor..');
         this.writeDataToDatabase('users/johndoe', userData);
         this.readDataFromDatabase('users/johndoe');
     }
