@@ -58,7 +58,6 @@ class FirebaseService {
     async registerCurrentUserInDatabase() {
         try {
             const user = await this.getCurrentUser();
-            const defaultRole = "empleado";
     
             if (!user) {
                 throw new Error('No hay usuario autenticado para registrar en la base de datos');
@@ -77,8 +76,7 @@ class FirebaseService {
                 const userDataToSave = {
                     name: user.displayName,
                     email: user.email,
-                    uid: user.uid,
-                    role: defaultRole
+                    uid: user.uid
                 };
                 await set(ref(this.db, `users/${user.uid}`), userDataToSave);
                 console.log('Usuario registrado en la base de datos correctamente');
@@ -118,9 +116,11 @@ class FirebaseService {
     async checkAccessCurrentUserRoutesApp(route) {
         try {
             await this.getData(`routes/${route}`);
-            return true; // El usuario tiene acceso a la ruta específica
+            console.log("checkAccessCurrentUserRoutesApp: ", true);
+            return true;
         } catch (error) {
-            return false; // El usuario no tiene acceso a la ruta específica
+            console.log("checkAccessCurrentUserRoutesApp: ", false);
+            return false;
         }
     }
 }
