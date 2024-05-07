@@ -25,12 +25,11 @@ export default class HomeController extends BaseController {
         const userData = {
             name: 'John Doe',
             email: 'johndoe@example.com',
-            age: 32
+            age: 34
         };
-        console.log("userData: ", userData);
-        //this.authenticateUser('nriodor@gmail.com', 'NuevaR1oDor..');
-        this.writeDataToDatabase('users/johndoe', userData);
-        this.readDataFromDatabase('users/johndoe');
+        await this.authenticateUser('nriodor@gmail.com', 'NuevaR1oDor..');
+        await this.writeDataToDatabase('users/johndoe', userData);
+        await this.readDataFromDatabase('users/johndoe');
     }
 
     exit() {
