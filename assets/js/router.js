@@ -95,7 +95,7 @@ export default async function router() {
             }
             else{
                 alert("access: "+isAccess);
-                //redirectTo("login.html");
+                redirectTo("login.html");
             }
 
         }
