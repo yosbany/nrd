@@ -7,7 +7,6 @@ export default class LoginController extends BaseController {
     constructor() {
         super();
         this.view = new LoginView(this);
-        this.initEventsController();
     }
 
     async init() {
