@@ -1,8 +1,9 @@
 import BaseView from './base-view.js';
 
 export default class LoginView extends BaseView {
-    constructor() {
+    constructor(controller) {
         super();
+        this.controller = controller;
     }
 
     renderView() {
@@ -14,11 +15,7 @@ export default class LoginView extends BaseView {
             event.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            try {
-                this.emitEventController("EVLogin", { 'email': email, 'password': password })
-            } catch (error) {
-                console.error('Error al iniciar sesión:', error.message);
-            }
+            this.controller.login(email, password);
         });
     }
 }
