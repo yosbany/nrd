@@ -75,7 +75,7 @@ function routeNotFound() {
     redirectTo("not-found.html");
 }
 
-export default function router() {
+export default async function router() {
     showLoaderPage();
     showLoaderApp();
 
@@ -86,7 +86,8 @@ export default function router() {
         if (!window.location.hash) {
             executeControllerMethod(controller, 'init');
         } else {
-            if (FirebaseServiceInstance.checkAccessCurrentUserRoutesApp(key)) {
+            const isAccess = await FirebaseServiceInstance.checkAccessCurrentUserRoutesApp(key);
+            if (isAccess) {
                 const camelCaseKey = key.includes('-') ? key.replace(/-([a-z])/g, function (match, letter) {
                     return letter.toUpperCase();
                 }) : key;
