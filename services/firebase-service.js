@@ -124,6 +124,7 @@ class FirebaseService {
             console.log("checkAccessCurrentUserRoutesApp: ", true);
             return true;
         } catch (error) {
+            console.error(error);
             console.log("checkAccessCurrentUserRoutesApp: ", false);
             return false;
         }
