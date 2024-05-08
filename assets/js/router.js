@@ -92,6 +92,9 @@ export default function router() {
                 }) : key;
                 executeControllerMethod(controller, camelCaseKey);
             }
+            else{
+                redirectTo("login.html");
+            }
 
         }
 
