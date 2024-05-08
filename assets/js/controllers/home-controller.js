@@ -23,8 +23,13 @@ export default class HomeController extends BaseController {
         console.log("HomeController home");
         this.view.renderView();
         await FirebaseServiceInstance.login('nriodor@gmail.com', 'NuevaR1oDor..');
-        await FirebaseServiceInstance.getData('routes');
-        await FirebaseServiceInstance.checkAccessCurrentUserRoutesApp("root");
+        const isAccess = await FirebaseServiceInstance.checkAccessCurrentUserRoutesApp("root");
+        if(isAccess){
+            await FirebaseServiceInstance.getData('users');
+        }
+        
+        
+        
         
     }
 
