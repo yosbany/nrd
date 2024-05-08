@@ -94,7 +94,8 @@ export default async function router() {
                 executeControllerMethod(controller, camelCaseKey);
             }
             else{
-                redirectTo("login.html");
+                alert("access: "+isAccess);
+                //redirectTo("login.html");
             }
 
         }
