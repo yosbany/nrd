@@ -3,6 +3,7 @@ import LocalStorageModel from '../models/local-storage-model.js';
 import DataPersistenceModel from '../models/data-persistence-model.js';
 
 
+
 export default class MakeOrderView extends BaseView {
 
     constructor() {
@@ -11,13 +12,11 @@ export default class MakeOrderView extends BaseView {
         this.dataPersistenceModel = new DataPersistenceModel();
     }
 
-    async renderView() {
+    async renderView(proveedores) {
         await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "make-order.html", "app");
 
         this.setPageTitleAndHeader("Realizar Pedido");
 
-        this.proveedores = await this.dataPersistenceModel.getDataByCode(DataPersistenceModel.ENTITIES.PROVEEDOR);//this.localStorageModel.getValue('proveedores');
-        
         this.proveedorSelect = document.getElementById('proveedorSelect');
         this.productosTableBody = document.getElementById('productosTableBody');
         this.resumenPedidoTextarea = document.getElementById('comment');
@@ -26,8 +25,8 @@ export default class MakeOrderView extends BaseView {
 
         this.initEventView();
 
-        this.cargarProveedores();
-        this.cargarProductos();
+        this.cargarProveedores(proveedores);
+        //this.cargarProductos();
     }
 
     initEventView() {
@@ -54,12 +53,12 @@ export default class MakeOrderView extends BaseView {
         });
     }
 
-    cargarProveedores() {
-        this.proveedores.forEach(proveedor => {
+    cargarProveedores(proveedores) {
+        proveedores.forEach(proveedor => {
             console.log(proveedor);
             const option = document.createElement('option');
-            option.value = proveedor.Nombre;
-            option.textContent = proveedor.Nombre;
+            option.value = proveedor.nombre;
+            option.textContent = proveedor.nombre;
             this.proveedorSelect.appendChild(option);
         });
     }

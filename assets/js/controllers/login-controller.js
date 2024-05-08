@@ -14,7 +14,6 @@ export default class LoginController extends BaseController {
         this.subscribeEvent('EVLogin', (event) => {
             const email = event.email;
             const password = event.password;
-
             FirebaseServiceInstance.login(email, password);
             this.redirectToPage("index.html");
         });
