@@ -6,15 +6,13 @@ import DataPersistenceModel from '../models/data-persistence-model.js';
 
 export default class MakeOrderView extends BaseView {
 
-    constructor() {
+    constructor(controller) {
         super();
-        this.localStorageModel = new LocalStorageModel();
-        this.dataPersistenceModel = new DataPersistenceModel();
+        this.controller = controller;
     }
 
-    async renderView(proveedores) {
+    async renderView() {
         await this.fetchAndSetHTML(this.PATH_FRAGMENTS + "make-order.html", "app");
-
         this.setPageTitleAndHeader("Realizar Pedido");
 
         this.proveedorSelect = document.getElementById('proveedorSelect');
@@ -25,7 +23,7 @@ export default class MakeOrderView extends BaseView {
 
         this.initEventView();
 
-        this.cargarProveedores(proveedores);
+        this.cargarProveedores(this.controller.getProveedores());
         //this.cargarProductos();
     }
 

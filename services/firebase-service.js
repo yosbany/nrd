@@ -99,6 +99,10 @@ class FirebaseService {
         }
     }
 
+    async getCollection(path){
+        return this.db.collection(path);
+    }
+
     async getData(path) {
         try {
             const snapshot = await get(ref(this.db, path));
