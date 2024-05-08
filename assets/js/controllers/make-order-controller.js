@@ -19,7 +19,7 @@ export default class MakeOrderController extends BaseController {
 
     async makeOrder() {
         console.log("MakeOrderController makeOrder");
-        const proveedores = FirebaseServiceInstance.getData("proveedores")
+        const proveedores = await FirebaseServiceInstance.getData("proveedores")
         this.view.renderView(proveedores);
         
     }
