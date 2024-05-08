@@ -14,9 +14,9 @@ export default class LoginController extends BaseController {
         this.view.renderView();
     }
 
-    login(email, password){
+    async login(email, password){
         try{
-            FirebaseServiceInstance.login(email, password);
+            await FirebaseServiceInstance.login(email, password);
             this.redirectToPage("index.html");
         }
         catch(error){
