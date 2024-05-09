@@ -22,8 +22,8 @@ export default class MakeOrderView extends BaseView {
         this.imprimirBtn = document.getElementById('imprimirBtn');
 
         this.initEventView();
-
-        this.cargarProveedores(this.controller.getProveedores());
+        const proveedores = await this.controller.getProveedores();
+        this.cargarProveedores(proveedores);
         //this.cargarProductos();
     }
 
