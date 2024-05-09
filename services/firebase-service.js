@@ -128,8 +128,9 @@ class FirebaseService {
     async checkAccessCurrentUserRoutesApp(route) {
         console.log("routes check: ",`routes/${route}`)
         try {
-            await this.getData(`routes/${route}`);
-            console.log("checkAccessCurrentUserRoutesApp: ", true);
+            //await this.getData(`routes/${route}`);
+            const user = await this.getCurrentUser();
+            console.log("checkAccessCurrentUserRoutesApp: ", true, user);
             return true;
         } catch (error) {
             console.log("checkAccessCurrentUserRoutesApp: ", false);
