@@ -24,7 +24,7 @@ export default class MakeOrderView extends BaseView {
         this.initEventView();
         const proveedores = await this.controller.getProveedores();
         this.cargarProveedores(proveedores);
-        //this.cargarProductos();
+        this.cargarProductos();
     }
 
     initEventView() {
@@ -61,17 +61,18 @@ export default class MakeOrderView extends BaseView {
         });
     }
 
-    cargarProductos(proveedorSeleccionado) {
+    async cargarProductos(proveedorSeleccionado) {
         this.productosTableBody.innerHTML = '';
-        const proveedor = this.proveedores.find(p => p.proveedor === proveedorSeleccionado);
-        if (proveedor) {
-            proveedor.productos.forEach(producto => {
+
+        const articulos = await this.controller.getArticulosXProveedor(proveedorSeleccionado);
+        if (articulos) {
+            articulos.forEach(articulo => {
                 const row = this.productosTableBody.insertRow();
                 row.innerHTML = `
                   <td style="vertical-align: middle;"><input class="form-check-input" type="checkbox" style="scale: 1.6;"></td>
-                  <td style="vertical-align: middle;"><h5 data-bs-toggle="tooltip" title="COMPRAS X ${producto.contenido}" style="margin-bottom: 0px !important;cursor: pointer;" data-bind="${producto.contenido}">${producto.producto}</h5></td>
-                  <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${producto.precio}</span></td>
-                  <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value=${producto.stock}></td>
+                  <td style="vertical-align: middle;"><h5 data-bs-toggle="tooltip" title="COMPRAS X ${articulo.pack_compra}" style="margin-bottom: 0px !important;cursor: pointer;" data-bind="${articulo.pack_compra}">${articulo.nombre}</h5></td>
+                  <td style="vertical-align: middle;"><span class="badge bg-secondary">$ ${articulo.precio_compra}</span></td>
+                  <td style="text-align: right;"><input type="number" class="form-control" style="width: 80px;float: right;" disabled value=${articulo.stock_deseado}></td>
                 `;
                 const checkbox = row.querySelector('.form-check-input');
                 const cantidadInput = row.querySelector('.form-control');
@@ -96,7 +97,7 @@ export default class MakeOrderView extends BaseView {
                 });
                 cantidadInput.addEventListener('blur', () => {
                     if (cantidadInput.value === '') {
-                        cantidadInput.value = producto.stock;
+                        cantidadInput.value = articulo.stock_deseado;
                     }
                 });
 
