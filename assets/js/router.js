@@ -58,7 +58,7 @@ const routes = {
     'rrhh': new RrhhController()
 };
 
-function isRoutesPublic(key) {
+function isRoutePublic(key) {
     const publicRoutes = ['login.html'];
     return publicRoutes.includes(key);
 }
@@ -87,9 +87,10 @@ export default async function router() {
     const key = getKeyFromHashAndPath();
     console.log("router key: ", key);
     if (routes.hasOwnProperty(key)) {
-        const currentUser = await FirebaseServiceInstance.getCurrentUser();
-        if (currentUser && !isRoutesPublic()){
-            const controller = routes[key];
+        const controller = routes[key];
+        // Verificar si la ruta es pública
+        if (isRoutePublic(key)) {
+            // Si es pública, ejecutar el controlador directamente
             if (!window.location.hash) {
                 executeControllerMethod(controller, 'init');
             } else {
@@ -98,9 +99,23 @@ export default async function router() {
                 }) : key;
                 executeControllerMethod(controller, camelCaseKey);
             }
-        }
-        else {
-            redirectTo("login.html");
+        } else {
+            // Si es privada, verificar la autenticación del usuario
+            const currentUser = await FirebaseServiceInstance.getCurrentUser();
+            if (!currentUser) {
+                // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+                redirectTo("login.html");
+                return;
+            }
+            // Si el usuario está autenticado, ejecutar el controlador
+            if (!window.location.hash) {
+                executeControllerMethod(controller, 'init');
+            } else {
+                const camelCaseKey = key.includes('-') ? key.replace(/-([a-z])/g, function (match, letter) {
+                    return letter.toUpperCase();
+                }) : key;
+                executeControllerMethod(controller, camelCaseKey);
+            }
         }
 
     } else {
