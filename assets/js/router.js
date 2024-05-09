@@ -82,21 +82,20 @@ export default async function router() {
     const key = getKeyFromHashAndPath();
     console.log("router key: ", key);
     if (routes.hasOwnProperty(key)) {
-        const controller = routes[key];
-        if (!window.location.hash) {
-            executeControllerMethod(controller, 'init');
-        } else {
-            const currentUser = await FirebaseServiceInstance.getCurrentUser();
-            if (currentUser) {
+        const currentUser = await FirebaseServiceInstance.getCurrentUser();
+        if (currentUser) {
+            const controller = routes[key];
+            if (!window.location.hash) {
+                executeControllerMethod(controller, 'init');
+            } else {
                 const camelCaseKey = key.includes('-') ? key.replace(/-([a-z])/g, function (match, letter) {
                     return letter.toUpperCase();
                 }) : key;
                 executeControllerMethod(controller, camelCaseKey);
             }
-            else{
-                redirectTo("login.html");
-            }
-
+        }
+        else {
+            redirectTo("login.html");
         }
 
     } else {
