@@ -86,15 +86,14 @@ export default async function router() {
         if (!window.location.hash) {
             executeControllerMethod(controller, 'init');
         } else {
-            const isAccess = await FirebaseService.checkAccessCurrentUserRoutesApp(key);
-            if (isAccess) {
+            const hasAccess = await FirebaseService.checkAccessCurrentUserRoutesApp(key);
+            if (hasAccess) {
                 const camelCaseKey = key.includes('-') ? key.replace(/-([a-z])/g, function (match, letter) {
                     return letter.toUpperCase();
                 }) : key;
                 executeControllerMethod(controller, camelCaseKey);
             }
             else{
-                alert("access: "+isAccess);
                 redirectTo("login.html");
             }
 
