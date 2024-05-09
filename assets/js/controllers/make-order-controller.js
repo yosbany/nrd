@@ -20,8 +20,8 @@ export default class MakeOrderController extends BaseController {
         
     }
 
-    getProveedores(){
-        return this.dataPersistenceModel.getProveedores();
+    async getProveedores(){
+        return await this.dataPersistenceModel.getProveedores();
     }
 
 
