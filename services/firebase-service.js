@@ -13,19 +13,23 @@ const firebaseConfig = {
 };
 
 class FirebaseService {
-    instance = null;
+    static instance = null;
 
-    initialize() {
-        if (!this.instance) {
-            const app = initializeApp(firebaseConfig);
-            this.auth = getAuth(app);
-            this.db = getDatabase(app);
-            this.instance = this;
+    static getInstance() {
+        if (!FirebaseService.instance) {
+            FirebaseService.instance = new FirebaseService();
         }
+        return FirebaseService.instance;
     }
 
     constructor() {
-        this.initialize();
+        if (!FirebaseService.instance) {
+            const app = initializeApp(firebaseConfig);
+            this.auth = getAuth(app);
+            this.db = getDatabase(app);
+            FirebaseService.instance = this;
+        }
+        return FirebaseService.instance;
     }
 
     async login(email, password) {
@@ -50,10 +54,10 @@ class FirebaseService {
         try {
             const user = await new Promise((resolve, reject) => {
                 const unsubscribe = onAuthStateChanged(this.auth, (user) => {
-                    unsubscribe(); // Detener la escucha después de obtener el usuario
+                    unsubscribe(); 
                     resolve(user);
                 }, (error) => {
-                    unsubscribe(); // Detener la escucha en caso de error
+                    unsubscribe(); 
                     reject(error);
                 });
             });
@@ -95,9 +99,6 @@ class FirebaseService {
             throw new Error('Error al registrar usuario en la base de datos: ' + error.message);
         }
     }
-    
-
-
 
     async saveData(path, data) {
         try {
@@ -138,5 +139,6 @@ class FirebaseService {
         }
     }
 }
-const FirebaseServiceInstance = new FirebaseService();
+
+const FirebaseServiceInstance = FirebaseService.getInstance();
 export default FirebaseServiceInstance;
