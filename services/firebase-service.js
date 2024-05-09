@@ -13,18 +13,19 @@ const firebaseConfig = {
 };
 
 class FirebaseService {
-    static instance = null;
+    instance = null;
 
-    static initialize() {
-        if (!FirebaseService.instance) {
+    initialize() {
+        if (!this.instance) {
             const app = initializeApp(firebaseConfig);
-            FirebaseService.instance = new FirebaseService(getAuth(app), getDatabase(app));
+            this.auth = getAuth(app);
+            this.db = getDatabase(app);
+            this.instance = this;
         }
     }
 
-    constructor(auth, db) {
-        this.auth = auth;
-        this.db = db;
+    constructor() {
+        this.initialize();
     }
 
     async login(email, password) {
@@ -136,5 +137,5 @@ class FirebaseService {
         }
     }
 }
-FirebaseService.initialize();
-export default FirebaseService;
+const FirebaseServiceInstance = new FirebaseService();
+export default FirebaseServiceInstance;
