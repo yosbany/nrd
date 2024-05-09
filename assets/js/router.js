@@ -58,6 +58,12 @@ const routes = {
     'rrhh': new RrhhController()
 };
 
+function isRoutesPublic(key) {
+    const publicRoutes = ['login.html'];
+    return publicRoutes.includes(key);
+}
+
+
 function getKeyFromHashAndPath() {
     const hash = window.location.hash.slice(1);
     const path = window.location.pathname.slice(BASE_PATH.length);
@@ -78,12 +84,11 @@ function routeNotFound() {
 export default async function router() {
     showLoaderPage();
     showLoaderApp();
-
     const key = getKeyFromHashAndPath();
     console.log("router key: ", key);
     if (routes.hasOwnProperty(key)) {
         const currentUser = await FirebaseServiceInstance.getCurrentUser();
-        if (currentUser) {
+        if (currentUser && !isRoutesPublic()){
             const controller = routes[key];
             if (!window.location.hash) {
                 executeControllerMethod(controller, 'init');
