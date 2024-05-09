@@ -13,11 +13,18 @@ const firebaseConfig = {
 };
 
 class FirebaseService {
-    constructor() {
-        // Inicializa Firebase
-        const app = initializeApp(firebaseConfig);
-        this.auth = getAuth(app);
-        this.db = getDatabase(app);
+    static instance = null;
+
+    static initialize() {
+        if (!FirebaseService.instance) {
+            const app = initializeApp(firebaseConfig);
+            FirebaseService.instance = new FirebaseService(getAuth(app), getDatabase(app));
+        }
+    }
+
+    constructor(auth, db) {
+        this.auth = auth;
+        this.db = db;
     }
 
     async login(email, password) {
@@ -129,5 +136,5 @@ class FirebaseService {
         }
     }
 }
-
-export default new FirebaseService();
+FirebaseService.initialize();
+export default FirebaseService;
