@@ -86,8 +86,8 @@ export default async function router() {
         if (!window.location.hash) {
             executeControllerMethod(controller, 'init');
         } else {
-            const hasAccess = await FirebaseServiceInstance.checkAccessCurrentUserRoutesApp(key);
-            if (hasAccess) {
+            const currentUser = await FirebaseServiceInstance.getCurrentUser();
+            if (currentUser) {
                 const camelCaseKey = key.includes('-') ? key.replace(/-([a-z])/g, function (match, letter) {
                     return letter.toUpperCase();
                 }) : key;
