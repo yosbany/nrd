@@ -21,7 +21,12 @@ export default class DataPersistenceModel {
     }
 
     async getArticulosXProveedor(proveedor) {
-        return await FirebaseServiceInstance.getCollection(DataPersistenceModel.ENTITIES.ARTICULOS).where("proveedores", "array-contains", proveedor).get();
+        const articulos = await FirebaseServiceInstance.getData("articulos")
+        // Filtrar los artículos que contienen el proveedor específico
+        const filtered = Object.values(articulos).filter(articulo => {
+            return Array.isArray(articulo.proveedores) && articulo.proveedores.includes(proveedor);
+        });
+        return filtered;
     }
 
 }
