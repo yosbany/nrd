@@ -14,7 +14,7 @@ export default class AccountingTransactionsView extends BaseView {
     }
 
     initEventView() {
-        document.getElementById('guardarmovimiento').addEventListener('click', function () {
+        document.getElementById('guardarmovimiento').addEventListener('click', () => {
 
             var datosMovimiento = {
                 referencia: "",
