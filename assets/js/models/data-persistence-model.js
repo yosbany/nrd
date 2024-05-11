@@ -21,12 +21,18 @@ export default class DataPersistenceModel {
     }
 
     async getArticulosXProveedor(proveedor) {
-        const articulos = await FirebaseServiceInstance.getData("articulos")
+        const articulos = await FirebaseServiceInstance.getData(DataPersistenceModel.ENTITIES.ARTICULOS);
         // Filtrar los artículos que contienen el proveedor específico
         const filtered = Object.values(articulos).filter(articulo => {
             return Array.isArray(articulo.proveedores) && articulo.proveedores.includes(proveedor);
         });
         return filtered;
+    }
+
+    async saveMovimiento(movimiento){
+        const movimientos = await FirebaseServiceInstance.getData(DataPersistenceModel.ENTITIES.MOVIMIENTOS, []);
+        movimientos.push(movimiento);
+        await FirebaseServiceInstance.saveData(DataPersistenceModel.ENTITIES.MOVIMIENTOS, movimientos);
     }
 
 }

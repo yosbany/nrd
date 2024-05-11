@@ -108,14 +108,13 @@ class FirebaseService {
         }
     }
 
-    async getData(path) {
+    async getData(path, defaultValue) {
         try {
             const snapshot = await get(ref(this.db, path));
             if (snapshot.exists()) {
-                console.log("data: ", snapshot.val());
                 return snapshot.val();
             } else {
-                throw new Error('No se encontraron datos en la ruta especificada');
+                return defaultValue;
             }
         } catch (error) {
             throw new Error('Error al leer de la base de datos: ' + error.message);
