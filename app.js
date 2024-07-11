@@ -1,6 +1,6 @@
 // app.js
 
-import m from 'mithril';
+import m from 'https://cdn.jsdelivr.net/npm/mithril/mithril.js';
 import UserController from './controllers/UserController';
 import ProviderController from './controllers/ProviderController';
 import OrderController from './controllers/OrderController';
