@@ -1,16 +1,16 @@
 // app.js
 
 import m from 'https://cdn.jsdelivr.net/npm/mithril/mithril.js';
-import UserController from './controllers/UserController';
-import ProviderController from './controllers/ProviderController';
-import OrderController from './controllers/OrderController';
-import ClientController from './controllers/ClientController';
-import ArticleController from './controllers/ArticleController';
-import PayrollController from './controllers/PayrollController';
-import MovementController from './controllers/MovementController';
-import RecipeController from './controllers/RecipeController';
-import TaskController from './controllers/TaskController';
-import EmployeeController from './controllers/EmployeeController';
+import UserController from './src/controllers/UserController.js';
+import ProviderController from './src/controllers/ProviderController.js';
+import OrderController from './src/controllers/OrderController.js';
+import ClientController from './src/controllers/ClientController.js';
+import ArticleController from '/src/controllers/ArticleController.js';
+import PayrollController from './src/controllers/PayrollController.js';
+import MovementController from './src/controllers/MovementController.js';
+import RecipeController from './src/controllers/RecipeController.js';
+import TaskController from './src/controllers/TaskController.js';
+import EmployeeController from './src/controllers/EmployeeController.js';
 
 // Rutas de la aplicación
 m.route(document.getElementById('app'), '/', {
