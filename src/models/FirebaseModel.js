@@ -19,17 +19,26 @@ const FirebaseModel = {
 
     getById: (entity, id) => {
         const entityRef = ref(db, `${entity}/${id}`);
-        return get(entityRef).then(snapshot => snapshot.val());
+        return get(entityRef).then(snapshot => ({
+            id: snapshot.key,
+            ...snapshot.val()
+        }));
     },
 
     saveOrUpdate: (entity, id, data) => {
         const entityRef = id ? ref(db, `${entity}/${id}`) : ref(db, entity);
-        return id ? set(entityRef, data) : push(entityRef, data);
+        return id ? set(entityRef, data) : push(entityRef, data).then(ref => ({
+            id: ref.key,
+            ...data
+        }));
     },
 
     delete: (entity, id) => {
         const entityRef = ref(db, `${entity}/${id}`);
-        return remove(entityRef);
+        return remove(entityRef).then(() => ({
+            id,
+            ...data 
+        }));
     }
 };
 
