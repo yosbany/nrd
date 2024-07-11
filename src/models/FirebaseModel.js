@@ -5,7 +5,7 @@ import { db } from './firebase.js'; // Asumiendo que './firebase' contiene la co
 const FirebaseModel = {
     // Función para obtener todos los documentos de una colección
     getAll: (entity) => {
-        return getDatabase().ref(entity).once('value').then(snapshot => snapshot.val());
+        return db().ref(entity).once('value').then(snapshot => snapshot.val());
     },
 
     // Función para obtener un documento específico por su ID
