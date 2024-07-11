@@ -4,7 +4,17 @@ import { db } from './firebase.js';
 const FirebaseModel = {
     getAll: (entity) => {
         const entityRef = ref(db, entity);
-        return get(entityRef).then(snapshot => snapshot.val());
+        return get(entityRef).then(snapshot => {
+            const data = snapshot.val();
+            if (data) {
+                return Object.keys(data).map(key => ({
+                    id: key,
+                    ...data[key]
+                }));
+            } else {
+                return [];
+            }
+        });
     },
 
     getById: (entity, id) => {
