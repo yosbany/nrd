@@ -1,5 +1,5 @@
 import { ref, set, get, push, remove } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js';
-import { db } from '../firebase.js';
+import { db } from './firebase.js';
 
 const FirebaseModel = {
     getAll: (entity) => {
