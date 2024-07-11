@@ -5,7 +5,7 @@ import UserController from './src/controllers/UserController.js';
 import ProviderController from './src/controllers/ProviderController.js';
 import OrderController from './src/controllers/OrderController.js';
 import ClientController from './src/controllers/ClientController.js';
-import ArticleController from '/src/controllers/ArticleController.js';
+import ArticleController from './src/controllers/ArticleController.js';
 import PayrollController from './src/controllers/PayrollController.js';
 import MovementController from './src/controllers/MovementController.js';
 import RecipeController from './src/controllers/RecipeController.js';
