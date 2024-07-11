@@ -1,5 +1,3 @@
-// app.js
-
 import m from 'https://cdn.jsdelivr.net/npm/mithril/mithril.mjs';
 import UserController from './src/controllers/UserController.js';
 import ProviderController from './src/controllers/ProviderController.js';
@@ -11,6 +9,8 @@ import MovementController from './src/controllers/MovementController.js';
 import RecipeController from './src/controllers/RecipeController.js';
 import TaskController from './src/controllers/TaskController.js';
 import EmployeeController from './src/controllers/EmployeeController.js';
+
+m.route.prefix = "/nrd/#!";
 
 // Rutas de la aplicación
 m.route(document.getElementById('app'), '/', {
