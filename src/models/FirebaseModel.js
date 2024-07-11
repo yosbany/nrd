@@ -1,5 +1,5 @@
 // Importar Firebase SDK y configuración
-import { db } from './firebase'; // Asumiendo que './firebase' contiene la configuración de Firebase
+import { db } from './firebase.js'; // Asumiendo que './firebase' contiene la configuración de Firebase
 
 // Objeto para manejar operaciones con Firebase
 const FirebaseModel = {

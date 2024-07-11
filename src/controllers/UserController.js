@@ -1,7 +1,7 @@
 // controllers/UserController.js
 
 import m from 'https://cdn.jsdelivr.net/npm/mithril/mithril.js';
-import FirebaseModel from '../models/FirebaseModel';
+import FirebaseModel from '../models/FirebaseModel.js';
 
 const UserController = {
     // Componente de lista de usuarios
