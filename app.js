@@ -11,9 +11,7 @@ import MovementController from './src/controllers/MovementController.js';
 import RecipeController from './src/controllers/RecipeController.js';
 import TaskController from './src/controllers/TaskController.js';
 import EmployeeController from './src/controllers/EmployeeController.js';
-
 m.route.prefix = "/nrd";
-
 // Rutas de la aplicación
 m.route(document.getElementById('app'), '/', {
     '/': UserController.UserList,
