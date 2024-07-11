@@ -15,7 +15,7 @@ m.route.prefix = "/nrd/#!";
 // Rutas de la aplicación
 m.route(document.getElementById('app'), '/', {
     '/': UserController.UserList,
-    '/nuevo-usuario': UserController.NuevoUsuarioForm,
+    '/nuevo-usuario': UserController.NewUser,
     '/proveedores': ProviderController.ProviderList,
     '/nuevo-proveedor': ProviderController.NuevoProveedorForm,
     '/ordenes': OrderController.OrderList,
