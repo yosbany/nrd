@@ -15,7 +15,7 @@ import EmployeeController from './src/controllers/EmployeeController.js';
 // Rutas de la aplicación
 m.route(document.getElementById('app'), '/', {
     '/': UserController.UserList,
-    '/nrd/nuevo-usuario': UserController.NuevoUsuarioForm,
+    '/nuevo-usuario': UserController.NuevoUsuarioForm,
     '/proveedores': ProviderController.ProviderList,
     '/nuevo-proveedor': ProviderController.NuevoProveedorForm,
     '/ordenes': OrderController.OrderList,

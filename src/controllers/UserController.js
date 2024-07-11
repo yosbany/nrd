@@ -20,7 +20,7 @@ const UserController = {
                 m('ul', UserController.UserList.users.map(user =>
                     m('li', user.nombre)
                 )),
-                m('a', { href: '/nuevo-usuario', oncreate: m.route.Link }, 'Agregar Usuario')
+                m(m.route.Link, {href: "/nuevo-usuario"}, "Agregar Usuario")
             ]);
         }
     },
