@@ -1,6 +1,4 @@
-// controllers/UserController.js
-
-import m from 'https://unpkg.com/mithril/mithril.js';
+import * as m from 'https://cdn.jsdelivr.net/npm/mithril/mithril.mjs';
 import FirebaseModel from '../models/FirebaseModel.js';
 
 const UserController = {
