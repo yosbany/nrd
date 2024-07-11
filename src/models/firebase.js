@@ -26,7 +26,7 @@ async function login(email, password) {
 }
 
 // Ejecutar el login automáticamente
-login("nriodor@gmail.com", "NuevaR1oDor");
+await login("nriodor@gmail.com", "NuevaR1oDor");
 
 
 export { firebase, auth, db, login };
