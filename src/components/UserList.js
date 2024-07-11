@@ -18,7 +18,7 @@ const UserList = {
             m('ul', UserList.users.map(user =>
                 m('li', user.nombre)
             )),
-            m('a', { href: m.route.prefix+'/nuevo-usuario', oncreate: m.route.Link }, 'Agregar Usuario')
+            m('a', { href: '/nuevo-usuario', oncreate: m.route.Link }, 'Agregar Usuario')
         ]);
     }
 };
