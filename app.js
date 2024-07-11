@@ -12,11 +12,10 @@ import RecipeController from './src/controllers/RecipeController.js';
 import TaskController from './src/controllers/TaskController.js';
 import EmployeeController from './src/controllers/EmployeeController.js';
 
-m.route.prefix = "nrd/#!";
 // Rutas de la aplicación
 m.route(document.getElementById('app'), '/', {
     '/': UserController.UserList,
-    '/nuevo-usuario': UserController.NuevoUsuarioForm,
+    '/nrd/nuevo-usuario': UserController.NuevoUsuarioForm,
     '/proveedores': ProviderController.ProviderList,
     '/nuevo-proveedor': ProviderController.NuevoProveedorForm,
     '/ordenes': OrderController.OrderList,
