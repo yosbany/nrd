@@ -1,10 +1,8 @@
 import HomeView from '../views/HomeView.js';
 
 const HomeController = {
-    home: () => {
-        return {
-            view: () => m(HomeView)
-        };
+    home: {
+        view: () => m(HomeView)
     }
 };
 
