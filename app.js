@@ -11,8 +11,4 @@ m.route(document.getElementById('app'), '/', {
     '/usuarios/editar/:id': GenericController.form('usuarios', userRenderForm),
     '/usuarios/eliminar/:id': GenericController.delete('usuarios'),
 
-    '/proveedores': GenericController.list('proveedores', /* renderItem */),
-    '/ordenes': GenericController.list('ordenes', /* renderItem */),
-    '/clientes': GenericController.list('clientes', /* renderItem */),
-    '/articulos': GenericController.list('articulos', /* renderItem */),
 });
