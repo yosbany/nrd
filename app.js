@@ -5,7 +5,7 @@ import HomeController from './src/controllers/HomeController.js';
 m.route.prefix = "/nrd/#!";
 
 m.route(document.getElementById('app'), '/', {
-    '/': HomeController.home,
+    '/': GenericController.list('usuarios', userRenderItem),
     '/usuarios': GenericController.list('usuarios', userRenderItem),
     '/usuarios/nuevo': GenericController.form('usuarios', userRenderForm),
     '/usuarios/editar/:id': GenericController.form('usuarios', userRenderForm),

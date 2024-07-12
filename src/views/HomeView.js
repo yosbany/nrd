@@ -5,7 +5,6 @@ const HomeView = {
         return m('div', [
             m(Menu),
             m('h1', 'Bienvenido a la Aplicación'),
-            // Puedes agregar más contenido aquí
         ]);
     }
 };
