@@ -1,4 +1,4 @@
-const userRenderItem = (item) => `${item.nombre} (${item.id})`;
+const userRenderItem = (item) => `${item.nombre}`;
 
 const userRenderForm = (item) => [
     m('label', 'Nombre:'),

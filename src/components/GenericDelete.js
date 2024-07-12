@@ -10,7 +10,7 @@ const GenericDelete = {
                 onclick: () => vnode.attrs.onDelete(item.id)
             }, 'Eliminar'),
             m('span', ' '),
-            m(m.route.Link, { href: `/${entity}` }, 'Cancelar')
+            m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar')
         ]);
     }
 };
