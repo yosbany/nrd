@@ -9,6 +9,7 @@ const GenericDelete = {
             m('button', {
                 onclick: () => vnode.attrs.onDelete(item.id)
             }, 'Eliminar'),
+            m('span', ' '),
             m(m.route.Link, { href: `/${entity}` }, 'Cancelar')
         ]);
     }

@@ -9,7 +9,9 @@ const userRenderForm = (item) => [
     m('br'),
     m('br'),
     m('hr'),
-    m('button[type=submit]', 'Guardar')
+    m('button[type=submit]', 'Guardar'),
+    m('span', ' '),
+    m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar')
 ];
 
 export { userRenderItem, userRenderForm };
