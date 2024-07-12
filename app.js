@@ -10,5 +10,4 @@ m.route(document.getElementById('app'), '/', {
     '/usuarios/nuevo': GenericController.form('usuarios', userRenderForm),
     '/usuarios/editar/:id': GenericController.form('usuarios', userRenderForm),
     '/usuarios/eliminar/:id': GenericController.delete('usuarios'),
-
 });
