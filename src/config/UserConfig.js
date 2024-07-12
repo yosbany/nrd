@@ -7,6 +7,8 @@ const userRenderForm = (item) => [
         onchange: (e) => item.nombre = e.target.value
     }),
     m('br'),
+    m('br'),
+    m('hr'),
     m('button[type=submit]', 'Guardar')
 ];
 
