@@ -1,5 +1,5 @@
 const Menu = {
-    view: (vnode) => {
+    view: () => {
         return m('nav', [
             m('h1', 'Menú Principal'),
             m('ul', [
