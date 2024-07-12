@@ -36,8 +36,7 @@ const FirebaseModel = {
     delete: (entity, id) => {
         const entityRef = ref(db, `${entity}/${id}`);
         return remove(entityRef).then(() => ({
-            id,
-            ...data 
+            id
         }));
     }
 };
