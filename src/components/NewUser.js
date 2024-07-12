@@ -1,4 +1,3 @@
-import m from 'https://cdn.jsdelivr.net/npm/mithril/mithril.mjs';
 import FirebaseModel from '../models/FirebaseModel.js';
 
 const NewUser = {
