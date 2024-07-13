@@ -1,9 +1,10 @@
-import GenericController from './src/controllers/GenericController.js';
+import HomeView from './src/views/HomeView.js';
+import GenericListView from './src/views/GenericListView.js';
+import GenericFormView from './src/views/GenericFormView.js';
 import { usuarioRenderItem, usuarioRenderForm } from './src/config/UsusarioConfig.js';
 import { proveedorRenderItem, proveedorRenderForm } from './src/config/ProveedorConfig.js';
 import { articuloRenderItem, articuloRenderForm } from './src/config/ArticuloConfig.js';
-import HomeController from './src/controllers/HomeController.js';
-import ArticuloController from './src/controllers/ArticuloController.js';
+import ProveedoresArticuloView from './src/views/ProveedoresArticuloView.js';
 
 m.route.prefix = "/nrd/#!";
 
@@ -21,17 +22,35 @@ const ENTITIES = {
 };
 
 m.route(document.getElementById('app'), '/home', {
-    '/home': HomeController.home,
-    '/usuarios': GenericController.list(ENTITIES.USUARIOS, usuarioRenderItem),
-    '/usuarios/nuevo': GenericController.form(ENTITIES.USUARIOS, usuarioRenderForm),
-    '/usuarios/editar/:id': GenericController.form(ENTITIES.USUARIOS, usuarioRenderForm),
-    
-    '/proveedores': GenericController.list(ENTITIES.PROVEEDORES, proveedorRenderItem),
-    '/proveedores/nuevo': GenericController.form(ENTITIES.PROVEEDORES, proveedorRenderForm),
-    '/proveedores/editar/:id': GenericController.form(ENTITIES.PROVEEDORES, proveedorRenderForm),
-
-    '/articulos': GenericController.list(ENTITIES.ARTICULOS, articuloRenderItem),
-    '/articulos/nuevo': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
-    '/articulos/editar/:id': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
-    '/proveedores-articulo/:id': ArticuloController.proveedoresArticulo,
+    '/home': HomeView,
+    '/usuarios': {
+        render: () => m(GenericListView, { entity: ENTITIES.USUARIOS, renderItem: usuarioRenderItem })
+    },
+    '/usuarios/nuevo': {
+        render: () => m(GenericFormView, { entity: ENTITIES.USUARIOS, renderForm: usuarioRenderForm })
+    },
+    '/usuarios/editar/:id': {
+        render: (vnode) => m(GenericFormView, { entity: ENTITIES.USUARIOS, renderForm: usuarioRenderForm, id: vnode.attrs.id })
+    },
+    '/proveedores': {
+        render: () => m(GenericListView, { entity: ENTITIES.PROVEEDORES, renderItem: proveedorRenderItem })
+    },
+    '/proveedores/nuevo': {
+        render: () => m(GenericFormView, { entity: ENTITIES.PROVEEDORES, renderForm: proveedorRenderForm })
+    },
+    '/proveedores/editar/:id': {
+        render: (vnode) => m(GenericFormView, { entity: ENTITIES.PROVEEDORES, renderForm: proveedorRenderForm, id: vnode.attrs.id })
+    },
+    '/articulos': {
+        render: () => m(GenericListView, { entity: ENTITIES.ARTICULOS, renderItem: articuloRenderItem })
+    },
+    '/articulos/nuevo': {
+        render: () => m(GenericFormView, { entity: ENTITIES.ARTICULOS, renderForm: articuloRenderForm })
+    },
+    '/articulos/editar/:id': {
+        render: (vnode) => m(GenericFormView, { entity: ENTITIES.ARTICULOS, renderForm: articuloRenderForm, id: vnode.attrs.id })
+    },
+    '/proveedores-articulo/:id': {
+        render: (vnode) => m(ProveedoresArticuloView, { articuloId: vnode.attrs.id })
+    }
 });

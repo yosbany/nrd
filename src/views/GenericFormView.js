@@ -1,27 +1,32 @@
 import FirebaseModel from '../models/FirebaseModel.js';
-import GenericForm from '../components/GenericForm.js';
 
 const GenericFormView = {
     oninit: (vnode) => {
         const { entity, id } = vnode.attrs;
-        vnode.state.item = {};
+        vnode.state.item = id ? null : {};
         if (id) {
             FirebaseModel.getById(entity, id).then(item => {
-                vnode.state.item = item;
+                vnode.state.item = item || {};
                 m.redraw();
             });
         }
     },
     view: (vnode) => {
         const { entity, renderForm } = vnode.attrs;
-        return m(GenericForm, {
-            entity,
-            item: vnode.state.item,
-            renderForm,
-            onSubmit: (item) => {
-                FirebaseModel.saveOrUpdate(entity, item.id, item).then(() => m.route.set(`/${entity}`));
+        const { item } = vnode.state;
+        
+        if (!item) {
+            return m('div', 'Cargando...');
+        }
+        
+        return m('form', {
+            onsubmit: (e) => {
+                e.preventDefault();
+                FirebaseModel.saveOrUpdate(entity, vnode.attrs.id, vnode.state.item).then(() => {
+                    m.route.set(`/${entity}`);
+                });
             }
-        });
+        }, renderForm(item, vnode.state));
     }
 };
 
