@@ -13,6 +13,8 @@ const ProveedoresArticuloView = {
         vnode.state.todosProveedores = [];
         vnode.state.selectedProveedor = null;
         vnode.state.codigoArticuloProveedor = '';
+        vnode.state.precioUnitarioProveedor = '';
+        vnode.state.editingIndex = null;
 
         const { articuloId } = vnode.attrs;
 
@@ -29,15 +31,15 @@ const ProveedoresArticuloView = {
         });
     },
     view: (vnode) => {
-        const { proveedores, todosProveedores, selectedProveedor, codigoArticuloProveedor } = vnode.state;
+        const { proveedores, todosProveedores, selectedProveedor, codigoArticuloProveedor, precioUnitarioProveedor, editingIndex } = vnode.state;
 
         return m('div', [
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
-            m('ul', proveedores.map(({ proveedorId, codigoArticulo }) => {
+            m('ul', proveedores.map(({ proveedorId, codigoArticulo, precioUnitario }, index) => {
                 const proveedor = todosProveedores.find(p => p.id === proveedorId);
                 return m('li', [
-                    proveedor ? `(${codigoArticulo}) ${proveedor.nombre}` : 'Proveedor no encontrado',
+                    proveedor ? `(${codigoArticulo}) ${proveedor.nombre} - $${precioUnitario}` : 'Proveedor no encontrado',
                     m('span', ' '),
                     m('a', {
                         href: 'javascript:void(0)',
@@ -51,7 +53,18 @@ const ProveedoresArticuloView = {
                                 });
                             });
                         }
-                    }, 'Eliminar')
+                    }, 'Eliminar'),
+                    m('span', ' | '),
+                    m('a', {
+                        href: 'javascript:void(0)',
+                        onclick: () => {
+                            vnode.state.selectedProveedor = proveedorId;
+                            vnode.state.codigoArticuloProveedor = codigoArticulo;
+                            vnode.state.precioUnitarioProveedor = precioUnitario;
+                            vnode.state.editingIndex = index;
+                            m.redraw();
+                        }
+                    }, 'Editar')
                 ]);
             })),
 
@@ -61,6 +74,7 @@ const ProveedoresArticuloView = {
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Proveedor:'),
                 m('select', {
                     style: { width: '200px' },
+                    value: selectedProveedor,
                     onchange: (e) => vnode.state.selectedProveedor = e.target.value
                 }, [
                     m('option', { value: '' }, 'Seleccionar Proveedor'),
@@ -77,32 +91,51 @@ const ProveedoresArticuloView = {
                     onchange: (e) => vnode.state.codigoArticuloProveedor = e.target.value
                 })
             ]),
+            m('div', { style: { marginBottom: '10px' } }, [
+                m('label', { style: { display: 'inline-block', width: '150px' } }, 'Precio Unitario:'),
+                m('input[type=text]', {
+                    value: precioUnitarioProveedor,
+                    style: { width: '200px' },
+                    onchange: (e) => vnode.state.precioUnitarioProveedor = e.target.value
+                })
+            ]),
             m('div', { style: { marginTop: '20px' } }, [
                 m('button', {
                     onclick: () => {
-                        if (selectedProveedor && !proveedores.some(p => p.proveedorId === selectedProveedor)) {
+                        if (selectedProveedor) {
                             const articuloId = vnode.attrs.articuloId;
                             
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
                                 articulo.proveedores = articulo.proveedores || [];
-                                const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : limpiarNombre(todosProveedores.find(p => p.id === selectedProveedor).nombre);
                                 const proveedor = {
                                     proveedorId: selectedProveedor,
-                                    codigoArticulo: codigo
+                                    codigoArticulo: codigoArticuloProveedor || limpiarNombre(todosProveedores.find(p => p.id === selectedProveedor).nombre),
+                                    precioUnitario: precioUnitarioProveedor
                                 };
-                                articulo.proveedores.push(proveedor);
-                                FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
+                                
+                                if (editingIndex !== null) {
+                                    // Actualizar proveedor existente
+                                    articulo.proveedores[editingIndex] = proveedor;
+                                    vnode.state.proveedores[editingIndex] = proveedor;
+                                } else {
+                                    // Agregar nuevo proveedor
+                                    articulo.proveedores.push(proveedor);
                                     vnode.state.proveedores.push(proveedor);
+                                }
+
+                                FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
                                     vnode.state.selectedProveedor = null;
                                     vnode.state.codigoArticuloProveedor = '';
+                                    vnode.state.precioUnitarioProveedor = '';
+                                    vnode.state.editingIndex = null;
                                     m.redraw();
                                 });
                             });
                         } else {
-                            alert('Este proveedor ya está agregado al artículo.');
+                            alert('Por favor, seleccione un proveedor.');
                         }
                     }
-                }, 'Agregar')
+                }, editingIndex !== null ? 'Actualizar' : 'Agregar')
             ]),
 
             m('hr'),
