@@ -1,12 +1,5 @@
 import FirebaseModel from '../models/FirebaseModel.js';
 
-// Función para limpiar el nombre
-const limpiarNombre = (nombre) => {
-    return nombre
-        .toUpperCase()
-        .replace(/[^A-Z\s]/g, '');
-};
-
 const ProveedoresArticuloView = {
     oninit: (vnode) => {
         vnode.state.proveedores = [];
@@ -93,10 +86,12 @@ const ProveedoresArticuloView = {
             ]),
             m('div', { style: { marginBottom: '10px' } }, [
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Precio Unitario:'),
-                m('input[type=text]', {
+                m('input[type=number]', {
                     value: precioUnitarioProveedor,
                     style: { width: '200px' },
-                    onchange: (e) => vnode.state.precioUnitarioProveedor = e.target.value
+                    min: '0',
+                    step: '0.01',
+                    onchange: (e) => vnode.state.precioUnitarioProveedor = parseFloat(e.target.value) || 0
                 })
             ]),
             m('div', { style: { marginTop: '20px' } }, [
@@ -104,15 +99,15 @@ const ProveedoresArticuloView = {
                     onclick: () => {
                         if (selectedProveedor) {
                             const articuloId = vnode.attrs.articuloId;
-                            
+
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
                                 articulo.proveedores = articulo.proveedores || [];
                                 const proveedor = {
                                     proveedorId: selectedProveedor,
-                                    codigoArticulo: codigoArticuloProveedor || limpiarNombre(todosProveedores.find(p => p.id === selectedProveedor).nombre),
-                                    precioUnitario: precioUnitarioProveedor
+                                    codigoArticulo: codigoArticuloProveedor || '',
+                                    precioUnitario: parseFloat(precioUnitarioProveedor) || 0
                                 };
-                                
+
                                 if (editingIndex !== null) {
                                     // Actualizar proveedor existente
                                     articulo.proveedores[editingIndex] = proveedor;
