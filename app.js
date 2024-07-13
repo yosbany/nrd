@@ -25,16 +25,13 @@ m.route(document.getElementById('app'), '/home', {
     '/usuarios': GenericController.list(ENTITIES.USUARIOS, usuarioRenderItem),
     '/usuarios/nuevo': GenericController.form(ENTITIES.USUARIOS, usuarioRenderForm),
     '/usuarios/editar/:id': GenericController.form(ENTITIES.USUARIOS, usuarioRenderForm),
-    '/usuarios/eliminar/:id': GenericController.delete(ENTITIES.USUARIOS),
     
     '/proveedores': GenericController.list(ENTITIES.PROVEEDORES, proveedorRenderItem),
     '/proveedores/nuevo': GenericController.form(ENTITIES.PROVEEDORES, proveedorRenderForm),
     '/proveedores/editar/:id': GenericController.form(ENTITIES.PROVEEDORES, proveedorRenderForm),
-    '/proveedores/eliminar/:id': GenericController.delete(ENTITIES.PROVEEDORES),
 
     '/articulos': GenericController.list(ENTITIES.ARTICULOS, articuloRenderItem),
     '/articulos/nuevo': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
     '/articulos/editar/:id': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
-    '/articulos/eliminar/:id': GenericController.delete(ENTITIES.ARTICULOS),
     '/proveedores-articulo/:id': ArticuloController.proveedoresArticulo,
 });
