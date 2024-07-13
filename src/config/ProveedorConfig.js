@@ -1,6 +1,12 @@
-const userRenderItem = (item) => `${item.nombre}`;
+const proveedorRenderItem = (item) => `${item.codigo} - ${item.nombre}`;
 
-const userRenderForm = (item) => [
+const proveedorRenderForm = (item) => [
+    m('label', 'Código:'),
+    m('input[type=text]', {
+        value: item.codigo || '',
+        onchange: (e) => item.codigo = e.target.value
+    }),
+    m('br'),
     m('label', 'Nombre:'),
     m('input[type=text]', {
         value: item.nombre || '',
@@ -14,4 +20,4 @@ const userRenderForm = (item) => [
     m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar')
 ];
 
-export { userRenderItem, userRenderForm };
+export { proveedorRenderItem, proveedorRenderForm };
