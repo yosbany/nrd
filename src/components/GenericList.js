@@ -2,7 +2,7 @@ import FirebaseModel from '../models/FirebaseModel.js';
 
 const GenericList = {
     view: (vnode) => {
-        const { entity, items, renderItem } = vnode.attrs;
+        const { entity, items, renderItem, onDelete } = vnode.attrs;
         return m('div', [
             m('h2', `Lista de ${entity}`),
             m('ul', items.map(item => m('li', [
@@ -14,8 +14,11 @@ const GenericList = {
                     href: 'javascript:void(0)',
                     onclick: () => {
                         if (confirm(`¿Estás seguro de que deseas eliminar este ${entity}?`)) {
-                            FirebaseModel.delete(entity, item.id).then(() => m.route.set(`/${entity}`));
-                            m.redraw();
+                            FirebaseModel.delete(entity, item.id).then(() => {
+                                if (typeof onDelete === 'function') {
+                                    onDelete();
+                                }
+                            });
                         }
                     }
                 }, 'Eliminar')
