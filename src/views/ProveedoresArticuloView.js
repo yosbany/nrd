@@ -81,7 +81,7 @@ const ProveedoresArticuloView = {
                         if (selectedProveedor && !proveedores.includes(selectedProveedor)) {
                             const articuloId = vnode.attrs.articuloId;
                             const proveedor = {
-                                id: selectedProveedor,
+                                proveedorId: selectedProveedor,
                                 codigoArticulo: codigoArticuloProveedor
                             };
 
