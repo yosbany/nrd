@@ -7,7 +7,6 @@ const limpiarNombre = (nombre) => {
         .replace(/[^A-Z\s]/g, '');
 };
 
-
 const ProveedoresArticuloView = {
     oninit: (vnode) => {
         vnode.state.proveedores = [];
@@ -45,9 +44,9 @@ const ProveedoresArticuloView = {
                         onclick: () => {
                             const articuloId = vnode.attrs.articuloId;
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
-                                articulo.proveedores = articulo.proveedores.filter(id => id !== proveedorId);
+                                articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
                                 FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
-                                    vnode.state.proveedores = vnode.state.proveedores.filter(id => id !== proveedorId);
+                                    vnode.state.proveedores = vnode.state.proveedores.filter(p => p.proveedorId !== proveedorId);
                                     m.redraw();
                                 });
                             });
@@ -81,12 +80,12 @@ const ProveedoresArticuloView = {
             m('div', { style: { marginTop: '20px' } }, [
                 m('button', {
                     onclick: () => {
-                        if (selectedProveedor && !proveedores.includes(selectedProveedor)) {
+                        if (selectedProveedor && !proveedores.some(p => p.proveedorId === selectedProveedor)) {
                             const articuloId = vnode.attrs.articuloId;
                             
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
                                 articulo.proveedores = articulo.proveedores || [];
-                                const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : limpiarNombre(articulo.nombre);
+                                const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : limpiarNombre(todosProveedores.find(p => p.id === selectedProveedor).nombre);
                                 const proveedor = {
                                     proveedorId: selectedProveedor,
                                     codigoArticulo: codigo
