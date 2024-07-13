@@ -32,7 +32,9 @@ const ProveedoresArticuloView = {
                 const proveedor = todosProveedores.find(p => p.id === proveedorId);
                 return m('li', [
                     proveedor ? proveedor.nombre : '',
-                    m('button', {
+                    m('span', ' '),
+                    m('a', {
+                        href: 'javascript:void(0)',
                         onclick: () => {
                             // Eliminar proveedor del artículo
                             const articuloId = vnode.attrs.articuloId;

@@ -6,7 +6,6 @@ const Menu = {
                 m('li', m(m.route.Link, { href: '/usuarios' }, 'Usuarios')),
                 m('li', m(m.route.Link, { href: '/proveedores' }, 'Proveedores')),
                 m('li', m(m.route.Link, { href: '/ordenes' }, 'Órdenes')),
-                m('li', m(m.route.Link, { href: '/clientes' }, 'Clientes')),
                 m('li', m(m.route.Link, { href: '/articulos' }, 'Artículos'))
             ])
         ]);
