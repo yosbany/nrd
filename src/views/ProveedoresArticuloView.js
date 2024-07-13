@@ -29,10 +29,10 @@ const ProveedoresArticuloView = {
             m('hr'),
 
             // Lista de proveedores actuales del artículo
-            m('ul', proveedores.map(proveedorId => {
+            m('ul', proveedores.map(({ proveedorId, codigoArticulo }) => {
                 const proveedor = todosProveedores.find(p => p.id === proveedorId);
                 return m('li', [
-                    proveedor ? proveedor.nombre : '',
+                    proveedor ? `(${codigoArticulo}) ${proveedor.nombre}` : '',
                     m('span', ' '),
                     m('a', {
                         href: 'javascript:void(0)',
@@ -55,7 +55,7 @@ const ProveedoresArticuloView = {
 
             // Formulario para agregar proveedor al artículo
             m('div', { style: { marginBottom: '10px' } }, [
-                m('label', { style: { display: 'inline-block', width: '100px' } }, 'Proveedor:'),
+                m('label', { style: { display: 'inline-block', width: '150px' } }, 'Proveedor:'),
                 m('select', {
                     style: { width: '200px' },
                     onchange: (e) => vnode.state.selectedProveedor = e.target.value
@@ -67,7 +67,7 @@ const ProveedoresArticuloView = {
                 ]),
             ]),
             m('div', { style: { marginBottom: '10px' } }, [
-                m('label', { style: { display: 'inline-block', width: '100px' } }, 'Código Artículo:'),
+                m('label', { style: { display: 'inline-block', width: '150px' } }, 'Código Artículo:'),
                 m('input[type=text]', {
                     value: codigoArticuloProveedor,
                     style: { width: '200px' },
