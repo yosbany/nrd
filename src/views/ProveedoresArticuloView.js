@@ -28,28 +28,39 @@ const ProveedoresArticuloView = {
         return m('div', [
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
-            m('ul', proveedores.map(({ proveedorId, codigoArticulo }) => {
-                const proveedor = todosProveedores.find(p => p.id === proveedorId);
-                return m('li', [
-                    proveedor ? `(${codigoArticulo}) ${proveedor.nombre}` : 'Proveedor no encontrado',
-                    m('span', ' '),
-                    m('a', {
-                        href: 'javascript:void(0)',
-                        onclick: () => {
-                            if (confirm('¿Está seguro que desea eliminar este proveedor?')) {
-                                const articuloId = vnode.attrs.articuloId;
-                                FirebaseModel.getById('articulos', articuloId).then(articulo => {
-                                    articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
-                                    FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
-                                        vnode.state.proveedores = vnode.state.proveedores.filter(p => p.proveedorId !== proveedorId);
-                                        m.redraw();
-                                    });
-                                });
-                            }
-                        }
-                    }, 'Eliminar')
-                ]);
-            })),
+            m('table', { style: { width: '100%', borderCollapse: 'collapse' } }, [
+                m('thead', [
+                    m('tr', [
+                        m('th', { style: { textAlign: 'left', padding: '8px' } }, 'Proveedor'),
+                        m('th', { style: { textAlign: 'left', padding: '8px' } }, 'Código Artículo'),
+                        m('th', { style: { textAlign: 'left', padding: '8px' } }, 'Acciones')
+                    ])
+                ]),
+                m('tbody', proveedores.map(({ proveedorId, codigoArticulo }) => {
+                    const proveedor = todosProveedores.find(p => p.id === proveedorId);
+                    return m('tr', [
+                        m('td', { style: { padding: '8px' } }, proveedor ? proveedor.nombre : 'Proveedor no encontrado'),
+                        m('td', { style: { padding: '8px' } }, codigoArticulo),
+                        m('td', { style: { padding: '8px' } }, [
+                            m('a', {
+                                href: 'javascript:void(0)',
+                                onclick: () => {
+                                    if (confirm('¿Está seguro que desea eliminar este proveedor?')) {
+                                        const articuloId = vnode.attrs.articuloId;
+                                        FirebaseModel.getById('articulos', articuloId).then(articulo => {
+                                            articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
+                                            FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
+                                                vnode.state.proveedores = vnode.state.proveedores.filter(p => p.proveedorId !== proveedorId);
+                                                m.redraw();
+                                            });
+                                        });
+                                    }
+                                }
+                            }, 'Eliminar')
+                        ])
+                    ]);
+                }))
+            ]),
 
             m('hr'),
 
