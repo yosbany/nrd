@@ -3,6 +3,7 @@ import { usuarioRenderItem, usuarioRenderForm } from './src/config/UsusarioConfi
 import { proveedorRenderItem, proveedorRenderForm } from './src/config/ProveedorConfig.js';
 import { articuloRenderItem, articuloRenderForm } from './src/config/ArticuloConfig.js';
 import HomeController from './src/controllers/HomeController.js';
+import ArticuloController from './src/controllers/ArticuloController.js';
 
 m.route.prefix = "/nrd/#!";
 
@@ -35,4 +36,5 @@ m.route(document.getElementById('app'), '/home', {
     '/articulos/nuevo': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
     '/articulos/editar/:id': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
     '/articulos/eliminar/:id': GenericController.delete(ENTITIES.ARTICULOS),
+    '/proveedores-articulo/:id': ArticuloController.proveedoresArticulo(),
 });

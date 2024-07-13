@@ -25,10 +25,10 @@ const articuloRenderForm = (item) => [
             onchange: (e) => item.stock_deseado = e.target.value
         })
     ]),
-    m('div', { style: { marginBottom: '10px' } }, [
+    item.id ? m('div', { style: { marginBottom: '10px' } }, [
         m('label', { style: { display: 'inline-block', width: '100px' } }, 'Proveedores:'),
-        m(m.route.Link, { href: `proveedores-x-articulo/${item.id}` }, 'Ver Proveedores'),
-    ]),
+        m(m.route.Link, { href: `/proveedores-articulo/${item.id}` }, 'Ver Proveedores')
+    ]) : null,
     m('div', { style: { marginTop: '20px' } }, [
         m('button[type=submit]', { style: { marginRight: '10px' } }, 'Guardar'),
         m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar')
