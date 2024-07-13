@@ -1,6 +1,6 @@
 const usuarioRenderItem = {
     header: ['Nombre', 'Acciones'],
-    body: (item) => {
+    body: (item, onDelete) => {
         return m('tr', [
             m('td', item.nombre),
             m('td', [
@@ -8,13 +8,7 @@ const usuarioRenderItem = {
                 m('span', ' | '),
                 m('a', {
                     href: 'javascript:void(0)',
-                    onclick: () => {
-                        if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
-                            FirebaseModel.delete('usuarios', item.id).then(() => {
-                                m.route.set('/usuarios');
-                            });
-                        }
-                    }
+                    onclick: () => onDelete(item.id)
                 }, 'Eliminar')
             ])
         ]);
