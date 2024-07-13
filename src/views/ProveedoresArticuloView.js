@@ -1,5 +1,13 @@
 import FirebaseModel from '../models/FirebaseModel.js';
 
+// Función para limpiar el nombre
+const limpiarNombre = (nombre) => {
+    return nombre
+        .toUpperCase()
+        .replace(/[^A-Z\s]/g, '');
+};
+
+
 const ProveedoresArticuloView = {
     oninit: (vnode) => {
         vnode.state.proveedores = [];
@@ -27,18 +35,15 @@ const ProveedoresArticuloView = {
         return m('div', [
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
-
-            // Lista de proveedores actuales del artículo
             m('ul', proveedores.map(({ proveedorId, codigoArticulo }) => {
                 console.log(codigoArticulo,proveedorId )
                 const proveedor = todosProveedores.find(p => p.id === proveedorId);
                 return m('li', [
-                    proveedor ? `(${codigoArticulo}) ${proveedor.nombre}` : '',
+                    proveedor ? `(${codigoArticulo}) ${proveedor.nombre}` : 'Proveedor no encontrado',
                     m('span', ' '),
                     m('a', {
                         href: 'javascript:void(0)',
                         onclick: () => {
-                            // Eliminar proveedor del artículo
                             const articuloId = vnode.attrs.articuloId;
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
                                 articulo.proveedores = articulo.proveedores.filter(id => id !== proveedorId);
@@ -54,7 +59,6 @@ const ProveedoresArticuloView = {
 
             m('hr'),
 
-            // Formulario para agregar proveedor al artículo
             m('div', { style: { marginBottom: '10px' } }, [
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Proveedor:'),
                 m('select', {
@@ -80,16 +84,17 @@ const ProveedoresArticuloView = {
                     onclick: () => {
                         if (selectedProveedor && !proveedores.includes(selectedProveedor)) {
                             const articuloId = vnode.attrs.articuloId;
-                            const proveedor = {
-                                proveedorId: selectedProveedor,
-                                codigoArticulo: codigoArticuloProveedor
-                            };
-
+                            
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
                                 articulo.proveedores = articulo.proveedores || [];
+                                const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : limpiarNombre(articulo.nombre);
+                                const proveedor = {
+                                    proveedorId: selectedProveedor,
+                                    codigoArticulo: codigo
+                                };
                                 articulo.proveedores.push(proveedor);
                                 FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
-                                    vnode.state.proveedores.push(selectedProveedor);
+                                    vnode.state.proveedores.push(proveedor);
                                     vnode.state.selectedProveedor = null;
                                     vnode.state.codigoArticuloProveedor = '';
                                     m.redraw();
