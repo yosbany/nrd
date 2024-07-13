@@ -6,7 +6,7 @@ const ProveedoresArticuloView = {
         vnode.state.todosProveedores = [];
         vnode.state.selectedProveedor = null;
         vnode.state.codigoArticuloProveedor = '';
-        vnode.state.precioUnitarioProveedor = '';
+        vnode.state.precioUnitarioProveedor = 0;
 
         const { articuloId } = vnode.attrs;
 
@@ -28,24 +28,28 @@ const ProveedoresArticuloView = {
         return m('div', [
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
-            m('table', { style: { width: '100%', borderCollapse: 'collapse' } }, [
+
+            // Tabla de proveedores
+            m('table', [
                 m('thead', [
                     m('tr', [
-                        m('th', { style: { textAlign: 'left', padding: '8px' } }, 'Proveedor'),
-                        m('th', { style: { textAlign: 'left', padding: '8px' } }, 'Código Artículo'),
-                        m('th', { style: { textAlign: 'left', padding: '8px' } }, 'Acciones')
+                        m('th', 'Proveedor'),
+                        m('th', 'Código Artículo'),
+                        m('th', 'Precio Unitario'),
+                        m('th', 'Acciones')
                     ])
                 ]),
                 m('tbody', proveedores.map(({ proveedorId, codigoArticulo }) => {
                     const proveedor = todosProveedores.find(p => p.id === proveedorId);
                     return m('tr', [
-                        m('td', { style: { padding: '8px' } }, proveedor ? proveedor.nombre : 'Proveedor no encontrado'),
-                        m('td', { style: { padding: '8px' } }, codigoArticulo),
-                        m('td', { style: { padding: '8px' } }, [
+                        m('td', proveedor ? proveedor.nombre : 'Proveedor no encontrado'),
+                        m('td', codigoArticulo),
+                        m('td', proveedor ? proveedor.precioUnitario : 'No disponible'),
+                        m('td', [
                             m('a', {
                                 href: 'javascript:void(0)',
                                 onclick: () => {
-                                    if (confirm('¿Está seguro que desea eliminar este proveedor?')) {
+                                    if (confirm('¿Estás seguro de que deseas eliminar este proveedor?')) {
                                         const articuloId = vnode.attrs.articuloId;
                                         FirebaseModel.getById('articulos', articuloId).then(articulo => {
                                             articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
@@ -64,6 +68,7 @@ const ProveedoresArticuloView = {
 
             m('hr'),
 
+            // Formulario para agregar proveedores
             m('div', { style: { marginBottom: '10px' } }, [
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Proveedor:'),
                 m('select', {
@@ -86,37 +91,48 @@ const ProveedoresArticuloView = {
             ]),
             m('div', { style: { marginBottom: '10px' } }, [
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Precio Unitario:'),
-                m('input[type=text]', {
+                m('input[type=number]', {
                     value: precioUnitarioProveedor,
                     style: { width: '200px' },
-                    onchange: (e) => vnode.state.precioUnitarioProveedor = e.target.value
+                    onchange: (e) => vnode.state.precioUnitarioProveedor = parseFloat(e.target.value) || 0
                 })
             ]),
             m('div', { style: { marginTop: '20px' } }, [
                 m('button', {
                     onclick: () => {
                         if (selectedProveedor && !proveedores.some(p => p.proveedorId === selectedProveedor)) {
-                            const proveedor = {
-                                proveedorId: selectedProveedor,
-                                codigoArticulo: codigoArticuloProveedor || '',
-                                precioUnitario: parseFloat(precioUnitarioProveedor) || 0
-                            };
-
                             const articuloId = vnode.attrs.articuloId;
+
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
-                                articulo.proveedores = [...(articulo.proveedores || []), proveedor];
+                                articulo.proveedores = articulo.proveedores || [];
+                                const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : '';
+                                const proveedor = {
+                                    proveedorId: selectedProveedor,
+                                    codigoArticulo: codigo,
+                                    precioUnitario: precioUnitarioProveedor
+                                };
+                                articulo.proveedores.push(proveedor);
                                 FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
                                     vnode.state.proveedores.push(proveedor);
                                     vnode.state.selectedProveedor = null;
                                     vnode.state.codigoArticuloProveedor = '';
-                                    vnode.state.precioUnitarioProveedor = '';
+                                    vnode.state.precioUnitarioProveedor = 0;
                                     m.redraw();
                                 });
                             });
+                        } else {
+                            alert('Este proveedor ya está agregado al artículo.');
                         }
                     }
-                }, 'Agregar Proveedor')
-            ])
+                }, 'Agregar')
+            ]),
+
+            m('hr'),
+
+            // Enlaces para regresar
+            m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Regresar'),
+            m('span', ' | '),
+            m('a', { href: m.route.prefix + '/', oncreate: m.route.Link }, 'Regresar al Inicio')
         ]);
     }
 };

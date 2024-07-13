@@ -1,27 +1,17 @@
-import FirebaseModel from '../models/FirebaseModel.js';
-import GenericList from '../components/GenericList.js';
-
-const GenericListView = {
-    oninit: (vnode) => {
-        const { entity } = vnode.attrs;
-        vnode.state.items = [];
-        FirebaseModel.getAll(entity).then(items => {
-            vnode.state.items = items || [];
-            m.redraw();
-        });
-    },
+const GenericList = {
     view: (vnode) => {
-        const { entity, renderItem } = vnode.attrs;
+        const { entity, items, renderItem } = vnode.attrs;
         return m('div', [
-            m(GenericList, {
-                entity,
-                items: vnode.state.items,
-                renderItem
-            }),
-            m('hr'),
-            m('a', { href: m.route.prefix + '/', oncreate: m.route.Link }, 'Regresar al Inicio')
+            m('h2', `Lista de ${entity}`),
+            m('table', { style: { width: '100%', borderCollapse: 'collapse' } }, [
+                m('thead', [
+                    m('tr', renderItem.header.map(header => m('th', header)))
+                ]),
+                m('tbody', items.map(item => renderItem.body(item)))
+            ]),
+            m(m.route.Link, { href: `/${entity}/nuevo` }, `Agregar ${entity}`)
         ]);
     }
 };
 
-export default GenericListView;
+export default GenericList;
