@@ -2,7 +2,7 @@ import ProveedoresArticuloView from '../views/ProveedoresArticuloView.js';
 
 const ArticuloController = {
     proveedoresArticulo: {
-        view: () => m(ProveedoresArticuloView)
+        view: () => m(ProveedoresArticuloView, {articuloId: vnode.attrs.id})
     }
 };
 
