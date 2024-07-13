@@ -51,7 +51,7 @@ const ProveedoresArticuloView = {
             m('hr'),
 
             // Select para agregar nuevos proveedores
-            m('label', 'Agregar Proveedor: '),
+            m('label', 'Proveedor: '),
             m('select', {
                 onchange: (e) => vnode.state.selectedProveedor = e.target.value
             }, [
@@ -79,7 +79,8 @@ const ProveedoresArticuloView = {
 
             m('hr'),
 
-            // Botón para regresar al inicio
+            m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar'),
+            m('span', ' '),
             m('a', { href: m.route.prefix + '/', oncreate: m.route.Link }, 'Regresar al Inicio')
         ]);
     }
