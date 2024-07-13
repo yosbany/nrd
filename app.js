@@ -36,5 +36,5 @@ m.route(document.getElementById('app'), '/home', {
     '/articulos/nuevo': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
     '/articulos/editar/:id': GenericController.form(ENTITIES.ARTICULOS, articuloRenderForm),
     '/articulos/eliminar/:id': GenericController.delete(ENTITIES.ARTICULOS),
-    '/proveedores-articulo/:id': ArticuloController.proveedoresArticulo(),
+    '/proveedores-articulo/:id': ArticuloController.proveedoresArticulo,
 });
