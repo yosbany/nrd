@@ -5,6 +5,7 @@ const ProveedoresArticuloView = {
         vnode.state.proveedores = [];
         vnode.state.todosProveedores = [];
         vnode.state.selectedProveedor = null;
+        vnode.state.selectedPackCompra = null;
         vnode.state.codigoArticuloProveedor = '';
         vnode.state.precioUnitarioProveedor = '';
         vnode.state.editingIndex = null;
@@ -29,7 +30,7 @@ const ProveedoresArticuloView = {
         return m('div', [
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
-            m('ul', proveedores.map(({ proveedorId, codigoArticulo, precioUnitario }, index) => {
+            m('ul', proveedores.map(({ proveedorId, codigoArticulo, precioUnitario,  packCompra}, index) => {
                 const proveedor = todosProveedores.find(p => p.id === proveedorId);
                 return m('li', [
                     proveedor ? `(${codigoArticulo}) ${proveedor.nombre} - $${precioUnitario}` : 'Proveedor no encontrado',
@@ -40,6 +41,7 @@ const ProveedoresArticuloView = {
                             vnode.state.selectedProveedor = proveedorId;
                             vnode.state.codigoArticuloProveedor = codigoArticulo;
                             vnode.state.precioUnitarioProveedor = precioUnitario;
+                            vnode.state.selectedPackCompra = packCompra;
                             vnode.state.editingIndex = index;
                             m.redraw();
                         }
@@ -96,10 +98,27 @@ const ProveedoresArticuloView = {
                     onchange: (e) => vnode.state.precioUnitarioProveedor = parseFloat(e.target.value) || 0
                 })
             ]),
+            m('div', { style: { marginBottom: '10px' } }, [
+                m('label', { style: { display: 'inline-block', width: '150px' } }, 'Pack Compra:'),
+                m('select', {
+                    style: { width: '200px' },
+                    value: selectedPackCompra,
+                    onchange: (e) => vnode.state.selectedPackCompra = e.target.value
+                }, [
+                    m('option', { value: '' }, 'Seleccionar Pack'),
+                    m('option', { value: 'UN' }, 'Unidad'),
+                    m('option', { value: 'KG' }, 'Kilogramos'),
+                    m('option', { value: 'HORMA' }, 'Horma'),
+                    m('option', { value: 'FUNDA' }, 'Funda'),
+                    m('option', { value: 'PLANCHA' }, 'Plancha'),
+                    m('option', { value: 'CAJON' }, 'Cajón'),
+                    m('option', { value: 'CAJA' }, 'Caja'),
+                ]),
+            ]),
             m('div', { style: { marginTop: '20px' } }, [
                 m('button', {
                     onclick: () => {
-                        if (selectedProveedor) {
+                        if (selectedProveedor && !proveedores.some(p => p.proveedorId === selectedProveedor)) {
                             const articuloId = vnode.attrs.articuloId;
 
                             FirebaseModel.getById('articulos', articuloId).then(articulo => {
@@ -107,7 +126,8 @@ const ProveedoresArticuloView = {
                                 const proveedor = {
                                     proveedorId: selectedProveedor,
                                     codigoArticulo: codigoArticuloProveedor || '',
-                                    precioUnitario: parseFloat(precioUnitarioProveedor) || 0
+                                    precioUnitario: parseFloat(precioUnitarioProveedor) || 0,
+                                    packCompra: selectedPackCompra,
                                 };
 
                                 if (editingIndex !== null) {

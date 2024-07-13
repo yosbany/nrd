@@ -25,6 +25,14 @@ const articuloRenderForm = (item) => [
             onchange: (e) => item.stock_deseado = e.target.value
         })
     ]),
+    m('div', { style: { marginBottom: '10px' } }, [
+        m('label', { style: { display: 'inline-block', width: '100px' } }, 'Último Precio:'),
+        m('input[type=text]', {
+            value: item.ultimo_precio || '',
+            style: { width: '200px' },
+            onchange: (e) => item.ultimo_precio = e.target.value
+        })
+    ]),
     item.id ? m('div', { style: { marginBottom: '10px' } }, [
         m('label', { style: { display: 'inline-block', width: '100px' } }, 'Proveedores:'),
         m(m.route.Link, { href: `/proveedores-articulo/${item.id}` }, 'Ver Proveedores')
