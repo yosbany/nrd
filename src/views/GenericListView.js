@@ -1,6 +1,6 @@
 import FirebaseModel from '../models/FirebaseModel.js';
 import GenericList from '../components/GenericList.js';
-import { usuarioRenderItem } from '../config/UsuarioConfig.js'; // Asegúrate de la ruta correcta
+import { usuarioRenderItem } from '../config/UsusarioConfig.js';
 
 const GenericListView = {
     oninit: (vnode) => {
