@@ -30,6 +30,7 @@ const ProveedoresArticuloView = {
 
             // Lista de proveedores actuales del artículo
             m('ul', proveedores.map(({ proveedorId, codigoArticulo }) => {
+                console.log(codigoArticulo,proveedorId )
                 const proveedor = todosProveedores.find(p => p.id === proveedorId);
                 return m('li', [
                     proveedor ? `(${codigoArticulo}) ${proveedor.nombre}` : '',
