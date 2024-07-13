@@ -65,7 +65,7 @@ const ProveedoresArticuloView = {
             m('span', ' '),
             m('button', {
                 onclick: () => {
-                    if (selectedProveedor) {
+                    if (selectedProveedor && !proveedores.includes(selectedProveedor)) {
                         const articuloId = vnode.attrs.articuloId;
                         FirebaseModel.getById('articulos', articuloId).then(articulo => {
                             articulo.proveedores = articulo.proveedores || [];
@@ -76,6 +76,8 @@ const ProveedoresArticuloView = {
                                 m.redraw();
                             });
                         });
+                    } else {
+                        alert('Este proveedor ya está agregado al artículo.');
                     }
                 }
             }, 'Agregar'),
