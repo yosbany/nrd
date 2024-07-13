@@ -15,6 +15,7 @@ const GenericList = {
                     onclick: () => {
                         if (confirm(`¿Estás seguro de que deseas eliminar este ${entity}?`)) {
                             FirebaseModel.delete(entity, item.id).then(() => m.route.set(`/${entity}`));
+                            m.redraw();
                         }
                     }
                 }, 'Eliminar')
