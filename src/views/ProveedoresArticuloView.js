@@ -62,6 +62,7 @@ const ProveedoresArticuloView = {
                     m('option', { value: proveedor.id }, proveedor.nombre)
                 )
             ]),
+            m('span', ' '),
             m('button', {
                 onclick: () => {
                     if (selectedProveedor) {
@@ -81,8 +82,8 @@ const ProveedoresArticuloView = {
 
             m('hr'),
 
-            m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar'),
-            m('span', ' '),
+            m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Regresar'),
+            m('span', ' | '),
             m('a', { href: m.route.prefix + '/', oncreate: m.route.Link }, 'Regresar al Inicio')
         ]);
     }

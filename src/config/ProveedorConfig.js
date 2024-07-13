@@ -19,6 +19,7 @@ const proveedorRenderForm = (item) => [
     ]),
     m('div', { style: { marginTop: '20px' } }, [
         m('button[type=submit]', { style: { marginRight: '10px' } }, 'Guardar'),
+        m('span', ' '),
         m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar')
     ])
 ];
