@@ -1,16 +1,15 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js';
-import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js';
-import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js';
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCOKQBJthEjqji2GxPsjcEZtUu965wtc1c",
-    authDomain: "nrd-firebase.firebaseapp.com",
-    databaseURL: "https://nrd-firebase-default-rtdb.firebaseio.com",
-    projectId: "nrd-firebase",
-    storageBucket: "nrd-firebase.appspot.com",
-    messagingSenderId: "840023356475",
-    appId: "1:840023356475:web:a7411b9b5808ac51d8581e"
-};
+    apiKey: "AIzaSyCTwwaxPN2NeitdQDHzSmcVBLOOgUMtHXc",
+    authDomain: "nrd-test-81f37.firebaseapp.com",
+    projectId: "nrd-test-81f37",
+    storageBucket: "nrd-test-81f37.appspot.com",
+    messagingSenderId: "992178759876",
+    appId: "1:992178759876:web:f5e686c6bd47a28ce84191"
+  };
 
 const firebase = initializeApp(firebaseConfig);
 const auth = getAuth(firebase);
@@ -26,7 +25,7 @@ async function login(email, password) {
 }
 
 // Ejecutar el login automáticamente
-await login("nriodor@gmail.com", "NuevaR1oDor");
+await login("nriodor@gmail.com", "12345678");
 
 
-export { firebase, auth, db, login };
+export { firebase, auth, db };
