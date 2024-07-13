@@ -37,27 +37,29 @@ const ProveedoresArticuloView = {
                     m('a', {
                         href: 'javascript:void(0)',
                         onclick: () => {
-                            const articuloId = vnode.attrs.articuloId;
-                            FirebaseModel.getById('articulos', articuloId).then(articulo => {
-                                articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
-                                FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
-                                    vnode.state.proveedores = vnode.state.proveedores.filter(p => p.proveedorId !== proveedorId);
-                                    m.redraw();
-                                });
-                            });
-                        }
-                    }, 'Eliminar'),
-                    m('span', ' | '),
-                    m('a', {
-                        href: 'javascript:void(0)',
-                        onclick: () => {
                             vnode.state.selectedProveedor = proveedorId;
                             vnode.state.codigoArticuloProveedor = codigoArticulo;
                             vnode.state.precioUnitarioProveedor = precioUnitario;
                             vnode.state.editingIndex = index;
                             m.redraw();
                         }
-                    }, 'Editar')
+                    }, 'Editar'),
+                    m('span', ' | '),
+                    m('a', {
+                        href: 'javascript:void(0)',
+                        onclick: () => {
+                            if (confirm('¿Estás seguro de que deseas eliminar este proveedor?')) {
+                                const articuloId = vnode.attrs.articuloId;
+                                FirebaseModel.getById('articulos', articuloId).then(articulo => {
+                                    articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
+                                    FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
+                                        vnode.state.proveedores = vnode.state.proveedores.filter(p => p.proveedorId !== proveedorId);
+                                        m.redraw();
+                                    });
+                                });
+                            }
+                        }
+                    }, 'Eliminar')
                 ]);
             })),
 
