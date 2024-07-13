@@ -36,7 +36,6 @@ const ProveedoresArticuloView = {
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
             m('ul', proveedores.map(({ proveedorId, codigoArticulo }) => {
-                console.log(codigoArticulo,proveedorId )
                 const proveedor = todosProveedores.find(p => p.id === proveedorId);
                 return m('li', [
                     proveedor ? `(${codigoArticulo}) ${proveedor.nombre}` : 'Proveedor no encontrado',
