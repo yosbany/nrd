@@ -1,4 +1,5 @@
 import FirebaseModel from '../models/FirebaseModel.js';
+import Table from '../components/Table.js';
 
 const ProveedoresArticuloView = {
     oninit: (vnode) => {
@@ -25,46 +26,41 @@ const ProveedoresArticuloView = {
     view: (vnode) => {
         const { proveedores, todosProveedores, selectedProveedor, codigoArticuloProveedor, precioUnitarioProveedor } = vnode.state;
 
+        const rows = proveedores.map(({ proveedorId, codigoArticulo }) => {
+            const proveedor = todosProveedores.find(p => p.id === proveedorId);
+            return [
+                m('td', proveedor ? proveedor.nombre : 'Proveedor no encontrado'),
+                m('td', codigoArticulo),
+                m('td', proveedor ? proveedor.precioUnitario : 'No disponible'),
+                m('td', [
+                    m('a', {
+                        href: 'javascript:void(0)',
+                        onclick: () => {
+                            if (confirm('¿Estás seguro de que deseas eliminar este proveedor?')) {
+                                const articuloId = vnode.attrs.articuloId;
+                                FirebaseModel.getById('articulos', articuloId).then(articulo => {
+                                    articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
+                                    FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
+                                        vnode.state.proveedores = vnode.state.proveedores.filter(p => p.proveedorId !== proveedorId);
+                                        m.redraw();
+                                    });
+                                });
+                            }
+                        }
+                    }, 'Eliminar')
+                ])
+            ];
+        });
+
         return m('div', [
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
 
-            // Tabla de proveedores
-            m('table', [
-                m('thead', [
-                    m('tr', [
-                        m('th', 'Proveedor'),
-                        m('th', 'Código Artículo'),
-                        m('th', 'Precio Unitario'),
-                        m('th', 'Acciones')
-                    ])
-                ]),
-                m('tbody', proveedores.map(({ proveedorId, codigoArticulo }) => {
-                    const proveedor = todosProveedores.find(p => p.id === proveedorId);
-                    return m('tr', [
-                        m('td', proveedor ? proveedor.nombre : 'Proveedor no encontrado'),
-                        m('td', codigoArticulo),
-                        m('td', proveedor ? proveedor.precioUnitario : 'No disponible'),
-                        m('td', [
-                            m('a', {
-                                href: 'javascript:void(0)',
-                                onclick: () => {
-                                    if (confirm('¿Estás seguro de que deseas eliminar este proveedor?')) {
-                                        const articuloId = vnode.attrs.articuloId;
-                                        FirebaseModel.getById('articulos', articuloId).then(articulo => {
-                                            articulo.proveedores = articulo.proveedores.filter(p => p.proveedorId !== proveedorId);
-                                            FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
-                                                vnode.state.proveedores = vnode.state.proveedores.filter(p => p.proveedorId !== proveedorId);
-                                                m.redraw();
-                                            });
-                                        });
-                                    }
-                                }
-                            }, 'Eliminar')
-                        ])
-                    ]);
-                }))
-            ]),
+            // Usando el componente Table
+            m(Table, {
+                headers: ['Proveedor', 'Código Artículo', 'Precio Unitario', 'Acciones'],
+                rows: rows
+            }),
 
             m('hr'),
 
