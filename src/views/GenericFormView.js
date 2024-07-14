@@ -26,7 +26,7 @@ const GenericFormView = {
                     m.route.set(`/${entity}`);
                 });
             }
-        }, renderForm(item, vnode.state));
+        }, renderForm(vnode.state));
     }
 };
 
