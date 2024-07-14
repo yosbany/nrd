@@ -61,3 +61,34 @@ table tr:hover {
     color: #007BFF;
     cursor: pointer;
 }
+
+/*Menu*/
+.menu {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.menu-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-item {
+    margin: 10px 0;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.menu-item a:hover {
+    text-decoration: underline;
+}
+
