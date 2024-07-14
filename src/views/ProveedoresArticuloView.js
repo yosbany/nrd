@@ -114,10 +114,9 @@ const ProveedoresArticuloView = {
                         FirebaseModel.getById('articulos', articuloId).then(articulo => {
                             articulo.proveedores = articulo.proveedores || [];
 
-                            const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : '';
-                            const proveedor = {
+                           const proveedor = {
                                 proveedorId: selectedProveedor,
-                                codigoArticulo: codigo,
+                                codigoArticulo: codigoArticuloProveedor,
                                 precioUnitario: precioUnitarioProveedor
                             };
 
