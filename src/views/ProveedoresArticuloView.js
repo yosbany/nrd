@@ -8,6 +8,7 @@ const ProveedoresArticuloView = {
         vnode.state.selectedProveedor = null;
         vnode.state.codigoArticuloProveedor = '';
         vnode.state.precioUnitarioProveedor = 0;
+        vnode.state.editingProveedorId = null;
 
         const { articuloId } = vnode.attrs;
 
@@ -24,7 +25,7 @@ const ProveedoresArticuloView = {
         });
     },
     view: (vnode) => {
-        const { proveedores, todosProveedores, selectedProveedor, codigoArticuloProveedor, precioUnitarioProveedor } = vnode.state;
+        const { proveedores, todosProveedores, selectedProveedor, codigoArticuloProveedor, precioUnitarioProveedor, editingProveedorId } = vnode.state;
 
         const rows = proveedores.map(({ proveedorId, codigoArticulo }) => {
             const proveedor = todosProveedores.find(p => p.id === proveedorId);
@@ -33,6 +34,17 @@ const ProveedoresArticuloView = {
                 m('td', codigoArticulo),
                 m('td', proveedor ? proveedor.precioUnitario : 'No disponible'),
                 m('td', [
+                    m('a', {
+                        href: 'javascript:void(0)',
+                        onclick: () => {
+                            // Editar proveedor
+                            vnode.state.selectedProveedor = proveedorId;
+                            vnode.state.codigoArticuloProveedor = codigoArticulo;
+                            vnode.state.precioUnitarioProveedor = proveedor ? proveedor.precioUnitario : 0;
+                            vnode.state.editingProveedorId = proveedorId;
+                        }
+                    }, 'Editar'),
+                    m('span', ' | '),
                     m('a', {
                         href: 'javascript:void(0)',
                         onclick: () => {
@@ -64,7 +76,7 @@ const ProveedoresArticuloView = {
 
             m('hr'),
 
-            // Formulario para agregar proveedores
+            // Formulario para agregar/editar proveedores
             m('div', { style: { marginBottom: '10px' } }, [
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Proveedor:'),
                 m('select', {
@@ -96,31 +108,44 @@ const ProveedoresArticuloView = {
             m('div', { style: { marginTop: '20px' } }, [
                 m('button', {
                     onclick: () => {
-                        if (selectedProveedor && !proveedores.some(p => p.proveedorId === selectedProveedor)) {
-                            const articuloId = vnode.attrs.articuloId;
+                        const articuloId = vnode.attrs.articuloId;
 
-                            FirebaseModel.getById('articulos', articuloId).then(articulo => {
-                                articulo.proveedores = articulo.proveedores || [];
-                                const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : '';
-                                const proveedor = {
-                                    proveedorId: selectedProveedor,
-                                    codigoArticulo: codigo,
-                                    precioUnitario: precioUnitarioProveedor
-                                };
-                                articulo.proveedores.push(proveedor);
-                                FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
-                                    vnode.state.proveedores.push(proveedor);
-                                    vnode.state.selectedProveedor = null;
-                                    vnode.state.codigoArticuloProveedor = '';
-                                    vnode.state.precioUnitarioProveedor = 0;
-                                    m.redraw();
-                                });
+                        FirebaseModel.getById('articulos', articuloId).then(articulo => {
+                            articulo.proveedores = articulo.proveedores || [];
+
+                            const codigo = codigoArticuloProveedor ? codigoArticuloProveedor : '';
+                            const proveedor = {
+                                proveedorId: selectedProveedor,
+                                codigoArticulo: codigo,
+                                precioUnitario: precioUnitarioProveedor
+                            };
+
+                            if (editingProveedorId) {
+                                // Actualizar proveedor existente
+                                articulo.proveedores = articulo.proveedores.map(p => 
+                                    p.proveedorId === editingProveedorId ? proveedor : p
+                                );
+                            } else {
+                                // Agregar nuevo proveedor
+                                if (!proveedores.some(p => p.proveedorId === selectedProveedor)) {
+                                    articulo.proveedores.push(proveedor);
+                                } else {
+                                    alert('Este proveedor ya está agregado al artículo.');
+                                    return;
+                                }
+                            }
+
+                            FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
+                                vnode.state.proveedores = articulo.proveedores;
+                                vnode.state.selectedProveedor = null;
+                                vnode.state.codigoArticuloProveedor = '';
+                                vnode.state.precioUnitarioProveedor = 0;
+                                vnode.state.editingProveedorId = null;
+                                m.redraw();
                             });
-                        } else {
-                            alert('Este proveedor ya está agregado al artículo.');
-                        }
+                        });
                     }
-                }, 'Agregar')
+                }, editingProveedorId ? 'Actualizar' : 'Agregar')
             ]),
 
             m('hr'),
