@@ -23,46 +23,47 @@ const articuloRenderItem = {
 };
 
 const articuloRenderForm = (item) => [
-    m('div', { style: { marginBottom: '10px' } }, [
-        m('label', { style: { display: 'inline-block', width: '100px' } }, 'Código:'),
+    m('div.form-group', [
+        m('label', { class: 'form-label' }, 'Código:'),
         m('input[type=text]', {
             value: item.codigo || '',
-            style: { width: '200px' },
+            class: 'form-input',
             onchange: (e) => item.codigo = e.target.value
         })
     ]),
-    m('div', { style: { marginBottom: '10px' } }, [
-        m('label', { style: { display: 'inline-block', width: '100px' } }, 'Nombre:'),
+    m('div.form-group', [
+        m('label', { class: 'form-label' }, 'Nombre:'),
         m('input[type=text]', {
             value: item.nombre || '',
-            style: { width: '200px' },
+            class: 'form-input',
             onchange: (e) => item.nombre = e.target.value
         })
     ]),
-    m('div', { style: { marginBottom: '10px' } }, [
-        m('label', { style: { display: 'inline-block', width: '100px' } }, 'Stock Deseado:'),
+    m('div.form-group', [
+        m('label', { class: 'form-label' }, 'Stock Deseado:'),
         m('input[type=text]', {
             value: item.stock_deseado || '',
-            style: { width: '200px' },
+            class: 'form-input',
             onchange: (e) => item.stock_deseado = e.target.value
         })
     ]),
-    m('div', { style: { marginBottom: '10px' } }, [
-        m('label', { style: { display: 'inline-block', width: '100px' } }, 'Último Precio:'),
+    m('div.form-group', [
+        m('label', { class: 'form-label' }, 'Último Precio:'),
         m('input[type=text]', {
             value: item.ultimo_precio || '',
-            style: { width: '200px' },
+            class: 'form-input',
             onchange: (e) => item.ultimo_precio = e.target.value
         })
     ]),
-    item.id ? m('div', { style: { marginBottom: '10px' } }, [
-        m('label', { style: { display: 'inline-block', width: '100px' } }, 'Proveedores:'),
+    item.id ? m('div.form-group', [
+        m('label', { class: 'form-label' }, 'Proveedores:'),
         m(m.route.Link, { href: `/proveedores-articulo/${item.id}` }, 'Ver Proveedores')
     ]) : null,
-    m('div', { style: { marginTop: '20px' } }, [
-        m('button[type=submit]', { style: { marginRight: '10px' } }, 'Guardar'),
+    m('div.form-actions', [
+        m('button[type=submit]', { class: 'btn-submit' }, 'Guardar'),
         m('span', ' '),
-        m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar')
+        m('a', { href: 'javascript:void(0)', onclick: () => window.history.back(), class: 'btn-cancel' }, 'Cancelar')
     ])
 ];
+
 export { articuloRenderItem, articuloRenderForm };

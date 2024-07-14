@@ -1,4 +1,4 @@
-/* Estilos generales para tablas */
+/*Table*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -22,4 +22,42 @@ table tr:nth-child(even) {
 
 table tr:hover {
     background-color: #f1f1f1; /* Color al pasar el ratón */
+}
+
+
+/*Form*/
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-label {
+    display: inline-block;
+    width: 100px;
+}
+
+.form-input {
+    width: 200px;
+}
+
+.form-actions {
+    margin-top: 20px;
+}
+
+.btn-submit {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+.btn-cancel {
+    color: #007BFF;
+    cursor: pointer;
 }

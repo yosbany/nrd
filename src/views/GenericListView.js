@@ -16,7 +16,6 @@ const GenericListView = {
         const handleDelete = (id) => {
             if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
                 FirebaseModel.delete(entity, id).then(() => {
-                    // Volver a cargar los items
                     FirebaseModel.getAll(entity).then(items => {
                         vnode.state.items = items || [];
                         m.redraw();

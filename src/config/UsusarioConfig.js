@@ -16,18 +16,18 @@ const usuarioRenderItem = {
 };
 
 const usuarioRenderForm = (item) => [
-    m('div', { style: { marginBottom: '10px' } }, [
-        m('label', { style: { display: 'inline-block', width: '100px' } }, 'Nombre:'),
+    m('div.form-group', [
+        m('label', { class: 'form-label' }, 'Nombre:'),
         m('input[type=text]', {
             value: item.nombre || '',
-            style: { width: '200px' },
+            class: 'form-input',
             onchange: (e) => item.nombre = e.target.value
         })
     ]),
-    m('div', { style: { marginTop: '20px' } }, [
-        m('button[type=submit]', { style: { marginRight: '10px' } }, 'Guardar'),
+    m('div.form-actions', [
+        m('button[type=submit]', { class: 'btn-submit' }, 'Guardar'),
         m('span', ' '),
-        m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Cancelar')
+        m('a', { href: 'javascript:void(0)', onclick: () => window.history.back(), class: 'btn-cancel' }, 'Cancelar')
     ])
 ];
 
