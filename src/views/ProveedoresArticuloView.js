@@ -27,12 +27,12 @@ const ProveedoresArticuloView = {
     view: (vnode) => {
         const { proveedores, todosProveedores, selectedProveedor, codigoArticuloProveedor, precioUnitarioProveedor, editingProveedorId } = vnode.state;
 
-        const rows = proveedores.map(({ proveedorId, codigoArticulo }) => {
+        const rows = proveedores.map(({ proveedorId, codigoArticulo, precioUnitario }) => {
             const proveedor = todosProveedores.find(p => p.id === proveedorId);
             return [
                 m('td', proveedor ? proveedor.nombre : 'Proveedor no encontrado'),
                 m('td', codigoArticulo),
-                m('td', proveedor ? proveedor.precioUnitario : 'No disponible'),
+                m('td', precioUnitario),
                 m('td', [
                     m('a', {
                         href: 'javascript:void(0)',
@@ -40,7 +40,7 @@ const ProveedoresArticuloView = {
                             // Editar proveedor
                             vnode.state.selectedProveedor = proveedorId;
                             vnode.state.codigoArticuloProveedor = codigoArticulo;
-                            vnode.state.precioUnitarioProveedor = proveedor ? proveedor.precioUnitario : 0;
+                            vnode.state.precioUnitarioProveedor = precioUnitario ? precioUnitario : 0;
                             vnode.state.editingProveedorId = proveedorId;
                         }
                     }, 'Editar'),
