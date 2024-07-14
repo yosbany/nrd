@@ -81,6 +81,7 @@ const ProveedoresArticuloView = {
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Proveedor:'),
                 m('select', {
                     style: { width: '200px' },
+                    value: selectedProveedor || '',
                     onchange: (e) => vnode.state.selectedProveedor = e.target.value
                 }, [
                     m('option', { value: '' }, 'Seleccionar Proveedor'),
