@@ -1,6 +1,7 @@
 import NavTabs from '../components/base/NavTabs.js';
 import InputText from '../components/base/InputText.js';
 import Button from '../components/base/Button.js';
+import VerticalLayout from '../components/base/VerticalLayout.js';
 
 const ExampleView = {
     oninit: (vnode) => {
@@ -13,27 +14,18 @@ const ExampleView = {
             m(NavTabs, {
                 tabs: [
                     { 
-                        label: 'Agregar', 
+                        label: 'Inicio', 
                         active: true, 
-                        content: m('div', [
-                            m('h3', 'Agregar Nuevo Elemento'),
-                            m(InputText, {
-                                label: 'Nombre',
-                                value: newItem,
-                                onchange: (e) => vnode.state.newItem = e.target.value
-                            }),
-                            m(Button, {
-                                label: 'Agregar',
-                                onclick: () => {
-                                    alert(`Elemento agregado: ${newItem}`);
-                                    vnode.state.newItem = ''; // Limpiar el input
-                                }
-                            })
+                        content: m(VerticalLayout, [
+                           m(InputText,{label: 'Ejemplo Inicio'})
                         ]) 
                     },
                     { 
-                        label: 'Lista', 
-                        content: m('div', 'Aquí va la lista de elementos') 
+                        label: 'Ordenes', 
+                        active: true, 
+                        content: m(VerticalLayout, [
+                            m(InputText,{label: 'Ejemplo Ordenes'})
+                        ]) 
                     }
                 ]
             })
