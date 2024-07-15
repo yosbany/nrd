@@ -17,14 +17,21 @@ const ExampleView = {
                         label: 'Inicio', 
                         active: true, 
                         content: m(VerticalLayout, [
-                           m(InputText,{label: 'Ejemplo Inicio'})
+                            m(InputText, { label: 'Ejemplo Inicio' }),
+                            m(Button, {
+                                label: 'Enviar',
+                                onclick: () => alert(`Inicio: ${newItem}`)
+                            })
                         ]) 
                     },
                     { 
-                        label: 'Ordenes', 
-                        active: true, 
+                        label: 'Órdenes', 
                         content: m(VerticalLayout, [
-                            m(InputText,{label: 'Ejemplo Ordenes'})
+                            m(InputText, { label: 'Ejemplo Órdenes' }),
+                            m(Button, {
+                                label: 'Enviar',
+                                onclick: () => alert(`Órdenes: ${newItem}`)
+                            })
                         ]) 
                     }
                 ]
