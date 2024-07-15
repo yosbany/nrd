@@ -6,7 +6,8 @@ const Menu = {
                 m('li.menu-item', m(m.route.Link, { href: '/usuarios' }, 'Usuarios')),
                 m('li.menu-item', m(m.route.Link, { href: '/proveedores' }, 'Proveedores')),
                 m('li.menu-item', m(m.route.Link, { href: '/ordenes' }, 'Órdenes')),
-                m('li.menu-item', m(m.route.Link, { href: '/articulos' }, 'Artículos'))
+                m('li.menu-item', m(m.route.Link, { href: '/articulos' }, 'Artículos')),
+                m('li.menu-item', m(m.route.Link, { href: '/example' }, 'Ejemplos'))
             ])
         ]);
     }

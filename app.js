@@ -6,6 +6,7 @@ import { proveedorRenderItem, proveedorRenderForm } from './src/config/Proveedor
 import { articuloRenderItem, articuloRenderForm } from './src/config/ArticuloConfig.js';
 import { ordenRenderItem, ordenRenderForm } from './src/config/OrdenConfig.js';
 import ProveedoresArticuloView from './src/views/ProveedoresArticuloView.js';
+import ExampleView from './src/views/ExampleView.js';
 
 m.route.prefix = "/nrd/#!";
 
@@ -63,4 +64,7 @@ m.route(document.getElementById('app'), '/home', {
     '/ordenes/editar/:id': {
         render: (vnode) => m(GenericFormView, { entity: ENTITIES.ORDENES, renderForm: ordenRenderForm, id: vnode.attrs.id })
     },
+    '/example': {
+        render: (vnode) => m(ExampleView)
+    }
 });
