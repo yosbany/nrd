@@ -1,8 +1,8 @@
-import Link from '../components/base/Link.js';
-import OutputText from '../components/base/OutputText.js';
-import Table from '../components/base/Table.js';
 import FirebaseModel from '../models/FirebaseModel.js';
-
+import Table from '../components/base/Table.js';
+import Link from '../components/base/Link.js';
+import VerticalLayout from '../components/base/VerticalLayout.js';
+import OutputText from '../components/base/OutputText.js';
 
 const UsuarioListView = {
     oninit: (vnode) => {
@@ -20,8 +20,9 @@ const UsuarioListView = {
             m('td', [
                 m(Link, { href: `/usuarios/editar/${item.id}`, text: 'Editar' }),
                 m('span', ' | '),
-                m('a', {
+                m(Link, {
                     href: 'javascript:void(0)',
+                    text: 'Eliminar',
                     onclick: () => {
                         if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
                             FirebaseModel.delete('usuarios', item.id).then(() => {
@@ -30,11 +31,11 @@ const UsuarioListView = {
                             });
                         }
                     }
-                }, 'Eliminar')
+                })
             ])
         ]);
 
-        return m('div', [
+        return m(VerticalLayout, [
             m('h2', 'Lista de Usuarios'),
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
