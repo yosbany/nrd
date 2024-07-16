@@ -1,11 +1,12 @@
 const TextArea = {
     view: (vnode) => {
-        return m('div', [
-            vnode.attrs.label ? m('label', { class: 'label' }, vnode.attrs.label) : null,
+        return m('div', { class: 'mb-3' }, [
+            vnode.attrs.label && m('label', { class: 'form-label' }, vnode.attrs.label),
             m('textarea', {
-                class: 'textarea',
+                class: 'form-control',
                 value: vnode.attrs.value,
-                oninput: vnode.attrs.oninput
+                onchange: vnode.attrs.onchange,
+                placeholder: vnode.attrs.placeholder || ''
             })
         ]);
     }

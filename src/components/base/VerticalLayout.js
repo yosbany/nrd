@@ -1,6 +1,6 @@
 const VerticalLayout = {
     view: (vnode) => {
-        return m('div', { class: 'vertical-layout' }, vnode.children);
+        return m('div', { class: 'd-flex flex-column' }, vnode.children);
     }
 };
 

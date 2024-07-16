@@ -10,12 +10,12 @@
     --dark-color: #343a40;
     --font-family: 'Arial', sans-serif;
     --font-size-base: 16px;
-    --font-size-lg: 1.25rem;
+    --font-size-lg: 1.5rem; /* Nuevo tamaño de fuente más grande */
     --font-size-sm: 0.875rem;
     --border-radius: 0.25rem;
     --spacing: 1rem;
-    --input-height: 2.5rem; /* Nuevo tamaño para los inputs */
-    --input-font-size: 1.25rem; /* Nuevo tamaño de fuente para los inputs */
+    --input-height: 3rem; /* Nuevo tamaño de altura más grande */
+    --input-font-size: 1.5rem; /* Nuevo tamaño de fuente para los inputs */
 }
 
 /* Estilos base */
@@ -75,7 +75,7 @@ a:hover {
 .input-text {
     width: 100%;
     height: var(--input-height); /* Aplicando el nuevo tamaño */
-    padding: 0.5rem;
+    padding: 0.75rem; /* Aumentar el padding para un input más grande */
     font-size: var(--input-font-size); /* Aplicando el nuevo tamaño de fuente */
     color: var(--dark-color);
     border: 1px solid var(--secondary-color);
@@ -92,7 +92,7 @@ a:hover {
 .select {
     width: 100%;
     height: var(--input-height); /* Aplicando el nuevo tamaño */
-    padding: 0.5rem;
+    padding: 0.75rem; /* Aumentar el padding para un select más grande */
     font-size: var(--input-font-size); /* Aplicando el nuevo tamaño de fuente */
     color: var(--dark-color);
     border: 1px solid var(--secondary-color);
@@ -112,7 +112,7 @@ a:hover {
 
 .checkbox-label, .radio-label {
     font-size: var(--font-size-base);
-    color: var(--dark-color);
+    color: var (--dark-color);
 }
 
 /* Link */
@@ -133,7 +133,7 @@ a:hover {
 }
 
 .table th, .table td {
-    padding: 0.75rem;
+    padding: 1rem; /* Hacer las celdas de la tabla más grandes */
     border: 1px solid var(--secondary-color);
     text-align: left;
 }
@@ -175,6 +175,12 @@ a:hover {
     .vertical-layout, .horizontal-layout {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .menu.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
     }
 }
 

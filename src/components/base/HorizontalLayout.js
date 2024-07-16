@@ -1,6 +1,6 @@
 const HorizontalLayout = {
     view: (vnode) => {
-        return m('div', { class: 'horizontal-layout' }, vnode.children);
+        return m('div', { class: 'd-flex align-items-center' }, vnode.children);
     }
 };
 

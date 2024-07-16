@@ -1,6 +1,6 @@
 const OutputText = {
     view: (vnode) => {
-        return m('div', { class: 'output-text' }, vnode.attrs.text);
+        return m('p', { class: 'form-control-plaintext' }, vnode.attrs.text);
     }
 };
 

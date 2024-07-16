@@ -1,12 +1,13 @@
 const Select = {
     view: (vnode) => {
-        return m('div', [
-            vnode.attrs.label ? m('label', { class: 'label' }, vnode.attrs.label) : null,
+        return m('div', { class: 'mb-3' }, [
+            vnode.attrs.label && m('label', { class: 'form-label' }, vnode.attrs.label),
             m('select', {
-                class: 'select',
+                class: 'form-select',
+                value: vnode.attrs.value,
                 onchange: vnode.attrs.onchange
-            }, vnode.attrs.options.map(option =>
-                m('option', { value: option.value, selected: option.selected }, option.label)
+            }, vnode.attrs.options.map(option => 
+                m('option', { value: option.value }, option.label)
             ))
         ]);
     }
