@@ -1,5 +1,8 @@
+import Link from '../components/base/Link.js';
+import OutputText from '../components/base/OutputText.js';
+import Table from '../components/base/Table.js';
 import FirebaseModel from '../models/FirebaseModel.js';
-import { Link, OutputText, Table } from '../components/base';
+
 
 const UsuarioListView = {
     oninit: (vnode) => {

@@ -1,5 +1,8 @@
 import FirebaseModel from '../models/FirebaseModel.js';
-import { Button, InputText, Link } from '../components/base';
+import Link from '../components/base/Link.js';
+import Button from '../components/base/Button.js';
+import InputText from '../components/base/InputText.js';
+
 
 const UsuarioFormView = {
     oninit: (vnode) => {
