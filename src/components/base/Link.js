@@ -1,6 +1,6 @@
 const Link = {
     view: (vnode) => {
-        return m('a', {
+        return m(m.route.Link, {
             class: 'link',
             href: vnode.attrs.href,
             onclick: vnode.attrs.onclick
