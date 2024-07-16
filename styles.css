@@ -14,6 +14,8 @@
     --font-size-sm: 0.875rem;
     --border-radius: 0.25rem;
     --spacing: 1rem;
+    --input-height: 2.5rem; /* Nuevo tamaño para los inputs */
+    --input-font-size: 1.25rem; /* Nuevo tamaño de fuente para los inputs */
 }
 
 /* Estilos base */
@@ -61,7 +63,7 @@ a:hover {
 }
 
 .btn:hover {
-    background-color: darken(var(--primary-color), 10%);
+    background-color: #0056b3; /* Más oscuro */
 }
 
 .btn:disabled {
@@ -72,11 +74,13 @@ a:hover {
 /* InputText */
 .input-text {
     width: 100%;
+    height: var(--input-height); /* Aplicando el nuevo tamaño */
     padding: 0.5rem;
-    font-size: var(--font-size-base);
+    font-size: var(--input-font-size); /* Aplicando el nuevo tamaño de fuente */
     color: var(--dark-color);
     border: 1px solid var(--secondary-color);
     border-radius: var(--border-radius);
+    margin-bottom: var(--spacing);
 }
 
 .input-text:focus {
@@ -87,11 +91,13 @@ a:hover {
 /* Select */
 .select {
     width: 100%;
+    height: var(--input-height); /* Aplicando el nuevo tamaño */
     padding: 0.5rem;
-    font-size: var(--font-size-base);
+    font-size: var(--input-font-size); /* Aplicando el nuevo tamaño de fuente */
     color: var(--dark-color);
     border: 1px solid var(--secondary-color);
     border-radius: var(--border-radius);
+    margin-bottom: var(--spacing);
 }
 
 .select:focus {
@@ -228,3 +234,10 @@ a:hover {
     padding: var(--spacing);
 }
 
+/* Estilos del input de búsqueda */
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing);
+}
