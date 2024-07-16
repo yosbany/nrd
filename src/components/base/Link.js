@@ -4,7 +4,7 @@ const Link = {
             class: 'link',
             href: vnode.attrs.href,
             onclick: vnode.attrs.onclick
-        }, vnode.children || vnode.attrs.text);
+        }, vnode.attrs.text || vnode.children);
     }
 };
 

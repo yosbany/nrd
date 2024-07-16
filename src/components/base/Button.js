@@ -4,7 +4,7 @@ const Button = {
             class: `btn btn-${vnode.attrs.type || 'primary'}`,
             onclick: vnode.attrs.onclick,
             type: vnode.attrs.type || 'button'
-        }, vnode.children || vnode.attrs.label);
+        }, vnode.attrs.label || vnode.children);
     }
 };
 
