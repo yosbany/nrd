@@ -1,8 +1,10 @@
+import m from 'mithril';
 import FirebaseModel from '../models/FirebaseModel.js';
 import Table from '../components/base/Table.js';
 import Link from '../components/base/Link.js';
 import VerticalLayout from '../components/base/VerticalLayout.js';
 import OutputText from '../components/base/OutputText.js';
+import HorizontalLayout from '../components/base/HorizontalLayout.js';
 
 const UsuarioListView = {
     oninit: (vnode) => {
@@ -17,7 +19,7 @@ const UsuarioListView = {
 
         const rows = items.map(item => [
             m(OutputText, { text: item.nombre }),
-            m('td', [
+            m(HorizontalLayout, [
                 m(Link, { href: `/usuarios/editar/${item.id}`, text: 'Editar' }),
                 m('span', ' | '),
                 m(Link, {
