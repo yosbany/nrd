@@ -6,13 +6,12 @@ import VerticalLayout from '../components/base/VerticalLayout.js';
 
 const UsuarioFormView = {
     oninit: (vnode) => {
+        vnode.state.item = {};
         if (vnode.attrs.id) {
             FirebaseModel.getById('usuarios', vnode.attrs.id).then(item => {
                 vnode.state.item = item;
                 m.redraw();
             });
-        } else {
-            vnode.state.item = {};
         }
     },
     view: (vnode) => {
