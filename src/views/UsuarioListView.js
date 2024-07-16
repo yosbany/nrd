@@ -16,33 +16,30 @@ const UsuarioListView = {
     view: (vnode) => {
         const items = vnode.state.items;
 
-        const rows = items.map(item => [
-            m(OutputText, { text: item.nombre }),
-            m(HorizontalLayout, [
-                m(Link, { href: `/usuarios/editar/${item.id}`, text: 'Editar' }),
-                m('span', ' | '),
-                m(Link, {
-                    href: 'javascript:void(0)',
-                    text: 'Eliminar',
-                    onclick: () => {
-                        if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
-                            FirebaseModel.delete('usuarios', item.id).then(() => {
-                                vnode.state.items = vnode.state.items.filter(i => i.id !== item.id);
-                                m.redraw();
-                            });
-                        }
-                    }
-                })
-            ])
-        ]);
-
         return m(VerticalLayout, [
             m('h2', 'Lista de Usuarios'),
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
-                rows: rows
+                rows: items.map(item => [
+                    m(OutputText, { text: item.nombre }),
+                    m(HorizontalLayout, [
+                        m(Link, { href: `/usuarios/editar/${item.id}` }, 'Editar'),
+                        m('span', ' | '),
+                        m(Link, {
+                            href: 'javascript:void(0)',
+                            onclick: () => {
+                                if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
+                                    FirebaseModel.delete('usuarios', item.id).then(() => {
+                                        vnode.state.items = vnode.state.items.filter(i => i.id !== item.id);
+                                        m.redraw();
+                                    });
+                                }
+                            }
+                        }, 'Eliminar')
+                    ])
+                ])
             }),
-            m(Link, { href: '/usuarios/nuevo', text: 'Agregar Usuario' })
+            m(Link, { href: '/usuarios/nuevo' }, 'Agregar Usuario')
         ]);
     }
 };
