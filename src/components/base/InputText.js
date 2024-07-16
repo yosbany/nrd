@@ -3,7 +3,7 @@ const InputText = {
         return m('div', [
             vnode.attrs.label ? m('label', { class: 'label' }, vnode.attrs.label) : null,
             m('input[type=text]', {
-                class: 'input',
+                class: 'input-text',
                 value: vnode.attrs.value,
                 oninput: vnode.attrs.oninput
             })
