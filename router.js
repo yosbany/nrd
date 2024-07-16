@@ -16,13 +16,13 @@ m.route(document.getElementById('app'), '/home', {
         render: () => m(App, m(HomeView))
     },
     '/usuarios': {
-        render: () => m(App, m(GenericListView, { entity: ENTITIES.USUARIOS, renderItem: usuarioRenderItem }))
+        render: () => m(App, m(UsuarioListView))
     },
     '/usuarios/nuevo': {
-        render: () => m(App, m(GenericFormView, { entity: ENTITIES.USUARIOS, renderForm: usuarioRenderForm }))
+        render: () => m(App, m(UsuarioFormView))
     },
     '/usuarios/editar/:id': {
-        render: (vnode) => m(App, m(GenericFormView, { entity: ENTITIES.USUARIOS, renderForm: usuarioRenderForm, id: vnode.attrs.id }))
+        render: (vnode) => m(App, m(UsuarioFormView, { id: vnode.attrs.id }))
     },
     '/proveedores': {
         render: () => m(App, m(GenericListView, { entity: ENTITIES.PROVEEDORES, renderItem: proveedorRenderItem }))

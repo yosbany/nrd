@@ -16,8 +16,7 @@ const Menu = {
             m(m.route.Link, { href: '/usuarios' }, 'Usuarios'),
             m(m.route.Link, { href: '/proveedores' }, 'Proveedores'),
             m(m.route.Link, { href: '/ordenes' }, 'Órdenes'),
-            m(m.route.Link, { href: '/articulos' }, 'Artículos'),
-            m(m.route.Link, { href: '/example' }, 'Ejemplos')
+            m(m.route.Link, { href: '/articulos' }, 'Artículos')
         ]);
     }
 };
