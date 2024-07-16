@@ -1,22 +1,22 @@
 const Menu = {
-    oninit: (vnode) => {
-        vnode.state.isResponsive = false;
-    },
-    view: (vnode) => {
-        const { isResponsive } = vnode.state;
-
-        return m('div', {
-            class: `menu ${isResponsive ? 'responsive' : ''}`
-        }, [
-            m('a', {
-                href: 'javascript:void(0);',
-                class: 'icon',
-                onclick: () => vnode.state.isResponsive = !isResponsive
-            }, m('i', { class: 'fa fa-bars' })),
-            m(m.route.Link, { href: '/usuarios' }, 'Usuarios'),
-            m(m.route.Link, { href: '/proveedores' }, 'Proveedores'),
-            m(m.route.Link, { href: '/ordenes' }, 'Órdenes'),
-            m(m.route.Link, { href: '/articulos' }, 'Artículos')
+    view: () => {
+        return m('nav', { class: 'navbar navbar-expand-sm bg-light' }, [
+            m('div', { class: 'container-fluid' }, [
+                m('ul', { class: 'navbar-nav' }, [
+                    m('li', { class: 'nav-item' }, [
+                        m(m.route.Link, { class: 'nav-link', href: '/usuarios' }, 'Usuarios')
+                    ]),
+                    m('li', { class: 'nav-item' }, [
+                        m(m.route.Link, { class: 'nav-link', href: '/proveedores' }, 'Proveedores')
+                    ]),
+                    m('li', { class: 'nav-item' }, [
+                        m(m.route.Link, { class: 'nav-link', href: '/ordenes' }, 'Órdenes')
+                    ]),
+                    m('li', { class: 'nav-item' }, [
+                        m(m.route.Link, { class: 'nav-link', href: '/articulos' }, 'Artículos')
+                    ])
+                ])
+            ])
         ]);
     }
 };
