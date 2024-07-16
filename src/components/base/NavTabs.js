@@ -1,28 +1,25 @@
 const NavTabs = {
+    oninit: (vnode) => {
+        vnode.state.activeTab = 0;
+    },
     view: (vnode) => {
         const { tabs } = vnode.attrs;
+        const { activeTab } = vnode.state;
 
         return m('div', [
             m('ul', { class: 'nav nav-tabs' }, 
                 tabs.map((tab, index) => 
                     m('li', { class: 'nav-item' }, 
                         m('a', {
-                            class: `nav-link ${tab.active ? 'active' : ''} ${tab.disabled ? 'disabled' : ''}`,
-                            href: tab.href || 'javascript:void(0)',
-                            'aria-current': tab.active ? 'page' : undefined,
-                            'aria-disabled': tab.disabled ? 'true' : undefined,
-                            onclick: tab.onclick
+                            class: `nav-link ${activeTab === index ? 'active' : ''}`,
+                            href: 'javascript:void(0)',
+                            onclick: () => vnode.state.activeTab = index
                         }, tab.label)
                     )
                 )
             ),
-            tabs.map((tab, index) => 
-                m('div', {
-                    class: `tab-pane ${tab.active ? 'active' : ''}`,
-                    id: `tab-${index}`,
-                    role: 'tabpanel',
-                    'aria-labelledby': `tab-${index}-tab`
-                }, tab.active ? tab.content : null)
+            m('div', { class: 'tab-content' }, 
+                tabs[activeTab].content
             )
         ]);
     }

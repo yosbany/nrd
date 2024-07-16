@@ -1,7 +1,7 @@
 const Button = {
     view: (vnode) => {
         return m('button', {
-            class: `btn ${vnode.attrs.class || 'btn-primary'}`,
+            class: 'button',
             onclick: vnode.attrs.onclick
         }, vnode.children);
     }
