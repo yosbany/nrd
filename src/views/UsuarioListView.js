@@ -23,7 +23,6 @@ const UsuarioListView = {
         return m(VerticalLayout, [
             m('h2', 'Lista de Usuarios'),
             m(InputText, {
-                label: 'Buscar',
                 value: vnode.state.searchTerm,
                 oninput: (e) => vnode.state.searchTerm = e.target.value
             }),
