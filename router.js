@@ -1,12 +1,12 @@
-import App from './App.js';
-import HomeView from './views/HomeView.js';
-import GenericListView from './views/GenericListView.js';
-import GenericFormView from './views/GenericFormView.js';
-import { usuarioRenderItem, usuarioRenderForm } from './config/UsusarioConfig.js';
-import { proveedorRenderItem, proveedorRenderForm } from './config/ProveedorConfig.js';
-import { articuloRenderItem, articuloRenderForm } from './config/ArticuloConfig.js';
-import { ordenRenderItem, ordenRenderForm } from './config/OrdenConfig.js';
-import ProveedoresArticuloView from './views/ProveedoresArticuloView.js';
+import App from './src/components/App.js';
+import HomeView from './src/views/HomeView.js';
+import GenericListView from './src/views/GenericListView.js';
+import GenericFormView from './src/views/GenericFormView.js';
+import { usuarioRenderItem, usuarioRenderForm } from './src/config/UsusarioConfig.js';
+import { proveedorRenderItem, proveedorRenderForm } from './src/config/ProveedorConfig.js';
+import { articuloRenderItem, articuloRenderForm } from './src/config/ArticuloConfig.js';
+import { ordenRenderItem, ordenRenderForm } from './src/config/OrdenConfig.js';
+import ProveedoresArticuloView from './src/views/ProveedoresArticuloView.js';
 import { ENTITIES } from './constants.js';
 
 m.route.prefix = "/nrd/#!";
