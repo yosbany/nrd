@@ -4,7 +4,7 @@ const Button = {
             type: 'button',
             class: 'btn',
             onclick: vnode.attrs.onclick
-        }, vnode.children || vnode.attrs.label);
+        }, vnode.attrs.label || vnode.children);
     }
 };
 
