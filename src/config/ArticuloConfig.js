@@ -1,4 +1,7 @@
-import { Link, OutputText, Button, InputText } from '../components/base';
+import Link from '../components/base/Link.js';
+import OutputText from '../components/base/OutputText.js';
+import Button from '../components/base/Button.js';
+import InputText from '../components/base/InputText.js';
 
 const articuloRenderItem = {
     header: ['Código', 'Nombre', 'Acciones'],
