@@ -1,69 +1,86 @@
-const articuloRenderItem = {
-    header: ['Código', 'Nombre', 'Acciones'],
-    body: (item) => {
-        return m('tr', [
-            m('td', item.codigo),
-            m('td', item.nombre),
-            m('td', [
-                m(m.route.Link, { href: `/articulos/editar/${item.id}` }, 'Editar'),
+import FirebaseModel from '../models/FirebaseModel.js';
+import OutputText from '../components/base/OutputText.js';
+import Link from '../components/base/Link.js';
+import Button from '../components/base/Button.js';
+import InputText from '../components/base/InputText.js';
+import Select from '../components/base/Select.js';
+
+const ordenRenderItem = {
+    header: ['Fecha', 'Proveedor', 'Importe', 'Estado', 'Acciones'],
+    body: (item, onDelete) => {
+        return [
+            m(OutputText, { text: item.fecha }),
+            m(OutputText, { text: item.proveedor }),
+            m(OutputText, { text: item.importe }),
+            m(OutputText, { text: item.estado }),
+            m('div', [
+                m(Link, { href: `/ordenes/editar/${item.id}` }, 'Editar'),
                 m('span', ' | '),
-                m('a', {
+                m(Link, {
                     href: 'javascript:void(0)',
-                    onclick: () => {
-                        if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
-                            FirebaseModel.delete('usuarios', item.id).then(() => {
-                                m.route.set('/articulos');
-                            });
-                        }
-                    }
+                    onclick: () => onDelete(item.id)
                 }, 'Eliminar')
             ])
-        ]);
+        ];
     }
 };
 
-const articuloRenderForm = (item) => [
-    m('div.form-group', [
-        m('label', { class: 'form-label' }, 'Código:'),
-        m('input[type=text]', {
-            value: item.codigo || '',
-            class: 'form-input',
-            onchange: (e) => item.codigo = e.target.value
-        })
-    ]),
-    m('div.form-group', [
-        m('label', { class: 'form-label' }, 'Nombre:'),
-        m('input[type=text]', {
-            value: item.nombre || '',
-            class: 'form-input',
-            onchange: (e) => item.nombre = e.target.value
-        })
-    ]),
-    m('div.form-group', [
-        m('label', { class: 'form-label' }, 'Stock Deseado:'),
-        m('input[type=text]', {
-            value: item.stock_deseado || '',
-            class: 'form-input',
-            onchange: (e) => item.stock_deseado = e.target.value
-        })
-    ]),
-    m('div.form-group', [
-        m('label', { class: 'form-label' }, 'Último Precio:'),
-        m('input[type=text]', {
-            value: item.ultimo_precio || '',
-            class: 'form-input',
-            onchange: (e) => item.ultimo_precio = e.target.value
-        })
-    ]),
-    item.id ? m('div.form-group', [
-        m('label', { class: 'form-label' }, 'Proveedores:'),
-        m(m.route.Link, { href: `/proveedores-articulo/${item.id}` }, 'Ver Proveedores')
-    ]) : null,
-    m('div.form-actions', [
-        m('button[type=submit]', { class: 'btn-submit' }, 'Guardar'),
-        m('span', ' '),
-        m('a', { href: 'javascript:void(0)', onclick: () => window.history.back(), class: 'btn-cancel' }, 'Cancelar')
-    ])
-];
+const ordenRenderForm = {
+    oninit: (vnode) => {
+        FirebaseModel.getAll('proveedores').then(proveedores => {
+            vnode.state.todosProveedores = proveedores || [];
+            m.redraw();
+        });
+    },
+    view: (vnode) => [
+        m('div.form-group', [
+            m('label', { class: 'form-label' }, 'Fecha:'),
+            m(InputText, {
+                value: vnode.attrs.item.fecha || '',
+                class: 'form-input',
+                onchange: (e) => vnode.attrs.item.fecha = e.target.value
+            })
+        ]),
+        m('div.form-group', [
+            m('label', { class: 'form-label' }, 'Proveedor:'),
+            m(Select, {
+                style: { width: '200px' },
+                value: vnode.attrs.item.proveedorId || '',
+                options: vnode.state.todosProveedores.map(proveedor => ({
+                    value: proveedor.id,
+                    text: proveedor.nombre
+                })),
+                onchange: (e) => vnode.attrs.item.proveedorId = e.target.value
+            })
+        ]),
+        m('div.form-group', [
+            m('label', { class: 'form-label' }, 'Importe:'),
+            m(InputText, {
+                type: 'number',
+                value: vnode.attrs.item.importe || '',
+                class: 'form-input',
+                onchange: (e) => vnode.attrs.item.importe = e.target.value
+            })
+        ]),
+        m('div.form-group', [
+            m('label', { class: 'form-label' }, 'Estado:'),
+            m(Select, {
+                style: { width: '200px' },
+                value: vnode.attrs.item.estado || '',
+                options: [
+                    { value: '', text: 'Seleccionar Estado' },
+                    { value: 'NUEVO', text: 'NUEVO' },
+                    { value: 'ENVIADO', text: 'ENVIADO' }
+                ],
+                onchange: (e) => vnode.attrs.item.estado = e.target.value
+            })
+        ]),
+        m('div.form-actions', [
+            m(Button, { type: 'submit', class: 'btn-submit', label: 'Guardar' }),
+            m('span', ' '),
+            m(Link, { href: 'javascript:void(0)', onclick: () => window.history.back(), class: 'btn-cancel' }, 'Cancelar')
+        ])
+    ]
+};
 
-export { articuloRenderItem, articuloRenderForm };
+export { ordenRenderItem, ordenRenderForm };
