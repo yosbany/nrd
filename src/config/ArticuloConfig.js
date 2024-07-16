@@ -1,86 +1,56 @@
-import FirebaseModel from '../models/FirebaseModel.js';
-import OutputText from '../components/base/OutputText.js';
-import Link from '../components/base/Link.js';
-import Button from '../components/base/Button.js';
-import InputText from '../components/base/InputText.js';
-import Select from '../components/base/Select.js';
+import { Link, OutputText, Button, InputText } from '../components/base';
 
-const ordenRenderItem = {
-    header: ['Fecha', 'Proveedor', 'Importe', 'Estado', 'Acciones'],
-    body: (item, onDelete) => {
-        return [
-            m(OutputText, { text: item.fecha }),
-            m(OutputText, { text: item.proveedor }),
-            m(OutputText, { text: item.importe }),
-            m(OutputText, { text: item.estado }),
-            m('div', [
-                m(Link, { href: `/ordenes/editar/${item.id}` }, 'Editar'),
-                m('span', ' | '),
-                m(Link, {
-                    href: 'javascript:void(0)',
-                    onclick: () => onDelete(item.id)
-                }, 'Eliminar')
-            ])
-        ];
-    }
-};
-
-const ordenRenderForm = {
-    oninit: (vnode) => {
-        FirebaseModel.getAll('proveedores').then(proveedores => {
-            vnode.state.todosProveedores = proveedores || [];
-            m.redraw();
-        });
-    },
-    view: (vnode) => [
-        m('div.form-group', [
-            m('label', { class: 'form-label' }, 'Fecha:'),
-            m(InputText, {
-                value: vnode.attrs.item.fecha || '',
-                class: 'form-input',
-                onchange: (e) => vnode.attrs.item.fecha = e.target.value
-            })
-        ]),
-        m('div.form-group', [
-            m('label', { class: 'form-label' }, 'Proveedor:'),
-            m(Select, {
-                style: { width: '200px' },
-                value: vnode.attrs.item.proveedorId || '',
-                options: vnode.state.todosProveedores.map(proveedor => ({
-                    value: proveedor.id,
-                    text: proveedor.nombre
-                })),
-                onchange: (e) => vnode.attrs.item.proveedorId = e.target.value
-            })
-        ]),
-        m('div.form-group', [
-            m('label', { class: 'form-label' }, 'Importe:'),
-            m(InputText, {
-                type: 'number',
-                value: vnode.attrs.item.importe || '',
-                class: 'form-input',
-                onchange: (e) => vnode.attrs.item.importe = e.target.value
-            })
-        ]),
-        m('div.form-group', [
-            m('label', { class: 'form-label' }, 'Estado:'),
-            m(Select, {
-                style: { width: '200px' },
-                value: vnode.attrs.item.estado || '',
-                options: [
-                    { value: '', text: 'Seleccionar Estado' },
-                    { value: 'NUEVO', text: 'NUEVO' },
-                    { value: 'ENVIADO', text: 'ENVIADO' }
-                ],
-                onchange: (e) => vnode.attrs.item.estado = e.target.value
-            })
-        ]),
-        m('div.form-actions', [
-            m(Button, { type: 'submit', class: 'btn-submit', label: 'Guardar' }),
-            m('span', ' '),
-            m(Link, { href: 'javascript:void(0)', onclick: () => window.history.back(), class: 'btn-cancel' }, 'Cancelar')
+const articuloRenderItem = {
+    header: ['Código', 'Nombre', 'Acciones'],
+    body: (item, onDelete) => [
+        m(OutputText, { text: item.codigo }),
+        m(OutputText, { text: item.nombre }),
+        m('td', [
+            m(Link, { href: `/articulos/editar/${item.id}`, label: 'Editar' }),
+            m('span', ' | '),
+            m(Button, { onclick: () => onDelete(item.id), label: 'Eliminar' })
         ])
     ]
 };
 
-export { ordenRenderItem, ordenRenderForm };
+const articuloRenderForm = (item, onSave, onBack) => [
+    m('div.form-group', [
+        m('label', { text: 'Código:' }),
+        m(InputText, {
+            value: item.codigo || '',
+            onchange: (e) => item.codigo = e.target.value
+        })
+    ]),
+    m('div.form-group', [
+        m('label', { text: 'Nombre:' }),
+        m(InputText, {
+            value: item.nombre || '',
+            onchange: (e) => item.nombre = e.target.value
+        })
+    ]),
+    m('div.form-group', [
+        m('label', { text: 'Stock Deseado:' }),
+        m(InputText, {
+            value: item.stock_deseado || '',
+            onchange: (e) => item.stock_deseado = e.target.value
+        })
+    ]),
+    m('div.form-group', [
+        m('label', { text: 'Último Precio:' }),
+        m(InputText, {
+            value: item.ultimo_precio || '',
+            onchange: (e) => item.ultimo_precio = e.target.value
+        })
+    ]),
+    item.id ? m('div.form-group', [
+        m('label', { text: 'Proveedores:' }),
+        m(Link, { href: `/proveedores-articulo/${item.id}`, label: 'Ver Proveedores' })
+    ]) : null,
+    m('div.form-actions', [
+        m(Button, { onclick: onSave, label: 'Guardar' }),
+        m('span', ' '),
+        m(Button, { onclick: onBack, label: 'Cancelar' })
+    ])
+];
+
+export { articuloRenderItem, articuloRenderForm };
