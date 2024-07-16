@@ -1,5 +1,3 @@
-import Menu from '../components/Menu.js';
-
 const HomeView = {
     view: () => {
         return m('div', [
