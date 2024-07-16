@@ -4,6 +4,7 @@ import FirebaseModel from '../models/FirebaseModel.js';
 import VerticalLayout from '../components/base/VerticalLayout.js';
 import Table from '../components/base/Table.js';
 import HorizontalLayout from '../components/base/HorizontalLayout.js';
+import SearchInput from '../components/base/SearchInput.js';
 
 const ProveedorListView = {
     oninit: (vnode) => {
