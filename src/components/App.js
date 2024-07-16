@@ -1,4 +1,4 @@
-import Menu from './Menu.js';
+import Menu from './base/Menu.js';
 
 const App = {
     view: (vnode) => {

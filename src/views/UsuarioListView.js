@@ -4,12 +4,14 @@ import Link from '../components/base/Link.js';
 import VerticalLayout from '../components/base/VerticalLayout.js';
 import OutputText from '../components/base/OutputText.js';
 import HorizontalLayout from '../components/base/HorizontalLayout.js';
-import SearchInput from '../components/base/SearchInput.js';
+import InputText from '../components/base/InputText.js';
 
 const UsuarioListView = {
     oninit: (vnode) => {
+        vnode.state.items = [];
         vnode.state.filteredItems = [];
         FirebaseModel.getAll('usuarios').then(items => {
+            vnode.state.items = items || [];
             vnode.state.filteredItems = items || [];
             m.redraw();
         });
@@ -26,8 +28,8 @@ const UsuarioListView = {
 
         return m(VerticalLayout, [
             m('h2', 'Lista de Usuarios'),
-            m('div', { class: 'search-bar' }, [
-                m(SearchInput, {
+            m('div.search-bar', [
+                m(InputText, {
                     placeholder: 'Buscar usuarios...',
                     oninput: filterItems
                 }),
@@ -46,6 +48,7 @@ const UsuarioListView = {
                             onclick: () => {
                                 if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
                                     FirebaseModel.delete('usuarios', item.id).then(() => {
+                                        vnode.state.items = vnode.state.items.filter(i => i.id !== item.id);
                                         vnode.state.filteredItems = vnode.state.filteredItems.filter(i => i.id !== item.id);
                                         m.redraw();
                                     });
