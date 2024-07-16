@@ -1,5 +1,5 @@
 import FirebaseModel from '../models/FirebaseModel.js';
-import Table from '../components/Table.js';
+import Table from '../components/base/Table.js';
 
 const ProveedoresArticuloView = {
     oninit: (vnode) => {
