@@ -1,4 +1,3 @@
-import m from 'mithril';
 import FirebaseModel from '../models/FirebaseModel.js';
 import Table from '../components/base/Table.js';
 import Link from '../components/base/Link.js';
