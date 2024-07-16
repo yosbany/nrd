@@ -26,9 +26,9 @@ const ProveedorListView = {
 
         return m(VerticalLayout, [
             m('h2', 'Lista de Proveedores'),
-            m('div', { class: 'search-bar' }, [
-                m(SearchInput, {
-                    placeholder: 'Buscar proveedores...',
+            m('div.search-bar', [
+                m(InputText, {
+                    placeholder: 'Buscar proveedor...',
                     oninput: filterItems
                 }),
                 m(Link, { href: '/proveedores/nuevo', text: 'Agregar Proveedor' })
@@ -55,8 +55,7 @@ const ProveedorListView = {
                         })
                     ])
                 ])
-            }),
-            m(Link, { href: '/proveedores/nuevo', text: 'Agregar Proveedor' })
+            })
         ]);
     }
 };
