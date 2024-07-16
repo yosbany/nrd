@@ -1,5 +1,6 @@
 import FirebaseModel from '../models/FirebaseModel.js';
 import Table from '../components/base/Table.js';
+import OutputText from '../components/base/OutputText.js';
 
 const ProveedoresArticuloView = {
     oninit: (vnode) => {
@@ -12,13 +13,11 @@ const ProveedoresArticuloView = {
 
         const { articuloId } = vnode.attrs;
 
-        // Obtener proveedores actuales del artículo
         FirebaseModel.getById('articulos', articuloId).then(articulo => {
             vnode.state.proveedores = articulo.proveedores || [];
             m.redraw();
         });
 
-        // Obtener todos los proveedores disponibles
         FirebaseModel.getAll('proveedores').then(todosProveedores => {
             vnode.state.todosProveedores = todosProveedores || [];
             m.redraw();
@@ -30,17 +29,16 @@ const ProveedoresArticuloView = {
         const rows = proveedores.map(({ proveedorId, codigoArticulo, precioUnitario }) => {
             const proveedor = todosProveedores.find(p => p.id === proveedorId);
             return [
-                m('td', proveedor ? proveedor.nombre : 'Proveedor no encontrado'),
-                m('td', codigoArticulo),
-                m('td', precioUnitario),
+                m(OutputText, { text: proveedor ? proveedor.nombre : 'Proveedor no encontrado' }),
+                m(OutputText, { text: codigoArticulo }),
+                m(OutputText, { text: precioUnitario.toString() }),
                 m('td', [
                     m('a', {
                         href: 'javascript:void(0)',
                         onclick: () => {
-                            // Editar proveedor
                             vnode.state.selectedProveedor = proveedorId;
                             vnode.state.codigoArticuloProveedor = codigoArticulo;
-                            vnode.state.precioUnitarioProveedor = precioUnitario ? precioUnitario : 0;
+                            vnode.state.precioUnitarioProveedor = precioUnitario || 0;
                             vnode.state.editingProveedorId = proveedorId;
                         }
                     }, 'Editar'),
@@ -67,16 +65,11 @@ const ProveedoresArticuloView = {
         return m('div', [
             m('h1', 'Proveedores por Artículo'),
             m('hr'),
-
-            // Usando el componente Table
             m(Table, {
                 headers: ['Proveedor', 'Código Artículo', 'Precio Unitario', 'Acciones'],
                 rows: rows
             }),
-
             m('hr'),
-
-            // Formulario para agregar/editar proveedores
             m('div', { style: { marginBottom: '10px' } }, [
                 m('label', { style: { display: 'inline-block', width: '150px' } }, 'Proveedor:'),
                 m('select', {
@@ -110,23 +103,18 @@ const ProveedoresArticuloView = {
                 m('button', {
                     onclick: () => {
                         const articuloId = vnode.attrs.articuloId;
-
                         FirebaseModel.getById('articulos', articuloId).then(articulo => {
                             articulo.proveedores = articulo.proveedores || [];
-
                             const proveedor = {
                                 proveedorId: selectedProveedor,
                                 codigoArticulo: codigoArticuloProveedor,
                                 precioUnitario: precioUnitarioProveedor
                             };
-
                             if (editingProveedorId) {
-                                // Actualizar proveedor existente
                                 articulo.proveedores = articulo.proveedores.map(p => 
                                     p.proveedorId === editingProveedorId ? proveedor : p
                                 );
                             } else {
-                                // Agregar nuevo proveedor
                                 if (!proveedores.some(p => p.proveedorId === selectedProveedor)) {
                                     articulo.proveedores.push(proveedor);
                                 } else {
@@ -134,7 +122,6 @@ const ProveedoresArticuloView = {
                                     return;
                                 }
                             }
-
                             FirebaseModel.saveOrUpdate('articulos', articuloId, articulo).then(() => {
                                 vnode.state.proveedores = articulo.proveedores;
                                 vnode.state.selectedProveedor = null;
@@ -147,10 +134,7 @@ const ProveedoresArticuloView = {
                     }
                 }, editingProveedorId ? 'Actualizar' : 'Agregar')
             ]),
-
             m('hr'),
-
-            // Enlaces para regresar
             m('a', { href: 'javascript:void(0)', onclick: () => window.history.back() }, 'Regresar'),
             m('span', ' | '),
             m('a', { href: m.route.prefix + '/', oncreate: m.route.Link }, 'Regresar al Inicio')
