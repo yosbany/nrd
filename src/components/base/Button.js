@@ -1,9 +1,10 @@
 const Button = {
     view: (vnode) => {
         return m('button', {
-            class: 'button',
+            type: vnode.attrs.type || 'button',
+            class: 'btn',
             onclick: vnode.attrs.onclick
-        }, vnode.children);
+        }, vnode.children || vnode.attrs.label);
     }
 };
 
