@@ -4,11 +4,12 @@ import GenericListView from './src/views/GenericListView.js';
 import GenericFormView from './src/views/GenericFormView.js';
 import UsuarioListView from './src/views/UsuarioListView.js';
 import UsuarioFormView from './src/views/UsuarioFormView.js';
-import { proveedorRenderItem, proveedorRenderForm } from './src/config/ProveedorConfig.js';
 import { articuloRenderItem, articuloRenderForm } from './src/config/ArticuloConfig.js';
 import { ordenRenderItem, ordenRenderForm } from './src/config/OrdenConfig.js';
 import ProveedoresArticuloView from './src/views/ProveedoresArticuloView.js';
 import { ENTITIES } from './constants.js';
+import ProveedorListView from './src/views/ProveedorListView.js';
+import ProveedorFormView from './src/views/ProveedorFormView.js';
 
 m.route.prefix = "/nrd/#!";
 
@@ -26,13 +27,13 @@ m.route(document.getElementById('app'), '/home', {
         render: (vnode) => m(App, m(UsuarioFormView, { id: vnode.attrs.id }))
     },
     '/proveedores': {
-        render: () => m(App, m(GenericListView, { entity: ENTITIES.PROVEEDORES, renderItem: proveedorRenderItem }))
+        render: () => m(App, m(ProveedorListView))
     },
     '/proveedores/nuevo': {
-        render: () => m(App, m(GenericFormView, { entity: ENTITIES.PROVEEDORES, renderForm: proveedorRenderForm }))
+        render: () => m(App, m(ProveedorFormView))
     },
     '/proveedores/editar/:id': {
-        render: (vnode) => m(App, m(GenericFormView, { entity: ENTITIES.PROVEEDORES, renderForm: proveedorRenderForm, id: vnode.attrs.id }))
+        render: (vnode) => m(App, m(ProveedorFormView, { id: vnode.attrs.id }))
     },
     '/articulos': {
         render: () => m(App, m(GenericListView, { entity: ENTITIES.ARTICULOS, renderItem: articuloRenderItem }))
