@@ -1,10 +1,12 @@
 import Menu from './Menu.js';
 
 const App = {
-    view: (vnode) => {
-        return m('div', { class: 'container' }, [
+    view: () => {
+        return m(VerticalLayout, [
             m(Menu),
-            m('div', { id: 'view-container' }, vnode.children)
+            m('div', { class: 'container' }, [
+
+            ])  
         ]);
     }
 };
