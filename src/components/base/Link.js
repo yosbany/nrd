@@ -1,11 +1,5 @@
-const Link = {
-    view: (vnode) => {
-        return m(m.route.Link, {
-            class: 'link',
-            href: vnode.attrs.href,
-            onclick: vnode.attrs.onclick
-        }, vnode.attrs.text || vnode.children);
+export const Link = {
+    view: ({ attrs, children }) => {
+        return m('a', attrs, children);
     }
 };
-
-export default Link;

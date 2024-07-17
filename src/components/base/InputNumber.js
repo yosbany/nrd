@@ -1,16 +1,5 @@
-const InputNumber = {
-    view: (vnode) => {
-        return m('div', { class: 'mb-3' }, [
-            vnode.attrs.label && m('label', { class: 'form-label' }, vnode.attrs.label),
-            m('input', {
-                class: 'form-control',
-                type: 'number',
-                value: vnode.attrs.value,
-                onchange: vnode.attrs.onchange,
-                placeholder: vnode.attrs.placeholder || ''
-            })
-        ]);
+export const InputNumber = {
+    view: ({ attrs }) => {
+        return m('input[type=number]', { class: 'u-full-width', ...attrs });
     }
 };
-
-export default InputNumber;

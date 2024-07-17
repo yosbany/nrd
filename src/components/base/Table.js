@@ -1,22 +1,5 @@
-const Table = {
-    view: (vnode) => {
-        return m('table', { class: 'table' }, [
-            m('thead', 
-                m('tr', 
-                    vnode.attrs.headers.map(header =>
-                        m('th', header)
-                    )
-                )
-            ),
-            m('tbody', 
-                vnode.attrs.rows.map(row =>
-                    m('tr', row.map(cell =>
-                        m('td', cell)
-                    ))
-                )
-            )
-        ]);
+export const Table = {
+    view: ({ attrs, children }) => {
+        return m('table', { class: 'u-full-width', ...attrs }, children);
     }
 };
-
-export default Table;

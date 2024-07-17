@@ -1,7 +1,5 @@
-const OutputText = {
-    view: (vnode) => {
-        return m('p', { class: 'form-control-plaintext' }, vnode.attrs.text);
+export const OutputText = {
+    view: ({ attrs, children }) => {
+        return m('span', attrs, children);
     }
 };
-
-export default OutputText;

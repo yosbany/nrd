@@ -1,7 +1,5 @@
-const VerticalLayout = {
-    view: (vnode) => {
-        return m('div', { class: 'd-flex flex-column' }, vnode.children);
+export const VerticalLayout = {
+    view: ({ attrs, children }) => {
+        return m('div', { class: 'container', ...attrs }, children);
     }
 };
-
-export default VerticalLayout;
