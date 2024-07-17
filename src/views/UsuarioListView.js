@@ -9,23 +9,13 @@ import InputText from '../components/base/InputText.js';
 const UsuarioListView = {
     oninit: (vnode) => {
         vnode.state.items = [];
-        vnode.state.searchTerm = '';
         FirebaseModel.getAll('usuarios').then(items => {
             vnode.state.items = items || [];
             m.redraw();
         });
     },
     view: (vnode) => {
-        const items = vnode.state.items.filter(item =>
-            item.nombre.toLowerCase().includes(vnode.state.searchTerm.toLowerCase())
-        );
-
         return m(VerticalLayout, [
-            m('h2', 'Lista de Usuarios'),
-            m(InputText, {
-                value: vnode.state.searchTerm,
-                oninput: (e) => vnode.state.searchTerm = e.target.value
-            }),
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
                 rows: items.map(item => [
@@ -46,7 +36,7 @@ const UsuarioListView = {
                         }, 'Eliminar')
                     ])
                 ])
-            }),
+                , label: 'Lista de Usuarios'}),
             m(Link, { href: '/usuarios/nuevo', text: 'Agregar Usuario' })
         ]);
     }
