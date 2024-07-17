@@ -17,9 +17,9 @@ const UsuarioListView = {
     },
     view: (vnode) => {
         const { items } = vnode.state;
-
         return m(VerticalLayout, [
             m('h2', 'Lista de Usuarios'),
+            m(Link, { href: '/usuarios/nuevo', text: 'Agregar Usuario' }),
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
                 rows: items.map(item => [
@@ -44,7 +44,6 @@ const UsuarioListView = {
                     ])
                 ])
             }),
-            m(Link, { href: '/usuarios/nuevo', text: 'Agregar Usuario' })
         ]);
     }
 };
