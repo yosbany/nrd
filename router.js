@@ -1,13 +1,7 @@
 import App from './src/components/App.js';
 import HomeView from './src/views/HomeView.js';
-import GenericListView from './src/views/GenericListView.js';
-import GenericFormView from './src/views/GenericFormView.js';
 import UsuarioListView from './src/views/UsuarioListView.js';
 import UsuarioFormView from './src/views/UsuarioFormView.js';
-import { articuloRenderItem, articuloRenderForm } from './src/config/ArticuloConfig.js';
-import { ordenRenderItem, ordenRenderForm } from './src/config/OrdenConfig.js';
-import ProveedoresArticuloView from './src/views/ProveedoresArticuloView.js';
-import { ENTITIES } from './constants.js';
 import ProveedorListView from './src/views/ProveedorListView.js';
 import ProveedorFormView from './src/views/ProveedorFormView.js';
 
@@ -34,26 +28,5 @@ m.route(document.getElementById('app'), '/home', {
     },
     '/proveedores/editar/:id': {
         render: (vnode) => m(App, m(ProveedorFormView, { id: vnode.attrs.id }))
-    },
-    '/articulos': {
-        render: () => m(App, m(GenericListView, { entity: ENTITIES.ARTICULOS, renderItem: articuloRenderItem }))
-    },
-    '/articulos/nuevo': {
-        render: () => m(App, m(GenericFormView, { entity: ENTITIES.ARTICULOS, renderForm: articuloRenderForm }))
-    },
-    '/articulos/editar/:id': {
-        render: (vnode) => m(App, m(GenericFormView, { entity: ENTITIES.ARTICULOS, renderForm: articuloRenderForm, id: vnode.attrs.id }))
-    },
-    '/proveedores-articulo/:id': {
-        render: (vnode) => m(App, m(ProveedoresArticuloView, { articuloId: vnode.attrs.id }))
-    },
-    '/ordenes': {
-        render: () => m(App, m(GenericListView, { entity: ENTITIES.ORDENES, renderItem: ordenRenderItem }))
-    },
-    '/ordenes/nuevo': {
-        render: () => m(App, m(GenericFormView, { entity: ENTITIES.ORDENES, renderForm: ordenRenderForm }))
-    },
-    '/ordenes/editar/:id': {
-        render: (vnode) => m(App, m(GenericFormView, { entity: ENTITIES.ORDENES, renderForm: ordenRenderForm, id: vnode.attrs.id }))
     }
 });
