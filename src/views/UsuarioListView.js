@@ -17,15 +17,17 @@ const UsuarioListView = {
         const { items } = vnode.state;
         console.log(items);
         return m(VerticalLayout, [
+            m('h2', 'Lista de Usuarios'),
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
                 rows: items.map(item => [
-                    m(OutputText, item.nombre),
+                    m(OutputText, { text: item.nombre }),
                     m(HorizontalLayout, [
-                        m(Link, { href: `/usuarios/editar/${item.id}`},'Editar'),
+                        m(Link, { href: `/usuarios/editar/${item.id}`, text: 'Editar' }),
                         m('span', ' | '),
                         m(Link, {
                             href: 'javascript:void(0)',
+                            text: 'Eliminar',
                             onclick: () => {
                                 if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
                                     FirebaseModel.delete('usuarios', item.id).then(() => {
@@ -34,10 +36,10 @@ const UsuarioListView = {
                                     });
                                 }
                             }
-                        }, 'Eliminar')
+                        })
                     ])
                 ])
-                , label: 'Lista de Usuarios'}),
+            }),
             m(Link, { href: '/usuarios/nuevo', text: 'Agregar Usuario' })
         ]);
     }
