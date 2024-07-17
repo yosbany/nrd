@@ -30,7 +30,7 @@ const UsuarioFormView = {
                 oninput: (e) => item.nombre = e.target.value
             }),
             m('div.d-flex.mt-3', [
-                m(Button, { type: 'submit', class: 'btn btn-primary', label: 'Guardar' }),
+                m(Button, { type: 'submit', class: 'btn btn-primary'}, 'Guardar'),
                 m(Link, { href: 'javascript:void(0)', onclick: () => window.history.back(), class: 'btn btn-secondary ms-2', text: 'Cancelar' })
             ])
         ]);
