@@ -29,13 +29,12 @@ const UsuarioListView = {
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
                 rows: items.map(item => [
-                    m(OutputText, { text: item.nombre }),
+                    m(OutputText, item.nombre),
                     m(HorizontalLayout, [
-                        m(Link, { href: `/usuarios/editar/${item.id}`, text: 'Editar' }),
+                        m(Link, { href: `/usuarios/editar/${item.id}`},'Editar'),
                         m('span', ' | '),
                         m(Link, {
                             href: 'javascript:void(0)',
-                            text: 'Eliminar',
                             onclick: () => {
                                 if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
                                     FirebaseModel.delete('usuarios', item.id).then(() => {
@@ -44,7 +43,7 @@ const UsuarioListView = {
                                     });
                                 }
                             }
-                        })
+                        }, 'Eliminar')
                     ])
                 ])
             }),
