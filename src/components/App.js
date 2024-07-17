@@ -1,3 +1,4 @@
+import m from 'mithril';
 import Menu from './Menu.js';
 import VerticalLayout from './base/VerticalLayout.js';
 
@@ -5,7 +6,7 @@ const App = {
     view: ({ children }) => {
         return m(VerticalLayout, [
             m(Menu),
-            m('div', { class: 'container' }, children)
+            m('div', { class: 'full-screen-container' }, children)
         ]);
     }
 };
