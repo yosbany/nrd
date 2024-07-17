@@ -28,7 +28,9 @@ const ItemForm = {
             m("div", [
                 m("label", "Name"),
                 m("input[type=text]", {
-                    oninput: m.withAttr("value", (value) => ItemForm.item.name = value),
+                    oninput: function(e) {
+                        ItemForm.item.name = e.target.value;
+                    },
                     value: ItemForm.item.name
                 })
             ]),
