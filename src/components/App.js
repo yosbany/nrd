@@ -5,7 +5,9 @@ const App = {
     view: ({ children }) => {
         return m(VerticalLayout, [
             m(Menu),
-            m('div', { class: 'full-screen-container' }, children)
+            m('div', { class: 'full-screen-container' }, children.map(child => 
+                m('div', { class: 'child-container' }, child)
+            ))
         ]);
     }
 };
