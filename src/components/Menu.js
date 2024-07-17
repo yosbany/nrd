@@ -1,4 +1,3 @@
-import { HorizontalLayout } from './base/HorizontalLayout.js';
 import { Link } from './base/Link.js';
 
 export const Menu = {
