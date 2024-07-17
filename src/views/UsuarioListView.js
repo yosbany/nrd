@@ -15,6 +15,7 @@ const UsuarioListView = {
         });
     },
     view: (vnode) => {
+        const { items } = vnode.state;
         return m(VerticalLayout, [
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
