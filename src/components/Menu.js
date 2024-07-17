@@ -1,24 +1,16 @@
-const Menu = {
+import { HorizontalLayout } from './base/HorizontalLayout.js';
+import { Link } from './base/Link.js';
+
+export const Menu = {
     view: () => {
-        return m('nav', { class: 'navbar navbar-expand-sm bg-light' }, [
-            m('div', { class: 'container-fluid' }, [
-                m('ul', { class: 'navbar-nav' }, [
-                    m('li', { class: 'nav-item' }, [
-                        m(m.route.Link, { class: 'nav-link', href: '/usuarios' }, 'Usuarios')
-                    ]),
-                    m('li', { class: 'nav-item' }, [
-                        m(m.route.Link, { class: 'nav-link', href: '/proveedores' }, 'Proveedores')
-                    ]),
-                    m('li', { class: 'nav-item' }, [
-                        m(m.route.Link, { class: 'nav-link', href: '/ordenes' }, 'Órdenes')
-                    ]),
-                    m('li', { class: 'nav-item' }, [
-                        m(m.route.Link, { class: 'nav-link', href: '/articulos' }, 'Artículos')
-                    ])
-                ])
+        return m('div', { class: 'menu' }, 
+            m('div', { class: 'menu-container' }, [
+                m(Link, { href: '/home', className: 'menu-item' }, 'Inicio'),
+                m(Link, { href: '/usuarios', className: 'menu-item' }, 'Usuarios'),
+                m(Link, { href: '/proveedores', className: 'menu-item' }, 'Proveedores'),
+                m(Link, { href: '/ordenes', className: 'menu-item' }, 'Ordenes'),
+                m(Link, { href: '/articulos', className: 'menu-item' }, 'Artículos')
             ])
-        ]);
+        );
     }
 };
-
-export default Menu;

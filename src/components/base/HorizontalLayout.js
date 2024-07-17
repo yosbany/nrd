@@ -1,5 +1,10 @@
 export const HorizontalLayout = {
     view: ({ attrs, children }) => {
-        return m('div', { class: 'row', ...attrs }, children);
+        const { columns = [], className = '', ...rest } = attrs;
+        return m('div', { class: `row ${className}`, ...rest }, 
+            children.map((child, index) => 
+                m('div', { class: `${columns[index] || 'twelve'} columns` }, child)
+            )
+        );
     }
 };

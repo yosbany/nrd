@@ -1,11 +1,87 @@
-.navbar {
-    margin-bottom: 1rem;
+.label-top {
+    display: flex;
+    flex-direction: column;
 }
 
-.nav-link {
-    font-size: 1.1rem;
+.label-left {
+    display: flex;
+    align-items: center;
+}
+.align-center {
+    align-items: center;
 }
 
-#view-container {
-    padding: 1rem;
+.align-center input{
+    margin-bottom: 1.0rem !important;
+}
+
+.label-left label {
+    margin-right: 10px;
+}
+
+.label-top label {
+    margin-bottom: 5px;
+}
+
+/* Añadimos clases para diferentes anchos */
+.label-width-25 {
+    flex: 0 0 25%;
+}
+
+.label-width-50 {
+    flex: 0 0 50%;
+}
+
+.label-width-75 {
+    flex: 0 0 75%;
+}
+
+.label-width-100 {
+    flex: 0 0 100%;
+}
+
+.table-cell .label-top label,
+.table-cell .label-left label {
+    display: none;
+}
+
+/* Estilos para agrandar radios y checkboxes */
+.large-checkbox,
+.large-radio {
+    width: 20px;
+    height: 20px;
+}
+
+.menu {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    flex: 1;
+    text-align: left;
+}
+
+.menu-item:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+    .menu-item {
+        flex-basis: 100%;
+        text-align: left;
+    }
 }

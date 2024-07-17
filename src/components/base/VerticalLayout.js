@@ -1,5 +1,6 @@
 export const VerticalLayout = {
     view: ({ attrs, children }) => {
-        return m('div', { class: 'container', ...attrs }, children);
+        const { className = '', ...rest } = attrs;
+        return m('div', { class: `${className}`, ...rest }, children);
     }
 };
