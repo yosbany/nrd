@@ -11,11 +11,13 @@ const UsuarioListView = {
         FirebaseModel.getAll('usuarios').then(items => {
             vnode.state.items = items || [];
             m.redraw();
+        }).catch(error => {
+            console.error("Error al obtener usuarios:", error);
         });
     },
     view: (vnode) => {
         const { items } = vnode.state;
-        console.log(items);
+
         return m(VerticalLayout, [
             m('h2', 'Lista de Usuarios'),
             m(Table, {
@@ -33,6 +35,8 @@ const UsuarioListView = {
                                     FirebaseModel.delete('usuarios', item.id).then(() => {
                                         vnode.state.items = vnode.state.items.filter(i => i.id !== item.id);
                                         m.redraw();
+                                    }).catch(error => {
+                                        console.error("Error al eliminar usuario:", error);
                                     });
                                 }
                             }
