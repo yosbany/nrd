@@ -1,4 +1,4 @@
-export const Table = {
+const Table = {
     view: ({ attrs }) => {
         const { headers, body, label, labelPosition = 'top' } = attrs;
         return m('div', { class: 'Table' }, [
@@ -22,3 +22,4 @@ export const Table = {
         ]);
     }
 };
+export default Table;

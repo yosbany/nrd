@@ -1,6 +1,6 @@
-import { Link } from './base/Link.js';
+import Link from './base/Link.js';
 
-export const Menu = {
+const Menu = {
     view: () => {
         return m('div', { class: 'menu' }, 
             m('div', { class: 'menu-container' }, [
@@ -13,3 +13,5 @@ export const Menu = {
         );
     }
 };
+
+export default Menu;

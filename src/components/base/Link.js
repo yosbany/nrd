@@ -1,4 +1,4 @@
-export const Link = {
+const Link = {
     view: ({ attrs, children }) => {
         const { label, href, labelPosition = 'left', showLabel = true, labelWidth = 50, ...rest } = attrs;
         const labelWidthClass = `label-width-${labelWidth}`;
@@ -10,3 +10,4 @@ export const Link = {
         ]);
     }
 };
+export default Link;

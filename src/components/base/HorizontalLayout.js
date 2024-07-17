@@ -1,4 +1,4 @@
-export const HorizontalLayout = {
+const HorizontalLayout = {
     view: ({ attrs, children }) => {
         const { columns = [], className = '', ...rest } = attrs;
         return m('div', { class: `row ${className}`, ...rest }, 
@@ -8,3 +8,4 @@ export const HorizontalLayout = {
         );
     }
 };
+export default HorizontalLayout;

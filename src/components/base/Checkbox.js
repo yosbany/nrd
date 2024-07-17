@@ -1,4 +1,4 @@
-export const Checkbox = {
+const Checkbox = {
     view: ({ attrs }) => {
         const { label, labelPosition = 'left', showLabel = true, labelWidth = 50, ...rest } = attrs;
         const labelWidthClass = `label-width-${labelWidth}`;
@@ -10,3 +10,4 @@ export const Checkbox = {
         ]);
     }
 };
+export default Checkbox;

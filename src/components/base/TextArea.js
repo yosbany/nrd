@@ -1,4 +1,4 @@
-export const TextArea = {
+const TextArea = {
     view: ({ attrs }) => {
         const { label, labelPosition = 'top', showLabel = true, labelWidth = 50, ...rest } = attrs;
         const labelWidthClass = `label-width-${labelWidth}`;
@@ -10,3 +10,4 @@ export const TextArea = {
         ]);
     }
 };
+export default TextArea;
