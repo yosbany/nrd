@@ -4,7 +4,6 @@ import Link from '../components/base/Link.js';
 import VerticalLayout from '../components/base/VerticalLayout.js';
 import OutputText from '../components/base/OutputText.js';
 import HorizontalLayout from '../components/base/HorizontalLayout.js';
-import InputText from '../components/base/InputText.js';
 
 const UsuarioListView = {
     oninit: (vnode) => {
@@ -16,6 +15,7 @@ const UsuarioListView = {
     },
     view: (vnode) => {
         const { items } = vnode.state;
+        console.log(items);
         return m(VerticalLayout, [
             m(Table, {
                 headers: ['Nombre', 'Acciones'],
