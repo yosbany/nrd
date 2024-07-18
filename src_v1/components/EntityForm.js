@@ -119,12 +119,12 @@ const EntityForm = {
                     ]);
                 }),
                 m("div", { style: { display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '20px' } }, [
-                    m("button[type=submit]", { style: { backgroundColor: 'royalblue' } }, "Guardar"),
                     m("button.cancel-button", {
                         type: "button",
                         onclick: () => m.route.set(`/${vnode.attrs.entity}`),
                         style: { backgroundColor: 'gray' }
-                    }, "Cancelar")
+                    }, "Cancelar"),
+                    m("button[type=submit]", { style: { backgroundColor: 'royalblue' } }, "Guardar")
                 ])
             ])
         ]);
