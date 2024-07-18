@@ -17,17 +17,16 @@ const ItemList = {
     view: function() {
         return m("div", [
             m("h1", "Items"),
-            m("button", { onclick: () => m.route.set("/create") }, "Create New Item"),
-            m("table", [
+            m("table.pure-table", [
                 m("thead", m("tr", [m("th", "ID"), m("th", "Name"), m("th", "Actions")])),
                 m("tbody", 
                     ItemList.items.map((item) => 
                         m("tr", [
-                            m("td", { "data-label": "ID" }, item.id),
-                            m("td", { "data-label": "Name" }, item.name),
-                            m("td", { "data-label": "Actions" }, [
-                                m("button", { onclick: () => m.route.set(`/edit/${item.id}`) }, "Edit"),
-                                m("button", { onclick: () => ItemList.deleteItem(item.id) }, "Delete")
+                            m("td", item.id),
+                            m("td", item.name),
+                            m("td", [
+                                m("button.pure-button", { onclick: () => m.route.set(`/edit/${item.id}`) }, "Edit"),
+                                m("button.pure-button", { onclick: () => ItemList.deleteItem(item.id) }, "Delete")
                             ])
                         ])
                     )
