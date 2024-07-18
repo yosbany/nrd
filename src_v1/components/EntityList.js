@@ -76,7 +76,7 @@ const EntityList = {
                     },
                     value: vnode.state.searchText
                 }),
-                m("button", { onclick: () => m.route.set(`/${vnode.attrs.entity}/new`) }, "Nuevo")
+                m("button", { style: {marginRight: '0px'}, onclick: () => m.route.set(`/${vnode.attrs.entity}/new`) }, "Nuevo")
             ]),
             m("table", [
                 m("thead", [
@@ -99,6 +99,7 @@ const EntityList = {
                             }),
                             m("td", { style: { position: 'relative', textAlign: 'right', whiteSpace: 'nowrap', width: '30px' } }, [
                                 m("button.icon-button", {
+                                    style: {marginRight: '0px'},
                                     onclick: e => {
                                         e.stopPropagation();
                                         EntityList.toggleActions(vnode, item.id);
