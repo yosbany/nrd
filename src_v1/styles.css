@@ -1,116 +1,160 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
 }
 
-#app {
-    width: 100%;
-    max-width: 1000px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: #fff;
-    border-radius: 10px;
-    box-sizing: border-box;
-}
-
-h1 {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-form div {
-    margin-bottom: 10px;
-}
-
-label {
-    margin-bottom: 5px;
-}
-
-input[type=text] {
+nav {
+    background-color: #333;
+    color: white;
     padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start; /* Alinear a la izquierda */
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    margin: 5px 0;
-    transition: background-color 0.3s;
-    box-sizing: border-box;
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
-button:hover {
-    background-color: #0056b3;
+main {
+    padding: 20px;
 }
 
+/* Error Styles */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Required Indicator Styles */
+label.required::after {
+    content: " *";
+    color: red;
+}
+
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 20px 0;
+    background-color: white;
 }
 
 th, td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 8px;
     text-align: left;
-    box-sizing: border-box;
 }
 
 th {
     background-color: #f2f2f2;
 }
 
+/* Form Styles */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type=text], input[type=number], select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+button {
+    background-color: #007BFF; /* Azul claro */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px; /* Añadir un margen derecho */
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Cancel Button Styles */
+.cancel-button {
+    background-color: #6c757d; /* Gris para el botón cancelar */
+}
+
+.cancel-button:hover {
+    background-color: #5a6268; /* Gris más oscuro al pasar el ratón */
+}
+
+/* Icon Button Styles */
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px; /* Padding de 10px */
+    color: #007BFF; /* Azul claro */
+}
+
+/* Context Menu Styles */
+.context-menu {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.context-menu button {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background: none;
+    text-align: left;
+    color: #007BFF; /* Azul claro */
+}
+
+.context-menu button:hover {
+    background-color: #f2f2f2;
+}
+
+/* Responsive Styles */
 @media (max-width: 600px) {
-    #app {
-        padding: 10px;
-        box-shadow: none;
-    }
-
-    table, th, td {
+    .icon-button {
         display: block;
-        width: 100%;
+    }
+}
+
+@media (min-width: 601px) {
+    .icon-button {
+        display: block;
     }
 
-    th, td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    th::before, td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        width: calc(50% - 20px);
-        padding-right: 10px;
-        white-space: nowrap;
-        text-align: left;
-        font-weight: bold;
-    }
-
-    th:last-child, td:last-child {
-        text-align: center;
+    .context-menu button {
+        display: inline;
     }
 }

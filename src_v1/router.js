@@ -1,21 +1,19 @@
-import ItemList from './components/ItemList.js';
-import ItemForm from './components/ItemForm.js';
-import App from './components/App.js'
+import App from './components/App.js';
+import EntityList from './components/EntityList.js';
+import EntityForm from './components/EntityForm.js';
+import AssociationManager from './components/AssociationManager.js';
 
-m.route(document.getElementById('app'), "/items", {
-    "/items": {
-        render: function() {
-            return m(App, m(ItemList));
-        }
+m.route(document.body, "/users", {
+    "/:entity": {
+        render: vnode => m(App, m(EntityList, vnode.attrs))
     },
-    "/edit/:id": {
-        render: function(vnode) {
-            return m(App, m(ItemForm, vnode.attrs));
-        }
+    "/:entity/new": {
+        render: vnode => m(App, m(EntityForm, vnode.attrs))
     },
-    "/create": {
-        render: function() {
-            return m(App, m(ItemForm));
-        }
+    "/:entity/:id": {
+        render: vnode => m(App, m(EntityForm, vnode.attrs))
+    },
+    "/:entity/:id/associations/:associationProperty": {
+        render: vnode => m(App, m(AssociationManager, vnode.attrs))
     }
 });
