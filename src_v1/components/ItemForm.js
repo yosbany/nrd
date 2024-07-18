@@ -1,4 +1,5 @@
 import FirebaseModel from '../models/FirebaseModel.js';
+
 const ItemForm = {
     oninit: function(vnode) {
         if (vnode.attrs.id) {

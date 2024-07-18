@@ -1,4 +1,3 @@
-import m from 'https://unpkg.com/mithril/mithril.js';
 import FirebaseModel from '../models/FirebaseModel.js';
 
 const ItemList = {
