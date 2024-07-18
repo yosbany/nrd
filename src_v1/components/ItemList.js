@@ -26,6 +26,7 @@ const ItemList = {
                             m("td", item.name),
                             m("td", [
                                 m("button.pure-button", { onclick: () => m.route.set(`/edit/${item.id}`) }, "Edit"),
+                                m('span', ' '),
                                 m("button.pure-button", { onclick: () => ItemList.deleteItem(item.id) }, "Delete")
                             ])
                         ])

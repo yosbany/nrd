@@ -1,4 +1,4 @@
-import Menu from './components/Menu.js';
+import Menu from './Menu.js';
 
 const App = {
     view: function(vnode) {
@@ -10,3 +10,4 @@ const App = {
         ]);
     }
 };
+export default App;
