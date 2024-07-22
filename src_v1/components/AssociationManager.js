@@ -4,6 +4,8 @@ import { loadDynamicOptions } from '../utils.js';
 
 const AssociationManager = {
     oninit: vnode => {
+        console.log("[Audit] Initializing AssociationManager...");
+        
         vnode.state.associatedItems = [];
         vnode.state.allItems = [];
         vnode.state.selectedItem = null;
@@ -13,51 +15,72 @@ const AssociationManager = {
         const parentId = vnode.attrs.id;
         const associationProperty = vnode.attrs.associationProperty;
 
+        console.log(`[Audit] Parent Entity: ${parentEntity}, Parent ID: ${parentId}, Association Property: ${associationProperty}`);
+
         // Determinar la entidad hija basada en la propiedad de asociación
         const childEntity = Entities[parentEntity].properties[associationProperty].linkTo;
 
+        console.log(`[Audit] Child Entity: ${childEntity}`);
+
         // Obtener todos los elementos de la entidad hija
         FirebaseModel.getAll(childEntity).then(data => {
+            console.log("[Audit] Fetched all items from child entity:", data);
             vnode.state.allItems = data;
             loadDynamicOptions(parentEntity, Entities[parentEntity].properties).then(dynamicOptions => {
                 vnode.state.dynamicOptions = dynamicOptions;
+                console.log("[Audit] Loaded dynamic options:", dynamicOptions);
                 if (parentId) {
                     // Obtener el elemento de la entidad padre
                     FirebaseModel.getById(parentEntity, parentId).then(parentData => {
+                        console.log(`[Audit] Fetched parent entity data:`, parentData);
                         vnode.state.parentData = parentData;
                         vnode.state.associatedItems = parentData[associationProperty] || [];
                         m.redraw();
-                    });
+                    }).catch(error => console.error("[Audit] Error fetching parent entity data:", error));
                 }
-            });
-        });
+            }).catch(error => console.error("[Audit] Error loading dynamic options:", error));
+        }).catch(error => console.error("[Audit] Error fetching all items from child entity:", error));
     },
     addAssociation: vnode => {
+        console.log("[Audit] Adding association...");
         if (vnode.state.selectedItem) {
+            console.log(`[Audit] Selected item: ${vnode.state.selectedItem.id}`);
             vnode.state.associatedItems.push(vnode.state.selectedItem.id); // Solo guardar el ID
             vnode.state.selectedItem = null; // Limpiar la selección después de agregar
             AssociationManager.saveAssociations(vnode);
+        } else {
+            console.warn("[Audit] No item selected to add.");
         }
     },
     removeAssociation: vnode => {
-        vnode.state.associatedItems = vnode.state.associatedItems.filter(id => id !== vnode.state.selectedItem.id);
-        AssociationManager.saveAssociations(vnode);
+        console.log("[Audit] Removing association...");
+        if (vnode.state.selectedItem) {
+            console.log(`[Audit] Selected item to remove: ${vnode.state.selectedItem.id}`);
+            vnode.state.associatedItems = vnode.state.associatedItems.filter(id => id !== vnode.state.selectedItem.id);
+            AssociationManager.saveAssociations(vnode);
+        } else {
+            console.warn("[Audit] No item selected to remove.");
+        }
     },
     saveAssociations: vnode => {
+        console.log("[Audit] Saving associations...");
         const parentEntity = vnode.attrs.entity;
         const parentId = vnode.attrs.id;
         const associationProperty = vnode.attrs.associationProperty;
 
         // Obtener la entidad padre completa
         FirebaseModel.getById(parentEntity, parentId).then(parentData => {
+            console.log("[Audit] Fetched parent entity data for saving associations:", parentData);
+
             // Actualizar solo la propiedad de asociación
             parentData[associationProperty] = vnode.state.associatedItems;
 
             // Guardar el objeto completo actualizado
             FirebaseModel.saveOrUpdate(parentEntity, parentId, parentData).then(() => {
+                console.log("[Audit] Associations saved successfully.");
                 m.redraw();
-            });
-        });
+            }).catch(error => console.error("[Audit] Error saving associations:", error));
+        }).catch(error => console.error("[Audit] Error fetching parent entity data for saving associations:", error));
     },
     view: vnode => {
         const parentEntity = vnode.attrs.entity;
@@ -67,6 +90,8 @@ const AssociationManager = {
         const childEntity = Entities[parentEntity].properties[associationProperty].linkTo;
         const childSchema = Entities[childEntity].properties;
         const tableHeaders = Object.keys(childSchema).filter(key => childSchema[key].showInTable);
+
+        console.log(`[Audit] Rendering view for AssociationManager with Parent Entity: ${parentEntity}, Child Entity: ${childEntity}`);
 
         // Filtrar los elementos que ya están asociados
         const availableItems = vnode.state.allItems.filter(item => !vnode.state.associatedItems.includes(item.id));
@@ -90,10 +115,11 @@ const AssociationManager = {
             ]),
             m("div", [
                 m("h3", `Agregar ${Entities[childEntity].label}`),
-                m("div", { style: { display: 'flex', alignItems: 'center', gap: '10px' } }, [
+                m("div", { class: 'association-form' }, [
                     m("select", {
                         onchange: e => {
                             vnode.state.selectedItem = availableItems.find(i => i.id === e.target.value);
+                            console.log(`[Audit] Selected item for association: ${vnode.state.selectedItem ? vnode.state.selectedItem.id : 'None'}`);
                         },
                         disabled: availableItems.length === 0 // Deshabilitar el select si no hay elementos disponibles
                     }, [
@@ -122,6 +148,7 @@ const AssociationManager = {
                         m("td", { style: { textAlign: 'right', width: '100px' } }, [
                             m("button", { onclick: () => {
                                 vnode.state.selectedItem = { id: itemId };
+                                console.log(`[Audit] Selected item to remove: ${itemId}`);
                                 AssociationManager.removeAssociation(vnode);
                             } }, "Eliminar")
                         ])

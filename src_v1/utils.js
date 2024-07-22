@@ -22,7 +22,6 @@ export const loadDynamicOptions = async (entity, entitySchema) => {
                 dynamicOptions[result.key] = result.options;
             }
         });
-        console.log(dynamicOptions);
         return dynamicOptions;
     });
 };

@@ -4,9 +4,9 @@ const App = {
     view: vnode => {
         return m("div", [
             m(Menu),
-            m("main", vnode.children)
+            m("main.div.content", vnode.children)
         ]);
     }
 };
 
-export default App;
+export default App
