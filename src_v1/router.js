@@ -1,7 +1,7 @@
 import App from './components/App.js';
-import EntityList from './components/EntityList.js';
-import EntityForm from './components/EntityForm.js';
-import AssociationManager from './components/AssociationManager.js';
+import EntityManagerView from './components/EntityManagerView.js';
+import EntityFormView from './components/EntityFormView.js';
+import AssociationManagerView from './components/AssociationManagerView.js';
 import Login from './components/Login.js';
 import Home from './components/Home.js';
 import ProtectedRoute from './components/ProtectedRoute.js';
@@ -18,15 +18,15 @@ m.route(document.body, "/login", {
         render: () => m(App, m(Unauthorized))
     },
     "/:entity": {
-        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(EntityList, vnode.attrs)))
+        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(EntityManagerView, vnode.attrs)))
     },
     "/:entity/new": {
-        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(EntityForm, vnode.attrs)))
+        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(EntityFormView, vnode.attrs)))
     },
     "/:entity/:id": {
-        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(EntityForm, vnode.attrs)))
+        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(EntityFormView, vnode.attrs)))
     },
     "/:entity/:id/associations/:associationProperty": {
-        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(AssociationManager, vnode.attrs)))
+        render: vnode => m(ProtectedRoute, { roles: ['Admin', 'User'] }, m(App, m(AssociationManagerView, vnode.attrs)))
     }
 });
