@@ -15,17 +15,4 @@ const firebase = initializeApp(firebaseConfig);
 const auth = getAuth(firebase);
 const db = getDatabase(firebase);
 
-async function login(email, password) {
-    try {
-        await signInWithEmailAndPassword(auth, email, password);
-        console.log('Inicio de sesión exitoso');
-    } catch (error) {
-        console.error('Error al iniciar sesión:', error.message);
-    }
-}
-
-// Ejecutar el login automáticamente
-//await login("nriodor@gmail.com", "12345678");
-
-
 export { firebase, auth, db };

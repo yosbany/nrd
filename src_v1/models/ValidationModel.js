@@ -1,102 +1,133 @@
+import DataModel from '../config/DataModel.js';
 
 const ValidationModel = {
-    validateEntityData: (item, entitySchema) => {
+    validateEntityData: (item, entityName) => {
         const errors = {};
+        const entitySchema = DataModel[entityName];
+
+        if (!entitySchema) {
+            throw new Error(`El esquema para la entidad '${entityName}' no está definido.`);
+        }
 
         Object.keys(entitySchema).forEach(key => {
             const property = entitySchema[key];
             let value = item[key];
 
-            // Manejar referencias a otras entidades (Ref)
-            if (property.type === 'Ref' && typeof value === 'object' && value !== null) {
-                if (value.id) {
-                    value = `${property.referenceEntity || ''}/${value.id}`;
-                    item[key] = value; // Actualizar el valor en el item
-                } else {
-                    errors[key] = `${property.label} no contiene una referencia válida.`;
+            // Validación de campos requeridos
+            if (property.constraints?.required && (value === undefined || value === "" || value === null)) {
+                errors[key] = `${key} es obligatorio.`;
+                return;
+            }
+
+            // Si el campo no es requerido y el valor es undefined, null o vacío, no realizar más validaciones
+            if (!property.constraints?.required && (value === undefined || value === "" || value === null)) {
+                return;
+            }
+
+            // Validación de tipos
+            if (property.type) {
+                if (property.type === "number" && typeof value !== "number") {
+                    errors[key] = `${key} debe ser un número.`;
+                } else if (property.type === "string" && typeof value !== "string") {
+                    errors[key] = `${key} debe ser una cadena de texto.`;
+                } else if (property.type === "date" && !(value instanceof Date)) {
+                    errors[key] = `${key} debe ser una fecha.`;
                 }
             }
 
-            // Validación de campos requeridos
-            if (property.required && (!value || (property.inputType === "select" && value === ""))) {
-                errors[key] = `${property.label} es obligatorio`;
+            // Manejar referencias a otras entidades
+            if (property.entity && key.endsWith('Key')) {
+                if (typeof value !== "string") {
+                    errors[key] = `${key} debe ser una referencia válida.`;
+                } 
             }
 
             // Validación de patrones
-            if (property.pattern && value) {
-                const regex = new RegExp(property.pattern);
+            if (property.constraints?.pattern && value) {
+                const regex = new RegExp(property.constraints.pattern);
                 if (!regex.test(value)) {
-                    errors[key] = `${property.label} no cumple con el formato esperado`;
+                    errors[key] = property.constraints.errorMessage || `${key} no cumple con el formato esperado.`;
                 }
+            }
+
+            // Validación de valores únicos
+            if (property.constraints?.unique) {
+                // Aquí puedes agregar lógica para verificar si el valor es único
+                // Ejemplo: comprobar si el valor ya existe en la base de datos
+            }
+
+            // Validación de enumeraciones (enum)
+            if (property.constraints?.enum && !property.constraints.enum.includes(value)) {
+                errors[key] = `${key} debe ser uno de los siguientes valores: ${property.constraints.enum.join(", ")}.`;
             }
         });
 
         return errors;
     },
 
-    validateEntitiesSchema: entitySchema => {
+    validateEntitiesSchema: () => {
         const errors = [];
-    
-        // Verificar que la entidad 'users' exista
-        if (!entitySchema.users) {
-            errors.push("El esquema de entidad debe contener una entidad llamada 'users'.");
-        } else {
-            // Verificar que 'users' tenga las propiedades requeridas
-            const userSchema = entitySchema.users.properties || {};
-            if (!userSchema.fullName) {
-                errors.push("La entidad 'users' debe tener una propiedad 'fullName'.");
-            }
-            if (!userSchema.email) {
-                errors.push("La entidad 'users' debe tener una propiedad 'email'.");
-            }
-            if (!userSchema.role) {
-                errors.push("La entidad 'users' debe tener una propiedad 'role'.");
-            }
+
+        // Validar que la entidad 'Users' esté presente
+        if (!DataModel.Users) {
+            errors.push("La entidad 'Users' es obligatoria y no está definida en el esquema.");
         }
-    
-        // Validar las demás entidades y sus propiedades
-        Object.keys(entitySchema).forEach(entityName => {
-            const entityProperties = entitySchema[entityName].properties || {};
-    
+
+        Object.keys(DataModel).forEach(entityName => {
+            const entityProperties = DataModel[entityName] || {};
+
+            // Validar existencia de propiedades básicas en cada entidad
+            if (!entityProperties) {
+                errors.push(`La entidad '${entityName}' no tiene propiedades definidas.`);
+                return;
+            }
+
             Object.keys(entityProperties).forEach(propertyName => {
                 const property = entityProperties[propertyName];
-    
-                // Validar que todas las propiedades tengan un label
-                if (!property.label) {
-                    errors.push(`La propiedad '${propertyName}' en la entidad '${entityName}' no tiene un label definido.`);
-                }
 
-                // Validar que todas las propiedades tengan un type
+                // Validar que todas las propiedades tengan un tipo
                 if (!property.type) {
-                    errors.push(`La propiedad '${propertyName}' en la entidad '${entityName}' no tiene un type definido.`);
+                    errors.push(`La propiedad '${propertyName}' en la entidad '${entityName}' no tiene un tipo definido.`);
                 }
 
-                // Validar que todas las propiedades tengan un inputType
-                if (!property.inputType) {
-                    errors.push(`La propiedad '${propertyName}' en la entidad '${entityName}' no tiene un inputType definido.`);
-                }
-    
-    
-                // Validar propiedades de tipo Ref con la convención de nombre correcta
-                if (propertyName.includes('Ref')) {
-                    const [baseName, refEntityName] = propertyName.split('Ref');
-                    if (!baseName || !refEntityName) {
-                        errors.push(`La propiedad '${propertyName}' en la entidad '${entityName}' tiene un nombre de referencia no válido.`);
+                // Validar la existencia y tipo de constraints
+                if (property.constraints) {
+                    if (typeof property.constraints !== 'object') {
+                        errors.push(`Las constraints de la propiedad '${propertyName}' en la entidad '${entityName}' deben ser un objeto.`);
                     } else {
-                        const expectedEntityName = refEntityName.charAt(0).toLowerCase() + refEntityName.slice(1);
-                        if (!entitySchema[expectedEntityName]) {
-                            errors.push(`La propiedad '${propertyName}' de la entidad '${entityName}' es un referencia a '${expectedEntityName}' y este no existe en el esquema de entidades.`);
+                        if (property.constraints.minLength && typeof property.constraints.minLength !== 'number') {
+                            errors.push(`La constraint minLength en '${propertyName}' debe ser un número.`);
                         }
-                        else if(!property.labelRef){
-                            errors.push(`La propiedad '${propertyName}' en la entidad '${entityName}' no tiene un labelRef definido, para una entidad de referencia.`);
+                        if (property.constraints.maxLength && typeof property.constraints.maxLength !== 'number') {
+                            errors.push(`La constraint maxLength en '${propertyName}' debe ser un número.`);
+                        }
+                        if (property.constraints.unique && typeof property.constraints.unique !== 'boolean') {
+                            errors.push(`La constraint unique en '${propertyName}' debe ser un booleano.`);
                         }
                     }
                 }
+
+                // Validación de relaciones (entity)
+                if (property.entity && propertyName.endsWith('Key')) {
+                    if (typeof property.entity !== 'string') {
+                        errors.push(`La relación de la propiedad '${propertyName}' en la entidad '${entityName}' está mal definida.`);
+                    } else {
+                        // Validar que la entidad relacionada exista
+                        if (!DataModel[property.entity]) {
+                            errors.push(`La entidad referenciada '${property.entity}' en la relación de '${propertyName}' en '${entityName}' no existe.`);
+                        }
+                    }
+                }
+
+                // Validar enumeraciones (enum)
+                if (property.constraints?.enum && !Array.isArray(property.constraints.enum)) {
+                    errors.push(`La propiedad 'enum' en '${propertyName}' de la entidad '${entityName}' debe ser un arreglo.`);
+                }
             });
         });
-    
+
         return errors;
-    }
+    },
 };
 
 export default ValidationModel;

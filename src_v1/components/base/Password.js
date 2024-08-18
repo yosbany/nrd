@@ -1,5 +1,5 @@
 /**
- * PasswordInput - Componente para la entrada de contraseñas.
+ * Password - Componente para la entrada de contraseñas.
  *
  * Props:
  * @param {string} value - El valor del campo de entrada de contraseña.
@@ -11,7 +11,7 @@
  * @param {string} error - Mensaje de error, si existe.
  * @param {boolean} showLabel - Indica si se debe mostrar la etiqueta del campo de entrada.
  */
-const PasswordInput = {
+const Password = {
     view: vnode => {
         const { value, oninput, outputMode, label, required, documentation, error, showLabel } = vnode.attrs;
 
@@ -31,4 +31,4 @@ const PasswordInput = {
     }
 };
 
-export default PasswordInput;
+export default Password;

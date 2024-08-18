@@ -1,5 +1,5 @@
 /**
- * LinkOutput - Componente para manejar asociaciones a otras entidades o enlaces directos.
+ * Link - Componente para manejar asociaciones a otras entidades o enlaces directos.
  *
  * Props:
  * @param {string} path - Ruta base para construir el enlace completo.
@@ -7,7 +7,7 @@
  * @param {string} documentation - Descripción del campo, usada como tooltip.
  * @param {boolean} showLabel - Indica si se debe mostrar la etiqueta del campo de entrada.
  */
-const LinkOutput = {
+const Link = {
     view: vnode => {
         const { path, label, documentation, showLabel } = vnode.attrs;
 
@@ -36,4 +36,4 @@ const LinkOutput = {
     }
 };
 
-export default LinkOutput;
+export default Link;

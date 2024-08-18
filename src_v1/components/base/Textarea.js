@@ -1,5 +1,5 @@
 /**
- * TextareaInput - Componente para la entrada de texto largo.
+ * Textarea - Componente para la entrada de texto largo.
  *
  * Props:
  * @param {string} value - El valor del área de texto.
@@ -11,7 +11,7 @@
  * @param {string} error - Mensaje de error, si existe.
  * @param {boolean} showLabel - Indica si se debe mostrar el label.
  */
-const TextareaInput = {
+const Textarea = {
     view: vnode => {
         const { value, onInput, outputMode, label, required, documentation, error, showLabel = true } = vnode.attrs;
 
@@ -32,4 +32,4 @@ const TextareaInput = {
     }
 };
 
-export default TextareaInput;
+export default Textarea;

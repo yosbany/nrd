@@ -1,6 +1,6 @@
 import Menu from './Menu.js';
 import ValidationModel from '../models/ValidationModel.js';
-import Entities from '../config/Entities.js';
+import DataModel from '../config/DataModel.js';
 import Container from './base/Container.js';
 import Fila from './base/Fila.js';
 import Column from './base/Column.js';
@@ -10,12 +10,12 @@ const App = {
         console.log("[Audit][App] Initializing...");
 
         // Validación de esquemas de entidades
-        vnode.state.errores = ValidationModel.validateEntitiesSchema(Entities);
+        vnode.state.errores = ValidationModel.validateEntitiesSchema(DataModel);
 
         if (vnode.state.errores.length > 0) {
-            console.error("[Audit][App] Errors detected in entity schemas:", vnode.state.errores);
+            console.error("[Audit][App] Errors detected:", vnode.state.errores);
         } else {
-            console.log("[Audit][App] All entity schemas validated successfully.");
+            console.log("[Audit][App] All validations passed successfully.");
         }
     },
 
@@ -27,7 +27,7 @@ const App = {
                 m(Fila, { gap: 'medium' }, [
                     m(Column, { width: '12' }, [
                         m("div.uk-alert-danger", { 'uk-alert': true }, [
-                            m("h1.uk-heading-bullet", "Errores de Validación de Esquemas"),
+                            m("h1.uk-heading-bullet", "Errores de Validación del Modelo de Dato"),
                             m("ul.uk-list",
                                 errores.map(error => m("li", error))
                             )
@@ -37,7 +37,7 @@ const App = {
             ]);
         }
 
-        return m(Container, { size: 'expand'}, [
+        return m(Container, { size: 'expand' }, [
             m(Menu),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: '12' }, [

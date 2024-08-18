@@ -1,3 +1,10 @@
 .custom-card-body-padding {
     padding: 10px;
 }
+.uk-form-label {
+    font-weight: bold;
+}
+
+.uk-input {
+    margin-top: 5px;
+}

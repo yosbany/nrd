@@ -1,5 +1,5 @@
 /**
- * SelectInput - Componente para seleccionar una opción de una lista.
+ * Radio - Componente para seleccionar una opción entre varias.
  *
  * Props:
  * @param {string} value - El valor seleccionado.
@@ -12,10 +12,10 @@
  * @param {Array|Function} options - Array de opciones o función para obtener opciones.
  * @param {boolean} showLabel - Indica si se debe mostrar la etiqueta del campo de selección.
  */
-const SelectInput = {
+const Radio = {
     oninit: vnode => {
         vnode.state.loading = true;
-        SelectInput.loadOptions(vnode);
+        Radio.loadOptions(vnode);
     },
     loadOptions: vnode => {
         const { options } = vnode.attrs;
@@ -27,7 +27,7 @@ const SelectInput = {
                 vnode.state.loading = false;
                 m.redraw();
             }).catch(error => {
-                console.error("[Audit][SelectInput] Error loading options from function:", error);
+                console.error("[Audit][RadioInput] Error loading options from function:", error);
                 vnode.state.options = [];
                 vnode.state.loading = false;
                 m.redraw();
@@ -37,7 +37,7 @@ const SelectInput = {
             vnode.state.options = options || [];
             vnode.state.loading = false;
         } else {
-            console.error("[Audit][SelectInput] Invalid options:", options);
+            console.error("[Audit][RadioInput] Invalid options:", options);
             vnode.state.options = [];
             vnode.state.loading = false;
         }
@@ -54,25 +54,22 @@ const SelectInput = {
                 class: `uk-form-label ${required ? "required" : ""}`,
                 title: documentation || ""
             }, `${label}:`),
-            outputMode 
+            outputMode
                 ? m("span", value)
-                : m("select", {
-                    class: "uk-select",
-                    value: value ? value.id : '',
-                    onchange: e => {
-                        const selectedOption = vnode.state.options.find(option => option.id === e.target.value);
-                        onInput(selectedOption);
-                    }
-                }, [
-                    m("option", { value: "" }, "Seleccione..."),
-                    vnode.state.options.map(option => {
-                        const optionLabel = option.label || option.name || option.toString();
-                        return m("option", { value: option.id }, optionLabel);
-                    })
-                ]),
-            error ? m("div.uk-text-danger", { class: "uk-alert-danger" }, error) : null
+                : (vnode.state.options || []).map(option => m("div.uk-margin-small", [
+                    m("label.uk-form-label.uk-margin-small-right", [
+                        m("input.uk-radio[type=radio]", {
+                            name: label,
+                            value: option,
+                            checked: value === option,
+                            onclick: e => onInput(e.target.value)
+                        }),
+                        ` ${option}`
+                    ])
+                ])),
+            error ? m("div.uk-text-danger.uk-alert-danger", error) : null
         ]);
     }
 };
 
-export default SelectInput;
+export default Radio;

@@ -2,56 +2,57 @@ import SecurityModel from '../models/SecurityModel.js';
 
 const ProtectedRoute = {
     oninit: vnode => {
-        console.log("[Audit][ProtectedRoute] Initializing ProtectedRoute...");
+        console.log("[Audit] Initializing ProtectedRoute...");
+
+        // Si el usuario no está autenticado, redirigir al login
         if (!SecurityModel.isAuthenticated()) {
-            console.log("[Audit][ProtectedRoute] User not authenticated, redirecting to login");
+            console.log("[Audit] User not authenticated, redirecting to login");
             m.route.set('/login');
-        } else if (SecurityModel.role === null && m.route.get() !== '/home') {
-            console.log("[Audit][ProtectedRoute] User role not loaded, waiting...");
-            SecurityModel.loadUserRole().then(() => {
-                if (SecurityModel.role === null) {
-                    m.route.set('/home');
-                } else if (vnode.attrs.roles && !SecurityModel.hasRole(vnode.attrs.roles)) {
-                    console.log("[Audit][ProtectedRoute] User does not have the required role, redirecting to unauthorized");
-                    m.route.set('/unauthorized');
-                }
-            });
-        } else if (vnode.attrs.roles && !SecurityModel.hasRole(vnode.attrs.roles)) {
-            console.log("[Audit][ProtectedRoute] User does not have the required role, redirecting to unauthorized");
-            m.route.set('/unauthorized');
+            return;
         }
+
+        // Verificar acceso a la ruta actual
+        SecurityModel.hasAccessToRoute(m.route.get()).then(hasAccess => {
+            if (!hasAccess) {
+                console.log("[Audit] User does not have access to this route, redirecting to unauthorized");
+                m.route.set('/unauthorized');
+            }
+        }).catch(error => {
+            console.error("[Audit] Error checking route access:", error);
+            m.route.set('/unauthorized');
+        });
     },
+
     onbeforeupdate: vnode => {
-        console.log("[Audit][ProtectedRoute] Checking authentication and role on route update...");
+        console.log("[Audit] Checking authentication on route update...");
+
+        // Si el usuario no está autenticado, redirigir al login
         if (!SecurityModel.isAuthenticated()) {
-            console.log("[Audit][ProtectedRoute] User not authenticated, redirecting to login");
+            console.log("[Audit] User not authenticated, redirecting to login");
             m.route.set('/login');
             return false;
         }
-        if (SecurityModel.role === null && m.route.get() !== '/home') {
-            console.log("[Audit][ProtectedRoute] User role not loaded, waiting...");
-            SecurityModel.loadUserRole().then(() => {
-                if (SecurityModel.role === null) {
-                    m.route.set('/home');
-                } else if (vnode.attrs.roles && !SecurityModel.hasRole(vnode.attrs.roles)) {
-                    console.log("[Audit][ProtectedRoute] User does not have the required role, redirecting to unauthorized");
-                    m.route.set('/unauthorized');
-                }
-            });
-            return false;
-        }
-        if (vnode.attrs.roles && !SecurityModel.hasRole(vnode.attrs.roles)) {
-            console.log("[Audit][ProtectedRoute] User does not have the required role, redirecting to unauthorized");
+
+        // Verificar acceso a la ruta actual
+        return SecurityModel.hasAccessToRoute(m.route.get()).then(hasAccess => {
+            if (!hasAccess) {
+                console.log("[Audit] User does not have access to this route, redirecting to unauthorized");
+                m.route.set('/unauthorized');
+                return false;
+            }
+            return true;
+        }).catch(error => {
+            console.error("[Audit] Error checking route access:", error);
             m.route.set('/unauthorized');
             return false;
-        }
-        return true;
+        });
     },
+
     view: vnode => {
-        if (SecurityModel.isAuthenticated() && (SecurityModel.role !== null || m.route.get() === '/home')) {
+        if (SecurityModel.isAuthenticated()) {
             return m('div', vnode.children);
         }
-        return null;
+        return null; // No renderizar nada si el usuario no está autenticado
     }
 };
 

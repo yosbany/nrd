@@ -1,7 +1,7 @@
 // Card.js
 const Card = {
     view: vnode => {
-        const { title, useCustomPadding = true } = vnode.attrs; // Predeterminado a true
+        const { title, useCustomPadding = true } = vnode.attrs;
 
         return m("div.uk-card.uk-card-default.uk-margin-bottom", [
             m("div.uk-card-header", [

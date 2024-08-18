@@ -1,5 +1,5 @@
 /**
- * CheckboxInput - Componente para seleccionar múltiples opciones.
+ * Checkbox - Componente para seleccionar múltiples opciones.
  *
  * Props:
  * @param {Array} value - Las opciones seleccionadas.
@@ -12,7 +12,7 @@
  * @param {Array|Function} options - Información sobre las opciones o función para obtener opciones.
  * @param {boolean} showLabel - Indica si se debe mostrar la etiqueta del campo.
  */
-const CheckboxInput = {
+const Checkbox = {
     oninit: vnode => {
         vnode.state.loading = true;
         CheckboxInput.loadOptions(vnode);
@@ -87,4 +87,4 @@ const CheckboxInput = {
     }
 };
 
-export default CheckboxInput;
+export default Checkbox;

@@ -1,5 +1,5 @@
 /**
- * FileInput - Componente para la subida de archivos.
+ * File - Componente para la subida de archivos.
  *
  * Props:
  * @param {string} value - El contenido del archivo en base64.
@@ -11,7 +11,7 @@
  * @param {string} error - Mensaje de error, si existe.
  * @param {boolean} showLabel - Indica si se debe mostrar la etiqueta del campo.
  */
-const FileInput = {
+const File = {
     view: vnode => {
         const { value, onInput, outputMode, label, required, documentation, error, showLabel } = vnode.attrs;
 
@@ -43,4 +43,4 @@ const FileInput = {
     }
 };
 
-export default FileInput;
+export default File;
