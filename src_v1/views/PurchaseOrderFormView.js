@@ -310,8 +310,20 @@ const PurchaseOrderFormView = {
                                                 m.redraw();
                                             }
                                         },
-                                        onFocus: e => {
-                                            e.target.value = ''; // Vaciar el campo al tomar el foco
+                                        oncreate: vnode => {
+                                            vnode.dom.addEventListener('focus', e => {
+                                                // Limpiar el valor solo si es igual al stock deseado para permitir la edición
+                                                if (parseFloat(e.target.value) === product.desiredStock) {
+                                                    e.target.value = '';
+                                                }
+                                            });
+                                            vnode.dom.addEventListener('blur', e => {
+                                                // Si el campo está vacío al perder el foco, restaurar el valor del stock deseado
+                                                if (!e.target.value || parseFloat(e.target.value) === 0) {
+                                                    e.target.value = product.desiredStock;
+                                                }
+                                                m.redraw();
+                                            });
                                         },
                                         style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" },
                                         id: `quantity-input-${product.id}`
