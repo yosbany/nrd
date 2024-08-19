@@ -80,7 +80,7 @@ const PurchasePriceList = {
 
         const filteredItems = PurchasePriceList.filterItems(vnode);
 
-        return m(Card, { title: "Listado de Precios de Compra", useCustomPadding: false }, [
+        return m(Card, { title: "Precios de Compra", useCustomPadding: false }, [
             m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Precios de Compra", path: "/purchase-prices" }] }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: 'expand' }, [

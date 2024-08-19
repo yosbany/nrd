@@ -61,7 +61,7 @@ const SupplierList = {
 
         const filteredItems = SupplierList.filterItems(vnode);
 
-        return m(Card, { title: "Listado de Proveedores", useCustomPadding: false }, [
+        return m(Card, { title: "Proveedores", useCustomPadding: false }, [
             m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Proveedores", path: "/suppliers" }] }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: 'expand' }, [

@@ -32,6 +32,48 @@ const ValidationModel = {
                     errors[key] = `${key} debe ser una cadena de texto.`;
                 } else if (property.type === "date" && !(value instanceof Date)) {
                     errors[key] = `${key} debe ser una fecha.`;
+                } else if (property.type === "array" && !Array.isArray(value)) {
+                    errors[key] = `${key} debe ser un arreglo.`;
+                }
+            }
+
+            // Manejar validación de elementos dentro de un array
+            if (property.type === "array" && Array.isArray(value)) {
+                if (property.constraints?.minItems && value.length < property.constraints.minItems) {
+                    errors[key] = `${key} debe tener al menos ${property.constraints.minItems} elementos.`;
+                }
+                
+                const itemErrors = value.map((item, index) => {
+                    const itemError = {};
+                    Object.keys(property.item).forEach(subKey => {
+                        const subProperty = property.item[subKey];
+                        const subValue = item[subKey];
+
+                        // Validación de campos requeridos dentro del objeto del array
+                        if (subProperty.constraints?.required && (subValue === undefined || subValue === "" || subValue === null)) {
+                            itemError[subKey] = `${subKey} es obligatorio en el elemento ${index + 1}.`;
+                        }
+
+                        // Validación de tipos dentro del objeto del array
+                        if (subProperty.type) {
+                            if (subProperty.type === "number" && typeof subValue !== "number") {
+                                itemError[subKey] = `${subKey} debe ser un número en el elemento ${index + 1}.`;
+                            } else if (subProperty.type === "string" && typeof subValue !== "string") {
+                                itemError[subKey] = `${subKey} debe ser una cadena de texto en el elemento ${index + 1}.`;
+                            }
+                        }
+
+                        // Validación de otras restricciones dentro del objeto del array
+                        if (subProperty.constraints?.min && subValue < subProperty.constraints.min) {
+                            itemError[subKey] = `${subKey} debe ser al menos ${subProperty.constraints.min} en el elemento ${index + 1}.`;
+                        }
+                    });
+
+                    return itemError;
+                }).filter(error => Object.keys(error).length > 0);
+
+                if (itemErrors.length > 0) {
+                    errors[key] = itemErrors;
                 }
             }
 

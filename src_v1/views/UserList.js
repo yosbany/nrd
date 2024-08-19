@@ -61,7 +61,7 @@ const UserList = {
 
         const filteredItems = UserList.filterItems(vnode);
 
-        return m(Card, { title: "Listado de Usuarios", useCustomPadding: false }, [
+        return m(Card, { title: "Usuarios", useCustomPadding: false }, [
             m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Usuarios", path: "/users" }] }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: 'expand' }, [

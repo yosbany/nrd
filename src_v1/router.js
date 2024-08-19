@@ -63,10 +63,10 @@ m.route(document.body, "/login", {
     "/purchase-orders": {
         render: vnode => m(ProtectedRoute, m(App, m(PurchaseOrderList, vnode.attrs)))
     },
-    "/purchase-ordens/new": {
+    "/purchase-orders/new": {
         render: vnode => m(ProtectedRoute, m(App, m(PurchaseOrderFormView, vnode.attrs)))
     },
-    "/purchase-ordens/:id": {
+    "/purchase-orders/:id": {
         render: vnode => m(ProtectedRoute, m(App, m(PurchaseOrderFormView, vnode.attrs)))
     }
 });

@@ -36,50 +36,95 @@ const Menu = {
             dropdowns.forEach(dropdown => {
                 UIkit.dropdown(dropdown).hide();
             });
+
+            // Cerrar el menú Offcanvas si está abierto
+            const offcanvas = document.querySelector("#offcanvas-nav");
+            if (offcanvas.classList.contains("uk-open")) {
+                UIkit.offcanvas(offcanvas).hide();
+            }
         });
     },
 
     view: vnode => {
-        console.log("[Audit][Menu] Rendering Menu view...");
-
-        console.log("[Audit][Menu] Categorized routes:", vnode.state.categories);
-        console.log("[Audit][Menu] Direct links:", vnode.state.directLinks);
-
-        return m("nav", { class: "uk-padding-small" }, [
-            m("ul.uk-tab", [
-                // Links directos (sin categoría)
-                vnode.state.directLinks.map(route =>
-                    m("li", { class: m.route.get() === route.pathRouter ? "uk-active" : "" }, [
-                        m(m.route.Link, {
-                            href: route.pathRouter,
-                            class: "uk-text-bold uk-text-dark" // Texto negrita y oscuro (negro)
-                        }, route.label)
-                    ])
-                ),
-                // Links con categoría (submenús)
-                Object.keys(vnode.state.categories).map(category =>
-                    m("li", { class: "uk-parent" }, [
-                        m("a", {
-                            href: "#",
-                            class: "uk-text-bold uk-text-dark" // Texto negrita y oscuro (negro)
-                        }, [
-                            ` ${category}`,
-                            m("span", { "uk-icon": "icon: triangle-down" })
-                        ]),
-                        m("div", { "uk-dropdown": "mode: click; pos: bottom-justify" }, [
-                            m("ul.uk-nav uk-dropdown-nav", [
-                                vnode.state.categories[category].map(route =>
-                                    m("li", [
-                                        m("a", {
-                                            onclick: () => Menu.navigateToRoute(route),
-                                            class: "uk-text-bold uk-text-dark" // Texto negrita y oscuro (negro)
-                                        }, ` ${route.label}`)
-                                    ])
-                                )
+        return m("nav.uk-navbar-container", { "uk-navbar": "" }, [
+            m("div.uk-navbar-left", [
+                m("a.uk-navbar-toggle", { "uk-navbar-toggle-icon": "", "uk-toggle": "target: #offcanvas-nav" }),
+                m("div.uk-navbar-item.uk-logo", "NUEVA RÍO D'OR")
+            ]),
+            m("div.uk-navbar-right.uk-hidden@m", [
+                m("a.uk-navbar-toggle", { "uk-navbar-toggle-icon": "", "uk-toggle": "target: #offcanvas-nav" })
+            ]),
+            m("div.uk-navbar-right.uk-visible@m", [
+                m("ul.uk-navbar-nav", [
+                    // Links directos (sin categoría)
+                    vnode.state.directLinks.map(route =>
+                        m("li", { class: m.route.get() === route.pathRouter ? "uk-active" : "" }, [
+                            m(m.route.Link, {
+                                href: route.pathRouter,
+                                class: "uk-text-bold uk-text-dark"
+                            }, route.label)
+                        ])
+                    ),
+                    // Links con categoría (submenús)
+                    Object.keys(vnode.state.categories).map(category =>
+                        m("li.uk-parent", [
+                            m("a", { href: "#", class: "uk-text-bold uk-text-dark" }, [
+                                ` ${category}`,
+                                m("span", { "uk-icon": "icon: triangle-down" })
+                            ]),
+                            m("div.uk-navbar-dropdown", [
+                                m("ul.uk-nav.uk-navbar-dropdown-nav", [
+                                    vnode.state.categories[category].map(route =>
+                                        m("li", [
+                                            m("a", {
+                                                onclick: () => Menu.navigateToRoute(route),
+                                                class: "uk-text-bold uk-text-dark"
+                                            }, ` ${route.label}`)
+                                        ])
+                                    )
+                                ])
                             ])
                         ])
+                    )
+                ])
+            ]),
+
+            // Offcanvas menu for mobile
+            m("div#offcanvas-nav.uk-offcanvas", { "uk-offcanvas": "mode: slide" }, [
+                m("div.uk-offcanvas-bar", [
+                    m("ul.uk-nav.uk-nav-default", [
+                        // Links directos (sin categoría)
+                        vnode.state.directLinks.map(route =>
+                            m("li", { class: m.route.get() === route.pathRouter ? "uk-active" : "" }, [
+                                m(m.route.Link, {
+                                    href: route.pathRouter,
+                                    class: "uk-text-bold uk-text-dark",
+                                    onclick: () => {
+                                        Menu.navigateToRoute(route);
+                                    }
+                                }, route.label)
+                            ])
+                        ),
+                        // Links con categoría (submenús)
+                        Object.keys(vnode.state.categories).map(category =>
+                            m("li.uk-parent", [
+                                m("a", { href: "#", class: "uk-text-bold uk-text-dark" }, ` ${category}`),
+                                m("ul.uk-nav-sub", [
+                                    vnode.state.categories[category].map(route =>
+                                        m("li", [
+                                            m("a", {
+                                                onclick: () => {
+                                                    Menu.navigateToRoute(route);
+                                                },
+                                                class: "uk-text-bold uk-text-dark"
+                                            }, ` ${route.label}`)
+                                        ])
+                                    )
+                                ])
+                            ])
+                        )
                     ])
-                )
+                ])
             ])
         ]);
     }

@@ -13,7 +13,7 @@
  */
 const Number = {
     view: vnode => {
-        const { value, onInput, outputMode, label, required, documentation, error, showLabel = true } = vnode.attrs;
+        const { value, onInput, outputMode, label, required, documentation, error, showLabel = true, ...otherAttrs } = vnode.attrs;
 
         return m("div.uk-margin", [
             showLabel && m("label.uk-form-label", {
@@ -28,7 +28,8 @@ const Number = {
                     m("input.uk-input[type=number]", {
                         value: value != null ? value : '', // Mostrar valor vacío si no está definido
                         oninput: e => onInput(parseFloat(e.target.value) || 0), // Convertir a número, usar 0 si es NaN
-                        placeholder: "" // Placeholder vacío para consistencia con TextInput
+                        placeholder: "", // Placeholder vacío para consistencia con TextInput
+                        ...otherAttrs // Pasar los demás atributos al input
                     })
                   ]),
             error && m("div.uk-text-danger.uk-alert-danger", error)

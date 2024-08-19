@@ -44,7 +44,6 @@ const ProductList = {
     },
 
     onEdit: id => {
-        console.log("...id...:",encodeId(id))
         m.route.set(`/products/${encodeId(id)}`);
     },
 
@@ -63,7 +62,7 @@ const ProductList = {
 
         const filteredItems = ProductList.filterItems(vnode);
 
-        return m(Card, { title: "Listado de Productos", useCustomPadding: false }, [
+        return m(Card, { title: "Productos", useCustomPadding: false }, [
             m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Productos", path: "/products" }] }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: 'expand' }, [
