@@ -27,6 +27,11 @@ const SupplierFormView = {
     },
 
     validateForm: vnode => {
+        // Asegurarse de agregar el prefijo +598 antes de la validación
+        if (vnode.state.item.phone) {
+            vnode.state.item.phone = `+598${vnode.state.item.phone}`;
+        }
+        
         const errors = ValidationModel.validateEntityData(vnode.state.item, 'Suppliers');
         vnode.state.errors = errors;
         return Object.keys(errors).length === 0;
@@ -45,6 +50,12 @@ const SupplierFormView = {
         } else {
             m.redraw();
         }
+    },
+
+    formatPhoneNumber: phone => {
+        // Elimina el prefijo +598 para formatear correctamente
+        const rawPhone = phone.replace(/^\+598/, '');
+        return `+598 ${rawPhone.slice(0, 2)} ${rawPhone.slice(2, 5)} ${rawPhone.slice(5)}`;
     },
 
     view: vnode => {
@@ -86,6 +97,15 @@ const SupplierFormView = {
                                 value: item.rut || "",
                                 onInput: value => item.rut = value,
                                 error: errors.rut
+                            })
+                        ]),
+                        m("div.uk-margin", [
+                            m(Text, {
+                                label: "Celular",
+                                value: item.phone ? SupplierFormView.formatPhoneNumber(item.phone) : "", // Formatear el número para mostrarlo
+                                onInput: value => item.phone = value.replace(/\D/g, ''), // Guardar sin formato
+                                error: errors.phone,
+                                placeholder: "Ingrese un celular uruguayo de 8 dígitos"
                             })
                         ]),
                         m(Fila, { gap: 'small', class: 'uk-flex uk-flex-right' }, [

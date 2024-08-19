@@ -65,7 +65,7 @@ const DataModel = {
       type: "string",
       entity: "Suppliers"
     },
-    lastPurchasePrice: {  // Nuevo campo añadido
+    lastPurchasePrice: {
       type: "number",
       default: 0,
       constraints: {
@@ -88,6 +88,13 @@ const DataModel = {
     rut: { 
       type: "string", 
       default: ""
+    },
+    phone: {
+      type: "string",
+      default: "",
+      constraints: {
+        pattern: /^\+598[0-9]{8}$/,
+      }
     }
   },
   PurchasePrices: {
@@ -111,6 +118,21 @@ const DataModel = {
       type: "string",
       default: null,
       entity: "Suppliers"
+    },
+    purchasePackaging: {
+      type: "string",
+      default: "UN",
+      constraints: {
+        required: true,
+        enum: ["UN", "KG", "FUNDA", "PLANCHA", "CAJON", "BOLSA", "ATADO"]
+      }
+    },
+    supplierProductCode: {
+      type: "string",
+      default: "",
+      constraints: {
+        required: false
+      }
     }
   },
   PurchaseOrders: {
@@ -142,7 +164,7 @@ const DataModel = {
       default: [],
       constraints: {
         required: true,
-        minItems: 1 // Restricción que asegura al menos un elemento en el array
+        minItems: 1
       },
       item: {
         productKey: {

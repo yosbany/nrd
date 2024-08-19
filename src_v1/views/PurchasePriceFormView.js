@@ -8,6 +8,7 @@ import Card from '../components/base/Card.js';
 import Number from '../components/base/Number.js';
 import DatePicker from '../components/base/DatePicker.js';
 import Select from '../components/base/Select.js';
+import Text from '../components/base/Text.js';
 import { decodeId } from '../utils.js';
 
 const PurchasePriceFormView = {
@@ -76,6 +77,34 @@ const PurchasePriceFormView = {
         return suppliers.map(supplier => ({ id: supplier.id, display: supplier.tradeName }));
     },
 
+    loadLastPurchasePrice: async (vnode) => {
+        const { productKey, supplierKey } = vnode.state.item;
+        if (productKey && supplierKey) {
+            try {
+                const purchasePrices = await FirebaseModel.getAll('PurchasePrices');
+                const filteredPrices = purchasePrices
+                    .filter(pp => pp.productKey.id === productKey && pp.supplierKey.id === supplierKey)
+                    .sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                if (filteredPrices.length > 0) {
+                    const lastPrice = filteredPrices[0];
+                    vnode.state.item.purchasePackaging = lastPrice.purchasePackaging || "";
+                    vnode.state.item.supplierProductCode = lastPrice.supplierProductCode || "";
+                    vnode.state.item.unitPrice = lastPrice.unitPrice || 0;
+                } else {
+                    vnode.state.item.purchasePackaging = "";
+                    vnode.state.item.supplierProductCode = "";
+                    vnode.state.item.unitPrice = 0;
+                }
+
+                // Forzar la actualización del DOM
+                m.redraw();
+            } catch (error) {
+                console.error("[Audit][PurchasePriceFormView] Error loading last purchase price:", error);
+            }
+        }
+    },
+
     view: vnode => {
         const item = vnode.state.item;
         const errors = vnode.state.errors;
@@ -106,7 +135,10 @@ const PurchasePriceFormView = {
                                 label: "Producto",
                                 value: item.productKey || "",
                                 options: PurchasePriceFormView.loadProductOptions,
-                                onChange: value => item.productKey = value,
+                                onChange: async value => {
+                                    item.productKey = value;
+                                    await PurchasePriceFormView.loadLastPurchasePrice(vnode); // Cargar último precio después de seleccionar el producto
+                                },
                                 error: errors.productKey
                             })
                         ]),
@@ -115,8 +147,36 @@ const PurchasePriceFormView = {
                                 label: "Proveedor",
                                 value: item.supplierKey || "",
                                 options: PurchasePriceFormView.loadSupplierOptions,
-                                onChange: value => item.supplierKey = value,
+                                onChange: async value => {
+                                    item.supplierKey = value;
+                                    await PurchasePriceFormView.loadLastPurchasePrice(vnode); // Cargar último precio después de seleccionar el proveedor
+                                },
                                 error: errors.supplierKey
+                            })
+                        ]),
+                        m("div.uk-margin", [
+                            m(Select, {
+                                label: "Empaque de Compra",
+                                value: item.purchasePackaging || "",
+                                options: [
+                                    { id: "UN", display: "UN" },
+                                    { id: "KG", display: "KG" },
+                                    { id: "FUNDA", display: "FUNDA" },
+                                    { id: "PLANCHA", display: "PLANCHA" },
+                                    { id: "CAJON", display: "CAJON" },
+                                    { id: "BOLSA", display: "BOLSA" },
+                                    { id: "ATADO", display: "ATADO" }
+                                ],
+                                onChange: value => item.purchasePackaging = value,
+                                error: errors.purchasePackaging
+                            })
+                        ]),
+                        m("div.uk-margin", [
+                            m(Text, {
+                                label: "Código Producto Proveedor",
+                                value: item.supplierProductCode || "",
+                                onInput: value => item.supplierProductCode = value,
+                                error: errors.supplierProductCode
                             })
                         ]),
                         m("div.uk-margin", [

@@ -21,7 +21,11 @@ const SupplierList = {
     loadSuppliers: vnode => {
         FirebaseModel.getAll('Suppliers')
             .then(data => {
-                vnode.state.suppliers = data;
+                // Agregar la propiedad formatPhoneNumber dinámicamente
+                vnode.state.suppliers = data.map(supplier => ({
+                    ...supplier,
+                    formatPhoneNumber: SupplierList.formatPhoneNumber(supplier.phone)
+                }));
                 vnode.state.loading = false;
                 m.redraw();
             })
@@ -52,6 +56,12 @@ const SupplierList = {
                 SupplierList.loadSuppliers(vnode);
             })
             .catch(error => console.error("[Audit][SupplierList] Error deleting supplier:", error));
+    },
+
+    formatPhoneNumber: phone => {
+        if (!phone) return "";
+        const rawPhone = phone.replace(/^\+598/, '');
+        return `+598 ${rawPhone.slice(0, 2)} ${rawPhone.slice(2, 5)} ${rawPhone.slice(5)}`;
     },
 
     view: vnode => {
@@ -85,9 +95,10 @@ const SupplierList = {
                 onEdit: id => SupplierList.onEdit(id),
                 onDelete: id => SupplierList.onDelete(vnode, id)
             }, [
+                m(Text, { label: "RUT", value: "bind.rut" }),
                 m(Text, { label: "Nombre Comercial", value: "bind.tradeName" }),
                 m(Text, { label: "Razón Social", value: "bind.businessName" }),
-                m(Text, { label: "RUT", value: "bind.rut" })
+                m(Text, { label: "Celular", value: "bind.formatPhoneNumber" })  // Usamos la nueva propiedad
             ]),
             filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
         ]);

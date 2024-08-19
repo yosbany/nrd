@@ -82,7 +82,7 @@ const PurchaseOrderList = {
             `• ${product.quantity} x ${product.productKey?.name || "Producto desconocido"}`
         ).join('\n');
 
-        return `Proveedor: ${supplier}\nFecha: ${orderDate}\n\nProductos:\n${productsList}`;
+        return `${supplier}\nFecha: ${orderDate}\n\n\n${productsList}`;
     },
 
     view: vnode => {
