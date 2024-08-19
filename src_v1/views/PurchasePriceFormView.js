@@ -12,7 +12,9 @@ import { decodeId } from '../utils.js';
 
 const PurchasePriceFormView = {
     oninit: async vnode => {
-        vnode.state.item = {};
+        vnode.state.item = {
+            date: new Date()
+        };
         vnode.state.errors = {};
         vnode.state.id = decodeId(vnode.attrs.id); 
 
@@ -20,6 +22,7 @@ const PurchasePriceFormView = {
             try {
                 const data = await FirebaseModel.getById(vnode.state.id, false);
                 vnode.state.item = { ...data };
+                vnode.state.item.date = vnode.state.item.date ? new Date(vnode.state.item.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
                 m.redraw();
             } catch (error) {
                 console.error("[Audit][PurchasePriceFormView] Error loading data:", error);
@@ -38,7 +41,21 @@ const PurchasePriceFormView = {
         e.preventDefault();
         if (PurchasePriceFormView.validateForm(vnode)) {
             try {
+                // Guardar el precio de compra
                 await FirebaseModel.saveOrUpdate('PurchasePrices', vnode.state.id, vnode.state.item);
+                
+                // Actualizar el último precio de compra del producto asociado
+                const productId = vnode.state.item.productKey;
+                if (productId) {
+                    const product = await FirebaseModel.getById(productId, false);
+                    if (product) {
+                        product.lastPurchasePrice = vnode.state.item.unitPrice;
+                        await FirebaseModel.saveOrUpdate('Products', productId, product);
+                        console.log(`[Audit][PurchasePriceFormView] Last purchase price updated for product ${productId}`);
+                    }
+                }
+
+                // Redirigir después de guardar
                 m.route.set('/purchase-prices');
             } catch (error) {
                 vnode.state.errors = { save: error.message };
@@ -79,7 +96,7 @@ const PurchasePriceFormView = {
                         m("div.uk-margin", [
                             m(DatePicker, {
                                 label: "Fecha",
-                                value: item.date || new Date(),
+                                value: item.date,
                                 onInput: value => item.date = value,
                                 error: errors.date
                             })

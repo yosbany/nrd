@@ -72,7 +72,6 @@ const ProductFormView = {
         const item = vnode.state.item;
         const errors = vnode.state.errors;
         const supplierOptions = vnode.state.supplierOptions;
-        const suppliers = vnode.state.suppliers;
 
         const breadcrumbItems = [
             { name: "Inicio", path: "/" },
@@ -142,6 +141,13 @@ const ProductFormView = {
                                 options: ProductFormView.loadSupplierOptions,
                                 onChange: value => item.preferredSupplierKey = value,
                                 error: errors.preferredSupplierKey
+                            })
+                        ]),
+                        m("div.uk-margin", [
+                            m(Text, {
+                                label: "Último Precio de Compra",
+                                value: item.lastPurchasePrice ? item.lastPurchasePrice.toFixed(2) : "N/A",
+                                outputMode: true
                             })
                         ]),
                         m(Fila, { gap: 'small', class: 'uk-flex uk-flex-right' }, [

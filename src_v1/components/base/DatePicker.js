@@ -12,7 +12,6 @@
  * @param {boolean} showLabel - Indica si se debe mostrar la etiqueta del campo.
  */
 
-
 const DatePicker = {
     view: vnode => {
         const { value, onInput, outputMode, label, required, documentation, error, showLabel } = vnode.attrs;
@@ -21,9 +20,9 @@ const DatePicker = {
         const formatDateDisplay = date => {
             if (!date) return '';
             const d = new Date(date);
-            const day = (`0${d.getUTCDate()}`).slice(-2);  // Día en formato DD
-            const month = (`0${d.getUTCMonth() + 1}`).slice(-2); // Mes en formato MM
-            const year = d.getUTCFullYear(); // Año en formato YYYY
+            const day = (`0${d.getDate()}`).slice(-2);  // Día en formato DD
+            const month = (`0${d.getMonth() + 1}`).slice(-2); // Mes en formato MM
+            const year = d.getFullYear(); // Año en formato YYYY
             return `${day}-${month}-${year}`;
         };
 
@@ -31,9 +30,9 @@ const DatePicker = {
         const formatDateInput = date => {
             if (!date) return '';
             const d = new Date(date);
-            const year = d.getUTCFullYear();
-            const month = (`0${d.getUTCMonth() + 1}`).slice(-2); // Mes en formato MM
-            const day = (`0${d.getUTCDate()}`).slice(-2); // Día en formato DD
+            const year = d.getFullYear();
+            const month = (`0${d.getMonth() + 1}`).slice(-2); // Mes en formato MM
+            const day = (`0${d.getDate()}`).slice(-2); // Día en formato DD
             return `${year}-${month}-${day}`;
         };
 
@@ -48,7 +47,7 @@ const DatePicker = {
                     value: formatDateInput(value),
                     oninput: e => {
                         const [year, month, day] = e.target.value.split('-').map(Number);
-                        const dateValue = new Date(Date.UTC(year, month - 1, day));
+                        const dateValue = new Date(year, month - 1, day);
                         onInput(dateValue);
                     },
                     class: error ? "uk-form-danger" : ""

@@ -63,8 +63,14 @@ const DataModel = {
     },
     preferredSupplierKey: {
       type: "string",
-      default: null,
       entity: "Suppliers"
+    },
+    lastPurchasePrice: {  // Nuevo campo añadido
+      type: "number",
+      default: 0,
+      constraints: {
+        required: false
+      }
     }
   },
   Suppliers: {
@@ -96,7 +102,10 @@ const DataModel = {
     },
     date: {
       type: "date",
-      default: new Date()
+      default: new Date(),
+      constraints: {
+        required: true
+      }
     },
     supplierKey: {
       type: "string",
