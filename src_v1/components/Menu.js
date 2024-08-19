@@ -48,12 +48,11 @@ const Menu = {
     view: vnode => {
         return m("nav.uk-navbar-container", { "uk-navbar": "" }, [
             m("div.uk-navbar-left", [
-                m("a.uk-navbar-toggle", { "uk-navbar-toggle-icon": "", "uk-toggle": "target: #offcanvas-nav" }),
+                // Mostrar el ícono de Offcanvas solo en pantallas pequeñas
+                m("a.uk-navbar-toggle.uk-hidden@m", { "uk-navbar-toggle-icon": "", "uk-toggle": "target: #offcanvas-nav" }),
                 m("div.uk-navbar-item.uk-logo", "NUEVA RÍO D'OR")
             ]),
-            m("div.uk-navbar-right.uk-hidden@m", [
-                m("a.uk-navbar-toggle", { "uk-navbar-toggle-icon": "", "uk-toggle": "target: #offcanvas-nav" })
-            ]),
+            // Menú tradicional visible solo en pantallas grandes
             m("div.uk-navbar-right.uk-visible@m", [
                 m("ul.uk-navbar-nav", [
                     // Links directos (sin categoría)
