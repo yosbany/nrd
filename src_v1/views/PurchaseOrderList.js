@@ -9,6 +9,7 @@ import Card from '../components/base/Card.js';
 import Text from '../components/base/Text.js';
 import Number from '../components/base/Number.js';
 import DateInput from '../components/base/DatePicker.js';
+import Modal from '../components/base/Modal.js';
 import { encodeId } from '../utils.js';
 
 const PurchaseOrderList = {
@@ -16,6 +17,8 @@ const PurchaseOrderList = {
         vnode.state.searchText = '';
         vnode.state.purchaseOrders = [];
         vnode.state.loading = true;
+        vnode.state.selectedOrder = null;
+        vnode.state.showModal = false;
 
         PurchaseOrderList.loadPurchaseOrders(vnode);
     },
@@ -59,6 +62,29 @@ const PurchaseOrderList = {
             .catch(error => console.error("[Audit][PurchaseOrderList] Error deleting purchase order:", error));
     },
 
+    onCompleteOrder: (vnode, order) => {
+        if (order) {
+            vnode.state.selectedOrder = order;
+            vnode.state.showModal = true;
+        } else {
+            console.warn("[Audit][PurchaseOrderList] Orden seleccionada es nula o indefinida.");
+            vnode.state.showModal = false;
+        }
+        m.redraw();
+    },
+
+    generateOrderText: order => {
+        if (!order) return "No hay datos disponibles para la orden seleccionada.";
+
+        const supplier = order.supplierKey?.tradeName || "Proveedor desconocido";
+        const orderDate = new Date(order.orderDate).toLocaleDateString();
+        const productsList = order.products.map(product => 
+            `• ${product.quantity} x ${product.productKey?.name || "Producto desconocido"}`
+        ).join('\n');
+
+        return `Proveedor: ${supplier}\nFecha: ${orderDate}\n\nProductos:\n${productsList}`;
+    },
+
     view: vnode => {
         if (vnode.state.loading) {
             return m("div.uk-text-center", "Cargando...");
@@ -88,12 +114,54 @@ const PurchaseOrderList = {
             m(Table, {
                 bind: filteredItems,
                 onEdit: id => PurchaseOrderList.onEdit(id),
-                onDelete: id => PurchaseOrderList.onDelete(vnode, id)
+                onDelete: id => PurchaseOrderList.onDelete(vnode, id),
+                additionalActions: [
+                    {
+                        icon: 'check',
+                        title: 'Completar Orden',
+                        style: { backgroundColor: 'lightgreen' },
+                        onClick: order => PurchaseOrderList.onCompleteOrder(vnode, order)
+                    }
+                ]
             }, [
                 m(DateInput, { label: "Fecha de Orden", value: "bind.orderDate" }),
                 m(Text, { label: "Proveedor", value: "bind.supplierKey.tradeName" }),
                 m(Text, { label: "Estado", value: "bind.status" }),
                 m(Number, { label: "Productos", value: "bind.cantidadProductos" })
+            ]),
+            vnode.state.showModal && m(Modal, {
+                show: vnode.state.showModal,
+                title: "Completar Orden",
+                onClose: () => vnode.state.showModal = false,
+                content: vnode.state.selectedOrder 
+                    ? m("textarea.uk-textarea", {
+                        rows: 10,
+                        readonly: true,
+                        value: PurchaseOrderList.generateOrderText(vnode.state.selectedOrder)
+                    })
+                    : "No hay datos disponibles para la orden seleccionada."
+            }, [
+                vnode.state.selectedOrder && [
+                    m(Button, {
+                        label: "Imprimir",
+                        onClick: () => {
+                            vnode.state.showModal = false;
+                            console.log("[Audit][PurchaseOrderList] Orden impresa:", vnode.state.selectedOrder);
+                        }
+                    }),
+                    m(Button, {
+                        label: "Enviar por WhatsApp",
+                        type: "primary",
+                        onClick: () => {
+                            const phoneNumber = vnode.state.selectedOrder.supplierKey?.phone || "";
+                            const orderText = PurchaseOrderList.generateOrderText(vnode.state.selectedOrder);
+                            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderText)}`;
+                            window.open(whatsappURL, '_blank');
+                            vnode.state.showModal = false;
+                            console.log("[Audit][PurchaseOrderList] Orden enviada por WhatsApp:", vnode.state.selectedOrder);
+                        }
+                    })
+                ]
             ]),
             filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
         ]);

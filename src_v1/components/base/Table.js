@@ -1,6 +1,6 @@
 const Table = {
     view: vnode => {
-        const { bind, onEdit, onDelete } = vnode.attrs;
+        const { bind, onEdit, onDelete, additionalActions = [] } = vnode.attrs;
         const columns = vnode.children;
 
         // Función para resolver los paths de un objeto anidado
@@ -45,6 +45,14 @@ const Table = {
                                     );
                                 }),
                                 m("td", { key: `actions-${rowIndex}`, style: { textAlign: 'right', whiteSpace: 'nowrap' } }, [
+                                    ...additionalActions.map(action =>
+                                        m("a.uk-icon-button.uk-margin-small-right", {
+                                            "uk-icon": action.icon,
+                                            style: action.style || {},
+                                            title: action.title,
+                                            onclick: () => action.onClick(row)
+                                        })
+                                    ),
                                     m("a.uk-icon-button.uk-margin-small-right", {
                                         "uk-icon": "pencil",
                                         style: { backgroundColor: 'lightskyblue' },

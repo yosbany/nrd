@@ -192,7 +192,7 @@ const PurchaseOrderFormView = {
     getOrderButtonText: vnode => {
         const productCount = vnode.state.item.products.length;
         const modifiedIndicator = vnode.state.isModified ? "*" : "";
-        const buttonText = `${modifiedIndicator}(${productCount}) Guardar Orden`;
+        const buttonText = `${modifiedIndicator}(${productCount}) Guardar`;
 
         console.log("[Audit][PurchaseOrderFormView] Generated order button text:", buttonText);
         return buttonText;
@@ -299,16 +299,19 @@ const PurchaseOrderFormView = {
                                         label: "Cantidad a Pedir",
                                         value: vnode.state.item.products.find(p => p.productKey === product.id)?.quantity || product.desiredStock,
                                         onInput: value => {
+                                            const productToUpdate = vnode.state.item.products.find(p => p.productKey === product.id);
                                             if (value > 0) {  // Solo proceder si el valor es mayor que 0
-                                                const productToUpdate = vnode.state.item.products.find(p => p.productKey === product.id);
                                                 if (productToUpdate) {
                                                     productToUpdate.quantity = value;  // Actualizar la cantidad si el producto ya está en la lista
                                                 } else {
                                                     vnode.state.item.products.push({ productKey: product.id, quantity: value });  // Agregar el producto a la lista
                                                 }
                                                 vnode.state.isModified = true;
-                                                m.redraw();
+                                            } else if (productToUpdate) {
+                                                // Si el valor es 0 o vacío, se elimina el producto de la lista
+                                                vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== product.id);
                                             }
+                                            m.redraw();
                                         },
                                         oncreate: vnode => {
                                             vnode.dom.addEventListener('focus', e => {
@@ -318,10 +321,17 @@ const PurchaseOrderFormView = {
                                                 }
                                             });
                                             vnode.dom.addEventListener('blur', e => {
+                                                const productToUpdate = vnode.state.item.products.find(p => p.productKey === product.id);
                                                 // Si el campo está vacío al perder el foco, restaurar el valor del stock deseado
                                                 if (!e.target.value || parseFloat(e.target.value) === 0) {
+                                                    if (productToUpdate) {
+                                                        vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== product.id);
+                                                    }
                                                     e.target.value = product.desiredStock;
+                                                } else if (productToUpdate) {
+                                                    productToUpdate.quantity = parseFloat(e.target.value);
                                                 }
+                                                vnode.state.isModified = true;
                                                 m.redraw();
                                             });
                                         },
@@ -352,7 +362,7 @@ const PurchaseOrderFormView = {
                 m("a.uk-position-center-right.uk-position-small", { href: "#", "uk-slidenav-next": "", "uk-slider-item": "next" })
             ]),
             m("div.uk-margin-top.uk-flex.uk-flex-right", [
-                m("div.uk-margin-right.uk-flex.uk-flex-middle", `Importe Total: $${PurchaseOrderFormView.calculateTotalOrderAmount(vnode)}`),
+                m("div.uk-margin-right.uk-flex.uk-flex-middle", `Importe: $${PurchaseOrderFormView.calculateTotalOrderAmount(vnode)}`),
                 m(Button, {
                     type: 'primary',
                     label: PurchaseOrderFormView.getOrderButtonText(vnode),
