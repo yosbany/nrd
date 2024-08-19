@@ -10,6 +10,8 @@ import { decodeId } from '../utils.js';
 
 const PurchaseOrderFormView = {
     oninit: async vnode => {
+        console.log("[Audit][PurchaseOrderFormView] Initializing PurchaseOrderFormView...");
+
         vnode.state.item = {
             supplierKey: "",
             products: [],
@@ -23,11 +25,15 @@ const PurchaseOrderFormView = {
         vnode.state.isModified = false;
         vnode.state.id = decodeId(vnode.attrs.id);
 
+        console.log(`[Audit][PurchaseOrderFormView] Decoded ID: ${vnode.state.id}`);
+
         if (vnode.attrs.id) {
             try {
                 const data = await FirebaseModel.getById(vnode.state.id, false);
+                console.log("[Audit][PurchaseOrderFormView] Loaded data:", data);
                 vnode.state.item = { ...data };
                 vnode.state.products = await PurchaseOrderFormView.loadProductOptions(vnode.state.item.supplierKey);
+                console.log("[Audit][PurchaseOrderFormView] Products loaded for supplier:", vnode.state.products);
                 PurchaseOrderFormView.filterProductsBySupplier(vnode);
                 m.redraw();
             } catch (error) {
@@ -37,7 +43,9 @@ const PurchaseOrderFormView = {
         } else {
             try {
                 vnode.state.supplierOptions = await PurchaseOrderFormView.loadSupplierOptions();
+                console.log("[Audit][PurchaseOrderFormView] Supplier options loaded:", vnode.state.supplierOptions);
                 vnode.state.products = await PurchaseOrderFormView.loadProductOptions(vnode.state.item.supplierKey);
+                console.log("[Audit][PurchaseOrderFormView] Product options loaded:", vnode.state.products);
                 vnode.state.filteredProducts = vnode.state.products;
                 m.redraw();
             } catch (error) {
@@ -48,12 +56,20 @@ const PurchaseOrderFormView = {
     },
 
     validateForm: vnode => {
+        console.log("[Audit][PurchaseOrderFormView] Validating form data...");
         const errors = ValidationModel.validateEntityData(vnode.state.item, 'PurchaseOrders');
         vnode.state.errors = errors;
-        return Object.keys(errors).length === 0;
+        const isValid = Object.keys(errors).length === 0;
+        if (!isValid) {
+            console.warn("[Audit][PurchaseOrderFormView] Validation failed:", errors);
+        } else {
+            console.log("[Audit][PurchaseOrderFormView] Validation passed.");
+        }
+        return isValid;
     },
 
     handleProductSubmit: (vnode, productId) => {
+        console.log("[Audit][PurchaseOrderFormView] Adding product to order:", productId);
         const existingProduct = vnode.state.item.products.find(p => p.productKey === productId);
         const product = vnode.state.products.find(p => p.id === productId);
         const quantity = vnode.state.item.products.find(p => p.productKey === productId)?.quantity || product.desiredStock;
@@ -65,23 +81,29 @@ const PurchaseOrderFormView = {
         }
 
         vnode.state.isModified = true;
+        console.log("[Audit][PurchaseOrderFormView] Product added:", vnode.state.item.products);
         m.redraw();
     },
 
     handleProductRemove: (vnode, productId) => {
+        console.log("[Audit][PurchaseOrderFormView] Removing product from order:", productId);
         vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== productId);
         vnode.state.isModified = true;
+        console.log("[Audit][PurchaseOrderFormView] Product removed. Updated products:", vnode.state.item.products);
         m.redraw();
     },
 
     handleOrderSubmit: async (e, vnode) => {
         e.preventDefault();
+        console.log("[Audit][PurchaseOrderFormView] Attempting to save purchase order...");
         if (PurchaseOrderFormView.validateForm(vnode)) {
             try {
                 await FirebaseModel.saveOrUpdate('PurchaseOrders', vnode.state.id, vnode.state.item);
                 vnode.state.isModified = false;
+                console.log("[Audit][PurchaseOrderFormView] Purchase order saved successfully:", vnode.state.item);
                 m.route.set('/purchase-orders');
             } catch (error) {
+                console.error("[Audit][PurchaseOrderFormView] Error saving purchase order:", error);
                 vnode.state.errors.save = error.message;
                 m.redraw();
             }
@@ -89,15 +111,18 @@ const PurchaseOrderFormView = {
     },
 
     loadSupplierOptions: async () => {
+        console.log("[Audit][PurchaseOrderFormView] Loading supplier options...");
         const suppliers = await FirebaseModel.getAll('Suppliers');
+        console.log("[Audit][PurchaseOrderFormView] Supplier options loaded:", suppliers);
         return suppliers.map(supplier => ({ id: supplier.id, display: supplier.tradeName }));
     },
 
     loadProductOptions: async supplierKey => {
+        console.log("[Audit][PurchaseOrderFormView] Loading product options...");
         const products = await FirebaseModel.getAll('Products');
         const purchasePrices = await FirebaseModel.getAll('PurchasePrices');
         
-        return products.map(product => {
+        const productOptions = products.map(product => {
             const relevantPrices = purchasePrices
                 .filter(price => price.productKey.id === product.id && price.supplierKey.id === supplierKey)
                 .sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -114,6 +139,9 @@ const PurchaseOrderFormView = {
                 lastPurchasePrice
             };
         });
+
+        console.log("[Audit][PurchaseOrderFormView] Product options with prices loaded:", productOptions);
+        return productOptions;
     },
 
     filterProductsBySupplier: vnode => {
@@ -121,9 +149,11 @@ const PurchaseOrderFormView = {
         vnode.state.filteredProducts = vnode.state.products.filter(
             product => product.preferredSupplierKey === supplierKey
         );
+        console.log("[Audit][PurchaseOrderFormView] Products filtered by supplier:", vnode.state.filteredProducts);
     },
 
     handleSupplierChange: async (vnode, supplierKey) => {
+        console.log("[Audit][PurchaseOrderFormView] Supplier changed:", supplierKey);
         vnode.state.item.supplierKey = supplierKey;
         vnode.state.item.products = []; // Limpiar productos al cambiar proveedor
 
@@ -136,6 +166,7 @@ const PurchaseOrderFormView = {
     },
 
     handleProductSearch: vnode => {
+        console.log("[Audit][PurchaseOrderFormView] Searching products with text:", vnode.state.searchText);
         const searchText = vnode.state.searchText.toLowerCase();
         const supplierKey = vnode.state.item.supplierKey;
 
@@ -143,25 +174,35 @@ const PurchaseOrderFormView = {
             product.preferredSupplierKey === supplierKey && 
             product.display.toLowerCase().includes(searchText)
         );
+
+        console.log("[Audit][PurchaseOrderFormView] Products after search:", vnode.state.filteredProducts);
         m.redraw();
     },
 
     calculateTotalOrderAmount: vnode => {
-        return vnode.state.item.products.reduce((total, product) => {
+        const totalAmount = vnode.state.item.products.reduce((total, product) => {
             const productInfo = vnode.state.products.find(p => p.id === product.productKey);
             return total + (productInfo && productInfo.lastPurchasePrice !== "N/A" ? productInfo.lastPurchasePrice * product.quantity : 0);
         }, 0).toFixed(2);
+
+        console.log("[Audit][PurchaseOrderFormView] Calculated total order amount:", totalAmount);
+        return totalAmount;
     },
 
     getOrderButtonText: vnode => {
         const productCount = vnode.state.item.products.length;
         const modifiedIndicator = vnode.state.isModified ? "*" : "";
-        return `${modifiedIndicator}(${productCount}) Guardar Orden`;
+        const buttonText = `${modifiedIndicator}(${productCount}) Guardar Orden`;
+
+        console.log("[Audit][PurchaseOrderFormView] Generated order button text:", buttonText);
+        return buttonText;
     },
 
     view: vnode => {
         const item = vnode.state.item;
         const errors = vnode.state.errors;
+
+        console.log("[Audit][PurchaseOrderFormView] Rendering view with state:", vnode.state);
 
         const breadcrumbItems = [
             { name: "Inicio", path: "/" },
@@ -211,15 +252,39 @@ const PurchaseOrderFormView = {
                     showLabel: false
                 })
             ]),
-            m("div.uk-position-relative.uk-visible-toggle.uk-light", { tabindex: "-1", "uk-slider": "" }, [
+            m("div.uk-position-relative.uk-visible-toggle.uk-light", { tabindex: "-1", "uk-slider": "center: true", "uk-slider-items": true }, [
                 m("div.uk-slider-items.uk-grid", 
                     vnode.state.filteredProducts.map((product, index) => {
                         const isAdded = vnode.state.item.products.some(p => p.productKey === product.id);
                         const cardStyle = isAdded ? { backgroundColor: "#4caf50", color: "#ffffff" } : { backgroundColor: "#007bff", color: "#ffffff" };
-
-                        return m("div.uk-width-1-1@s.uk-width-2-3@m.uk-width-1-2@l", { key: product.id }, [
-                            m("div.uk-panel", { style: { ...cardStyle, padding: "20px", borderRadius: "8px", minHeight: "300px", position: "relative" } }, [
-                                m("div", { style: { textAlign: "left" } }, [
+                
+                        return m("div.uk-width-1-1@s.uk-width-2-3@m.uk-width-1-2@l", {
+                            key: product.id,
+                            class: "uk-slider-item",
+                            "data-index": index,  // Añadimos un atributo data-index para identificar la tarjeta
+                            oncreate: vnode => {
+                                // Usamos IntersectionObserver para detectar cuándo la tarjeta está centrada
+                                const observer = new IntersectionObserver((entries) => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            vnode.dom.querySelector('.card-content').style.visibility = 'visible'; // Mostrar contenido
+                                            vnode.dom.querySelector('.card-content').style.opacity = '1'; // Aumentar la opacidad
+                                        } else {
+                                            vnode.dom.querySelector('.card-content').style.visibility = 'hidden'; // Ocultar contenido
+                                            vnode.dom.querySelector('.card-content').style.opacity = '0'; // Reducir la opacidad
+                                        }
+                                    });
+                                }, {
+                                    root: vnode.dom.closest('.uk-slider-container'),
+                                    threshold: 0.5 // Ajustamos el umbral para que detecte cuándo está en el centro
+                                });
+                                observer.observe(vnode.dom);
+                            }
+                        }, [
+                            m("div.uk-panel", {
+                                style: { ...cardStyle, padding: "20px", borderRadius: "8px", minHeight: "300px", position: "relative" }
+                            }, [
+                                m("div.card-content", { style: { visibility: "hidden", opacity: "0", transition: "opacity 0.5s" } }, [  // Ocultamos inicialmente el contenido
                                     m("h2", { "uk-slider-parallax": "x: 100,-100" }, product.display),
                                     m("p", { "uk-slider-parallax": "x: 200,-200" }, [
                                         `Precio Unitario: ${product.price.toFixed(2)}`,
@@ -234,32 +299,22 @@ const PurchaseOrderFormView = {
                                         label: "Cantidad a Pedir",
                                         value: vnode.state.item.products.find(p => p.productKey === product.id)?.quantity || product.desiredStock,
                                         onInput: value => {
-                                            const productToUpdate = vnode.state.item.products.find(p => p.productKey === product.id);
-                                            if (productToUpdate) {
-                                                productToUpdate.quantity = value;
-                                            } else {
-                                                PurchaseOrderFormView.handleProductSubmit(vnode, product.id);
-                                            }
-                                            vnode.state.isModified = true;
-                                        },
-                                        style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" },
-                                        id: `quantity-input-${product.id}`,
-                                        onfocus: e => {
-                                            if (e.target.value == product.desiredStock) {
-                                                e.target.value = '';
-                                            }
-                                        },
-                                        onblur: e => {
-                                            if (!e.target.value) {
+                                            if (value > 0) {  // Solo proceder si el valor es mayor que 0
                                                 const productToUpdate = vnode.state.item.products.find(p => p.productKey === product.id);
                                                 if (productToUpdate) {
-                                                    productToUpdate.quantity = product.desiredStock;
-                                                    e.target.value = product.desiredStock;
+                                                    productToUpdate.quantity = value;  // Actualizar la cantidad si el producto ya está en la lista
                                                 } else {
-                                                    e.target.value = product.desiredStock;
+                                                    vnode.state.item.products.push({ productKey: product.id, quantity: value });  // Agregar el producto a la lista
                                                 }
+                                                vnode.state.isModified = true;
+                                                m.redraw();
                                             }
-                                        }
+                                        },
+                                        onFocus: e => {
+                                            e.target.value = ''; // Vaciar el campo al tomar el foco
+                                        },
+                                        style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" },
+                                        id: `quantity-input-${product.id}`
                                     }),
                                     vnode.state.errors[product.id]?.quantity && 
                                         m("div.uk-text-danger", vnode.state.errors[product.id].quantity),
@@ -280,7 +335,7 @@ const PurchaseOrderFormView = {
                             ])
                         ]);
                     })
-                ),
+                ),                
                 m("a.uk-position-center-left.uk-position-small", { href: "#", "uk-slidenav-previous": "", "uk-slider-item": "previous" }),
                 m("a.uk-position-center-right.uk-position-small", { href: "#", "uk-slidenav-next": "", "uk-slider-item": "next" })
             ]),

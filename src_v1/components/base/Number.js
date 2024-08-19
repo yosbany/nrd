@@ -4,6 +4,8 @@
  * Props:
  * @param {number} value - El valor del campo de entrada numérica.
  * @param {Function} onInput - Función que se llama al cambiar el valor.
+ * @param {Function} onFocus - Función que se llama cuando el campo toma el foco.
+ * @param {Function} onBlur - Función que se llama cuando el campo pierde el foco.
  * @param {boolean} outputMode - Si es true, muestra el valor en modo de solo lectura.
  * @param {string} label - La etiqueta del campo de entrada.
  * @param {boolean} required - Indica si el campo es obligatorio.
@@ -13,7 +15,7 @@
  */
 const Number = {
     view: vnode => {
-        const { value, onInput, outputMode, label, required, documentation, error, showLabel = true, ...otherAttrs } = vnode.attrs;
+        const { value, onInput, onFocus, onBlur, outputMode, label, required, documentation, error, showLabel = true, ...otherAttrs } = vnode.attrs;
 
         return m("div.uk-margin", [
             showLabel && m("label.uk-form-label", {
@@ -28,6 +30,8 @@ const Number = {
                     m("input.uk-input[type=number]", {
                         value: value != null ? value : '', // Mostrar valor vacío si no está definido
                         oninput: e => onInput(parseFloat(e.target.value) || 0), // Convertir a número, usar 0 si es NaN
+                        onfocus: onFocus, // Pasar el evento onFocus
+                        onblur: onBlur, // Pasar el evento onBlur
                         placeholder: "", // Placeholder vacío para consistencia con TextInput
                         ...otherAttrs // Pasar los demás atributos al input
                     })
