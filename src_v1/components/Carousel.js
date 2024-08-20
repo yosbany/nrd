@@ -51,7 +51,9 @@ const Carousel = {
             },
             style: { outline: "none" } // Elimina cualquier borde de enfoque por defecto
         }, [
-            m("div.uk-slider-container", [
+            m("div.uk-slider-container", {
+                style: { touchAction: 'pan-y' } // Habilita el deslizamiento táctil
+            }, [
                 m("div.uk-slider-items.uk-grid", 
                     vnode.children.map((child, index) => 
                         m("div", { 
@@ -110,7 +112,7 @@ const Carousel = {
                     oncreate: ({ dom }) => {
                         dom.focus(); 
                     },
-                    style: { outline: "none" }
+                    style: { outline: "none", touchAction: 'pan-y' } // Habilita el deslizamiento táctil
                 }, [
                     m("div.uk-slider-container", [
                         m("div.uk-slider-items.uk-grid", 
