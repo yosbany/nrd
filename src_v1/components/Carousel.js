@@ -16,35 +16,15 @@ const Carousel = {
         m.redraw();
     },
 
-    nextSlide: vnode => {
-        vnode.state.currentIndex = (vnode.state.currentIndex + 1) % vnode.children.length;
-        m.redraw();
-    },
-
-    prevSlide: vnode => {
-        vnode.state.currentIndex = (vnode.state.currentIndex - 1 + vnode.children.length) % vnode.children.length;
-        m.redraw();
-    },
-
     handleKeyDown: (vnode, e) => {
         if (e.key === 'ArrowRight') {
-            Carousel.nextSlide(vnode);
+            vnode.state.currentIndex = (vnode.state.currentIndex + 1) % vnode.children.length;
+            UIkit.slider(vnode.dom).show('next');
         } else if (e.key === 'ArrowLeft') {
-            Carousel.prevSlide(vnode);
+            vnode.state.currentIndex = (vnode.state.currentIndex - 1 + vnode.children.length) % vnode.children.length;
+            UIkit.slider(vnode.dom).show('previous');
         }
-    },
-
-    oncreate: vnode => {
-        vnode.dom.focus();  // Dar foco al contenedor del carrusel
-
-        // Configurar Hammer.js para manejar gestos táctiles
-        const hammer = new Hammer(vnode.dom);
-        hammer.on('swipeleft', () => {
-            Carousel.nextSlide(vnode);
-        });
-        hammer.on('swiperight', () => {
-            Carousel.prevSlide(vnode);
-        });
+        m.redraw();
     },
 
     view: vnode => {
@@ -53,24 +33,25 @@ const Carousel = {
 
         return m("div", {
             class: "uk-position-relative uk-visible-toggle uk-light",
-            "uk-slider": "center: true",
-            tabindex: "0", // Permite que el contenedor reciba eventos de teclado
-            onkeydown: (e) => Carousel.handleKeyDown(vnode, e),
-            oncreate: (vnode) => Carousel.oncreate(vnode),  // Configurar Hammer.js cuando el componente se crea
-            onupdate: ({ dom }) => {
-                dom.focus(); // Mantiene el foco en el contenedor durante las actualizaciones
+            "uk-slider": "center: true", 
+            tabindex: "0", 
+            onkeydown: (e) => Carousel.handleKeyDown(vnode, e), 
+            oncreate: ({ dom }) => {
+                dom.focus();
             },
-            style: { outline: "none" } // Elimina cualquier borde de enfoque por defecto
+            onupdate: ({ dom }) => {
+                dom.focus();
+            },
+            style: { outline: "none" } 
         }, [
             m("div.uk-slider-container", {
-                style: { touchAction: 'pan-y' } // Habilita el deslizamiento táctil
+                style: { touchAction: 'pan-y' } 
             }, [
-                m("div.uk-slider-items.uk-grid", 
+                m("ul.uk-slider-items.uk-grid", 
                     vnode.children.map((child, index) => 
-                        m("div", { 
+                        m("li", { 
                             key: index, 
-                            class: `uk-width-3-4 ${currentIndex === index ? 'uk-width-expand' : 'uk-hidden'}`, 
-                            style: { transition: 'none' } // Elimina la transición para navegación rápida
+                            class: 'uk-width-1-1' 
                         }, [
                             m("div.uk-panel", [
                                 m("div", {
@@ -91,7 +72,8 @@ const Carousel = {
                                             right: "10px",
                                             cursor: "pointer"
                                         },
-                                        onclick: () => {
+                                        onclick: (e) => {
+                                            e.stopPropagation();
                                             vnode.state.currentIndex = index;
                                             Carousel.toggleExpand(vnode);
                                         }
@@ -119,54 +101,57 @@ const Carousel = {
                     class: "uk-position-relative uk-visible-toggle uk-light",
                     "uk-slider": "center: true",
                     tabindex: "0", 
-                    onkeydown: (e) => Carousel.handleKeyDown(vnode, e),
-                    oncreate: (vnode) => Carousel.oncreate(vnode),  // Configurar Hammer.js cuando el componente se crea
-                    style: { outline: "none", touchAction: 'pan-y' } // Habilita el deslizamiento táctil
+                    onkeydown: (e) => Carousel.handleKeyDown(vnode, e), 
+                    oncreate: ({ dom }) => {
+                        dom.focus();
+                        UIkit.slider(dom).show(currentIndex); // Muestra la tarjeta actual al abrir el modal
+                    },
+                    style: { outline: "none", touchAction: 'pan-y' } 
                 }, [
-                    m("div.uk-slider-container", [
-                        m("div.uk-slider-items.uk-grid", 
-                            vnode.children.map((child, index) =>
-                                m("div", { 
-                                    key: index, 
-                                    class: `uk-width-3-4 ${currentIndex === index ? 'uk-width-expand' : 'uk-hidden'}`, 
-                                    style: { transition: 'none' }
-                                }, [
-                                    m("div.uk-panel", [
-                                        m("div", {
+                    m("ul.uk-slider-items.uk-grid", 
+                        vnode.children.map((child, index) =>
+                            m("li", { 
+                                key: index, 
+                                class: 'uk-width-1-1', 
+                            }, [
+                                m("div.uk-panel", [
+                                    m("div", {
+                                        style: {
+                                            backgroundColor: "#007bff",
+                                            color: "#ffffff",
+                                            padding: "20px",
+                                            borderRadius: "0px",
+                                            minHeight: "100vh",
+                                            position: "relative"
+                                        }
+                                    }, [
+                                        child,
+                                        m("span", {
+                                            class: "uk-position-absolute",
                                             style: {
-                                                backgroundColor: "#007bff",
-                                                color: "#ffffff",
-                                                padding: "20px",
-                                                borderRadius: "0px",
-                                                minHeight: "100vh",
-                                                position: "relative"
+                                                top: "10px",
+                                                right: "10px",
+                                                cursor: "pointer"
+                                            },
+                                            onclick: (e) => {
+                                                e.stopPropagation();
+                                                Carousel.closeModal(vnode);
                                             }
-                                        }, [
-                                            child,
-                                            m("span", {
-                                                class: "uk-position-absolute",
-                                                style: {
-                                                    top: "10px",
-                                                    right: "10px",
-                                                    cursor: "pointer"
-                                                },
-                                                onclick: () => Carousel.closeModal(vnode)
-                                            }, m("span", { "uk-icon": "close" })),
-                                            m("div", {
-                                                class: "uk-position-absolute",
-                                                style: {
-                                                    bottom: "10px",
-                                                    right: "10px",
-                                                    color: "#ffffff",
-                                                    fontSize: "16px",
-                                                }
-                                            }, `${index + 1}/${totalSlides}`)
-                                        ])
+                                        }, m("span", { "uk-icon": "close" })),
+                                        m("div", {
+                                            class: "uk-position-absolute",
+                                            style: {
+                                                bottom: "10px",
+                                                right: "10px",
+                                                color: "#ffffff",
+                                                fontSize: "16px",
+                                            }
+                                        }, `${index + 1}/${totalSlides}`)
                                     ])
                                 ])
-                            )
+                            ])
                         )
-                    ])
+                    )
                 ]),
                 showCloseButton: false
             })
