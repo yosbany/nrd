@@ -34,6 +34,19 @@ const Carousel = {
         }
     },
 
+    oncreate: vnode => {
+        vnode.dom.focus();  // Dar foco al contenedor del carrusel
+
+        // Configurar Hammer.js para manejar gestos táctiles
+        const hammer = new Hammer(vnode.dom);
+        hammer.on('swipeleft', () => {
+            Carousel.nextSlide(vnode);
+        });
+        hammer.on('swiperight', () => {
+            Carousel.prevSlide(vnode);
+        });
+    },
+
     view: vnode => {
         const { isExpanded, currentIndex } = vnode.state;
         const totalSlides = vnode.children.length;
@@ -43,9 +56,7 @@ const Carousel = {
             "uk-slider": "center: true",
             tabindex: "0", // Permite que el contenedor reciba eventos de teclado
             onkeydown: (e) => Carousel.handleKeyDown(vnode, e),
-            oncreate: ({ dom }) => {
-                dom.focus(); // Asegura que el contenedor del carrusel tenga el foco al renderizar
-            },
+            oncreate: (vnode) => Carousel.oncreate(vnode),  // Configurar Hammer.js cuando el componente se crea
             onupdate: ({ dom }) => {
                 dom.focus(); // Mantiene el foco en el contenedor durante las actualizaciones
             },
@@ -109,9 +120,7 @@ const Carousel = {
                     "uk-slider": "center: true",
                     tabindex: "0", 
                     onkeydown: (e) => Carousel.handleKeyDown(vnode, e),
-                    oncreate: ({ dom }) => {
-                        dom.focus(); 
-                    },
+                    oncreate: (vnode) => Carousel.oncreate(vnode),  // Configurar Hammer.js cuando el componente se crea
                     style: { outline: "none", touchAction: 'pan-y' } // Habilita el deslizamiento táctil
                 }, [
                     m("div.uk-slider-container", [
