@@ -102,8 +102,8 @@ const SupplierFormView = {
                         m("div.uk-margin", [
                             m(Text, {
                                 label: "Celular",
-                                value: item.phone ? SupplierFormView.formatPhoneNumber(item.phone) : "", // Formatear el número para mostrarlo
-                                onInput: value => item.phone = value.replace(/\D/g, ''), // Guardar sin formato
+                                value: item.phone || "",
+                                onInput: value => item.phone = value.replace(/\D/g, ''),
                                 error: errors.phone,
                                 placeholder: "Ingrese un celular uruguayo de 8 dígitos"
                             })

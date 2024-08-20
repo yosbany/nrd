@@ -53,20 +53,20 @@ const SecurityModel = {
 
     loadUserRoles: () => {
         if (SecurityModel.user) {
-            console.log(`[Audit][SecurityModel] Loading roles for user: ${SecurityModel.user.uid}`);
+            //console.log(`[Audit][SecurityModel] Loading roles for user: ${SecurityModel.user.uid}`);
             const userRef = ref(db, `${Users}/${SecurityModel.user.uid}`);
             return get(userRef).then(snapshot => {
                 if (snapshot.exists()) {
                     SecurityModel.roles = snapshot.val().roles || [];
-                    console.log(`[Audit][SecurityModel] User roles loaded: ${SecurityModel.roles}`);
+                    //console.log(`[Audit][SecurityModel] User roles loaded: ${SecurityModel.roles}`);
                     m.redraw();
                 } else {
-                    console.warn(`[Audit][SecurityModel] No roles found for user: ${SecurityModel.user.uid}`);
+                    //console.warn(`[Audit][SecurityModel] No roles found for user: ${SecurityModel.user.uid}`);
                     SecurityModel.roles = [];
                     m.redraw();
                 }
             }).catch(error => {
-                console.error(`[Audit][SecurityModel] Error loading user roles for user ${SecurityModel.user.uid}: ${error.message}`);
+                //console.error(`[Audit][SecurityModel] Error loading user roles for user ${SecurityModel.user.uid}: ${error.message}`);
                 SecurityModel.roles = [];
                 m.redraw();
             });
@@ -113,7 +113,7 @@ const SecurityModel = {
             const snapshot = await get(permissionsRef);
 
             if (!snapshot.exists()) {
-                console.warn("[Audit][SecurityModel] No permissions array found in database.");
+                //console.warn("[Audit][SecurityModel] No permissions array found in database.");
                 return false;
             }
 
@@ -128,10 +128,10 @@ const SecurityModel = {
             if (permission) {
                 const allowedRoles = permission.roles || [];
                 const hasAccess = SecurityModel.roles.some(role => allowedRoles.includes(role));
-                console.log(`[Audit][SecurityModel] Access check for route: ${normalizedRoute} with roles: ${SecurityModel.roles}, Access granted: ${hasAccess}`);
+                //console.log(`[Audit][SecurityModel] Access check for route: ${normalizedRoute} with roles: ${SecurityModel.roles}, Access granted: ${hasAccess}`);
                 return hasAccess;
             } else {
-                console.warn(`[Audit][SecurityModel] No permissions found for route: ${normalizedRoute}`);
+                //console.warn(`[Audit][SecurityModel] No permissions found for route: ${normalizedRoute}`);
                 return false;
             }
         } catch (error) {

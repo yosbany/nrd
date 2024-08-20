@@ -8,6 +8,7 @@ import Column from '../components/base/Column.js';
 import Card from '../components/base/Card.js';
 import Text from '../components/base/Text.js';
 import Number from '../components/base/Number.js';
+import LoadingSpinner from '../components/LoadingSpinner.js'; 
 import { encodeId } from '../utils.js';
 
 const ProductList = {
@@ -56,45 +57,42 @@ const ProductList = {
     },
 
     view: vnode => {
-        if (vnode.state.loading) {
-            return m("div.uk-text-center", "Cargando...");
-        }
-
-        const filteredItems = ProductList.filterItems(vnode);
-
-        return m(Card, { title: "Productos", useCustomPadding: false }, [
-            m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Productos", path: "/products" }] }),
-            m(Fila, { gap: 'medium' }, [
-                m(Column, { width: 'expand' }, [
-                    m(TextInput, {
-                        value: vnode.state.searchText,
-                        onInput: value => vnode.state.searchText = value,
-                        placeholder: "Buscar...",
-                        showLabel: false
-                    })
+        return [
+            m(LoadingSpinner, { loading: vnode.state.loading }),
+            m(Card, { title: "Productos", useCustomPadding: false }, [
+                m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Productos", path: "/products" }] }),
+                m(Fila, { gap: 'medium' }, [
+                    m(Column, { width: 'expand' }, [
+                        m(TextInput, {
+                            value: vnode.state.searchText,
+                            onInput: value => vnode.state.searchText = value,
+                            placeholder: "Buscar...",
+                            showLabel: false
+                        })
+                    ]),
+                    m(Column, { width: 'auto' }, [
+                        m(Button, {
+                            type: "primary",
+                            label: "Nuevo",
+                            onClick: () => m.route.set('/products/new')
+                        })
+                    ])
                 ]),
-                m(Column, { width: 'auto' }, [
-                    m(Button, {
-                        type: "primary",
-                        label: "Nuevo",
-                        onClick: () => m.route.set('/products/new')
-                    })
-                ])
-            ]),
-            m(Table, {
-                bind: filteredItems,
-                onEdit: id => ProductList.onEdit(id),
-                onDelete: id => ProductList.onDelete(vnode, id)
-            }, [
-                m(Text, { label: "SKU", value: "bind.sku" }),
-                m(Text, { label: "Nombre", value: "bind.name" }),
-                m(Number, { label: "Precio", value: "bind.price" }),
-                m(Number, { label: "Stock Deseado", value: "bind.desiredStock" }),
-                m(Number, { label: "Stock Mínimo", value: "bind.minimumStock" }),
-                m(Text, { label: "Proveedor Preferido", value: "bind.preferredSupplierKey.businessName" })
-            ]),
-            filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
-        ]);
+                m(Table, {
+                    bind: ProductList.filterItems(vnode),
+                    onEdit: id => ProductList.onEdit(id),
+                    onDelete: id => ProductList.onDelete(vnode, id)
+                }, [
+                    m(Text, { label: "SKU", value: "bind.sku" }),
+                    m(Text, { label: "Nombre", value: "bind.name" }),
+                    m(Number, { label: "Stock Deseado", value: "bind.desiredStock", format: "decimal" }),
+                    m(Number, { label: "Stock Mínimo", value: "bind.minimumStock", format: "decimal" }),
+                    m(Text, { label: "Proveedor", value: "bind.preferredSupplierKey.businessName" }),
+                    m(Number, { label: "Último Precio", value: "bind.lastPurchasePrice", format: "currency" })
+                ]),
+                !vnode.state.loading && vnode.state.products.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
+            ])
+        ];
     }
 };
 

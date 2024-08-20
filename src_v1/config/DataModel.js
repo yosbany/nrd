@@ -42,13 +42,6 @@ const DataModel = {
         maxLength: 255 
       }
     },
-    price: { 
-      type: "number", 
-      default: 0, 
-      constraints: { 
-        required: true 
-      }
-    },
     image: { 
       type: "string", 
       default: ""
@@ -183,6 +176,13 @@ const DataModel = {
             min: 1
           }
         }
+      }
+    },
+    totalAmount: {
+      type: "number",
+      default: 0,
+      constraints: {
+        required: true
       }
     }
   }

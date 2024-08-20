@@ -7,6 +7,7 @@ import Fila from '../components/base/Fila.js';
 import Column from '../components/base/Column.js';
 import Card from '../components/base/Card.js';
 import Text from '../components/base/Text.js';
+import LoadingSpinner from '../components/LoadingSpinner.js';
 import { encodeId } from '../utils.js';
 
 const SupplierList = {
@@ -65,13 +66,11 @@ const SupplierList = {
     },
 
     view: vnode => {
-        if (vnode.state.loading) {
-            return m("div.uk-text-center", "Cargando...");
-        }
-
         const filteredItems = SupplierList.filterItems(vnode);
 
-        return m(Card, { title: "Proveedores", useCustomPadding: false }, [
+        return [
+            m(LoadingSpinner, { loading: vnode.state.loading }),
+            m(Card, { title: "Proveedores", useCustomPadding: false }, [
             m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Proveedores", path: "/suppliers" }] }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: 'expand' }, [
@@ -101,7 +100,8 @@ const SupplierList = {
                 m(Text, { label: "Celular", value: "bind.formatPhoneNumber" })  // Usamos la nueva propiedad
             ]),
             filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
-        ]);
+        ])
+    ]
     }
 };
 

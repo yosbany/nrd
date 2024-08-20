@@ -10,7 +10,7 @@
  */
 const Button = {
     view: vnode => {
-        const { type = 'default', label, documentation, disabled = false, onClick } = vnode.attrs;
+        const { type = 'default', label, documentation, disabled = false, onClick, ...attrs } = vnode.attrs;
 
         // Definir la clase de UIkit según el tipo de botón
         const buttonClass = `uk-button uk-button-${type}`;
@@ -24,7 +24,8 @@ const Button = {
                     if (!disabled && onClick) {
                         onClick(e);
                     }
-                }
+                },
+                ...attrs // Pasar todos los demás atributos al botón
             }, label)
         ]);
     }

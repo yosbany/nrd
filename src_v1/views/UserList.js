@@ -7,6 +7,7 @@ import Fila from '../components/base/Fila.js';
 import Column from '../components/base/Column.js';
 import Card from '../components/base/Card.js';
 import Text from '../components/base/Text.js';
+import LoadingSpinner from '../components/LoadingSpinner.js';
 import { encodeId } from '../utils.js';
 
 const UserList = {
@@ -55,13 +56,11 @@ const UserList = {
     },
 
     view: vnode => {
-        if (vnode.state.loading) {
-            return m("div.uk-text-center", "Cargando...");
-        }
-
         const filteredItems = UserList.filterItems(vnode);
 
-        return m(Card, { title: "Usuarios", useCustomPadding: false }, [
+        return [
+            m(LoadingSpinner, { loading: vnode.state.loading }), 
+            m(Card, { title: "Usuarios", useCustomPadding: false }, [
             m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Usuarios", path: "/users" }] }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: 'expand' }, [
@@ -90,7 +89,8 @@ const UserList = {
                 m(Text, { label: "Rol", value: "bind.role" })
             ]),
             filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
-        ]);
+        ])
+    ]
     }
 };
 

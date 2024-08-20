@@ -50,24 +50,25 @@ const Menu = {
             m("div.uk-navbar-left", [
                 // Mostrar el ícono de Offcanvas solo en pantallas pequeñas
                 m("a.uk-navbar-toggle.uk-hidden@m", { "uk-navbar-toggle-icon": "", "uk-toggle": "target: #offcanvas-nav" }),
-                m("div.uk-navbar-item.uk-logo", "NUEVA RÍO D'OR")
+                m("div.uk-navbar-item.uk-logo", { style: { marginLeft: "20px" } }, "NUEVA RÍO D'OR") // Ajuste aquí
             ]),
             // Menú tradicional visible solo en pantallas grandes
             m("div.uk-navbar-right.uk-visible@m", [
-                m("ul.uk-navbar-nav", [
+                m("ul.uk-navbar-nav", { style: { padding: "0 15px" } }, [
                     // Links directos (sin categoría)
                     vnode.state.directLinks.map(route =>
                         m("li", { class: m.route.get() === route.pathRouter ? "uk-active" : "" }, [
                             m(m.route.Link, {
                                 href: route.pathRouter,
-                                class: "uk-text-bold uk-text-dark"
+                                class: "uk-text-bold uk-text-dark",
+                                style: { padding: "10px 15px" } // Espaciado adicional entre los elementos
                             }, route.label)
                         ])
                     ),
                     // Links con categoría (submenús)
                     Object.keys(vnode.state.categories).map(category =>
                         m("li.uk-parent", [
-                            m("a", { href: "#", class: "uk-text-bold uk-text-dark" }, [
+                            m("a", { href: "#", class: "uk-text-bold uk-text-dark", style: { padding: "10px 15px" } }, [
                                 ` ${category}`,
                                 m("span", { "uk-icon": "icon: triangle-down" })
                             ]),
@@ -77,7 +78,8 @@ const Menu = {
                                         m("li", [
                                             m("a", {
                                                 onclick: () => Menu.navigateToRoute(route),
-                                                class: "uk-text-bold uk-text-dark"
+                                                class: "uk-text-bold uk-text-dark",
+                                                style: { padding: "10px 15px" }
                                             }, ` ${route.label}`)
                                         ])
                                     )
@@ -91,7 +93,7 @@ const Menu = {
             // Offcanvas menu for mobile
             m("div#offcanvas-nav.uk-offcanvas", { "uk-offcanvas": "mode: slide" }, [
                 m("div.uk-offcanvas-bar", [
-                    m("ul.uk-nav.uk-nav-default", [
+                    m("ul.uk-nav.uk-nav-default", { style: { padding: "10px 15px" } }, [
                         // Links directos (sin categoría)
                         vnode.state.directLinks.map(route =>
                             m("li", { class: m.route.get() === route.pathRouter ? "uk-active" : "" }, [
@@ -100,22 +102,24 @@ const Menu = {
                                     class: "uk-text-bold uk-text-dark",
                                     onclick: () => {
                                         Menu.navigateToRoute(route);
-                                    }
+                                    },
+                                    style: { padding: "15px 0" } // Espaciado adicional en el offcanvas
                                 }, route.label)
                             ])
                         ),
                         // Links con categoría (submenús)
                         Object.keys(vnode.state.categories).map(category =>
                             m("li.uk-parent", [
-                                m("a", { href: "#", class: "uk-text-bold uk-text-dark" }, ` ${category}`),
-                                m("ul.uk-nav-sub", [
+                                m("a", { href: "#", class: "uk-text-bold uk-text-dark", style: { padding: "15px 0" } }, ` ${category}`),
+                                m("ul.uk-nav-sub", { style: { padding: "10px 0" } }, [
                                     vnode.state.categories[category].map(route =>
                                         m("li", [
                                             m("a", {
                                                 onclick: () => {
                                                     Menu.navigateToRoute(route);
                                                 },
-                                                class: "uk-text-bold uk-text-dark"
+                                                class: "uk-text-bold uk-text-dark",
+                                                style: { padding: "10px 0" }
                                             }, ` ${route.label}`)
                                         ])
                                     )

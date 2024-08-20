@@ -103,14 +103,6 @@ const ProductFormView = {
                             })
                         ]),
                         m("div.uk-margin", [
-                            m(Number, {
-                                label: "Precio",
-                                value: item.price || 0,
-                                onInput: value => item.price = parseFloat(value),
-                                error: errors.price
-                            })
-                        ]),
-                        m("div.uk-margin", [
                             m(Text, {
                                 label: "Imagen",
                                 value: item.image || "",

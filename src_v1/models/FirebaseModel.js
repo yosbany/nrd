@@ -9,15 +9,15 @@ const ResolveReferences = async (data) => {
                 const property = obj[key];
 
                 if (key.endsWith('Key') && typeof property === 'string') {
-                    console.log(`[Audit][ResolveReferences] Resolving reference for key: ${key}, path: ${property}`);
+                    //console.log(`[Audit][ResolveReferences] Resolving reference for key: ${key}, path: ${property}`);
                     const resolvedObject = await FirebaseModel.getById(property, false);
                     obj[key] = resolvedObject;
-                    console.log(`[Audit][ResolveReferences] Reference resolved for key: ${key}, resolved object:`, obj[key]);
+                    //console.log(`[Audit][ResolveReferences] Reference resolved for key: ${key}, resolved object:`, obj[key]);
                 } else if (key.endsWith('Key') && Array.isArray(property)) {
-                    console.log(`[Audit][ResolveReferences] Resolving array of references for key: ${key}`);
+                    //console.log(`[Audit][ResolveReferences] Resolving array of references for key: ${key}`);
                     const resolvedArray = await Promise.all(property.map(async (refValue) => {
                         if (typeof refValue === 'string') {
-                            console.log(`[Audit][ResolveReferences] Resolving reference in array for path: ${refValue}`);
+                            //console.log(`[Audit][ResolveReferences] Resolving reference in array for path: ${refValue}`);
                             const resolvedObject = await FirebaseModel.getById(refValue, false);
                             return resolvedObject;
                         } else if (typeof refValue === 'object' && refValue !== null) {
@@ -27,7 +27,7 @@ const ResolveReferences = async (data) => {
                         return null;
                     }));
                     obj[key] = resolvedArray.filter(item => item !== null);
-                    console.log(`[Audit][ResolveReferences] Resolved array for key: ${key}, resolved array:`, obj[key]);
+                    //console.log(`[Audit][ResolveReferences] Resolved array for key: ${key}, resolved array:`, obj[key]);
                 } else if (typeof property === 'object' && property !== null) {
                     console.log(`[Audit][ResolveReferences] Traversing object for key: ${key}`);
                     await traverseAndResolve(property);
@@ -36,9 +36,9 @@ const ResolveReferences = async (data) => {
         }
     };
 
-    console.log("[Audit][ResolveReferences] Starting to resolve references for data:", data);
+    //console.log("[Audit][ResolveReferences] Starting to resolve references for data:", data);
     await traverseAndResolve(data);
-    console.log("[Audit][ResolveReferences] Finished resolving references, final data:", data);
+    //console.log("[Audit][ResolveReferences] Finished resolving references, final data:", data);
     return data;
 };
 

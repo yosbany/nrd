@@ -20,7 +20,7 @@ const Text = {
             showLabel && m("label.uk-form-label", {
                 class: required ? "uk-text-danger" : "",
                 title: documentation || ""
-            }, label),
+            }, `${label}:`),
             outputMode
                 ? m("div.uk-form-controls", [
                     m("span.uk-text-emphasis", value)

@@ -9,6 +9,7 @@ import Card from '../components/base/Card.js';
 import Text from '../components/base/Text.js';
 import Number from '../components/base/Number.js';
 import DateInput from '../components/base/DatePicker.js';
+import LoadingSpinner from '../components/LoadingSpinner.js';
 import { encodeId } from '../utils.js';
 
 const PurchasePriceList = {
@@ -23,7 +24,8 @@ const PurchasePriceList = {
     loadPurchasePrices: vnode => {
         FirebaseModel.getAll('PurchasePrices')
             .then(data => {
-                vnode.state.purchasePrices = data;
+                // Ordenar los precios de compra por fecha en orden descendente
+                vnode.state.purchasePrices = data.sort((a, b) => new Date(b.date) - new Date(a.date));
                 vnode.state.loading = false;
                 m.redraw();
             })
@@ -35,7 +37,6 @@ const PurchasePriceList = {
     },
 
     deepSearch: (obj, searchText) => {
-        // Función recursiva para buscar el texto en todas las propiedades del objeto
         for (const key in obj) {
             if (obj.hasOwnProperty(key)) {
                 const value = obj[key];
@@ -74,44 +75,45 @@ const PurchasePriceList = {
     },
 
     view: vnode => {
-        if (vnode.state.loading) {
-            return m("div.uk-text-center", "Cargando...");
-        }
-
         const filteredItems = PurchasePriceList.filterItems(vnode);
 
-        return m(Card, { title: "Precios de Compra", useCustomPadding: false }, [
-            m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Precios de Compra", path: "/purchase-prices" }] }),
-            m(Fila, { gap: 'medium' }, [
-                m(Column, { width: 'expand' }, [
-                    m(TextInput, {
-                        value: vnode.state.searchText,
-                        onInput: value => vnode.state.searchText = value,
-                        placeholder: "Buscar...",
-                        showLabel: false
-                    })
+        return [
+            m(LoadingSpinner, { loading: vnode.state.loading }),
+            m(Card, { title: "Precios de Compra", useCustomPadding: false }, [
+                m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Precios de Compra", path: "/purchase-prices" }] }),
+                m(Fila, { gap: 'medium' }, [
+                    m(Column, { width: 'expand' }, [
+                        m(TextInput, {
+                            value: vnode.state.searchText,
+                            onInput: value => vnode.state.searchText = value,
+                            placeholder: "Buscar...",
+                            showLabel: false
+                        })
+                    ]),
+                    m(Column, { width: 'auto' }, [
+                        m(Button, {
+                            type: "primary",
+                            label: "Nuevo",
+                            onClick: () => m.route.set('/purchase-prices/new')
+                        })
+                    ])
                 ]),
-                m(Column, { width: 'auto' }, [
-                    m(Button, {
-                        type: "primary",
-                        label: "Nuevo",
-                        onClick: () => m.route.set('/purchase-prices/new')
-                    })
-                ])
-            ]),
-            m(Table, {
-                bind: filteredItems,
-                onEdit: id => PurchasePriceList.onEdit(id),
-                onDelete: id => PurchasePriceList.onDelete(vnode, id)
-            }, [
-                m(Text, { label: "Producto", value: "bind.productKey.name" }),
-                m(Number, { label: "Precio Unitario", value: "bind.unitPrice" }),
-                m(DateInput, { label: "Fecha", value: "bind.date" }),
-                m(Text, { label: "Proveedor", value: "bind.supplierKey.tradeName" })
-            ]),
-            filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
-        ]);
+                m(Table, {
+                    bind: filteredItems,
+                    onEdit: id => PurchasePriceList.onEdit(id),
+                    onDelete: id => PurchasePriceList.onDelete(vnode, id)
+                }, [
+                    m(DateInput, { label: "Fecha", value: "bind.date" }),
+                    m(Text, { label: "Producto", value: "bind.productKey.name" }),
+                    m(Text, { label: "Proveedor", value: "bind.supplierKey.tradeName" }),
+                    m(Number, { label: "Precio Unitario", value: "bind.unitPrice", format: "currency" }),
+                    m(Text, { label: "Empaque de Compra", value: "bind.purchasePackaging" }),
+                ]),
+                filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
+            ])
+        ];
     }
 };
 
 export default PurchasePriceList;
+
