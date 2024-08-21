@@ -55,7 +55,7 @@ const Carousel = {
                         }, [
                             m("div.uk-panel", {
                                 onclick: () => { 
-                                    vnode.dom.focus(); // Da foco al carrusel cuando se hace clic en una tarjeta
+                                    vnode.dom.focus();
                                 },
                                 tabindex: "0", 
                                 onkeydown: (e) => Carousel.handleKeyDown(vnode, e), 
@@ -129,7 +129,7 @@ const Carousel = {
                             m("li", { 
                                 key: index, 
                                 class: 'uk-width-1-1', 
-                                onupdate: () => Carousel.handleCardView(vnode, index) // Asegura que se incremente cada vez que la tarjeta se actualice en el modal
+                                onupdate: () => Carousel.handleCardView(vnode, index)
                             }, [
                                 m("div.uk-panel", [
                                     m("div", {
@@ -165,7 +165,7 @@ const Carousel = {
                                                 padding: "5px",
                                                 borderRadius: "50%"
                                             }
-                                        }, "Visto"),
+                                        },),
                                         m("div", {
                                             class: "uk-position-absolute",
                                             style: {

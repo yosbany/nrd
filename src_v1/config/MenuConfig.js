@@ -4,11 +4,6 @@ const MenuConfig = {
         "category": null,
         "pathRouter": "/home"
     },
-    "users": {
-        "label": "Usuarios",
-        "category": "Gestión",
-        "pathRouter": "/users"
-    },
     "products": {
         "label": "Productos",
         "category": "Gestión",
@@ -28,6 +23,11 @@ const MenuConfig = {
         "label": "Precios de Compra",
         "category": "Gestión",
         "pathRouter": "/purchase-prices"
+    },
+    "users": {
+        "label": "Usuarios",
+        "category": "Sistema",
+        "pathRouter": "/users"
     },
     "settings": {
         "label": "Configuraciones",

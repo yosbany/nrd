@@ -49,7 +49,11 @@ const Menu = {
         return m("nav.uk-navbar-container", { "uk-navbar": "" }, [
             m("div.uk-navbar-left", [
                 // Mostrar el ícono de Offcanvas solo en pantallas pequeñas
-                m("a.uk-navbar-toggle.uk-hidden@m", { "uk-navbar-toggle-icon": "", "uk-toggle": "target: #offcanvas-nav" }),
+                m("a.uk-navbar-toggle.uk-hidden@m", { 
+                    "uk-navbar-toggle-icon": "", 
+                    "uk-toggle": "target: #offcanvas-nav",
+                    style: { marginLeft: "8px" } // Agrega un margen pequeño a la izquierda
+                }),
                 m("div.uk-navbar-item.uk-logo", { style: { marginLeft: "20px" } }, "NUEVA RÍO D'OR") // Ajuste aquí
             ]),
             // Menú tradicional visible solo en pantallas grandes
@@ -61,25 +65,25 @@ const Menu = {
                             m(m.route.Link, {
                                 href: route.pathRouter,
                                 class: "uk-text-bold uk-text-dark",
-                                style: { padding: "10px 15px" } // Espaciado adicional entre los elementos
+                                style: { padding: "10px 15px", whiteSpace: "nowrap" } // Ajuste para que cada ítem ocupe una sola línea
                             }, route.label)
                         ])
                     ),
                     // Links con categoría (submenús)
                     Object.keys(vnode.state.categories).map(category =>
                         m("li.uk-parent", [
-                            m("a", { href: "#", class: "uk-text-bold uk-text-dark", style: { padding: "10px 15px" } }, [
+                            m("a", { href: "#", class: "uk-text-bold uk-text-dark", style: { padding: "10px 15px", whiteSpace: "nowrap" } }, [
                                 ` ${category}`,
                                 m("span", { "uk-icon": "icon: triangle-down" })
                             ]),
-                            m("div.uk-navbar-dropdown", [
+                            m("div.uk-navbar-dropdown", { style: { padding: "10px 15px" } }, [ // Padding uniforme en submenús
                                 m("ul.uk-nav.uk-navbar-dropdown-nav", [
                                     vnode.state.categories[category].map(route =>
                                         m("li", [
                                             m("a", {
                                                 onclick: () => Menu.navigateToRoute(route),
                                                 class: "uk-text-bold uk-text-dark",
-                                                style: { padding: "10px 15px" }
+                                                style: { padding: "10px 15px", whiteSpace: "nowrap" }
                                             }, ` ${route.label}`)
                                         ])
                                     )
@@ -103,14 +107,14 @@ const Menu = {
                                     onclick: () => {
                                         Menu.navigateToRoute(route);
                                     },
-                                    style: { padding: "15px 0" } // Espaciado adicional en el offcanvas
+                                    style: { padding: "15px 0", whiteSpace: "nowrap" }
                                 }, route.label)
                             ])
                         ),
                         // Links con categoría (submenús)
                         Object.keys(vnode.state.categories).map(category =>
                             m("li.uk-parent", [
-                                m("a", { href: "#", class: "uk-text-bold uk-text-dark", style: { padding: "15px 0" } }, ` ${category}`),
+                                m("a", { href: "#", class: "uk-text-bold uk-text-dark", style: { padding: "15px 0", whiteSpace: "nowrap" } }, ` ${category}`),
                                 m("ul.uk-nav-sub", { style: { padding: "10px 0" } }, [
                                     vnode.state.categories[category].map(route =>
                                         m("li", [
@@ -119,7 +123,7 @@ const Menu = {
                                                     Menu.navigateToRoute(route);
                                                 },
                                                 class: "uk-text-bold uk-text-dark",
-                                                style: { padding: "10px 0" }
+                                                style: { padding: "10px 0", whiteSpace: "nowrap" }
                                             }, ` ${route.label}`)
                                         ])
                                     )

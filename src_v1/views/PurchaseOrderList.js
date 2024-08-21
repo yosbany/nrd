@@ -71,6 +71,10 @@ const PurchaseOrderList = {
         if (order) {
             vnode.state.selectedOrder = order;
             vnode.state.showModal = true;
+            vnode.state.orderText = "Generando el texto de la orden..."; // Limpiar el textarea
+            m.redraw(); // Forzar el redibujado para mostrar el mensaje
+    
+            // Generar el texto de la orden después de mostrar el mensaje
             vnode.state.orderText = await PurchaseOrderList.generateOrderText(order);
         } else {
             console.warn("[Audit][PurchaseOrderList] Orden seleccionada es nula o indefinida.");

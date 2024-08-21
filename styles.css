@@ -1,6 +1,16 @@
 .custom-card-body-padding {
-    padding: 10px;
+    padding: 5px;
 }
 .uk-form-label {
     font-weight: bold;
+}
+.uk-button-green {
+    background-color: #28a745; /* Verde */
+    color: #ffffff; /* Texto blanco */
+    border: 1px solid #28a745; /* Borde verde */
+}
+
+.uk-button-green:hover {
+    background-color: #218838; /* Verde oscuro al pasar el mouse */
+    border-color: #1e7e34; /* Borde más oscuro */
 }

@@ -31,6 +31,12 @@ const PurchaseOrderFormView = {
             if (vnode.attrs.id) {
                 const data = await FirebaseModel.getById(vnode.state.id, false);
                 vnode.state.item = { ...data };
+
+                // Si hay un proveedor seleccionado, carga los productos correspondientes
+                if (vnode.state.item.supplierKey) {
+                    vnode.state.products = await PurchaseOrderFormView.loadProductOptions(vnode.state.item.supplierKey);
+                    PurchaseOrderFormView.filterProductsBySupplier(vnode);
+                }
             }
         } catch (error) {
             console.error("[Audit][PurchaseOrderFormView] Error loading data:", error);
@@ -56,13 +62,14 @@ const PurchaseOrderFormView = {
         } else {
             vnode.state.item.products.push({ productKey: productId, quantity });
         }
-
         vnode.state.isModified = true;
+        m.redraw();
     },
 
     handleProductRemove: (vnode, productId) => {
         vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== productId);
         vnode.state.isModified = true;
+        m.redraw();
     },
 
     handleOrderSubmit: async (e, vnode) => {
@@ -273,16 +280,16 @@ const PurchaseOrderFormView = {
                                 }),
                                 vnode.state.errors[product.id]?.quantity && 
                                     m("div.uk-text-danger", vnode.state.errors[product.id].quantity),
-                                m(Button, {
-                                    type: 'primary',
-                                    label: vnode.state.item.products.some(p => p.productKey === product.id) ? 'Quitar' : 'Agregar',
-                                    onClick: () => {
-                                        vnode.state.item.products.some(p => p.productKey === product.id)
-                                            ? PurchaseOrderFormView.handleProductRemove(vnode, product.id)
-                                            : PurchaseOrderFormView.handleProductSubmit(vnode, product.id);
-                                        vnode.state.isModified = true;
-                                    }
-                                }),
+                                    m(Button, {
+                                        class: `uk-button ${vnode.state.item.products.some(p => p.productKey === product.id) ? 'uk-button-green' : 'uk-button-secondary'}`,
+                                        label: vnode.state.item.products.some(p => p.productKey === product.id) ? 'Quitar' : 'Agregar',
+                                        onClick: () => {
+                                            vnode.state.item.products.some(p => p.productKey === product.id)
+                                                ? PurchaseOrderFormView.handleProductRemove(vnode, product.id)
+                                                : PurchaseOrderFormView.handleProductSubmit(vnode, product.id);
+                                            vnode.state.isModified = true;
+                                        }
+                                    }),
                                 vnode.state.errors[product.id]?.save && 
                                     m("div.uk-alert-danger.uk-margin-top", vnode.state.errors[product.id].save)
                             ])
