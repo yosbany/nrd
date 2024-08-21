@@ -27,16 +27,25 @@ const firebaseConfigs = {
 // Determinar la configuración de Firebase según el host
 function getFirebaseConfig() {
     const hostname = window.location.hostname;
+    let config;
+    
     if (hostname === 'yosbany.github.io') {
-        return firebaseConfigs.production;
+        config = firebaseConfigs.production;
+        console.log("[Audit][Firebase] Using production configuration for hostname:", hostname);
     } else {
-        return firebaseConfigs.testing;
+        config = firebaseConfigs.testing;
+        console.log("[Audit][Firebase] Using testing configuration for hostname:", hostname);
     }
+
+    console.log("[Audit][Firebase] Firebase configuration selected:", config);
+    return config;
 }
 
 // Inicializar Firebase con la configuración adecuada
 const firebaseConfig = getFirebaseConfig();
 const firebase = initializeApp(firebaseConfig);
+console.log("[Audit][Firebase] Firebase initialized with config:", firebaseConfig);
+
 const auth = getAuth(firebase);
 const db = getDatabase(firebase);
 
