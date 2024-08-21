@@ -237,20 +237,25 @@ const PurchaseOrderList = {
                         })
                         : "No hay datos disponibles para la orden seleccionada."
                 }, [
-                    m("div.uk-text-small.uk-margin-small-bottom", { style: { textAlign: "right" } }, vnode.state.selectedOrder?.supplierKey?.phone || "Número no disponible"),
-                    m("div.uk-flex.uk-flex-right.uk-margin-top", [
-                        m(Button, {
-                            label: "Imprimir",
-                            onClick: () => PurchaseOrderList.printOrder(vnode, vnode.state.selectedOrder),
-                            style: { marginLeft: "10px" },
-                        }),
-                        m(Button, {
-                            label: "Enviar",
-                            type: "primary",
-                            style: { marginLeft: "10px" },
-                            onClick: () => PurchaseOrderList.sendOrder(vnode, vnode.state.selectedOrder)
-                        })
+                    m("div.uk-margin-small-bottom", [
+                        m("div.uk-text-small", { style: { textAlign: "right" } }, 
+                            vnode.state.selectedOrder?.supplierKey?.phone || "Número no disponible"
+                        ),
+                        m("div.uk-flex.uk-flex-right", [
+                            m(Button, {
+                                label: "Imprimir",
+                                onClick: () => PurchaseOrderList.printOrder(vnode, vnode.state.selectedOrder),
+                                style: { marginLeft: "10px" },
+                            }),
+                            m(Button, {
+                                label: "Enviar",
+                                type: "primary",
+                                style: { marginLeft: "10px" },
+                                onClick: () => PurchaseOrderList.sendOrder(vnode, vnode.state.selectedOrder)
+                            })
+                        ])
                     ])
+                    
                 ])
             ]),
             !vnode.state.loading && filteredItems.length === 0 && m("div.uk-alert-warning", { style: { textAlign: 'center' } }, "No se encontraron resultados")
