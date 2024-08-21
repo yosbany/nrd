@@ -235,12 +235,6 @@ const PurchaseOrderFormView = {
                                 m("h2", product.display),
                                 m("form.uk-form-horizontal", [
                                     m("div.uk-margin", [
-                                        m("label.uk-form-label", "Precio Unitario"),
-                                        m("div.uk-form-controls", [
-                                            m("p", `${product.price.toFixed(2)}`)
-                                        ])
-                                    ]),
-                                    m("div.uk-margin", [
                                         m("label.uk-form-label", "Stock Mínimo"),
                                         m("div.uk-form-controls", [
                                             m("p", `${product.minimumStock}`)
@@ -275,9 +269,8 @@ const PurchaseOrderFormView = {
                                             vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== product.id);
                                         }
                                     },
-                                    style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" },
-                                    id: `quantity-input-${product.id}`
-                                }),
+                                    style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" }
+                                }),                                                                                              
                                 vnode.state.errors[product.id]?.quantity && 
                                     m("div.uk-text-danger", vnode.state.errors[product.id].quantity),
                                     m(Button, {

@@ -43,7 +43,6 @@ const PurchaseOrderList = {
                 m.redraw();
             });
     },
-    
 
     filterItems: vnode => {
         if (!vnode.state.searchText) return vnode.state.purchaseOrders;
@@ -238,6 +237,7 @@ const PurchaseOrderList = {
                         })
                         : "No hay datos disponibles para la orden seleccionada."
                 }, [
+                    m("div.uk-text-small.uk-margin-small-bottom", { style: { textAlign: "right" } }, vnode.state.selectedOrder?.supplierKey?.phone || "Número no disponible"),
                     m("div.uk-flex.uk-flex-right.uk-margin-top", [
                         m(Button, {
                             label: "Imprimir",
