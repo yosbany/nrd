@@ -4,6 +4,8 @@ const Carousel = {
     oninit: vnode => {
         vnode.state.isExpanded = false;
         vnode.state.currentIndex = 0;
+        vnode.state.viewCount = {};
+        vnode.state.viewCount[vnode.state.currentIndex] = 1;
     },
 
     toggleExpand: vnode => {
@@ -24,8 +26,14 @@ const Carousel = {
             vnode.state.currentIndex = (vnode.state.currentIndex - 1 + vnode.children.length) % vnode.children.length;
             UIkit.slider(vnode.dom).show('previous');
         }
+        if (!vnode.state.viewCount[vnode.state.currentIndex]) {
+            vnode.state.viewCount[vnode.state.currentIndex] = 0;
+        }
+        vnode.state.viewCount[vnode.state.currentIndex]++;
+        console.log("vnode.state.viewCount: ",vnode.state.viewCount);
         m.redraw();
     },
+
 
     view: vnode => {
         const { isExpanded, currentIndex } = vnode.state;
@@ -34,15 +42,7 @@ const Carousel = {
         return m("div", {
             class: "uk-position-relative uk-visible-toggle uk-light",
             "uk-slider": "center: true", 
-            tabindex: "0", 
-            onkeydown: (e) => Carousel.handleKeyDown(vnode, e), 
-            oncreate: ({ dom }) => {
-                dom.focus();
-            },
-            onupdate: ({ dom }) => {
-                dom.focus();
-            },
-            style: { outline: "none" } 
+            style: { outline: "none", touchAction: 'pan-y' } 
         }, [
             m("div.uk-slider-container", {
                 style: { touchAction: 'pan-y' } 
@@ -51,9 +51,15 @@ const Carousel = {
                     vnode.children.map((child, index) => 
                         m("li", { 
                             key: index, 
-                            class: 'uk-width-1-1' 
+                            class: 'uk-width-1-1',
                         }, [
-                            m("div.uk-panel", [
+                            m("div.uk-panel", {
+                                onclick: () => { 
+                                    vnode.dom.focus(); // Da foco al carrusel cuando se hace clic en una tarjeta
+                                },
+                                tabindex: "0", 
+                                onkeydown: (e) => Carousel.handleKeyDown(vnode, e), 
+                            }, [
                                 m("div", {
                                     style: {
                                         backgroundColor: "#007bff",
@@ -78,6 +84,20 @@ const Carousel = {
                                             Carousel.toggleExpand(vnode);
                                         }
                                     }, m("span", { "uk-icon": isExpanded ? "shrink" : "expand" })),
+                                    
+                                    // Indicador de vista en la esquina superior izquierda
+                                    vnode.state.viewCount[index] >= 2 && m("span", {
+                                        class: "uk-position-absolute",
+                                        style: {
+                                            top: "10px",
+                                            left: "10px",
+                                            backgroundColor: "#ffbf00",
+                                            color: "#ffffff",
+                                            padding: "5px",
+                                            borderRadius: "50%"
+                                        }
+                                    }),
+                                    
                                     m("div", {
                                         class: "uk-position-absolute",
                                         style: {
@@ -102,10 +122,6 @@ const Carousel = {
                     "uk-slider": "center: true",
                     tabindex: "0", 
                     onkeydown: (e) => Carousel.handleKeyDown(vnode, e), 
-                    oncreate: ({ dom }) => {
-                        dom.focus();
-                        UIkit.slider(dom).show(currentIndex); // Muestra la tarjeta actual al abrir el modal
-                    },
                     style: { outline: "none", touchAction: 'pan-y' } 
                 }, [
                     m("ul.uk-slider-items.uk-grid", 
@@ -113,6 +129,7 @@ const Carousel = {
                             m("li", { 
                                 key: index, 
                                 class: 'uk-width-1-1', 
+                                onupdate: () => Carousel.handleCardView(vnode, index) // Asegura que se incremente cada vez que la tarjeta se actualice en el modal
                             }, [
                                 m("div.uk-panel", [
                                     m("div", {
@@ -138,6 +155,17 @@ const Carousel = {
                                                 Carousel.closeModal(vnode);
                                             }
                                         }, m("span", { "uk-icon": "close" })),
+                                        vnode.state.viewCount[index] >= 2 && m("span", {
+                                            class: "uk-position-absolute",
+                                            style: {
+                                                top: "10px",
+                                                left: "10px",
+                                                backgroundColor: "#ffbf00",
+                                                color: "#ffffff",
+                                                padding: "5px",
+                                                borderRadius: "50%"
+                                            }
+                                        }, "Visto"),
                                         m("div", {
                                             class: "uk-position-absolute",
                                             style: {

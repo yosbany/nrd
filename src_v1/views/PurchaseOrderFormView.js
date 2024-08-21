@@ -8,9 +8,11 @@ import Number from '../components/base/Number.js';
 import Carousel from '../components/Carousel.js'; 
 import { decodeId } from '../utils.js';
 import Card from '../components/base/Card.js';
+import LoadingSpinner from '../components/LoadingSpinner.js';
 
 const PurchaseOrderFormView = {
     oninit: async vnode => {
+        vnode.state.isLoading = true; // Indicar que se está cargando
         vnode.state.item = {
             supplierKey: "",
             products: [],
@@ -24,24 +26,17 @@ const PurchaseOrderFormView = {
         vnode.state.isModified = false;
         vnode.state.id = decodeId(vnode.attrs.id);
 
-        if (vnode.attrs.id) {
-            try {
+        try {
+            vnode.state.supplierOptions = await PurchaseOrderFormView.loadSupplierOptions();
+            if (vnode.attrs.id) {
                 const data = await FirebaseModel.getById(vnode.state.id, false);
                 vnode.state.item = { ...data };
-                vnode.state.products = await PurchaseOrderFormView.loadProductOptions(vnode.state.item.supplierKey);
-                PurchaseOrderFormView.filterProductsBySupplier(vnode);
-                m.redraw();
-            } catch (error) {
-                console.error("[Audit][PurchaseOrderFormView] Error loading data:", error);
             }
-        } else {
-            try {
-                vnode.state.supplierOptions = await PurchaseOrderFormView.loadSupplierOptions();
-                vnode.state.products = await PurchaseOrderFormView.loadProductOptions(vnode.state.item.supplierKey);
-                vnode.state.filteredProducts = vnode.state.products;
-            } catch (error) {
-                console.error("[Audit][PurchaseOrderFormView] Error loading suppliers and products:", error);
-            }
+        } catch (error) {
+            console.error("[Audit][PurchaseOrderFormView] Error loading data:", error);
+        } finally {
+            vnode.state.isLoading = false; // Finalizar carga
+            m.redraw();
         }
     },
 
@@ -63,13 +58,11 @@ const PurchaseOrderFormView = {
         }
 
         vnode.state.isModified = true;
-        m.redraw();
     },
 
     handleProductRemove: (vnode, productId) => {
         vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== productId);
         vnode.state.isModified = true;
-        m.redraw();
     },
 
     handleOrderSubmit: async (e, vnode) => {
@@ -79,11 +72,14 @@ const PurchaseOrderFormView = {
 
         if (PurchaseOrderFormView.validateForm(vnode)) {
             try {
+                vnode.state.isLoading = true; // Mostrar spinner durante la operación de guardado
                 await FirebaseModel.saveOrUpdate('PurchaseOrders', vnode.state.id, vnode.state.item);
                 vnode.state.isModified = false;
                 m.route.set('/purchase-orders');
             } catch (error) {
                 vnode.state.errors.save = error.message;
+            } finally {
+                vnode.state.isLoading = false; // Ocultar spinner al finalizar
                 m.redraw();
             }
         }
@@ -111,7 +107,7 @@ const PurchaseOrderFormView = {
                 price: product.price || 0,
                 minimumStock: product.minimumStock || 0,
                 desiredStock: product.desiredStock || 0,
-                preferredSupplierKey: product.preferredSupplierKey.id,
+                preferredSupplierKey: product.preferredSupplierKey?.id || '',
                 lastPurchasePrice
             };
         });
@@ -119,19 +115,33 @@ const PurchaseOrderFormView = {
 
     filterProductsBySupplier: vnode => {
         const supplierKey = vnode.state.item.supplierKey;
-        vnode.state.filteredProducts = vnode.state.products.filter(
-            product => product.preferredSupplierKey === supplierKey
-        );
+        if (supplierKey) {
+            vnode.state.filteredProducts = vnode.state.products.filter(
+                product => product.preferredSupplierKey === supplierKey
+            );
+        } else {
+            vnode.state.filteredProducts = vnode.state.products;
+        }
+        m.redraw();
     },
 
     handleSupplierChange: async (vnode, supplierKey) => {
+        vnode.state.isLoading = true; // Mostrar spinner durante el cambio de proveedor
         vnode.state.item.supplierKey = supplierKey;
         vnode.state.item.products = [];
-        vnode.state.products = await PurchaseOrderFormView.loadProductOptions(supplierKey);
-        PurchaseOrderFormView.filterProductsBySupplier(vnode);
-        vnode.state.isModified = true;
-        vnode.state.searchText = "";
-        m.redraw();
+        try {
+            if (supplierKey) {
+                vnode.state.products = await PurchaseOrderFormView.loadProductOptions(supplierKey);
+                PurchaseOrderFormView.filterProductsBySupplier(vnode);
+            }
+        } catch (error) {
+            console.error("[Audit][PurchaseOrderFormView] Error loading products:", error);
+        } finally {
+            vnode.state.isLoading = false; // Ocultar spinner al finalizar
+            vnode.state.isModified = true;
+            vnode.state.searchText = "";
+            m.redraw();
+        }
     },
 
     handleProductSearch: vnode => {
@@ -169,105 +179,125 @@ const PurchaseOrderFormView = {
 
         return m(Card, { title: "Orden de Compra", useCustomPadding: false }, [
             m(Breadcrumb, { items: breadcrumbItems }),
-            m("div.uk-margin", [
-                m("div.uk-grid-small", { "uk-grid": true }, [
-                    m("div.uk-width-1-2", [
-                        m(Select, {
-                            label: "Proveedor",
-                            value: item.supplierKey,
-                            options: PurchaseOrderFormView.loadSupplierOptions,
-                            onChange: value => {
-                                PurchaseOrderFormView.handleSupplierChange(vnode, value);
-                            },
-                            error: errors.supplierKey
-                        }),
-                    ]),
-                    m("div.uk-width-1-2", [
-                        m(Select, {
-                            label: "Estado",
-                            value: item.status,
-                            options: [
-                                { id: "Pendiente", display: "Pendiente" },
-                                { id: "Aprobada", display: "Aprobada" },
-                                { id: "Cancelada", display: "Cancelada" }
-                            ],
-                            onChange: value => {
-                                vnode.state.item.status = value;
-                                vnode.state.isModified = true;
-                            },
-                            error: errors.status
-                        }),
-                    ]),
-                ]),
-                m(TextInput, {
-                    value: vnode.state.searchText,
-                    onInput: value => {
-                        vnode.state.searchText = value;
-                        PurchaseOrderFormView.handleProductSearch(vnode);
-                    },
-                    placeholder: "Buscar productos...",
-                    showLabel: false
-                })
-            ]),
-            m(Carousel, {},
-                vnode.state.filteredProducts.map((product, index) => 
-                    m("div", [
-                        m("h2", product.display),
-                        m("p", [
-                            `Precio Unitario: ${product.price.toFixed(2)}`,
-                            m("br"),
-                            `Stock Mínimo: ${product.minimumStock}`,
-                            m("br"),
-                            `Stock Deseado: ${product.desiredStock}`,
-                            m("br"),
-                            `Último Precio de Compra: ${product.lastPurchasePrice !== "N/A" ? `$${product.lastPurchasePrice.toFixed(2)}` : "N/A"}`
+            vnode.state.isLoading 
+                ? m(LoadingSpinner, { loading: vnode.state.isLoading })  // Mostrar spinner si está cargando
+                : [
+                    m("div.uk-margin", [
+                        m("div.uk-grid-small", { "uk-grid": true }, [
+                            m("div.uk-width-1-2", [
+                                m(Select, {
+                                    label: "Proveedor",
+                                    value: item.supplierKey,
+                                    options: PurchaseOrderFormView.loadSupplierOptions,
+                                    onChange: value => {
+                                        PurchaseOrderFormView.handleSupplierChange(vnode, value);
+                                    },
+                                    error: errors.supplierKey
+                                }),
+                            ]),
+                            m("div.uk-width-1-2", [
+                                m(Select, {
+                                    label: "Estado",
+                                    value: item.status,
+                                    options: [
+                                        { id: "Pendiente", display: "Pendiente" },
+                                        { id: "Aprobada", display: "Aprobada" },
+                                        { id: "Cancelada", display: "Cancelada" }
+                                    ],
+                                    onChange: value => {
+                                        vnode.state.item.status = value;
+                                        vnode.state.isModified = true;
+                                    },
+                                    error: errors.status
+                                }),
+                            ]),
                         ]),
-                        m(Number, {
-                            label: "Cantidad a Pedir",
-                            value: vnode.state.item.products.find(p => p.productKey === product.id)?.quantity || product.desiredStock,
+                        vnode.state.item.supplierKey && m(TextInput, {
+                            value: vnode.state.searchText,
                             onInput: value => {
-                                const productToUpdate = vnode.state.item.products.find(p => p.productKey === product.id);
-                                if (value > 0) {
-                                    if (productToUpdate) {
-                                        productToUpdate.quantity = value;
-                                    } else {
-                                        vnode.state.item.products.push({ productKey: product.id, quantity: value });
-                                    }
-                                    vnode.state.isModified = true;
-                                } else if (productToUpdate) {
-                                    vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== product.id);
-                                }
-                                m.redraw();
+                                vnode.state.searchText = value;
+                                PurchaseOrderFormView.handleProductSearch(vnode);
                             },
-                            style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" },
-                            id: `quantity-input-${product.id}`
-                        }),
-                        vnode.state.errors[product.id]?.quantity && 
-                            m("div.uk-text-danger", vnode.state.errors[product.id].quantity),
+                            placeholder: "Buscar productos...",
+                            showLabel: false
+                        })
+                    ]),
+                    vnode.state.item.supplierKey && m(Carousel, {},
+                        vnode.state.filteredProducts.map((product, index) => 
+                            m("div", [
+                                m("h2", product.display),
+                                m("form.uk-form-horizontal", [
+                                    m("div.uk-margin", [
+                                        m("label.uk-form-label", "Precio Unitario"),
+                                        m("div.uk-form-controls", [
+                                            m("p", `${product.price.toFixed(2)}`)
+                                        ])
+                                    ]),
+                                    m("div.uk-margin", [
+                                        m("label.uk-form-label", "Stock Mínimo"),
+                                        m("div.uk-form-controls", [
+                                            m("p", `${product.minimumStock}`)
+                                        ])
+                                    ]),
+                                    m("div.uk-margin", [
+                                        m("label.uk-form-label", "Stock Deseado"),
+                                        m("div.uk-form-controls", [
+                                            m("p", `${product.desiredStock}`)
+                                        ])
+                                    ]),
+                                    m("div.uk-margin", [
+                                        m("label.uk-form-label", "Último Precio de Compra"),
+                                        m("div.uk-form-controls", [
+                                            m("p", product.lastPurchasePrice !== "N/A" ? `$${product.lastPurchasePrice.toFixed(2)}` : "N/A")
+                                        ])
+                                    ]),
+                                ]),
+                                m(Number, {
+                                    label: "Cantidad a Pedir",
+                                    value: vnode.state.item.products.find(p => p.productKey === product.id)?.quantity || product.desiredStock,
+                                    onInput: value => {
+                                        const productToUpdate = vnode.state.item.products.find(p => p.productKey === product.id);
+                                        if (value > 0) {
+                                            if (productToUpdate) {
+                                                productToUpdate.quantity = value;
+                                            } else {
+                                                vnode.state.item.products.push({ productKey: product.id, quantity: value });
+                                            }
+                                            vnode.state.isModified = true;
+                                        } else if (productToUpdate) {
+                                            vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== product.id);
+                                        }
+                                    },
+                                    style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" },
+                                    id: `quantity-input-${product.id}`
+                                }),
+                                vnode.state.errors[product.id]?.quantity && 
+                                    m("div.uk-text-danger", vnode.state.errors[product.id].quantity),
+                                m(Button, {
+                                    type: 'primary',
+                                    label: vnode.state.item.products.some(p => p.productKey === product.id) ? 'Quitar' : 'Agregar',
+                                    onClick: () => {
+                                        vnode.state.item.products.some(p => p.productKey === product.id)
+                                            ? PurchaseOrderFormView.handleProductRemove(vnode, product.id)
+                                            : PurchaseOrderFormView.handleProductSubmit(vnode, product.id);
+                                        vnode.state.isModified = true;
+                                    }
+                                }),
+                                vnode.state.errors[product.id]?.save && 
+                                    m("div.uk-alert-danger.uk-margin-top", vnode.state.errors[product.id].save)
+                            ])
+                        )
+                    ),
+                    vnode.state.item.supplierKey && m("div.uk-margin-top.uk-flex.uk-flex-right", [
+                        m("div.uk-margin-right.uk-flex.uk-flex-middle", `Importe: $${PurchaseOrderFormView.calculateTotalOrderAmount(vnode)}`),
                         m(Button, {
                             type: 'primary',
-                            label: vnode.state.item.products.some(p => p.productKey === product.id) ? 'Quitar' : 'Agregar',
-                            onClick: () => {
-                                vnode.state.item.products.some(p => p.productKey === product.id)
-                                    ? PurchaseOrderFormView.handleProductRemove(vnode, product.id)
-                                    : PurchaseOrderFormView.handleProductSubmit(vnode, product.id);
-                                vnode.state.isModified = true;
-                            }
-                        }),
-                        vnode.state.errors[product.id]?.save && 
-                            m("div.uk-alert-danger.uk-margin-top", vnode.state.errors[product.id].save)
-                    ])
-                )
-            ),
-            m("div.uk-margin-top.uk-flex.uk-flex-right", [
-                m("div.uk-margin-right.uk-flex.uk-flex-middle", `Importe: $${PurchaseOrderFormView.calculateTotalOrderAmount(vnode)}`),
-                m(Button, {
-                    type: 'primary',
-                    label: PurchaseOrderFormView.getOrderButtonText(vnode),
-                    onClick: e => PurchaseOrderFormView.handleOrderSubmit(e, vnode)
-                })
-            ]),
-            errors.save && m("div.uk-alert-danger.uk-margin-top", errors.save)
+                            label: PurchaseOrderFormView.getOrderButtonText(vnode),
+                            onClick: e => PurchaseOrderFormView.handleOrderSubmit(e, vnode)
+                        })
+                    ]),
+                    errors.save && m("div.uk-alert-danger.uk-margin-top", errors.save)
+                ]
         ]);
     }
 };
