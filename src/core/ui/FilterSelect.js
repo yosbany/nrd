@@ -1,21 +1,3 @@
-/**
- * FilterSelect - Componente para seleccionar una opción de una lista con capacidad de filtrado en tiempo real.
- *
- * Este componente permite a los usuarios buscar y seleccionar una opción de una lista. A medida que el usuario escribe, la lista se filtra en tiempo real.
- * Si solo queda una opción después del filtrado, se selecciona automáticamente.
- *
- * Props:
- * @param {string} value - El valor seleccionado.
- * @param {Function} onChange - Función que se llama al cambiar la selección.
- * @param {boolean} outputMode - Si es true, muestra el valor en modo de solo lectura.
- * @param {string} label - La etiqueta del campo de selección.
- * @param {boolean} required - Indica si el campo es obligatorio.
- * @param {string} documentation - Descripción del campo, usada como tooltip.
- * @param {string} error - Mensaje de error, si existe.
- * @param {Array|Function} options - Array de opciones o función para obtener opciones. Cada opción debe tener la estructura { id: string, display: string }.
- * @param {boolean} showLabel - Indica si se debe mostrar la etiqueta del campo de selección.
- * @param {string} placeholder - Texto de ayuda en el campo de búsqueda.
- */
 const FilterSelect = {
     oninit: vnode => {
         vnode.state.loading = true;
@@ -166,16 +148,28 @@ const FilterSelect = {
                     onblur: () => {
                         setTimeout(() => { vnode.state.showSelect = false; m.redraw(); }, 100);
                     }
-                })
-            ]),
-            vnode.state.showSelect && vnode.state.filteredOptions.length > 0 && m("select", {
-                class: "uk-select.uk-width-1-1 uk-form-large",
-                onchange: e => FilterSelect.handleOptionSelect(vnode, e),
-                size: vnode.state.filteredOptions.length > 10 ? 10 : vnode.state.filteredOptions.length
-            }, [
-                vnode.state.filteredOptions.map(option =>
-                    m("option", { value: option.id }, option.display)
-                )
+                }),
+                vnode.state.showSelect && vnode.state.filteredOptions.length > 0 && m("div", {
+                    style: {
+                        position: 'absolute',
+                        zIndex: 1000,
+                        backgroundColor: 'white',
+                        border: '1px solid #ddd',
+                        maxHeight: '200px',
+                        overflowY: 'auto',
+                        width: '100%' // Para asegurar que se adapte al ancho del input en pantallas pequeñas
+                    }
+                }, [
+                    m("select", {
+                        class: "uk-select uk-width-1-1 uk-form-large",
+                        onchange: e => FilterSelect.handleOptionSelect(vnode, e),
+                        size: vnode.state.filteredOptions.length > 10 ? 10 : vnode.state.filteredOptions.length
+                    }, [
+                        vnode.state.filteredOptions.map(option =>
+                            m("option", { value: option.id }, option.display)
+                        )
+                    ])
+                ])
             ]),
             error ? m("div.uk-text-danger", { class: "uk-alert-danger" }, error) : null
         ]);
