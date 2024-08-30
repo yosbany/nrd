@@ -13,7 +13,7 @@ const Menu = {
                     "uk-toggle": "target: #offcanvas-nav",
                     style: { marginLeft: "8px" } 
                 }),
-                m("div.uk-navbar-item.uk-logo", { style: { marginLeft: "20px" } }, "NUEVA RÍO D'OR")
+                m("div.uk-navbar-item.uk-logo", { style: { marginLeft: "20px" } }, "NUEVA RÍO D'OR v2.0.4")
             ]),
             m("div.uk-navbar-right.uk-visible@m", [
                 m("ul.uk-navbar-nav", { style: { padding: "0 15px" } }, [
