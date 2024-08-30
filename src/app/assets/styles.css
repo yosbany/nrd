@@ -14,3 +14,30 @@
     background-color: #218838; /* Verde oscuro al pasar el mouse */
     border-color: #1e7e34; /* Borde más oscuro */
 }
+
+
+html, body, #app { 
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.uk-container-expand.full-height {
+    min-height: 100%;
+}
+
+.uk-grid.full-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.uk-width-1-1.full-height {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
