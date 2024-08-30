@@ -100,12 +100,6 @@ const FilterSelect = {
         console.log("[FilterSelect] Filtered options:", vnode.state.filteredOptions);
 
         vnode.state.showSelect = true;
-
-        if (vnode.state.filteredOptions.length === 1) {
-            vnode.attrs.onChange(vnode.state.filteredOptions[0].id);
-            vnode.state.selectedDisplay = vnode.state.filteredOptions[0].display;
-            vnode.state.showSelect = false;
-        }
     },
 
     handleInputChange: (vnode, e) => {
@@ -114,15 +108,12 @@ const FilterSelect = {
         FilterSelect.filterOptions(vnode);
     },
 
-    handleOptionSelect: (vnode, e) => {
-        const selectedOption = vnode.state.filteredOptions.find(option => option.id === e.target.value);
-        if (selectedOption) {
-            vnode.state.selectedDisplay = selectedOption.display;
-            vnode.state.searchText = selectedOption.display;
-            vnode.attrs.onChange(selectedOption.id);
-            console.log("[FilterSelect] Option selected:", selectedOption);
-        }
+    handleOptionSelect: (vnode, option) => {
+        vnode.state.selectedDisplay = option.display;
+        vnode.state.searchText = option.display;
+        vnode.attrs.onChange(option.id);
         vnode.state.showSelect = false;
+        console.log("[FilterSelect] Option selected:", option);
     },
 
     view: vnode => {
@@ -160,15 +151,15 @@ const FilterSelect = {
                         width: '100%' // Para asegurar que se adapte al ancho del input en pantallas pequeñas
                     }
                 }, [
-                    m("select", {
-                        class: "uk-select uk-width-1-1 uk-form-large",
-                        onchange: e => FilterSelect.handleOptionSelect(vnode, e),
-                        size: vnode.state.filteredOptions.length > 10 ? 10 : vnode.state.filteredOptions.length
-                    }, [
+                    m("ul.uk-list", 
                         vnode.state.filteredOptions.map(option =>
-                            m("option", { value: option.id }, option.display)
+                            m("li", {
+                                class: "uk-selectable", 
+                                style: { padding: '8px', cursor: 'pointer' },
+                                onclick: () => FilterSelect.handleOptionSelect(vnode, option)
+                            }, option.display)
                         )
-                    ])
+                    )
                 ])
             ]),
             error ? m("div.uk-text-danger", { class: "uk-alert-danger" }, error) : null
