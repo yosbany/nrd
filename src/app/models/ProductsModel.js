@@ -175,6 +175,7 @@ const ProductsModel = {
                 await ProductsModel.save(productId, product);
                 Logger.info(`[Audit][ProductsModel] Purchase price history updated for product ${productId}`);
             }
+            
         } catch (error) {
             Logger.error(`[Audit][ProductsModel] Error updating purchase price history for product ${productId}:`, error);
         }
