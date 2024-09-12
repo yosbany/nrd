@@ -23,7 +23,7 @@ const UsersModel = {
             }
         },
         roles: { 
-            type: "array",  // Cambiado a array para soportar múltiples roles
+            type: "array", 
             default: ["User"], 
             constraints: { 
                 required: true, 
@@ -35,25 +35,25 @@ const UsersModel = {
     async findById(id) {
         let data = await FirebaseDatabase.findById(id);
         if (data) {
-            data = await BaseModel.transformDataAfterFetch(data, this.schema, GetCollectionModelMap());
+            data = await BaseModel.transformDataAfterFetch(data, UsersModel.schema, GetCollectionModelMap());
         }
         return data;
     },
 
     async findAll() {
-        let data = await FirebaseDatabase.findAll(this.collection);
+        let data = await FirebaseDatabase.findAll(UsersModel.collection);
         if (data) {
             data = await Promise.all(
-                data.map(item => BaseModel.transformDataAfterFetch(item, this.schema, GetCollectionModelMap()))
+                data.map(item => BaseModel.transformDataAfterFetch(item, UsersModel.schema, GetCollectionModelMap()))
             );
         }
         return data;
     },
 
     async save(id, data) {
-        BaseModel.validateData(data, this.schema);
-        const transformedData = BaseModel.transformDataBeforeSave(data, this.schema);
-        return await FirebaseDatabase.save(this.collection, id, transformedData);
+        BaseModel.validateData(data, UsersModel.schema);
+        const transformedData = BaseModel.transformDataBeforeSave(data, UsersModel.schema);
+        return await FirebaseDatabase.save(UsersModel.collection, id, transformedData);
     },
 
     async delete(id) {

@@ -72,29 +72,30 @@ const PurchaseOrderListController = {
         m.redraw();
     },
 
-    async generateOrderText(order) {
+    async generateOrderText(order, showSupplierNames = false) {
         if (!order) return "No hay datos disponibles para la orden seleccionada.";
-    
+        
         const supplier = order.supplier?.tradeName || "Proveedor desconocido";
         const orderDate = new Date(order.orderDate).toLocaleDateString();
-    
+        
         const productsList = await Promise.all(order.products.map(async product => {
-            // Obtener el producto completo utilizando el productKey
             const fullProduct = await ProductsModel.findById(product.productKey);
     
             const relevantPriceHistory = fullProduct.purchasePriceHistory
-                .filter(history => 
-                    history.supplierKey === order.supplierKey
-                )
+                .filter(history => history.supplierKey === order.supplierKey)
                 .sort((a, b) => b.date - a.date);
-            console.error("relevantPriceHistory",relevantPriceHistory)
+    
             const lastPurchasePrice = relevantPriceHistory.length > 0 ? relevantPriceHistory[0] : null;
-                
+    
+            const productName = showSupplierNames
+                ? (lastPurchasePrice?.supplierProductName || fullProduct.name || "Producto desconocido")
+                : (fullProduct.name || "Producto desconocido");
+    
             const productDetails = [
                 product.quantity,
                 lastPurchasePrice?.purchasePackaging && lastPurchasePrice?.purchasePackaging !== "UN" ? lastPurchasePrice?.purchasePackaging + " DE" : "",
-                lastPurchasePrice?.supplierProductName || fullProduct.name || "Producto desconocido", // Usar nombre del producto si no hay supplierProductName
-                lastPurchasePrice?.supplierProductCode ? `(${lastPurchasePrice.supplierProductCode})` : "", // No mostrar si no hay supplierProductCode
+                productName,
+                lastPurchasePrice?.supplierProductCode ? `(${lastPurchasePrice.supplierProductCode})` : ""
             ].filter(detail => detail).join(' ').toUpperCase();
     
             return `• ${productDetails}`;
@@ -102,6 +103,7 @@ const PurchaseOrderListController = {
     
         return `${supplier}\nFecha: ${orderDate}\n\n${productsList.join('\n')}`;
     },
+    
 
     async updateOrderStatus(orderId, status) {
         try {

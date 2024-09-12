@@ -88,6 +88,15 @@ const SuppliersModel = {
 
     async createDefaultInstance(){
         return BaseModel.createDefaultInstance(SuppliersModel.schema);
+    },
+
+    async findByRUT(rut) {
+        const suppliers = await SuppliersModel.findAll();
+        let data = suppliers.find(supplier => supplier.rut === rut);
+        if (data) {
+            data = await BaseModel.transformDataAfterFetch(data, this.schema, GetCollectionModelMap());
+        }
+        return data;
     }
 
 };

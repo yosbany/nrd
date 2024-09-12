@@ -22,6 +22,13 @@ const ProductsModel = {
                 maxLength: 255 
             }
         },
+        salesName: { 
+            type: "string", 
+            default: "", 
+            constraints: { 
+                maxLength: 255 
+            }
+        },
         image: { 
             type: "string", 
             default: ""

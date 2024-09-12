@@ -77,25 +77,45 @@ const PurchaseOrderFormView = {
                             m("div", [
                                 m("h2", product.display),
                                 m("div.uk-card.uk-card-primary", [
-                                    m("div.uk-card-header", m("h3.uk-card-title", "Detalles para el Proveedor")),
+                                    m("div.uk-card-header", m("h3.uk-card-title", "Detalles Proveedor")),
                                     m("div.uk-card-body", [
-                                        m("div.uk-grid-small", { "uk-grid": true }, [
-                                            m("div.uk-width-1-4", m("span.uk-text-bold", "Código: ")),
-                                            m("div.uk-width-expand", product.supplierProductCode || "N/A")
-                                        ]),
-                                        m("div.uk-grid-small", { "uk-grid": true }, [
-                                            m("div.uk-width-1-4", m("span.uk-text-bold", "Nombre: ")),
-                                            m("div.uk-width-expand", product.supplierProductName || "N/A")
-                                        ]),
-                                        m("div.uk-grid-small", { "uk-grid": true }, [
-                                            m("div.uk-width-1-4", m("span.uk-text-bold", "Precio de Compra: ")),
-                                            m("div.uk-width-expand", product.unitPrice ? `$ ${formatNumber(product.unitPrice)}` : "N/A")
-                                        ]),
+                                        m("form.uk-form-horizontal", [
+                                            m("div.uk-margin-small", [
+                                                m("label.uk-form-label", "Código: "),
+                                                m("div.uk-form-controls", 
+                                                    m("span", product.supplierProductCode || "N/A")
+                                                )
+                                            ]),
+                                            m("div.uk-margin-small", [
+                                                m("label.uk-form-label", "Nombre: "),
+                                                m("div.uk-form-controls", 
+                                                    m("span", product.supplierProductName || "N/A")
+                                                )
+                                            ]),
+                                            m("div.uk-margin-small", [
+                                                m("label.uk-form-label", "Precio de Compra: "),
+                                                m("div.uk-form-controls", 
+                                                    m("span", product.unitPrice ? `$ ${formatNumber(product.unitPrice)}` : "N/A")
+                                                )
+                                            ]),
+                                            m("div.uk-margin-small", [
+                                                m("label.uk-form-label",{
+                                                    style: {
+                                                        fontSize: "1.2em", // Incrementa el tamaño del texto para hacerlo más visible
+                                                        fontWeight: "bold" // Resalta el texto en negrita
+                                                    }
+                                                }, "Stock Deseado: "),
+                                                m("div.uk-form-controls", [
+                                                    m("span", {
+                                                        style: {
+                                                            fontSize: "1.5em", // Incrementa el tamaño del texto para hacerlo más visible
+                                                            fontWeight: "bold" // Resalta el texto en negrita
+                                                        }
+                                                    }, `${formatNumber(product.desiredStock)} ${product.purchasePackaging || 'UN'}`)
+                                                ])
+                                            ]),
+                                        ])
                                     ])
-                                ]),
-                                m("div.uk-grid-small.uk-margin-top", { "uk-grid": true }, [
-                                    m("div.uk-width-1-4", m("span.uk-text-bold", "Stock Deseado: ")),
-                                    m("div.uk-width-expand", `${formatNumber(product.desiredStock)}`)
                                 ]),
                                 m(Number, {
                                     label: "Cantidad a Pedir",
@@ -113,12 +133,23 @@ const PurchaseOrderFormView = {
                                             vnode.state.item.products = vnode.state.item.products.filter(p => p.productKey !== product.id);
                                         }
                                     },
-                                    style: { color: "#333", backgroundColor: "#fff", border: "1px solid #ccc" }
+                                    style: {
+                                        width: '120px',
+                                        height: '50px',
+                                        color: "#333",
+                                        backgroundColor: "#fff",
+                                        border: "1px solid #ccc",
+                                        textAlign: 'center'
+                                    }
                                 }),
                                 m("div.uk-flex.uk-flex-between", [
                                     m(Button, {
                                         class: `uk-button ${vnode.state.item.products.some(p => p.productKey === product.id) ? 'uk-button-default' : 'uk-button-secondary'}`,
                                         label: vnode.state.item.products.some(p => p.productKey === product.id) ? 'Quitar' : 'Agregar',
+                                        style: {
+                                            width: '120px', 
+                                            height: '50px',
+                                        },
                                         onClick: () => {
                                             vnode.state.item.products.some(p => p.productKey === product.id)
                                                 ? PurchaseOrderFormController.handleProductRemove(vnode, product.id)

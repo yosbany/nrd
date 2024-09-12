@@ -1,0 +1,50 @@
+import {ModelName} from '../models/{ModelName}.js';
+import {{ decodeId }} from '../utils/Helpers.js';
+import Logger from '../utils/Logger.js';
+
+const {ControllerName} = {{
+    async oninit(vnode) {{
+        vnode.state.item = {{}};
+        vnode.state.errors = {{}};
+        vnode.state.id = decodeId(vnode.attrs.id);
+
+        try {{
+            if (vnode.attrs.id) {{
+                vnode.state.item = await {ModelName}.findById(vnode.state.id);
+                Logger.info("[Audit][{ControllerName}] Loaded item data for editing:", vnode.state.item);
+            }} else {{
+                vnode.state.item = await {ModelName}.createDefaultInstance();
+                Logger.info("[Audit][{ControllerName}] Initialized new item instance.");
+            }}
+            m.redraw();
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error during initialization:", error);
+            vnode.state.errors.initialization = "Error loading data. Please try again later.";
+            m.redraw();
+        }}
+    }},
+
+    async handleSubmit(e, vnode) {{
+        e.preventDefault();
+    
+        try {{
+            const errors = {ModelName}.validateForm(vnode.state.item);
+            vnode.state.errors = errors || {{}};
+    
+            if (!errors) {{
+                await {ModelName}.save(vnode.state.id, vnode.state.item);
+                Logger.info("[Audit][{ControllerName}] Item saved successfully:", vnode.state.item);
+                m.route.set('/{route}');
+            }} else {{
+                Logger.warn("[Audit][{ControllerName}] Validation errors occurred:", errors);
+                m.redraw();
+            }}
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error saving item:", error);
+            vnode.state.errors.save = "Error saving data. Please try again.";
+            m.redraw();
+        }}
+    }}
+}};
+
+export default {ControllerName};

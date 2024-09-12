@@ -1,15 +1,16 @@
 import Breadcrumb from "./Breadcrumb.js";
-import Grid from "./Grid.js";
 import HeadingDivider from "./HeadingDivider.js";
-import Container from "./Container.js";  // Importa el componente Container
+import Container from "./Container.js";
+import Loading from "../../../app/views/partials/Loading.js"; 
 
 const Page = {
     view: (vnode) => {
         const { title, breadcrumbs } = vnode.attrs;
-        return m(Container, {}, [
+        return m(Container, { class: "page-container" }, [
+            m(Loading, { loading: vnode.state.loading }),
             m(HeadingDivider, { title }),
-            m(Breadcrumb, { items: breadcrumbs }),
-            m("dic", vnode.children)
+            breadcrumbs && breadcrumbs.length > 0 ? m(Breadcrumb, { items: breadcrumbs }) : null,
+            m("div", vnode.children)
         ]);
     }
 };

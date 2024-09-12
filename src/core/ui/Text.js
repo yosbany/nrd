@@ -14,7 +14,7 @@
  */
 const Text = {
     view: vnode => {
-        const { value, onInput, outputMode, label, required, documentation, error, showLabel = true, placeholder } = vnode.attrs;
+        const { value, onInput, outputMode, label, required, documentation, error, showLabel = true, placeholder, ...attrs } = vnode.attrs;
 
         return m("div.uk-margin", [
             showLabel && m("label.uk-form-label", {
@@ -26,11 +26,12 @@ const Text = {
                     m("span.uk-text-emphasis", value)
                   ])
                 : m("div.uk-form-controls", [
-                    m("input.uk-input", {
+                    m("input.uk-input.uk-width-1-1", {
                         type: "text",
                         value: value || '',
                         oninput: e => onInput(e.target.value),
-                        placeholder: placeholder || ''
+                        placeholder: placeholder || '',
+                        ...attrs
                     })
                   ]),
             error && m("div.uk-text-danger", error)

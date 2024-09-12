@@ -1,0 +1,28 @@
+import {ControllerName} from '../controllers/{ControllerName}.js';
+import Breadcrumb from '../../core/ui/Breadcrumb.js';
+import Fila from '../../core/ui/Fila.js';
+import Column from '../../core/ui/Column.js';
+import Card from '../../core/ui/Card.js';
+
+const {ViewName} = {{
+    oninit: {ControllerName}.oninit,
+
+    view: vnode => {{
+        const breadcrumbItems = [
+            {{ name: "Inicio", path: "/" }},
+            {{ name: "{Title}s", path: "/{route}" }},
+            {{ name: vnode.state.id ? "Editar" : "Nuevo", path: m.route.get() }}
+        ];
+
+        return m(Card, {{ title: "{Title}", useCustomPadding: false }}, [
+            m(Breadcrumb, {{ items: breadcrumbItems }}),
+            m(Fila, {{ gap: 'medium' }}, [
+                m(Column, {{ width: '1-1' }}, [
+                    // Aquí puedes agregar más contenido a la vista según tus necesidades
+                ])
+            ])
+        ]);
+    }}
+}};
+
+export default {ViewName};

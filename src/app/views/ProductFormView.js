@@ -6,7 +6,7 @@ import Button from '../../core/ui/Button.js';
 import Card from '../../core/ui/Card.js';
 import Text from '../../core/ui/Text.js';
 import Number from '../../core/ui/Number.js';
-import FilterSelect from '../../core/ui/FilterSelect.js'; // Importa FilterSelect
+import FilterSelect from '../../core/ui/FilterSelect.js';
 import File from '../../core/ui/File.js';
 
 const ProductFormView = {
@@ -38,12 +38,49 @@ const ProductFormView = {
                             })
                         ]),
                         m("div.uk-margin", [
-                            m(Text, {
-                                label: "Nombre",
-                                value: item.name || "",
-                                onInput: value => item.name = value,
-                                error: errors.name
-                            })
+                            m("div.uk-inline.uk-width-1-1", [
+                                m("a.uk-form-icon", {
+                                    href: "#",
+                                    "uk-icon": "check",
+                                    onclick: async (e) => {
+                                        e.preventDefault();
+                                        await ProductFormController.handleValidateNameButtonClick(vnode);
+                                    },
+                                    style: "cursor: pointer;"
+                                }),
+                                m("input.uk-input", {
+                                    type: "text",
+                                    class: vnode.state.isNameValid ? 'uk-text-success' : '',
+                                    value: item.name || "",
+                                    oninput: e => item.name = e.target.value,
+                                    placeholder: "Nombre",
+                                    "aria-label": "Icono clicable"
+                                })
+                            ]),
+                            errors.name ? m("div.uk-text-danger", errors.name) : null
+                        ]),
+                        
+                        m("div.uk-margin", [
+                            m("div.uk-inline.uk-width-1-1", [
+                                m("a.uk-form-icon", {
+                                    href: "#",
+                                    "uk-icon": "check",
+                                    onclick: async (e) => {
+                                        e.preventDefault();
+                                        await ProductFormController.handleValidateSalesNameButtonClick(vnode);
+                                    },
+                                    style: "cursor: pointer;"
+                                }),
+                                m("input.uk-input", {
+                                    type: "text",
+                                    value: item.salesName || "",
+                                    class: vnode.state.isSalesNameValid ? 'uk-text-success' : '',
+                                    oninput: e => item.salesName = e.target.value,
+                                    placeholder: "Nombre de Venta",
+                                    "aria-label": "Icono clicable"
+                                })
+                            ]),
+                            errors.salesName ? m("div.uk-text-danger", errors.salesName) : null
                         ]),
                         m("div.uk-margin", [
                             m(File, {
@@ -63,7 +100,16 @@ const ProductFormView = {
                             })
                         ]),
                         m("div.uk-margin", [
-                            m(FilterSelect, { // Reemplaza Select por FilterSelect
+                            m(FilterSelect, {
+                                label: "Empaque de Venta",
+                                value: item.salesPackaging || "UN",
+                                options: async () => await ProductFormController.getCodigerasOptions("Unidades de Medidas"),
+                                onChange: value => item.salesPackaging = value,
+                                error: errors.salesPackaging
+                            })
+                        ]),
+                        m("div.uk-margin", [
+                            m(FilterSelect, {
                                 label: "Proveedor Principal",
                                 value: item.preferredSupplierKey || "",
                                 options: async () => await ProductFormController.getSupplierOptions(),
@@ -72,7 +118,6 @@ const ProductFormView = {
                                 placeholder: "Buscar proveedores..."
                             })
                         ]),
-                        // Campos adicionales
                         m("div.uk-margin", [
                             m(FilterSelect, {
                                 label: "Sector",
@@ -97,23 +142,6 @@ const ProductFormView = {
                                 value: item.sectorOrder || 0,
                                 onInput: value => item.sectorOrder = parseFloat(value),
                                 error: errors.sectorOrder
-                            })
-                        ]),
-                        m("div.uk-margin", [
-                            m(FilterSelect, {
-                                label: "Empaque de Venta",
-                                value: item.salesPackaging || "UN",
-                                options: [
-                                    { id: "UN", display: "UN" },
-                                    { id: "KG", display: "KG" },
-                                    { id: "FUNDA", display: "FUNDA" },
-                                    { id: "PLANCHA", display: "PLANCHA" },
-                                    { id: "CAJON", display: "CAJON" },
-                                    { id: "BOLSA", display: "BOLSA" },
-                                    { id: "ATADO", display: "ATADO" }
-                                ],
-                                onChange: value => item.salesPackaging = value,
-                                error: errors.salesPackaging
                             })
                         ]),
                         m("div.uk-margin", [

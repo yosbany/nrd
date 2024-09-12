@@ -100,7 +100,11 @@ const PurchasePricesModel = {
 
     async createDefaultInstance(){
         return BaseModel.createDefaultInstance(PurchasePricesModel.schema);
-    }
+    },
+    async findBySupplier(supplierKey) {
+        const allPurchasePrices = await PurchasePricesModel.findAll();
+        return allPurchasePrices.filter(price => price.supplierKey === supplierKey);
+    },
 };
 
 export default PurchasePricesModel;

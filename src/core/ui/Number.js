@@ -34,7 +34,7 @@ const Number = {
     },
 
     view: vnode => {
-        const { value, onInput, onFocus, onBlur, outputMode, label, required, documentation, error, showLabel = true, format = "decimal", ...otherAttrs } = vnode.attrs;
+        const { value, onInput, onFocus, onBlur, outputMode, label, required, documentation, error, showLabel = true, format = "decimal", ...attrs } = vnode.attrs;
 
         // Función para formatear el número basado en el formato proporcionado
         const formatNumber = (value, format) => {
@@ -74,7 +74,7 @@ const Number = {
                         onfocus: onFocus || function() {},  // Usar la función predeterminada si no se proporciona
                         onblur: onBlur || function() {},  // Usar la función predeterminada si no se proporciona
                         placeholder: "",  // Placeholder vacío para consistencia con TextInput
-                        ...otherAttrs  // Pasar los demás atributos al input
+                        ...attrs  // Pasar los demás atributos al input
                     })
                   ]),
             error && m("div.uk-text-danger.uk-alert-danger", error)

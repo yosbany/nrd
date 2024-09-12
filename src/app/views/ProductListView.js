@@ -42,7 +42,7 @@ const ProductListView = {
                 }, [
                     m(Text, { label: "SKU", value: "bind.sku" }),
                     m(Text, { label: "Nombre", value: "bind.name" }),
-                    m(Number, { label: "Stock Deseado", value: "bind.desiredStock", format: "decimal" }),
+                    m(Text, { label: "Stock Deseado", value: "bind.desiredStockPackaging" }),
                     m(Text, { label: "Sector", value: "bind.sector" }),
                     m(Text, { label: "Costo Unitario", value: "bind.unitSalesCost" }),
                     m(Text, { label: "Proveedor", value: "bind.preferredSupplier.tradeName" }),

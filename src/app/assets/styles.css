@@ -1,43 +1,9 @@
-.custom-card-body-padding {
-    padding: 5px;
+.page-container {
+    margin: 10px;
 }
-.uk-form-label {
-    font-weight: bold;
-}
-.uk-button-green {
-    background-color: #28a745; /* Verde */
-    color: #ffffff; /* Texto blanco */
-    border: 1px solid #28a745; /* Borde verde */
-}
-
-.uk-button-green:hover {
-    background-color: #218838; /* Verde oscuro al pasar el mouse */
-    border-color: #1e7e34; /* Borde más oscuro */
-}
-
-
-html, body, #app { 
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.full-height {
-    height: 100%;
-}
-
-.uk-container-expand.full-height {
-    min-height: 100%;
-}
-
-.uk-grid.full-height {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.uk-width-1-1.full-height {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+.container-custom-padding {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

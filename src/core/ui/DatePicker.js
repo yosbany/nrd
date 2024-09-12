@@ -14,7 +14,7 @@
 
 const DatePicker = {
     view: vnode => {
-        const { value, onInput, outputMode, label, required, documentation, error, showLabel } = vnode.attrs;
+        const { value, onInput, outputMode, label, required, documentation, error, showLabel, ...attrs } = vnode.attrs;
 
         // Función para convertir la fecha a formato "DD-MM-YYYY"
         const formatDateDisplay = date => {
@@ -50,7 +50,8 @@ const DatePicker = {
                         const dateValue = new Date(year, month - 1, day);
                         onInput(dateValue);
                     },
-                    class: error ? "uk-form-danger" : ""
+                    class: error ? "uk-form-danger" : "",
+                    ...attrs
                 }),
             error ? m("div.uk-text-danger", error) : null
         ]);

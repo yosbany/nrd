@@ -1,0 +1,15 @@
+import Logger from '../utils/Logger.js';
+
+const {ControllerName} = {{
+    async oninit(vnode) {{
+        try {{
+            Logger.info("[Audit][{ControllerName}] Initialized.");
+            m.redraw();
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error during initialization:", error);
+            m.redraw();
+        }}
+    }}
+}};
+
+export default {ControllerName};

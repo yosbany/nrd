@@ -2,7 +2,7 @@ import { getDatabase, ref, get, set, remove, child, push } from 'https://www.gst
 import FirebaseAppConfig from '../config/FirebaseAppConfig.js';
 import Logger from '../utils/Logger.js';
 import { validateId } from '../utils/Helpers.js'
-Logger.isEnabled = false;
+
 const FirebaseDatabase = {
     database: getDatabase(FirebaseAppConfig), // Inicializa la instancia de la base de datos directamente
     

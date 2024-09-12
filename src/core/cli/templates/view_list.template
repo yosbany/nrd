@@ -1,0 +1,44 @@
+import {ControllerName} from '../controllers/{ControllerName}.js';
+import Breadcrumb from '../../core/ui/Breadcrumb.js';
+import Fila from '../../core/ui/Fila.js';
+import Column from '../../core/ui/Column.js';
+import Button from '../../core/ui/Button.js';
+import Card from '../../core/ui/Card.js';
+import Table from '../../core/ui/Table.js';
+
+const {ViewName} = {{
+    oninit: {ControllerName}.oninit,
+
+    view: vnode => {{
+        const breadcrumbItems = [
+            {{ name: "Inicio", path: "/" }},
+            {{ name: "{Title}s", path: "/{route}" }},
+        ];
+
+        return m(Card, {{ title: "{Title}", useCustomPadding: false }}, [
+            m(Breadcrumb, {{ items: breadcrumbItems }}),
+            m(Fila, {{ gap: 'medium' }}, [
+                m(Column, {{ width: 'expand' }}, [
+                    m("input.uk-input", {{
+                        placeholder: "Buscar...",
+                        oninput: e => vnode.state.searchText = e.target.value,
+                    }})
+                ]),
+                m(Column, {{ width: 'auto' }}, [
+                    m(Button, {{
+                        type: "primary",
+                        label: "Nuevo",
+                        onClick: () => m.route.set('/{route}/new')
+                    }})
+                ])
+            ]),
+            m(Table, {{
+                bind: {ControllerName}.filterItems(vnode),
+                onEdit: id => {ControllerName}.onEdit(id),
+                onDelete: id => {ControllerName}.onDelete(vnode, id)
+            }}, [])
+        ]);
+    }}
+}};
+
+export default {ViewName};

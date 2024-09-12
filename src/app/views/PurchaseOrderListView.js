@@ -11,9 +11,13 @@ import Number from '../../core/ui/Number.js';
 import DateInput from '../../core/ui/DatePicker.js';
 import Modal from '../../core/ui/Modal.js';
 import LoadingSpinner from '../views/partials/Loading.js';
+import Checkbox from '../../core/ui/Checkbox.js';
 
 const PurchaseOrderListView = {
-    oninit: PurchaseOrderListController.oninit,
+    oninit: vnode => {
+        PurchaseOrderListController.oninit(vnode);
+        vnode.state.showSupplierNames = false; // Estado inicial para mostrar nombres de productos del proveedor
+    },
 
     view: vnode => {
         const filteredItems = PurchaseOrderListController.filterItems(vnode);
@@ -63,12 +67,28 @@ const PurchaseOrderListView = {
                     title: "Completar Orden",
                     onClose: () => vnode.state.showModal = false,
                     content: vnode.state.selectedOrder 
-                        ? m("textarea.uk-textarea", {
-                            id: "order-textarea",
-                            rows: 10,
-                            readonly: true,
-                            value: vnode.state.orderText || "Generando el texto de la orden..."
-                        })
+                        ? [
+                            m(Checkbox, {
+                                value: vnode.state.showSupplierNames ? ["Nombres del Proveedor"] : [],
+                                onInput: async value => {
+                                    vnode.state.showSupplierNames = value.includes("Nombres del Proveedor");
+                                    vnode.state.orderText = await PurchaseOrderListController.generateOrderText(
+                                        vnode.state.selectedOrder, 
+                                        vnode.state.showSupplierNames // Pasa el estado actual del checkbox
+                                    );
+                                    m.redraw();
+                                },
+                                showLabel: false,
+                                options: ["Nombres del Proveedor"]
+                            }),
+                            // Textarea para mostrar la lista de productos
+                            m("textarea.uk-textarea", {
+                                id: "order-textarea",
+                                rows: 10,
+                                readonly: true,
+                                value: vnode.state.orderText || "Generando el texto de la orden..."
+                            })
+                        ]
                         : "No hay datos disponibles para la orden seleccionada."
                 }, [
                     m("div.uk-margin-small-bottom", [

@@ -1,0 +1,70 @@
+import {ModelName} from '../models/{ModelName}.js';
+import Logger from '../utils/Logger.js';
+
+const {ControllerName} = {{
+    async oninit(vnode) {{
+        vnode.state.items = [];
+        vnode.state.searchText = '';
+        vnode.state.loading = true;
+
+        try {{
+            await this.loadItems(vnode);
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error during initialization:", error);
+            vnode.state.loading = false;
+            m.redraw();
+        }}
+    }},
+
+    async loadItems(vnode) {{
+        try {{
+            const data = await {ModelName}Model.findAll();
+            vnode.state.items = data;
+            vnode.state.loading = false;
+            Logger.info("[Audit][{ControllerName}] Loaded items successfully");
+            m.redraw();
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error loading items:", error);
+            vnode.state.loading = false;
+            m.redraw();
+        }}
+    }},
+
+    filterItems(vnode) {{
+        try {{
+            if (!vnode.state.searchText) return vnode.state.items;
+            const searchText = vnode.state.searchText.toLowerCase();
+            const filteredItems = vnode.state.items.filter(item =>
+                Object.values(item).some(value =>
+                    value && value.toString().toLowerCase().includes(searchText)
+                )
+            );
+            Logger.info("[Audit][{ControllerName}] Filtered items based on search text");
+            return filteredItems;
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error filtering items:", error);
+            return vnode.state.items;
+        }}
+    }},
+
+    onEdit(id) {{
+        try {{
+            m.route.set(`/{route}/${{encodeId(id)}}`);
+            Logger.info(`[Audit][{ControllerName}] Navigating to edit item with ID: ${{encodeId(id)}}`);
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error navigating to edit item:", error);
+        }}
+    }},
+
+    async onDelete(vnode, id) {{
+        try {{
+            await {ModelName}Model.delete(id);
+            await this.loadItems(vnode);
+            Logger.info(`[Audit][{ControllerName}] Deleted item with ID: ${{id}}`);
+        }} catch (error) {{
+            Logger.error("[Audit][{ControllerName}] Error deleting item with ID:", error);
+        }}
+    }}
+}};
+
+export default {ControllerName};

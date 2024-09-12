@@ -14,7 +14,10 @@ const ProductListController = {
     async loadProducts(vnode) {
         try {
             const data = await ProductModel.findAll();
-            vnode.state.products = data;
+            vnode.state.products = data.map(product => {
+                product.desiredStockPackaging = product.desiredStock + " " + product.salesPackaging;
+                return product;
+            });
             vnode.state.loading = false;
             m.redraw();
         } catch (error) {

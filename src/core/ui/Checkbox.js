@@ -15,7 +15,7 @@
 const Checkbox = {
     oninit: vnode => {
         vnode.state.loading = true;
-        CheckboxInput.loadOptions(vnode);
+        Checkbox.loadOptions(vnode);
     },
     loadOptions: vnode => {
         const { options } = vnode.attrs;
@@ -26,7 +26,7 @@ const Checkbox = {
                 vnode.state.loading = false;
                 m.redraw();
             }).catch(error => {
-                console.error("[Audit][CheckboxInput] Error loading options from function:", error);
+                console.error("[Audit][Checkbox] Error loading options from function:", error);
                 vnode.state.options = [];
                 vnode.state.loading = false;
                 m.redraw();
@@ -35,7 +35,7 @@ const Checkbox = {
             vnode.state.options = options || [];
             vnode.state.loading = false;
         } else {
-            console.error("[Audit][CheckboxInput] Invalid options:", options);
+            console.error("[Audit][Checkbox] Invalid options:", options);
             vnode.state.options = [];
             vnode.state.loading = false;
         }
