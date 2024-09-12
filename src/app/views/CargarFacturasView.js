@@ -62,7 +62,7 @@ const CargarFacturasView = {
             { name: "Cargar Facturas", path: "/cargarfacturas" }
         ];
 
-        return m(Card, { title: "Cargar Facturas", useCustomPadding: false }, [
+        return m(Card, { title: "Cargar Facturas", useCustomPadding: true }, [
             m(Breadcrumb, { items: breadcrumbItems }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: '1-1' }, [

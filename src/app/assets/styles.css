@@ -2,8 +2,14 @@
     margin: 10px;
 }
 .container-custom-padding {
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 0px !important;
+}
+.uk-card-body-custom{
+    padding: 10px !important;
+}
+.custom-card-body-padding{
+    padding: 10px !important;
+}
+.custom-card-header-padding{
+    padding: 10px !important;
 }

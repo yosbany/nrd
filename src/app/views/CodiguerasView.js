@@ -51,7 +51,7 @@ const CodiguerasView = {
             { name: CodiguerasController.selectedCodiguera ? "Editar" : "Nuevo", path: m.route.get() }
         ];
 
-        return m(Card, { title: "Codigueras", useCustomPadding: false }, [
+        return m(Card, { title: "Codigueras", useCustomPadding: true }, [
             m(Breadcrumb, { items: breadcrumbItems }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: '1-1' }, [

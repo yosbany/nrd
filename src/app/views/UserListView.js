@@ -12,7 +12,7 @@ import { encodeId } from '../utils/Helpers.js';
 
 const UserListView = {
     oninit: vnode => {
-        UserListController.initialize(vnode);
+        UserListController.oninit;
     },
 
     view: vnode => {
@@ -20,7 +20,7 @@ const UserListView = {
 
         return [
             m(LoadingSpinner, { loading: vnode.state.loading }), 
-            m(Card, { title: "Usuarios", useCustomPadding: false }, [
+            m(Card, { title: "Usuarios", useCustomPadding: true }, [
                 m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Usuarios", path: "/users" }] }),
                 m(Fila, { gap: 'medium' }, [
                     m(Column, { width: 'expand' }, [

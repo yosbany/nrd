@@ -20,7 +20,7 @@ const UserFormView = {
             { name: vnode.state.id ? "Editar" : "Nuevo", path: m.route.get() }
         ];
 
-        return m(Card, { title: "Usuario", useCustomPadding: false }, [
+        return m(Card, { title: "Usuario", useCustomPadding: true }, [
             m(Breadcrumb, { items: breadcrumbItems }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: '1-1' }, [

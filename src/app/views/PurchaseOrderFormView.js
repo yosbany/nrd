@@ -29,7 +29,7 @@ const PurchaseOrderFormView = {
             return parseFloat(value).toLocaleString('es-ES', options);
         };
 
-        return m(Card, { title: "Orden de Compra", useCustomPadding: false }, [
+        return m(Card, { title: "Orden de Compra", useCustomPadding: true }, [
             m(Breadcrumb, { items: breadcrumbItems }),
             vnode.state.isLoading 
                 ? m(LoadingSpinner, { loading: vnode.state.isLoading })  

@@ -24,7 +24,7 @@ const PurchaseOrderListView = {
 
         return [
             m(LoadingSpinner, { loading: vnode.state.loading }),
-            m(Card, { title: "Órdenes de Compra", useCustomPadding: false }, [
+            m(Card, { title: "Órdenes de Compra", useCustomPadding: true }, [
                 m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Órdenes de Compra", path: "/purchase-orders" }] }),
                 m(Fila, { gap: 'medium' }, [
                     m(Column, { width: 'expand' }, [

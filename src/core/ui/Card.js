@@ -3,14 +3,14 @@ const Card = {
         const { title, useCustomPadding = true, reservePadding = false, ...attrs } = vnode.attrs;
 
         // Estilos adicionales si `reservePadding` es verdadero
-        const cardBodyStyle = reservePadding ? { padding: "20px", boxSizing: "border-box" } : {};
+        const cardBodyStyle = reservePadding ? { padding: "10px", boxSizing: "border-box" } : {};
 
         return m("div", {
             ...attrs,  // Propaga todos los demás atributos adicionales
             class: `uk-card uk-card-default uk-margin-bottom ${attrs.class || ''}`,
             style: { position: "relative", minHeight: "300px" }  // Asegura altura mínima y posición relativa
         }, [
-            m("div.uk-card-header", [
+            m("div.uk-card-header"+`${useCustomPadding ? '.custom-card-header-padding' : ''}`, [
                 m("h3.uk-card-title", title),
                 reservePadding && m("div", {
                     style: {

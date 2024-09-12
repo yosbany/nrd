@@ -19,7 +19,7 @@ const SupplierFormView = {
             { name: vnode.state.id ? "Editar" : "Nuevo", path: m.route.get() }
         ];
 
-        return m(Card, { title: "Proveedor", useCustomPadding: false }, [
+        return m(Card, { title: "Proveedor", useCustomPadding: true }, [
             m(Breadcrumb, { items: breadcrumbItems }),
             m(Fila, { gap: 'medium' }, [
                 m(Column, { width: '1-1' }, [

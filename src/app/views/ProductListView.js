@@ -16,7 +16,7 @@ const ProductListView = {
     view: vnode => {
         return [
             m(LoadingSpinner, { loading: vnode.state.loading }),
-            m(Card, { title: "Productos", useCustomPadding: false }, [
+            m(Card, { title: "Productos", useCustomPadding: true }, [
                 m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Productos", path: "/products" }] }),
                 m(Fila, { gap: 'medium' }, [
                     m(Column, { width: 'expand' }, [

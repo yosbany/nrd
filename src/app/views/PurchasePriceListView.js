@@ -21,7 +21,7 @@ const PurchasePriceListView = {
 
         return [
             m(LoadingSpinner, { loading: vnode.state.loading }),
-            m(Card, { title: "Precios de Compra", useCustomPadding: false }, [
+            m(Card, { title: "Precios de Compra", useCustomPadding: true }, [
                 m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Precios de Compra", path: "/purchase-prices" }] }),
                 m(Fila, { gap: 'medium' }, [
                     m(Column, { width: 'expand' }, [

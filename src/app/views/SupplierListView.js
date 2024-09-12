@@ -17,7 +17,7 @@ const SupplierListView = {
 
         return [
             m(LoadingSpinner, { loading: vnode.state.loading }),
-            m(Card, { title: "Proveedores", useCustomPadding: false }, [
+            m(Card, { title: "Proveedores", useCustomPadding: true }, [
                 m(Breadcrumb, { items: [{ name: "Inicio", path: "/" }, { name: "Proveedores", path: "/suppliers" }] }),
                 m(Fila, { gap: 'medium' }, [
                     m(Column, { width: 'expand' }, [
