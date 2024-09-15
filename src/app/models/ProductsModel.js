@@ -103,9 +103,9 @@ const ProductsModel = {
         },
         sector: {
             type: "string",
-            default: "General",
+            default: "GENERAL",
             constraints: {
-                enum: ["Bakery", "Dairy", "Meat", "Produce", "Frozen", "Pantry", "Beverages", "General"]
+                enum: async () => await CodiguerasModel.getParentOptions("Sectores")
             }
         },
         sectorOrder: {
@@ -116,7 +116,7 @@ const ProductsModel = {
             type: "string",
             default: "UN",
             constraints: {
-                enum: ["UN", "KG", "FUNDA", "PLANCHA", "CAJON", "BOLSA", "ATADO"]
+                enum: async () => await CodiguerasModel.getParentOptions("Unidades de Medidas")
             }
         },
         unitSalesCost: {

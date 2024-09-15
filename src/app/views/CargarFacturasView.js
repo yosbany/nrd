@@ -184,7 +184,7 @@ const CargarFacturasView = {
                     m(Button, {
                         type: 'primary',
                         label: 'Asociar Producto',
-                        onclick: async () => {
+                        onClick: async () => {
                             await CargarFacturasController.createPurchasePrice(vnode.state.selectedItem);
                              // Eliminar solo el ítem procesado de la lista
                             vnode.state.items = vnode.state.items.filter(item => item.id !== vnode.state.selectedItem.id);
