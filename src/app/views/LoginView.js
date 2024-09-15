@@ -1,5 +1,6 @@
 import LoginController from "../controllers/LoginController.js";
 import Logger from '../utils/Logger.js';
+import { VERSION } from '../config/Version.js';
 
 const LoginView = {
     view: () => {
@@ -11,7 +12,10 @@ const LoginView = {
                     m("div.uk-grid-margin.uk-grid.uk-grid-stack", { "uk-grid": true }, [
                         m("div.uk-width-1-1@m", [
                             m("div.uk-margin.uk-width-large.uk-margin-auto.uk-card.uk-card-default.uk-card-body.uk-box-shadow-large", [
-                                m("h3.uk-card-title.uk-text-center", "NUEVA RÍO D'OR"),
+                                m("h3.uk-card-title.uk-text-center", [
+                                    "NUEVA RÍO D'OR",
+                                    m("span", { style: { fontSize: "0.70em" } }, " v"+VERSION)
+                                ]),
                                 m("form", {
                                     onsubmit: e => {
                                         e.preventDefault();

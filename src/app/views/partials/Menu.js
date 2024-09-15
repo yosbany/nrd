@@ -1,4 +1,5 @@
 import MainController from '../../controllers/MainController.js';
+import { VERSION } from '../../config/Version.js';
 
 const Menu = {
     oninit: () => {
@@ -13,7 +14,10 @@ const Menu = {
                     "uk-toggle": "target: #offcanvas-nav",
                     style: { marginLeft: "8px" } 
                 }),
-                m("div.uk-navbar-item.uk-logo", { style: { marginLeft: "20px" } }, "NUEVA RÍO D'OR v2.0.5")
+                m("div.uk-navbar-item.uk-logo", { style: { marginLeft: "20px" } }, [
+                    "NUEVA RÍO D'OR ",
+                    m("span", { style: { fontSize: "0.70em" } }, " v"+VERSION)
+                ])
             ]),
             m("div.uk-navbar-right.uk-visible@m", [
                 m("ul.uk-navbar-nav", { style: { padding: "0 15px" } }, [

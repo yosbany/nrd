@@ -14,8 +14,15 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.21.11/dist/js/uikit-icons.min.js"></script>
     <!-- Carga de Mithril -->
     <script src="https://unpkg.com/mithril/mithril.js"></script>
+
     <!-- Otras dependencias cargadas aquí -->
-    <script type="module" defer src="./src/app/index.js?v=2.1.2"></script>
+    <script type="module" defer>
+        import { VERSION } from './src/app/config/Version.js';
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = `./src/app/index.js?v=${VERSION}`;
+        document.head.appendChild(script);
+    </script>
 </head>
 <body>
     <!-- Aquí se montará la aplicación Mithril -->
