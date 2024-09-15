@@ -1,6 +1,7 @@
 import BaseModel from '../../core/BaseModel.js';
 import FirebaseDatabase from '../services/FirebaseDatabase.js';
 import Logger from '../utils/Logger.js';
+import CodiguerasModel from './CodiguerasModel.js';
 import GetCollectionModelMap from './GetCollectionModelMap.js';
 
 const ProductsModel = {
@@ -81,7 +82,7 @@ const ProductsModel = {
                     default: "UN",
                     constraints: {
                         required: true,
-                        enum: ["UN", "KG", "FUNDA", "PLANCHA", "CAJON", "BOLSA", "ATADO"]
+                        enum: async () => await CodiguerasModel.getParentOptions("Unidades de Medidas")
                     }
                 },
                 supplierProductCode: {

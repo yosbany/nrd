@@ -122,16 +122,7 @@ const ProductFormView = {
                             m(FilterSelect, {
                                 label: "Sector",
                                 value: item.sector || "General",
-                                options: [
-                                    { id: "Bakery", display: "Bakery" },
-                                    { id: "Dairy", display: "Dairy" },
-                                    { id: "Meat", display: "Meat" },
-                                    { id: "Produce", display: "Produce" },
-                                    { id: "Frozen", display: "Frozen" },
-                                    { id: "Pantry", display: "Pantry" },
-                                    { id: "Beverages", display: "Beverages" },
-                                    { id: "General", display: "General" }
-                                ],
+                                options: async () => await CodiguerasModel.getParentOptions("Sectores"),
                                 onChange: value => item.sector = value,
                                 error: errors.sector
                             })

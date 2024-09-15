@@ -91,15 +91,7 @@ const PurchasePriceFormView = {
                                 m(FilterSelect, {
                                     label: "Empaque de Compra",
                                     value: item.purchasePackaging || "UN",
-                                    options: [
-                                        { id: "UN", display: "UN" },
-                                        { id: "KG", display: "KG" },
-                                        { id: "FUNDA", display: "FUNDA" },
-                                        { id: "PLANCHA", display: "PLANCHA" },
-                                        { id: "CAJON", display: "CAJON" },
-                                        { id: "BOLSA", display: "BOLSA" },
-                                        { id: "ATADO", display: "ATADO" }
-                                    ],
+                                    options: async () => await CodiguerasModel.getParentOptions("Unidades de Medidas"),
                                     onChange: value => item.purchasePackaging = value,
                                     error: errors.purchasePackaging,
                                     required: true,
